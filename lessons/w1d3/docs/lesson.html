@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>جودة البيانات وهندسة الميزات (Feature Engineering)</title>
+  <title>خطوط البيانات في الوقت الفعلي (Real-time Pipelines)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -328,24 +328,19 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">جودة البيانات وهندسة الميزات (Feature Engineering)</h1>
-  <p class="subtitle">ضمان صحة البيانات وتنظيفها وتجهيزها لتكون مدخلات مثالية لنماذج تعلم الآلة.</p>
+  <h1 class="title">خطوط البيانات في الوقت الفعلي (Real-time Pipelines)</h1>
+  <p class="subtitle">مقدمة إلى المعالجة اللحظية للبيانات باستخدام تقنيات مثل Kafka و Spark Streaming.</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
 <section>
-<section id="هندسة-البيانات-المتقدمة-من-النظم-الخام-إلى-تحليلات-الذكاء-الاصطناعي" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>هندسة البيانات المتقدمة: من النظم الخام إلى تحليلات الذكاء الاصطناعي</h1>
-<p>أهلاً بكم في رحلة تحويل “البيانات الخام” إلى “ذهب معرفي”.</p>
-<ul>
-<li class="fragment">سنتعلم كيف نصقل البيانات.</li>
-<li class="fragment">سنتعلم كيف نبني خطوط إنتاج للجودة.</li>
-<li class="fragment">سنصنع نماذج ذكية لا تخطئ.</li>
-</ul>
+<section id="هندسة-البيانات-المتقدمة-خطوط-البيانات-في-الوقت-الفعلي" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>هندسة البيانات المتقدمة: خطوط البيانات في الوقت الفعلي</h1>
+<p>أهلاً بكم في رحلة التحكم في سيل البيانات المتدفق.</p>
 <aside class="notes">
-<p>رحب بالحضور وأكد على أهمية دور مهندس البيانات في نجاح نماذج الذكاء الاصطناعي.</p>
+<p>رحب بالحضور وذكّرهم أننا اليوم سنتعلم كيف نحول البيانات من “سواقي” ساكنة إلى “أنهار” جارية لحظية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -358,20 +353,16 @@
           display:block!important;
       }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="أهداف-الدرس-التعليمية" class="title-slide slide level1 sdaia-dark center">
-<h1>أهداف الدرس التعليمية</h1>
+<section id="أهدافنا-اليوم" class="slide level2">
+<h2>أهدافنا اليوم</h2>
 <ul>
-<li class="fragment">فهم أهمية <strong>جودة البيانات</strong> في استقرار النماذج.</li>
-<li class="fragment">تطبيق تقنيات <strong>كشف الشذوذ (Anomaly Detection)</strong>.</li>
-<li class="fragment">تصميم <strong>مستودعات ميزات (Feature Store)</strong> بكفاءة.</li>
-<li class="fragment">بناء <strong>أتمتة فحوصات الجودة (Data Quality Pipelines)</strong>.</li>
+<li class="fragment">فهم مفهوم <strong>معالجة دفق البيانات</strong> (Stream Processing).</li>
+<li class="fragment">التعرف على معمارية <strong>صفوف الرسائل</strong> (Message Queues).</li>
+<li class="fragment">استكشاف الفرق بين المعالجة الدفعية واللحظية.</li>
+<li class="fragment">بناء أنظمة تتحمل الأخطاء (Fault Tolerance).</li>
 </ul>
 <aside class="notes">
-<p>استعرض الأهداف بوضوح، وركز على أن جودة البيانات هي حجر الزاوية لأي نظام ذكاء اصطناعي.</p>
+<p>ركز على أن الأهداف مرتبطة ببناء أنظمة لا تتوقف ولا تضيع فيها المعلومة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -383,27 +374,57 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
 <section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center">
 <h1>المرحلة الأولى: التهيئة والجذب</h1>
+
+</section>
+<section id="تخيل-سوقا-في-يوم-الجمعة" class="slide level2">
+<h2>تخيّل سوقاً في يوم الجمعة</h2>
+<ul>
+<li class="fragment">البائعون يصرخون، والمشترون يتدافعون، والأسعار تتغير في كل لحظة.</li>
+<li class="fragment">لو جئت في نهاية اليوم لتسأل عن “حالة السوق”، ستكون فاتتك آلاف الفرص.</li>
+<li class="fragment"><strong>معالجة الوقت الفعلي</strong> هي أن تكون موجوداً في كل لحظة، تسمع العرض، وتقتنص الفرصة قبل غيرك.</li>
+</ul>
+<aside class="notes">
+<p>استخدم مثال السوق لتقريب مفهوم سرعة اتخاذ القرار.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="البيانات-ليست-مجرد-ملفات-ساكنة" class="slide level2">
+<h2>البيانات ليست مجرد ملفات ساكنة</h2>
+<ul>
+<li class="fragment">في الماضي: كانت البيانات تتجمع في “مخازن” ثم تُحلل لاحقاً.</li>
+<li class="fragment">اليوم: البيانات تتدفق كالأنهار من المستشعرات، كاميرات المراقبة، وتطبيقات التواصل.</li>
+<li class="fragment"><strong>التدفق اللحظي</strong> هو القدرة على فهم الحاضر الآن.</li>
+</ul>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>تخيّل أنك تبني منزلاً فاخراً (نموذج ذكاء اصطناعي) ولكن بـ “طوب مكسور” (بيانات سيئة). هل سيصمد؟ بالطبع لا. البيانات هي الأساس.</p>
+<ul>
+<li class="fragment">التدفق المستمر للبيانات يشبه جريان الماء في النهر.</li>
+<li class="fragment">لا يمكنك إيقاف النهر لتعدّه، بل يجب أن تقيسه وهو يجري.</li>
+</ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/construction?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Construction</figcaption>
+<p><img data-src="https://loremflickr.com/600/600/river.png"></p>
+<figcaption>River</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>استخدم مثال البناء لتقريب الصورة للمتدربين.</p>
+<p>وضح الفرق بين الباتش (التخزين) والستريم (الجريان).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -416,41 +437,36 @@
           display:block!important;
       }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="لماذا-الاهتمام-بجودة-البيانات" class="title-slide slide level1 sdaia-dark center">
-<h1>لماذا الاهتمام بجودة البيانات؟</h1>
-<ul>
-<li class="fragment">التنبؤات الخاطئة تكلف الشركات ملايين.</li>
-<li class="fragment">البيانات غير المتسقة تسبب “تحيزاً” (Bias).</li>
-<li class="fragment">الجودة العالية تسرع عملية التدريب.</li>
-</ul>
+<section id="مقارنة-سريعة-التخزين-vs-التدفق" class="slide level2">
+<h2>مقارنة سريعة: التخزين vs التدفق</h2>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">المشكلة</th>
-<th style="text-align: left;">النتيجة</th>
+<th style="text-align: left;">الميزة</th>
+<th style="text-align: left;">المعالجة الدفعية (Batch)</th>
+<th style="text-align: left;">المعالجة اللحظية (Real-time)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">بيانات مفقودة</td>
-<td style="text-align: left;">نماذج غير دقيقة</td>
+<td style="text-align: left;">زمن الاستجابة</td>
+<td style="text-align: left;">ساعات أو أيام</td>
+<td style="text-align: left;">أجزاء من الثانية</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">قيم شاذة</td>
-<td style="text-align: left;">تشويش على النتائج</td>
+<td style="text-align: left;">طبيعة البيانات</td>
+<td style="text-align: left;">ثابتة ومحدودة</td>
+<td style="text-align: left;">مستمرة وغير محدودة</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">تكرار</td>
-<td style="text-align: left;">هدر في الموارد</td>
+<td style="text-align: left;">الهدف</td>
+<td style="text-align: left;">تحليل اتجاهات الماضي</td>
+<td style="text-align: left;">اتخاذ قرارات فورية</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>أكد أن الجودة ليست رفاهية، بل ضرورة تقنية.</p>
+<p>استخدم الجدول لتعزيز الفهم البصري للمقارنة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -463,51 +479,43 @@
           display:block!important;
       }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="مفهوم-القمامة-في---القمامة-خارج" class="title-slide slide level1 sdaia-dark center">
-<h1>مفهوم القمامة في - القمامة خارج</h1>
+<section id="لماذا-نهتم-بالوقت-الفعلي" class="slide level2">
+<h2>لماذا نهتم بالوقت الفعلي؟</h2>
 <ul>
-<li class="fragment">إذا دخل للنموذج بيانات سيئة (Garbage In).</li>
-<li class="fragment">سيخرج منه نتائج كارثية (Garbage Out).</li>
-<li class="fragment">مهمتنا هي “الفلترة” قبل “المعالجة”.</li>
+<li class="fragment">كشف الاحتيال البنكي قبل إتمام العملية.</li>
+<li class="fragment">مراقبة صحة المرضى عبر الأجهزة اللحظية.</li>
+<li class="fragment">تحذيرات سلامة المصانع الذكية.</li>
 </ul>
-<aside class="notes">
-<p>اشرح المصطلح التقني الشهير GIGO بطريقة مبسطة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
 <section id="المرحلة-الثانية-المفاهيم-التقنية" class="title-slide slide level1 sdaia-dark center">
 <h1>المرحلة الثانية: المفاهيم التقنية</h1>
+
+</section>
+<section id="ما-هو-صف-الرسائل-message-queue" class="slide level2">
+<h2>ما هو صف الرسائل (Message Queue)؟</h2>
+<ul>
+<li class="fragment">هو “وسيط” ذكي بين مصدر البيانات ومستهلكها.</li>
+<li class="fragment">بدلاً من أن يرسل المصدر البيانات مباشرة ويفقدها إذا تعطل المستلم، يضعها في “طابور”.</li>
+<li class="fragment"><strong>Kafka</strong> هو أشهر هذه الوسائط عالمياً.</li>
+</ul>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p><strong>هندسة الميزات (Feature Engineering)</strong> هي فن تحويل البيانات الخام إلى سمات تفهمها الآلة. مثل تحويل “تاريخ الميلاد” إلى “العمر”.</p>
+<ul>
+<li class="fragment">تخيل موظف استقبال ينظم دخول المراجعين.</li>
+<li class="fragment">حتى لو كان المكتب مشغولاً، المراجع ينتظر في “الطابور” ولا يرحل.</li>
+</ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/engineering?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Engineering</figcaption>
+<p><img data-src="https://loremflickr.com/600/600/queue.png"></p>
+<figcaption>Queue</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>عرف هندسة الميزات كعملية تحويل البيانات لتمثيلات ذات معنى رياضي.</p>
+<p>شبه كافكا بالمكتب الذي ينظم الزحام لمنع ضياع الطلبات.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -520,633 +528,259 @@
           display:block!important;
       }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="كشف-الشذوذ-anomaly-detection" class="title-slide slide level1 sdaia-dark center">
-<h1>كشف الشذوذ (Anomaly Detection)</h1>
+<section id="المعالجة-الموزعة-spark-streaming" class="slide level2">
+<h2>المعالجة الموزعة (Spark Streaming)</h2>
 <ul>
-<li class="fragment">هو البحث عن “الإبرة في كوم القش”.</li>
-<li class="fragment">أي قيمة تخرج عن النطاق الطبيعي (مثل عملية شراء بمبلغ ضخم جداً من دولة بعيدة).</li>
-<li class="fragment">نستخدم فيها خوارزميات مثل الغابات المعزولة (Isolation Forest).</li>
+<li class="fragment">عندما تتدفق البيانات بسرعة، لا يستطيع جهاز واحد معالجتها.</li>
+<li class="fragment"><strong>Spark Streaming</strong> يوزع العمل على جيش من الخوادم.</li>
+<li class="fragment">يقوم بتقسيم البيانات إلى “دفعات صغيرة” (Micro-batches) ليحللها بسرعة البرق.</li>
 </ul>
-<aside class="notes">
-<p>اشرح أن الشذوذ ليس دائماً خطأ، قد يكون احتيالاً يجب اكتشافه.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="مقارنة-تقنيات-كشف-الشذوذ" class="title-slide slide level1 sdaia-dark center">
-<h1>مقارنة تقنيات كشف الشذوذ</h1>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">التقنية</th>
-<th style="text-align: left;">آلية العمل</th>
-<th style="text-align: left;">الاستخدام المثالي</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Z-Score</td>
-<td style="text-align: left;">تعتمد على الانحراف المعياري</td>
-<td style="text-align: left;">البيانات الموزعة طبيعياً</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Isolation Forest</td>
-<td style="text-align: left;">تعزل البيانات شجرة بشجرة</td>
-<td style="text-align: left;">البيانات الضخمة (Big Data)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">DBSCAN</td>
-<td style="text-align: left;">تعتمد على كثافة النقاط</td>
-<td style="text-align: left;">البيانات المكانية (Spatial)</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>ركز على أن لكل خوارزمية بيئة عمل مناسبة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="مستودعات-الميزات-feature-store" class="title-slide slide level1 sdaia-dark center">
-<h1>مستودعات الميزات (Feature Store)</h1>
+<section id="مصطلحات-أساسية" class="slide level2">
+<h2>مصطلحات أساسية</h2>
 <ul>
-<li class="fragment">هي “المكتبة المركزية” للميزات الجاهزة.</li>
-<li class="fragment">تمنع تكرار العمل بين الفرق.</li>
-<li class="fragment">تضمن توحيد تعريف “الميزة” (Feature) بين نموذج التدريب ونظام التشغيل الفعلي.</li>
+<li class="fragment"><strong>Producer</strong>: المصدر الذي يضخ البيانات.</li>
+<li class="fragment"><strong>Consumer</strong>: الطرف الذي يستهلك ويحلل البيانات.</li>
+<li class="fragment"><strong>Topic</strong>: القناة أو المسار الذي توضع فيه الرسائل.</li>
 </ul>
-<aside class="notes">
-<p>اشرح دور الـ Feature Store في توحيد العمل الجماعي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="أتمتة-خطوط-الجودة-data-quality-pipelines" class="title-slide slide level1 sdaia-dark center">
-<h1>أتمتة خطوط الجودة (Data Quality Pipelines)</h1>
-<ul>
-<li class="fragment">هي “المصفاة” التي تمر عبرها البيانات.</li>
-<li class="fragment">لا تسمح بمرور أي بيان لا يطابق المعايير.</li>
-<li class="fragment">تشمل فحوصات النوع، النطاق، والتكامل.</li>
-</ul>
-<aside class="notes">
-<p>أكد على ضرورة الأتمتة لتقليل التدخل البشري.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="المرحلة-الثالثة-التطبيق-العملي" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثالثة: التطبيق العملي</h1>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>في هذا النشاط، سنلعب دور “مهندس الجودة”. سنقوم بمحاكاة اكتشاف الأخطاء في ملفات بيانات التمر لنعرف أيها صالح للتصدير.</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/quality?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Quality</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>هنا يتم تفعيل النشاط التشاركي المذكور في وصف المهمة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="خطوات-بناء-خط-جودة-بيانات" class="title-slide slide level1 sdaia-dark center">
-<h1>خطوات بناء خط جودة بيانات</h1>
-<ol type="1">
-<li class="fragment">تحديد قواعد العمل (Business Rules).</li>
-<li class="fragment">بناء فحوصات آلية (Schema Validation).</li>
-<li class="fragment">إرسال تنبيهات في حال حدوث خلل (Alerting).</li>
-<li class="fragment">عزل البيانات التالفة (Quarantine).</li>
-</ol>
-<aside class="notes">
-<p>لخص خطوات بناء Pipeline احترافي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="التحدي-الجماعي-تبادل-البيانات" class="title-slide slide level1 sdaia-dark center">
-<h1>التحدي الجماعي: تبادل البيانات</h1>
-<ul>
-<li class="fragment">كل فريق يصمم 3 أخطاء خفية في مجموعة بيانات.</li>
-<li class="fragment">الفريق الآخر عليه كتابة كود لاكتشاف هذه الأخطاء.</li>
-<li class="fragment">الفوز للأسرع والأدق في الاكتشاف.</li>
-</ul>
-<aside class="notes">
-<p>هذا النشاط يعزز مهارات مراجعة الكود والعمل الجماعي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="المرحلة-الرابعة-الخلاصة-والتقييم" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الرابعة: الخلاصة والتقييم</h1>
-<ul>
-<li class="fragment">جودة البيانات هي رحلة وليست وجهة.</li>
-<li class="fragment">الأدوات تساعد، لكن “المنطق” هو الأساس.</li>
-<li class="fragment">هندسة الميزات هي الفرق بين نموذج عادي ونموذج عبقري.</li>
-</ul>
-<aside class="notes">
-<p>لخص أهم النقاط التي تم طرحها.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="اختبر-معلوماتك" class="title-slide slide level1 sdaia-dark center">
-<h1>اختبر معلوماتك! 🧠</h1>
-<p>ما هو الهدف الرئيسي من استخدام مستودع الميزات (Feature Store)؟</p>
-<ul>
-<li class="fragment">أ) تخزين البيانات الخام فقط.</li>
-<li class="fragment">ب) توحيد الميزات بين التدريب والإنتاج.</li>
-<li class="fragment">ج) زيادة سرعة الإنترنت.</li>
-</ul>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) توحيد الميزات يضمن أن النموذج يرى نفس البيانات التي تم تدريبه عليها.</p>
-</div>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="اختبر-معلوماتك-1" class="title-slide slide level1 sdaia-dark center">
-<h1>اختبر معلوماتك! 🧠</h1>
-<p>ماذا نعني بمصطلح (Anomaly Detection)؟</p>
-<ul>
-<li class="fragment">أ) حذف البيانات المكررة.</li>
-<li class="fragment">ب) اكتشاف البيانات الشاذة عن النمط الطبيعي.</li>
-<li class="fragment">ج) تحويل الأرقام إلى نصوص.</li>
-</ul>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) هو اكتشاف القيم الخارجة عن المألوف التي قد تشير لأخطاء أو احتيال.</p>
-</div>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="مراجعة-المكتسبات" class="title-slide slide level1 sdaia-dark center">
-<h1>مراجعة المكتسبات</h1>
 <table>
 <thead>
 <tr class="header">
 <th style="text-align: left;">المصطلح</th>
-<th style="text-align: left;">التعريف المختصر</th>
+<th style="text-align: left;">المعنى المبسط</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Feature Engineering</td>
-<td style="text-align: left;">صياغة المدخلات للنموذج</td>
+<td style="text-align: left;">Producer</td>
+<td style="text-align: left;">الذي يرسل رسائل البيانات</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Data Pipeline</td>
-<td style="text-align: left;">مسار أتمتة البيانات</td>
+<td style="text-align: left;">Consumer</td>
+<td style="text-align: left;">الذي يقرأ ويحلل البيانات</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Anomaly</td>
-<td style="text-align: left;">قيمة غير طبيعية</td>
+<td style="text-align: left;">Topic</td>
+<td style="text-align: left;">“صندوق” تصنيف للرسائل</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Feature Store</td>
-<td style="text-align: left;">مخزن للميزات الجاهزة</td>
+<td style="text-align: left;">Offset</td>
+<td style="text-align: left;">مؤشر يحدد أي رسالة قرأنا</td>
 </tr>
 </tbody>
 </table>
-<aside class="notes">
-<p>استخدم هذا الجدول كمرجع سريع للطلاب.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="نصائح-إضافية-لمهندس-البيانات" class="title-slide slide level1 sdaia-dark center">
-<h1>نصائح إضافية لمهندس البيانات</h1>
+<section id="ضمان-استمرارية-البيانات-fault-tolerance" class="slide level2">
+<h2>ضمان استمرارية البيانات (Fault Tolerance)</h2>
 <ul>
-<li class="fragment">وثّق كل خطوة تقوم بها.</li>
-<li class="fragment">لا تحذف البيانات التالفة مباشرة، بل انقلها للعزل (Quarantine) للتحليل.</li>
-<li class="fragment">تواصل مع خبراء المجال (Domain Experts) لفهم طبيعة البيانات.</li>
+<li class="fragment">ماذا لو انقطع التيار الكهربائي؟</li>
+<li class="fragment">النظام يجب أن يحتفظ بـ “نقطة تفتيش” (Checkpoint).</li>
+<li class="fragment">إذا سقط الخادم، يستعيد البيانات من آخر نقطة وصل إليها الطابور.</li>
 </ul>
-<aside class="notes">
-<p>نصائح عملية من واقع الخبرة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="هل-نكتفي-بما-تعلمنا" class="title-slide slide level1 sdaia-dark center">
-<h1>هل نكتفي بما تعلمنا؟</h1>
+<section id="رحلة-البيانات-داخل-النظام" class="slide level2">
+<h2>رحلة البيانات داخل النظام</h2>
 <ul>
-<li class="fragment">ابدأ بتطبيق كود بسيط لفحص (Null Values).</li>
-<li class="fragment">جرب استخدام مكتبة <code>Pandas</code> لاكتشاف القيم الشاذة.</li>
-<li class="fragment">اقرأ عن <code>Great Expectations</code> كأداة لأتمتة الجودة.</li>
+<li class="fragment">المصدر يرسل لـ <strong>Kafka</strong>.</li>
+<li class="fragment"><strong>Spark</strong> يسحب البيانات من الكافكا.</li>
+<li class="fragment">يتم التحليل لحظياً.</li>
+<li class="fragment">النتائج تُخزن في قاعدة بيانات سريعة.</li>
 </ul>
-<aside class="notes">
-<p>شجعهم على الاستمرار في التعلم الذاتي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="رحلة-التميز" class="title-slide slide level1 sdaia-dark center">
-<h1>رحلة التميز</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>البيانات هي الوقود، والنموذج هو المحرك. بدون وقود نظيف، لن يتحرك المحرك لأبعد من خطوات. ابدأ اليوم بتنظيف بياناتك.</p>
+<ul>
+<li class="fragment">الرحلة مستمرة ولا تتوقف.</li>
+<li class="fragment">إذا حدث عطل، النظام يعيد بناء نفسه.</li>
+</ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/data?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Data</figcaption>
+<p><img data-src="https://loremflickr.com/600/600/pipeline.png"></p>
+<figcaption>Pipeline</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<aside class="notes">
-<p>خاتمة ملهمة للمشاركين.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
-<section id="مراجعة-متباعدة---بعد-ساعة" class="title-slide slide level1 sdaia-dark center">
-<h1>مراجعة متباعدة - بعد ساعة</h1>
+<section id="المرحلة-الثالثة-التطبيق-العملي" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثالثة: التطبيق العملي</h1>
+
+</section>
+<section id="تحدي-الهاكاثون-مراقبة-المصنع-الذكي" class="slide level2">
+<h2>تحدي الهاكاثون: مراقبة المصنع الذكي</h2>
 <ul>
-<li class="fragment">هل تستطيع شرح الفرق بين <strong>البيانات الخام</strong> و <strong>الميزات الجاهزة</strong>؟</li>
-<li class="fragment">حاول ذكر مثال على <strong>قاعدة جودة</strong> يمكنك تطبيقها على بيانات “مبيعات التمر”.</li>
+<li class="fragment">مهمتك: بناء نظام يراقب حرارة المولدات.</li>
+<li class="fragment">المدخلات: بيانات مستشعرات الحرارة.</li>
+<li class="fragment">المطلوب: إطلاق تنبيه إذا تجاوزت الحرارة 90 درجة.</li>
+<li class="fragment">الفائز: الفريق صاحب أقل زمن استجابة (Latency) مع دقة 100%.</li>
 </ul>
-<aside class="notes">
-<p>أسئلة لترسيخ المفهوم بعد وقت قصير من الدرس.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="مراجعة-متباعدة---بعد-يوم" class="title-slide slide level1 sdaia-dark center">
-<h1>مراجعة متباعدة - بعد يوم</h1>
+<section id="استراتيجية-الفريق-الناجح" class="slide level2">
+<h2>استراتيجية الفريق الناجح</h2>
 <ul>
-<li class="fragment">ابحث عن خوارزمية (Isolation Forest) واقرأ مثالاً بسيطاً عنها.</li>
-<li class="fragment">هل يمكنك التفكير في 3 مصادر للبيانات الشاذة في أي نظام مصرفي؟</li>
+<li class="fragment">لا تضغط على الكافكا ببيانات غير ضرورية.</li>
+<li class="fragment">استخدم <strong>النافذة الزمنية</strong> (Windowing) لتحليل متوسط الحرارة.</li>
+<li class="fragment">تأكد من أن كل رسالة تمت معالجتها (Exactly-once semantics).</li>
 </ul>
-<aside class="notes">
-<p>تحفيز البحث الفردي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="مراجعة-متباعدة---بعد-3-أيام" class="title-slide slide level1 sdaia-dark center">
-<h1>مراجعة متباعدة - بعد 3 أيام</h1>
+<section id="خوارزمية-الكشف-عن-الحالات-الشاذة" class="slide level2">
+<h2>خوارزمية الكشف عن الحالات الشاذة</h2>
 <ul>
-<li class="fragment">صمم جدولاً يربط أنواع الأخطاء (مثل البيانات المفقودة) بطرق معالجتها (مثل الحذف أو التعويض).</li>
-<li class="fragment">استعرض هذا الجدول مع زميل لك في العمل أو الدراسة.</li>
+<li class="fragment">قارن القيمة الحالية بالمتوسط المتحرك.</li>
+<li class="fragment">إذا كان الفرق ضخماً، فهذا مؤشر خطر.</li>
+<li class="fragment">لا تعتمد على قراءة واحدة، بل على نمط البيانات.</li>
 </ul>
-<aside class="notes">
-<p>مهمة تطبيقية للتعاون مع الآخرين.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="مراجعة-متباعدة---بعد-أسبوع" class="title-slide slide level1 sdaia-dark center">
-<h1>مراجعة متباعدة - بعد أسبوع</h1>
+<section id="كيف-نقيس-سرعة-استجابتنا" class="slide level2">
+<h2>كيف نقيس سرعة استجابتنا؟</h2>
 <ul>
-<li class="fragment">قم ببناء “نموذج تجريبي” صغير (Toy Project) يقوم بتنظيف ملف <code>CSV</code> بسيط.</li>
-<li class="fragment">اشرح هذا الكود لأخيك أو صديقك غير المتخصص في جملتين.</li>
+<li class="fragment">نقيس الوقت من لحظة صدور الإشارة من المستشعر.</li>
+<li class="fragment">حتى لحظة ظهور التنبيه على شاشة المشغل.</li>
+<li class="fragment"><strong>Latency</strong> هو العدو الأول في أنظمة الوقت الفعلي.</li>
 </ul>
-<aside class="notes">
-<p>تطبيق قاعدة “التعليم للغير” كأعمق مستوى للفهم.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="ختام-الدورة" class="title-slide slide level1 sdaia-dark center">
-<h1>ختام الدورة</h1>
-<p>شكراً لكم على تفاعلكم. أنتم الآن تمتلكون الأدوات الأساسية لضبط جودة البيانات وهندسة ميزاتها. المستقبل ينتظر مهندسي بيانات أذكياء!</p>
-<aside class="notes">
-<p>كلمات ختامية وتشجيعية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="اختبر-معلوماتك" class="slide level2">
+<h2>اختبر معلوماتك! 🧠</h2>
+<p>أي جزء في النظام مسؤول عن الاحتفاظ بالبيانات عند تعطل المعالج؟ - أ) الـ Producer - ب) الـ Message Queue - ج) الـ Dashboard</p>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ب) الـ Message Queue، لأنه يعمل كخزان يحفظ البيانات لحين جاهزية المعالج.</p>
+</div>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="تذكير-بمسؤوليتك" class="title-slide slide level1 sdaia-dark center">
-<h1>تذكير بمسؤوليتك</h1>
+<section id="أدوات-التنبيه" class="slide level2">
+<h2>أدوات التنبيه</h2>
 <ul>
-<li class="fragment">جودة البيانات تعكس أمانة العالم والمهندس.</li>
-<li class="fragment">لا تقبل بالبيانات المشبوهة.</li>
-<li class="fragment">كن حارساً للبوابة.</li>
+<li class="fragment">عند اكتشاف حالة شاذة، نرسل تنبيهاً.</li>
+<li class="fragment">يمكن أن يكون عبر البريد، أو رسالة فورية، أو إيقاف الماكينة آلياً.</li>
+<li class="fragment">السرعة هنا تساوي الحفاظ على الأرواح والمعدات.</li>
 </ul>
-<aside class="notes">
-<p>إضافة لمسة أخلاقية ومهنية للعمل التقني.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="المصادر-المقترحة-للتوسع" class="title-slide slide level1 sdaia-dark center">
-<h1>المصادر المقترحة للتوسع</h1>
+<section id="توزيع-الأدوار-في-الفريق" class="slide level2">
+<h2>توزيع الأدوار في الفريق</h2>
 <ul>
-<li class="fragment">كتب: “Designing Data-Intensive Applications”.</li>
-<li class="fragment">دورات: (DeepLearning.AI - Data Engineering Specialization).</li>
-<li class="fragment">مجتمعات: Kaggle (للتحديات العملية).</li>
+<li class="fragment">مبرمج <strong>Kafka</strong>: لإعداد خطوط النقل.</li>
+<li class="fragment">مبرمج <strong>Spark</strong>: لكتابة منطق التحليل.</li>
+<li class="fragment">مهندس <strong>Monitoring</strong>: لمتابعة سرعة النظام.</li>
 </ul>
-<aside class="notes">
-<p>تزويد الطلاب بمصادر موثوقة لمواصلة رحلتهم.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
-<section id="لحظة-تأمل" class="title-slide slide level1 sdaia-dark center">
-<h1>لحظة تأمل</h1>
+<section id="المرحلة-الرابعة-الخلاصة-والتقييم" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الرابعة: الخلاصة والتقييم</h1>
+
+</section>
+<section id="تلخيص-رحلتنا" class="slide level2">
+<h2>تلخيص رحلتنا</h2>
+<ul>
+<li class="fragment">تعلمنا أن البيانات كالنهر.</li>
+<li class="fragment">عرفنا أن الـ <strong>Message Queues</strong> هي سدود التنظيم.</li>
+<li class="fragment">استوعبنا أن <strong>الاستمرارية</strong> هي قلب النظام الموثوق.</li>
+</ul>
+</section>
+<section id="الجدول-الذهني-للمهندس" class="slide level2">
+<h2>الجدول الذهني للمهندس</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">المكون</th>
+<th style="text-align: left;">وظيفته في النظام</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Kafka</td>
+<td style="text-align: left;">نقل وحفظ البيانات</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Spark</td>
+<td style="text-align: left;">معالجة وتحليل البيانات</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alerting</td>
+<td style="text-align: left;">إخطار المستخدم بالخطر</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="أخطاء-شائعة-تجنبها" class="slide level2">
+<h2>أخطاء شائعة (تجنبها)</h2>
+<ul>
+<li class="fragment">إهمال وضع “نقطة تفتيش” للبيانات.</li>
+<li class="fragment">تصميم طابور بيانات صغير جداً.</li>
+<li class="fragment">التغافل عن مراقبة حالة الخوادم لحظياً.</li>
+</ul>
+</section>
+<section id="كيف-تشرح-هذا-لأخيك" class="slide level2">
+<h2>كيف تشرح هذا لأخيك؟</h2>
+<ul>
+<li class="fragment">قل له: “تخيل أنك تنظم طابوراً طويلاً جداً من الناس، ولا تريد أن يضيع أحد منهم أو يهرب من الصف، الكافكا هو المنظم، والسبارك هو من يخدم هؤلاء الناس بسرعة فائقة.”</li>
+</ul>
+</section>
+<section id="اختبر-معلوماتك-1" class="slide level2">
+<h2>اختبر معلوماتك! 🧠</h2>
+<p>ماذا يعني مصطلح (Fault Tolerance) في هندسة البيانات؟ - أ) السرعة العالية في المعالجة. - ب) القدرة على التعافي من الأعطال. - ج) تقليل كمية البيانات المرسلة.</p>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ب) القدرة على التعافي من الأعطال واستئناف العمل بدون فقدان بيانات.</p>
+</div>
+</section>
+<section id="مستقبل-هندسة-البيانات" class="slide level2">
+<h2>مستقبل هندسة البيانات</h2>
+<ul>
+<li class="fragment">الاتجاه نحو <strong>الذكاء الاصطناعي اللحظي</strong>.</li>
+<li class="fragment">تحليل البيانات ليس فقط لحظياً، بل التنبؤ بالمستقبل قبل وقوع الحدث.</li>
+</ul>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>كل رقم تعالجه، وكل خطأ تكتشفه، هو بصمة تضعها في بناء صرح الذكاء الاصطناعي العربي. استمر!</p>
+<ul>
+<li class="fragment">البيانات هي النفط الجديد.</li>
+<li class="fragment">والوقت الفعلي هو مصفاة هذا النفط.</li>
+</ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/future?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Future</figcaption>
+<p><img data-src="https://loremflickr.com/600/600/technology.png"></p>
+<figcaption>Technology</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<aside class="notes">
-<p>رسالة ختامية ترفع من شأن المجال وفخر الانتماء.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section class="slide level2">
-
-</section></section>
-<section>
-<section id="شكرا-لاستماعكم" class="title-slide slide level1 sdaia-dark center">
-<h1>شكراً لاستماعكم</h1>
-<p>هل هناك أي أسئلة حول ما ورد في درس اليوم؟</p>
-<aside class="notes">
-<p>باب مفتوح للنقاش والأسئلة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-</section></section>
-<section id="القائمة-المرجعية-للمهندس" class="title-slide slide level1 sdaia-dark center">
-<h1>القائمة المرجعية للمهندس</h1>
+<section id="المراجعة-الذاتية-بعد-ساعة" class="slide level2">
+<h2>المراجعة الذاتية (بعد ساعة)</h2>
 <ul>
-<li class="fragment">هل قمت بالتحقق من القيم المفقودة؟</li>
-<li class="fragment">هل قمت بفحص القيم الشاذة؟</li>
-<li class="fragment">هل الميزات جاهزة للاستخدام في التدريب؟</li>
-<li class="fragment">هل يوجد سجل لجودة البيانات؟</li>
+<li class="fragment">هل يمكنني شرح الفرق بين المعالجة الدفعية واللحظية؟</li>
+<li class="fragment">هل أستطيع رسم مخطط بسيط لنظام Kafka و Spark؟</li>
+<li class="fragment">هل فهمت لماذا نستخدم الطوابير؟</li>
+</ul>
+</section>
+<section id="المراجعة-الذاتية-بعد-يوم" class="slide level2">
+<h2>المراجعة الذاتية (بعد يوم)</h2>
+<ul>
+<li class="fragment">حاول إيجاد مثال من حياتك اليومية يشبه “النافذة الزمنية” في المعالجة.</li>
+<li class="fragment">فكر في نظام بيتي للتدفئة: كيف يمكن تحويله لنظام ذكي يستجيب لحظياً؟</li>
+</ul>
+</section>
+<section id="المراجعة-الذاتية-بعد-٣-أيام" class="slide level2">
+<h2>المراجعة الذاتية (بعد ٣ أيام)</h2>
+<ul>
+<li class="fragment">ابحث عن مشروع مفتوح المصدر يستخدم Kafka.</li>
+<li class="fragment">حاول تشغيل مثال “Hello World” الخاص بهم.</li>
+</ul>
+</section>
+<section id="المراجعة-الذاتية-بعد-أسبوع" class="slide level2">
+<h2>المراجعة الذاتية (بعد أسبوع)</h2>
+<ul>
+<li class="fragment">صمم هيكلاً لنظام يحلل بيانات “تغريدات تويتر” لحظياً لتحديد المواضيع الأكثر تداولاً (Trending).</li>
+</ul>
+</section>
+<section id="الخاتمة" class="slide level2">
+<h2>الخاتمة</h2>
+<ul>
+<li class="fragment">أنت اليوم وضعت قدمك على أول طريق الأنظمة الموزعة.</li>
+<li class="fragment">التحدي الآن هو الممارسة.</li>
+<li class="fragment">ابدأ بالكتابة، وبالخطأ، وبالتعلم.</li>
 </ul>
 <aside class="notes">
-<p>شريحة تلخيصية أخيرة كمرجع سريع للمهندس.</p>
+<p>شجع الطلاب على البدء بالتطبيق العملي فوراً، فالمعرفة لا ترسخ إلا بالعمل.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1164,7 +798,7 @@
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
