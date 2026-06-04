@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>توسيع البيانات وتكامل الذكاء الاصطناعي</title>
+  <title>حوكمة البيانات والأمان في أنظمة الذكاء الاصطناعي</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -328,18 +328,18 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">توسيع البيانات وتكامل الذكاء الاصطناعي</h1>
-  <p class="subtitle">دمج هندسة البيانات مع نماذج تعلم الآلة (MLOps) وضمان جودة البيانات (Data Quality) في بيئات الإنتاج.</p>
+  <h1 class="title">حوكمة البيانات والأمان في أنظمة الذكاء الاصطناعي</h1>
+  <p class="subtitle">مناقشة تحديات جودة البيانات، الأمان، والامتثال في خطوط إنتاج نماذج الذكاء الاصطناعي (MLOps Data Pipelines).</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="توسيع-البيانات-وتكامل-الذكاء-الاصطناعي" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>توسيع البيانات وتكامل الذكاء الاصطناعي</h1>
-<p>أهلاً بكم في دورة: <strong>هندسة البيانات المتقدمة للمتخصصين</strong>. في هذا الدرس سننتقل من مجرد جمع البيانات إلى بناء أنظمة ذكية ومستدامة.</p>
+<section id="حوكمة-البيانات-والأمان-في-أنظمة-الذكاء-الاصطناعي" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>حوكمة البيانات والأمان في أنظمة الذكاء الاصطناعي</h1>
+<p>مرحباً بكم في دورة هندسة البيانات المتقدمة. اليوم نستكشف كيف نحمي عقول الآلة ونضمن نزاهة البيانات في دورة حياة MLOps.</p>
 <aside class="notes">
-<p>رحب بالحضور ووضح أن الهدف هو ربط عالم هندسة البيانات بعالم نماذج التعلم الآلي.</p>
+<p>رحب بالحضور ووضح أن الهدف هو الدمج بين الحوكمة والذكاء الاصطناعي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -356,13 +356,13 @@
 <section id="الأهداف-التعليمية-للدرس" class="title-slide slide level1 center">
 <h1>الأهداف التعليمية للدرس</h1>
 <ul>
-<li class="fragment">أتمتة خطوط أنابيب البيانات للتعلم الآلي.</li>
-<li class="fragment">استخدام تقنيات التحقق من صحة البيانات إحصائياً.</li>
-<li class="fragment">نشر النماذج البرمجية كخدمات بيانات موثوقة.</li>
-<li class="fragment">تطبيق ممارسات <strong>MLOps</strong> في بيئات الإنتاج الحقيقية.</li>
+<li class="fragment">فهم مفهوم <strong>حوكمة البيانات</strong> في سياق الذكاء الاصطناعي.</li>
+<li class="fragment">تطبيق استراتيجيات <strong>Data Lineage</strong> لضمان تتبع أصل البيانات.</li>
+<li class="fragment">تصميم خطوط أنابيب بيانات (Data Pipelines) مؤمنة في البيئة السحابية.</li>
+<li class="fragment">محاكاة سيناريوهات اختراق البيانات وتطبيق أدوات الحماية.</li>
 </ul>
 <aside class="notes">
-<p>استعرض الأهداف بوضوح مؤكداً على أن المحور الأساسي هو الجودة والاستمرارية.</p>
+<p>استعرض الأهداف بوضوح مؤكداً على الجانب العملي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -378,25 +378,54 @@
 
 <section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center">
 <h1>المرحلة الأولى: التهيئة والجذب</h1>
-<p>لنكتشف لماذا تفشل معظم مشاريع الذكاء الاصطناعي في الواقع.</p>
+<p>لنبدأ باستكشاف التحديات الحقيقية التي تواجه فرق هندسة البيانات.</p>
 </section>
 
-<section id="واقع-هندسة-البيانات-الحديثة" class="title-slide slide level1 center">
-<h1>واقع هندسة البيانات الحديثة</h1>
+<section id="لماذا-تفشل-نماذج-الذكاء-الاصطناعي" class="title-slide slide level1 center">
+<h1>لماذا تفشل نماذج الذكاء الاصطناعي؟</h1>
+<p>في كثير من الأحيان، لا يعود الفشل لنقص في الخوارزميات، بل لخلل في البيانات:</p>
+<ul>
+<li class="fragment">تلوث البيانات (Data Contamination) في المصادر.</li>
+<li class="fragment">انحياز البيانات (Data Bias) غير المكتشف.</li>
+<li class="fragment">غياب التوثيق لخط سير البيانات (Data Lineage).</li>
+<li class="fragment">ثغرات أمنية في الوصول المفتوح لبيئات التدريب.</li>
+</ul>
+<aside class="notes">
+<p>ناقش أهمية “جودة البيانات” كمحرك أساسي للنجاح.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="التحديات-الأمنية-في-mlops" class="title-slide slide level1 center">
+<h1>التحديات الأمنية في MLOps</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>هناك فجوة كبيرة بين بناء نموذج في المختبر وبين تشغيله في الإنتاج. - النماذج تتقادم بسرعة (Model Drift). - البيانات تتغير خصائصها الإحصائية. - الأنظمة المشتتة يصعب ربطها ببعض.</p>
+<p>تتطلب بيئات الذكاء الاصطناعي حماية خاصة:</p>
+<ul>
+<li class="fragment"><strong>هجمات التسمم</strong> (Data Poisoning): إدخال بيانات خبيثة لتغيير سلوك النموذج.</li>
+<li class="fragment"><strong>تسريب البيانات</strong> (Model Inversion): استنتاج معلومات حساسة من مخرجات النموذج.</li>
+<li class="fragment">ضعف التشفير أثناء النقل (In-transit) وبين مراحل خط الإنتاج.</li>
+</ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/gap?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>gap</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/cybersecurity?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>Cybersecurity</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>ركز على أن المشكلة ليست في النموذج بل في “خط الأنابيب” (Pipeline).</p>
+<p>ركز على أن النموذج هو “صندوق أسود” يمكن استغلاله إذا كانت البيانات غير محمية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -410,54 +439,253 @@
       }</style></aside>
 </section>
 
-<section id="لماذا-نحتاج-إلى-mlops" class="title-slide slide level1 center">
-<h1>لماذا نحتاج إلى MLOps؟</h1>
-<p><strong>MLOps</strong> هو ممارسة دمج تطوير النموذج مع تشغيله لضمان: - سرعة النشر. - استقرار النظام. - قابلية التوسع. - المراقبة المستمرة.</p>
-<aside class="notes">
-<p>اشرح المصطلح كونه جسراً بين DevOps وهندسة البيانات.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="تحديات-الإنتاج" class="title-slide slide level1 center">
-<h1>تحديات الإنتاج</h1>
+<section id="مصفوفة-التحديات-والحلول" class="title-slide slide level1 center">
+<h1>مصفوفة التحديات والحلول</h1>
 <table>
 <thead>
 <tr class="header">
 <th style="text-align: left;">التحدي</th>
-<th style="text-align: left;">الوصف</th>
-<th style="text-align: left;">الأثر</th>
+<th style="text-align: left;">التأثير</th>
+<th style="text-align: left;">استراتيجية الحل</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>Data Drift</strong></td>
-<td style="text-align: left;">تغير توزيع المدخلات</td>
-<td style="text-align: left;">انخفاض دقة النموذج</td>
+<td style="text-align: left;">غياب التوثيق</td>
+<td style="text-align: left;">عدم شفافية القرار</td>
+<td style="text-align: left;">تفعيل Data Lineage</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Pipeline Failure</strong></td>
-<td style="text-align: left;">تعطل تدفق البيانات</td>
-<td style="text-align: left;">توقف الخدمات</td>
+<td style="text-align: left;">اختراق الوصول</td>
+<td style="text-align: left;">تسريب بيانات حساسة</td>
+<td style="text-align: left;">التحكم بالهوية (IAM)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Model Decay</strong></td>
-<td style="text-align: left;">تقادم النموذج</td>
-<td style="text-align: left;">فقدان القيمة التجارية</td>
+<td style="text-align: left;">جودة منخفضة</td>
+<td style="text-align: left;">انحياز النموذج</td>
+<td style="text-align: left;">أتمتة اختبارات الجودة</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>استخدم الجدول لتوضيح أن المشاكل تقنية وتجارية في آن واحد.</p>
+<p>هذا الجدول يساعد في تلخيص النقاش الأول للمتدربين.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="القسم-الأول-حوكمة-البيانات-وأهميتها" class="title-slide slide level1 sdaia-dark center">
+<h1>القسم الأول: حوكمة البيانات وأهميتها</h1>
+<p>ما هي <strong>حوكمة البيانات (Data Governance)</strong> وكيف تؤثر على MLOps؟</p>
+</section>
+
+<section id="ركائز-حوكمة-البيانات" class="title-slide slide level1 center">
+<h1>ركائز حوكمة البيانات</h1>
+<ul>
+<li class="fragment"><strong>الدقة</strong>: التأكد من أن البيانات تعكس الواقع بدقة.</li>
+<li class="fragment"><strong>الخصوصية</strong>: حماية البيانات وفق المعايير والتشريعات.</li>
+<li class="fragment"><strong>الشفافية</strong>: القدرة على تتبع البيانات من المصدر إلى المخرج.</li>
+<li class="fragment"><strong>الوصول</strong>: تطبيق مبدأ “الحد الأدنى من الامتيازات”.</li>
+</ul>
+<aside class="notes">
+<p>اشرح أن الحوكمة ليست قيداً، بل هي تمكين للبيانات الموثوقة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="دورة-حياة-البيانات-في-ai" class="title-slide slide level1 center">
+<h1>دورة حياة البيانات في AI</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>تمر البيانات بعدة مراحل:</p>
+<ul>
+<li class="fragment"><strong>الجمع</strong>: من مصادر متعددة.</li>
+<li class="fragment"><strong>التنقية</strong>: إزالة الضجيج والبيانات غير المتوافقة.</li>
+<li class="fragment"><strong>التدريب</strong>: استخدامها في بناء النماذج.</li>
+<li class="fragment"><strong>التقييم</strong>: التأكد من أن النموذج لا يزال يلتزم بمعايير الجودة.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/process?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>Process</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>وضح أن كل مرحلة هي نقطة ضعف محتملة أمنياً.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="القسم-الثاني-جودة-البيانات-وتتبع-الأثر" class="title-slide slide level1 sdaia-dark center">
+<h1>القسم الثاني: جودة البيانات وتتبع الأثر</h1>
+<p>كيف نضمن أن البيانات التي نستخدمها نظيفة وموثوقة؟</p>
+</section>
+
+<section id="مفهوم-الـ-data-lineage" class="title-slide slide level1 center">
+<h1>مفهوم الـ Data Lineage</h1>
+<p><strong>Data Lineage</strong> هو خريطة طريق توضح رحلة البيانات:</p>
+<ul>
+<li class="fragment">من أين أتت؟</li>
+<li class="fragment">ما هي التغييرات التي طرأت عليها؟</li>
+<li class="fragment">من قام بالوصول إليها؟</li>
+<li class="fragment">كيف أثرت على مخرجات النموذج؟</li>
+</ul>
+<aside class="notes">
+<p>التشبيه: مثل “تتبع المكونات في الغذاء” لمعرفة جودة المنتج النهائي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="أدوات-ضمان-الجودة" class="title-slide slide level1 center">
+<h1>أدوات ضمان الجودة</h1>
+<ul>
+<li class="fragment"><strong>Great Expectations</strong>: للتحقق من صحة البيانات آلياً.</li>
+<li class="fragment"><strong>dbt (Data Build Tool)</strong>: لهندسة تحويلات البيانات بشكل موثق.</li>
+<li class="fragment"><strong>MLflow</strong>: لتتبع التجارب والبيانات المرتبطة بها.</li>
+</ul>
+<aside class="notes">
+<p>اذكر أن الأدوات هي وسيلة لتنفيذ السياسات وليس بديلاً عنها.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="مقارنة-بين-أدوات-الجودة" class="title-slide slide level1 center">
+<h1>مقارنة بين أدوات الجودة</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">الأداة</th>
+<th style="text-align: left;">الغرض الأساسي</th>
+<th style="text-align: left;">الميزة</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Great Expectations</td>
+<td style="text-align: left;">التحقق من القواعد</td>
+<td style="text-align: left;">التنبيه الفوري</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dbt</td>
+<td style="text-align: left;">التحويل والتوثيق</td>
+<td style="text-align: left;">التوثيق الذاتي</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MLflow</td>
+<td style="text-align: left;">إدارة التجارب</td>
+<td style="text-align: left;">ربط النموذج بالبيانات</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>استخدم هذا الجدول للمقارنة بين الأدوات الأكثر شيوعاً.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="القسم-الثالث-الأمان-في-السحابة" class="title-slide slide level1 sdaia-dark center">
+<h1>القسم الثالث: الأمان في السحابة</h1>
+<p>كيف نقوم بتأمين خطوط أنابيب البيانات (Data Pipelines)؟</p>
+</section>
+
+<section id="الحماية-في-البيئات-السحابية" class="title-slide slide level1 center">
+<h1>الحماية في البيئات السحابية</h1>
+<ul>
+<li class="fragment">استخدام <strong>الشبكات الافتراضية الخاصة (VPC)</strong>.</li>
+<li class="fragment">تشفير البيانات في حالة السكون (At-rest) والحركة (In-transit).</li>
+<li class="fragment">تفعيل خاصية <strong>سجلات التدقيق (Audit Logs)</strong> لمراقبة الدخول.</li>
+</ul>
+<aside class="notes">
+<p>ركز على أهمية السحابة في توفير أدوات أمنية جاهزة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="أمن-خطوط-الأنابيب-pipeline-security" class="title-slide slide level1 center">
+<h1>أمن خطوط الأنابيب (Pipeline Security)</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>CI/CD Security</strong>: فحص الأكواد والبيانات قبل النشر.</li>
+<li class="fragment"><strong>Secret Management</strong>: حماية مفاتيح الوصول باستخدام (Vault).</li>
+<li class="fragment"><strong>Access Control</strong>: تحديد الأدوار (RBAC).</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/cloud?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>Cloud</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>أكد على ضرورة “أمن الأكواد” في مشاريع الذكاء الاصطناعي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -473,27 +701,31 @@
 
 <section id="اختبر-معلوماتك" class="title-slide slide level1 center">
 <h1>اختبر معلوماتك! 🧠</h1>
-<p>ما هو المصطلح الذي يعبر عن تدهور دقة النموذج بسبب تغير طبيعة البيانات المدخلة؟</p>
-<ul>
-<li class="fragment">أ) Overfitting</li>
-<li class="fragment">ب) Data Drift</li>
-<li class="fragment">ج) Batch Processing</li>
-</ul>
+<p>ما هو الإجراء الأفضل لمنع تسريب مفاتيح الوصول في خط أنابيب البيانات؟ - أ) تخزينها في كود المصدر (Git). - ب) استخدام مدير أسرار سحابي (Vault). - ج) كتابتها في ملفات نصية مشفرة محلياً.</p>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) <strong>Data Drift</strong>، وهو تغير إحصائي في البيانات يؤدي لضعف التنبؤات.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) استخدام مدير أسرار سحابي، حيث يوفر دوران تلقائي للمفاتيح ووصولاً مقيداً.</p>
 </div>
 </section>
 
-<section id="المرحلة-الثانية-المفاهيم-والأسس" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثانية: المفاهيم والأسس</h1>
-<p>بناء الهيكل المتين لبياناتكم.</p>
+<section id="القسم-الرابع-تطبيق-عملي-محاكاة-الاختراق" class="title-slide slide level1 sdaia-dark center">
+<h1>القسم الرابع: تطبيق عملي (محاكاة الاختراق)</h1>
+<p>حان وقت التجربة!</p>
 </section>
 
-<section id="أتمتة-خطوط-أنابيب-البيانات" class="title-slide slide level1 center">
-<h1>أتمتة خطوط أنابيب البيانات</h1>
-<p>تعني الأتمتة إزالة التدخل البشري في عمليات: - جمع البيانات (Ingestion). - التنظيف والمعالجة (Cleaning &amp; Preprocessing). - التحقق من الجودة (Validation).</p>
+<section id="نشاط-فريق-الاستجابة-للحوادث" class="title-slide slide level1 center">
+<h1>نشاط: فريق الاستجابة للحوادث</h1>
+<p>السيناريو: اكتشفنا تسريباً لبيانات التدريب عبر API مفتوح.</p>
+<ul>
+<li class="fragment"><strong>المهام</strong>:
+<ol type="1">
+<li class="fragment">تحديد نقطة الدخول (Logs analysis).</li>
+<li class="fragment">عزل خط الأنابيب (Pipeline isolation).</li>
+<li class="fragment">تطبيق حوكمة فورية (Access policies).</li>
+<li class="fragment">تقييم الضرر (Data audit).</li>
+</ol></li>
+</ul>
 <aside class="notes">
-<p>أكد على أهمية الـ CI/CD في خطوط الأنابيب.</p>
+<p>قسم المتدربين لمجموعات وزع أدوار (أمن، هندسة بيانات، مطوري ML).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -507,22 +739,69 @@
       }</style></aside>
 </section>
 
-<section id="التحقق-من-صحة-البيانات-إحصائيا" class="title-slide slide level1 center">
-<h1>التحقق من صحة البيانات إحصائياً</h1>
+<section id="هيكلية-الاستجابة-للحوادث" class="title-slide slide level1 center">
+<h1>هيكلية الاستجابة للحوادث</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">المرحلة</th>
+<th style="text-align: left;">الإجراء المطلوب</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">الرصد</td>
+<td style="text-align: left;">تفعيل الإنذارات الفورية</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">العزل</td>
+<td style="text-align: left;">إيقاف الوصول للمصادر المتضررة</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">الإصلاح</td>
+<td style="text-align: left;">تحديث سياسات الحوكمة</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">التعافي</td>
+<td style="text-align: left;">فحص نزاهة بيانات التدريب</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>هذا الجدول يعمل كخارطة طريق للمتدربين أثناء المحاكاة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="تحليل-النتائج-ما-الذي-تعلمنا" class="title-slide slide level1 center">
+<h1>تحليل النتائج: ما الذي تعلمنا؟</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>لا يكفي أن تكون البيانات “موجودة”، بل يجب أن تكون “صحيحة”: - التحقق من القيم المفقودة (Missing Values). - رصد القيم المتطرفة (Outliers). - مراقبة التوزيع التكراري (Distribution Shifts).</p>
+<ul>
+<li class="fragment">أن الأمن ليس “خطوة إضافية” بل عملية مستمرة.</li>
+<li class="fragment">أهمية التوثيق السريع للبيانات أثناء الأزمات.</li>
+<li class="fragment">ضرورة وجود “خطة تراجع” (Rollback plan) للنماذج.</li>
+</ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/statistics?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>statistics</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/security?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>Security</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>استخدم مفاهيم إحصائية بسيطة لشرح أهمية الجودة.</p>
+<p>ناقش الأخطاء الشائعة التي وقع فيها المتدربون أثناء المحاكاة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -536,78 +815,15 @@
       }</style></aside>
 </section>
 
-<section id="دورة-حياة-البيانات-في-mlops" class="title-slide slide level1 center">
-<h1>دورة حياة البيانات في MLOps</h1>
-<ol type="1">
-<li class="fragment">جمع المصادر.</li>
-<li class="fragment">هندسة الميزات (Feature Engineering).</li>
-<li class="fragment">تدريب النموذج.</li>
-<li class="fragment">تقييم النموذج.</li>
-<li class="fragment">نشر الخدمة.</li>
-</ol>
+<section id="التقييم-التكويني-مراجعة-المفاهيم" class="title-slide slide level1 center">
+<h1>التقييم التكويني: مراجعة المفاهيم</h1>
+<ul>
+<li class="fragment">لماذا نستخدم الـ <strong>Data Lineage</strong>؟</li>
+<li class="fragment">كيف نمنع هجمات <strong>Data Poisoning</strong>؟</li>
+<li class="fragment">ما هي مخاطر الوصول المفتوح؟</li>
+</ul>
 <aside class="notes">
-<p>وضح أن هذه العملية دائرية وليست خطية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="مقارنة-بين-بيئات-التطوير-والإنتاج" class="title-slide slide level1 center">
-<h1>مقارنة بين بيئات التطوير والإنتاج</h1>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">الميزة</th>
-<th style="text-align: left;">بيئة التطوير</th>
-<th style="text-align: left;">بيئة الإنتاج</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>البيانات</strong></td>
-<td style="text-align: left;">ثابتة/محملة مسبقاً</td>
-<td style="text-align: left;">تدفق حي/متغير</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>الاستقرار</strong></td>
-<td style="text-align: left;">تجريبي</td>
-<td style="text-align: left;">صارم ومراقب</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>التحديث</strong></td>
-<td style="text-align: left;">يدوي</td>
-<td style="text-align: left;">مؤتمت بالكامل</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>هذا الجدول يساعد الطلاب على التمييز بين وضع البحث ووضع التشغيل.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="مفهوم-الخدمة-model-as-a-service" class="title-slide slide level1 center">
-<h1>مفهوم الخدمة (Model as a Service)</h1>
-<p>نشر النموذج كـ <strong>API</strong> يسمح لـ: - سهولة التكامل مع تطبيقات أخرى. - التوسع الأفقي (Scaling). - التحديث المستقل للنموذج.</p>
-<aside class="notes">
-<p>اشرح أن النموذج ليس مجرد كود بل هو “خدمة” تُطلب عبر الشبكة.</p>
+<p>اطرح هذه الأسئلة لتقييم مدى استيعاب المفاهيم النظرية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -623,27 +839,21 @@
 
 <section id="اختبر-معلوماتك-1" class="title-slide slide level1 center">
 <h1>اختبر معلوماتك! 🧠</h1>
-<p>ما الهدف الرئيسي من نشر النموذج كـ API؟</p>
-<ul>
-<li class="fragment">أ) تقليل سرعة النظام.</li>
-<li class="fragment">ب) تسهيل التكامل وتطوير الخدمة بشكل منفصل.</li>
-<li class="fragment">ج) حصر النموذج في تطبيق واحد فقط.</li>
-</ul>
+<p>أي من الأدوات التالية تستخدم للتحقق من صحة القواعد في البيانات؟ - أ) Jenkins. - ب) Great Expectations. - ج) Docker.</p>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) لأن الـ API توفر مرونة عالية للربط مع أنظمة متنوعة.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) Great Expectations، وهي متخصصة في اختبار البيانات وضمان جودتها.</p>
 </div>
 </section>
 
-<section id="المرحلة-الثالثة-التطبيق-العملي" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثالثة: التطبيق العملي</h1>
-<p>تحويل النظريات إلى كود ونظم عاملة.</p>
-</section>
-
-<section id="تنفيذ-المشروع-التعاوني" class="title-slide slide level1 center">
-<h1>تنفيذ المشروع التعاوني</h1>
-<p>سيكون مشروعنا النهائي: - ربط مصدر بيانات حي (Live Data Stream). - تنظيف البيانات برمجياً (Automated Pipeline). - تحديث التنبؤات لحظياً. - تقييم الأداء عبر لوحة تحكم.</p>
+<section id="كيف-نقيس-نجاح-الحوكمة" class="title-slide slide level1 center">
+<h1>كيف نقيس نجاح الحوكمة؟</h1>
+<ul>
+<li class="fragment">تقليل زمن اكتشاف الثغرات.</li>
+<li class="fragment">ثبات دقة النموذج وعدم انحرافه (Model Drift).</li>
+<li class="fragment">التوافق مع السياسات القانونية والخصوصية.</li>
+</ul>
 <aside class="notes">
-<p>حفز الطلاب على العمل الجماعي وتوزيع الأدوار.</p>
+<p>ركز على أن الحوكمة تقاس بالنتائج الملموسة وليس فقط بالامتثال.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -657,26 +867,174 @@
       }</style></aside>
 </section>
 
-<section id="هندسة-البيانات-الجزء-البرمجي" class="title-slide slide level1 center">
-<h1>هندسة البيانات: الجزء البرمجي</h1>
+<section id="التحديات-المستقبلية-في-أمن-ai" class="title-slide slide level1 center">
+<h1>التحديات المستقبلية في أمن AI</h1>
+<ul>
+<li class="fragment"><strong>الأدوات التوليدية</strong>: حماية البيانات من الـ LLMs.</li>
+<li class="fragment"><strong>الخصوصية التفاضلية</strong>: حماية البيانات الفردية داخل مجموعات التدريب.</li>
+<li class="fragment"><strong>التشريعات الدولية</strong>: مواكبة القوانين الجديدة مثل (EU AI Act).</li>
+</ul>
+<aside class="notes">
+<p>استشرف المستقبل مع المتدربين.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="ملاحظات-ختامية-للنمو-المهني" class="title-slide slide level1 center">
+<h1>ملاحظات ختامية للنمو المهني</h1>
+<ul>
+<li class="fragment">تخصص في أدوات الـ Cloud Security.</li>
+<li class="fragment">تعلم كتابة أكواد “آمنة بطبيعتها”.</li>
+<li class="fragment">شارك في مجتمعات الـ MLOps لتبادل الخبرات.</li>
+</ul>
+<aside class="notes">
+<p>شجع الحضور على الاستمرار في التعلم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="الخلاصة" class="title-slide slide level1 sdaia-dark center">
+<h1>الخلاصة</h1>
+<p>لقد قمنا بتغطية أساسيات حوكمة البيانات وأمن الذكاء الاصطناعي.</p>
+</section>
+
+<section id="مراجعة-الرحلة" class="title-slide slide level1 center">
+<h1>مراجعة الرحلة</h1>
+<ul>
+<li class="fragment">بدأنا بمفهوم <strong>حوكمة البيانات</strong> كضرورة.</li>
+<li class="fragment">تتبعنا <strong>Data Lineage</strong> كأداة للشفافية.</li>
+<li class="fragment">طبقنا <strong>أمن السحابة</strong> على خطوط الأنابيب.</li>
+<li class="fragment">خضنا تجربة <strong>محاكاة الاختراق</strong> لاختبار الاستعداد.</li>
+</ul>
+<aside class="notes">
+<p>مراجعة سريعة لما تم تعلمه اليوم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="شكرا-لكم" class="title-slide slide level1 center">
+<h1>شكراً لكم</h1>
+<p>أسئلة؟ نقاش؟</p>
+<aside class="notes">
+<p>افتح المجال للنقاش العام والأسئلة التقنية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="موارد-إضافية-للتعلم" class="title-slide slide level1 center">
+<h1>موارد إضافية للتعلم</h1>
+<ul>
+<li class="fragment">وثائق MLOps الرسمية (Google/AWS/Azure).</li>
+<li class="fragment">كتاب “Designing Data-Intensive Applications”.</li>
+<li class="fragment">مدونات الفرق الهندسية الرائدة في AI.</li>
+</ul>
+<aside class="notes">
+<p>وفر مصادر خارجية لتعميق الفهم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="قائمة-المراجعة-الأمنية-checklist" class="title-slide slide level1 center">
+<h1>قائمة المراجعة الأمنية (Checklist)</h1>
+<ul class="task-list">
+<li class="fragment"><label><input type="checkbox">تشفير البيانات في كل المراحل؟</label></li>
+<li class="fragment"><label><input type="checkbox">هل تم تطبيق التتبع الكامل للبيانات؟</label></li>
+<li class="fragment"><label><input type="checkbox">هل هناك سياسة دورية لتحديث المفاتيح؟</label></li>
+<li class="fragment"><label><input type="checkbox">هل فريق الأمن لديه صلاحية الوصول للبيانات؟</label></li>
+</ul>
+<aside class="notes">
+<p>ورقة عمل ختامية يمكن للمتدربين العودة لها دائماً.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="أهمية-الثقافة-التنظيمية-في-الأمن" class="title-slide slide level1 center">
+<h1>أهمية الثقافة التنظيمية في الأمن</h1>
+<ul>
+<li class="fragment">الأمن مسؤولية الجميع وليس فقط فريق هندسة البيانات.</li>
+<li class="fragment">الشفافية في الإبلاغ عن الثغرات تقلل من المخاطر.</li>
+<li class="fragment">التعليم المستمر هو خط الدفاع الأول.</li>
+</ul>
+<aside class="notes">
+<p>اختم بالتأكيد على العنصر البشري في منظومة الأمن.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="تقييم-نهائي-سريع" class="title-slide slide level1 center">
+<h1>تقييم نهائي سريع</h1>
 <div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment">استخدم مكتبات مثل <strong>Pandas</strong> أو <strong>Dask</strong>.</li>
-<li class="fragment">طبق اختبارات الوحدة (Unit Tests) على البيانات.</li>
-<li class="fragment">احتفظ بنسخة من سجلات الأخطاء.</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/code?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>code</figcaption>
-</figure>
-</div>
+<div class="column" style="width:50%;">
+<p>كيف تقيم مستوى فهمك للـ Lineage؟ - جيد جداً - متوسط - أحتاج لمزيد من الممارسة</p>
+</div><div class="column" style="width:50%;">
+<p>ما هو التحدي الأكبر لديك في العمل؟ - التشفير - توثيق البيانات - سياسات الوصول</p>
 </div>
 </div>
 <aside class="notes">
-<p>ركز على أن الكود النظيف هو أساس MLOps.</p>
+<p>استخدم هذا التقييم لجمع تغذية راجعة سريعة عن مستوى استيعابهم.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -690,15 +1048,11 @@
       }</style></aside>
 </section>
 
-<section id="التعامل-مع-الأخطاء-debugging" class="title-slide slide level1 center">
-<h1>التعامل مع الأخطاء (Debugging)</h1>
-<ul>
-<li class="fragment">تحليل الأخطاء البرمجية (Errors).</li>
-<li class="fragment">استخدام مقاييس أداء النظام (System Metrics).</li>
-<li class="fragment">التقييم الدوري من قبل الزملاء (Peer Review).</li>
-</ul>
+<section id="استمروا-في-التعلم" class="title-slide slide level1 center">
+<h1>استمروا في التعلم</h1>
+<p>هذا المجال في تطور مستمر، كونوا دائماً على اطلاع بأحدث التهديدات والحلول.</p>
 <aside class="notes">
-<p>التركيز هنا على ثقافة “نقد الكود” لتحسين الجودة.</p>
+<p>كلمة ختامية محفزة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -712,355 +1066,11 @@
       }</style></aside>
 </section>
 
-<section id="خطوات-التصحيح-الذكي" class="title-slide slide level1 center">
-<h1>خطوات التصحيح الذكي</h1>
-<ol type="1">
-<li class="fragment">عزل الجزء المعطل (Isolation).</li>
-<li class="fragment">إعادة إنتاج الخطأ (Reproducibility).</li>
-<li class="fragment">تحديد السبب الجذري (Root Cause Analysis).</li>
-<li class="fragment">تطبيق التصحيح (Patching).</li>
-</ol>
+<section id="ختام-الدورة" class="title-slide slide level1 center">
+<h1>ختام الدورة</h1>
+<p>شكراً لحضوركم ومشاركتكم الفعالة في هذه الرحلة نحو هندسة ذكاء اصطناعي آمنة وموثوقة.</p>
 <aside class="notes">
-<p>هذه خطوات منهجية يجب أن يتبعها الطلاب في مشاريعهم.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="جدول-متابعة-المشروع" class="title-slide slide level1 center">
-<h1>جدول متابعة المشروع</h1>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">المرحلة</th>
-<th style="text-align: left;">الأسبوع</th>
-<th style="text-align: left;">الهدف</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">التخطيط</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">تحديد مصادر البيانات</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">البناء</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">بناء خط أنابيب البيانات</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">النشر</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">نشر النموذج كـ API</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">التقييم</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">مراجعة الزملاء والتحسين</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>استخدم هذا الجدول كخارطة طريق للمشاريع.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="التقييم-التكويني-الأداء" class="title-slide slide level1 center">
-<h1>التقييم التكويني: الأداء</h1>
-<ul>
-<li class="fragment">هل خط أنابيب البيانات يعمل دون انقطاع؟</li>
-<li class="fragment">هل يتم التحقق من صحة البيانات قبل النموذج؟</li>
-<li class="fragment">ما مدى دقة التنبؤات مقارنة بالواقع؟</li>
-</ul>
-<aside class="notes">
-<p>هذه أسئلة يجب أن يسألها الطلاب لأنفسهم بانتظام.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="اختبر-معلوماتك-2" class="title-slide slide level1 center">
-<h1>اختبر معلوماتك! 🧠</h1>
-<p>ما هو الإجراء الصحيح عند حدوث خطأ برمجي في نظام الإنتاج؟</p>
-<ul>
-<li class="fragment">أ) تجاهل الخطأ ومواصلة العمل.</li>
-<li class="fragment">ب) عزل المشكلة، تحديد السبب الجذري، ثم التصحيح.</li>
-<li class="fragment">ج) إعادة تشغيل النظام فقط دون تحليل.</li>
-</ul>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) التحليل الجذري يمنع تكرار الخطأ مستقبلاً.</p>
-</div>
-</section>
-
-<section id="المرحلة-الرابعة-الخلاصة-والاستدامة" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الرابعة: الخلاصة والاستدامة</h1>
-<p>كيف نحافظ على قوة النظام على المدى الطويل.</p>
-</section>
-
-<section id="المراقبة-المستمرة-monitoring" class="title-slide slide level1 center">
-<h1>المراقبة المستمرة (Monitoring)</h1>
-<ul>
-<li class="fragment">تتبع استهلاك الموارد (CPU/RAM).</li>
-<li class="fragment">مراقبة دقة النموذج لحظياً.</li>
-<li class="fragment">إرسال تنبيهات (Alerts) عند حدوث خلل.</li>
-</ul>
-<aside class="notes">
-<p>المراقبة هي العين التي لا تنام على النظام.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="استراتيجيات-التحسين-المستمر" class="title-slide slide level1 center">
-<h1>استراتيجيات التحسين المستمر</h1>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment">التعلم من البيانات الجديدة (Retraining).</li>
-<li class="fragment">تحسين جودة البيانات باستمرار.</li>
-<li class="fragment">توثيق كل خطوة في عملية التطوير.</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/optimization?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>optimization</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>التطوير ليس له نهاية؛ هو عملية مستمرة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="مراجعة-الزملاء-أهميتها" class="title-slide slide level1 center">
-<h1>مراجعة الزملاء: أهميتها</h1>
-<ul>
-<li class="fragment">اكتشاف الأخطاء التي لا نراها.</li>
-<li class="fragment">تبادل الخبرات البرمجية.</li>
-<li class="fragment">بناء ثقافة الجودة في الفريق.</li>
-</ul>
-<aside class="notes">
-<p>شجع الطلاب على أن يكونوا منفتحين على نقد زملائهم.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="ملخص-المفاهيم-الرئيسية" class="title-slide slide level1 center">
-<h1>ملخص المفاهيم الرئيسية</h1>
-<ul>
-<li class="fragment"><strong>MLOps</strong>: تكامل البيانات والنموذج.</li>
-<li class="fragment"><strong>Pipeline</strong>: العمود الفقري لأي نظام بيانات.</li>
-<li class="fragment"><strong>Validation</strong>: حارس الجودة.</li>
-<li class="fragment"><strong>Peer Review</strong>: أداة التحسين الجماعي.</li>
-</ul>
-<aside class="notes">
-<p>خلاصة سريعة لما تم تعلمه.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="جدول-مراجعة-الأدوات" class="title-slide slide level1 center">
-<h1>جدول مراجعة الأدوات</h1>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">الأداة</th>
-<th style="text-align: left;">الغرض</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Git</strong></td>
-<td style="text-align: left;">إدارة النسخ</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Docker</strong></td>
-<td style="text-align: left;">حاويات النشر</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>MLflow</strong></td>
-<td style="text-align: left;">مراقبة التجارب</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>SQL</strong></td>
-<td style="text-align: left;">استعلام البيانات</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>هذه هي “حقيبة أدوات” مهندس البيانات المتقدم.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="لماذا-فشل-النموذج-دراسة-حالة" class="title-slide slide level1 center">
-<h1>لماذا فشل النموذج؟ (دراسة حالة)</h1>
-<ul>
-<li class="fragment">تغيرت مصادر البيانات فجأة.</li>
-<li class="fragment">لم يتم تنظيف البيانات الحية.</li>
-<li class="fragment">كان هناك تعارض بين مكتبات البرمجة.</li>
-</ul>
-<aside class="notes">
-<p>تعلم من الفشل: كل خطأ هو درس للنجاح في المستقبل.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="اختبر-معلوماتك-3" class="title-slide slide level1 center">
-<h1>اختبر معلوماتك! 🧠</h1>
-<p>أي مما يلي يعد من ممارسات الـ MLOps الجيدة؟</p>
-<ul>
-<li class="fragment">أ) النشر اليدوي للنماذج.</li>
-<li class="fragment">ب) المراقبة المستمرة وأتمتة الاختبارات.</li>
-<li class="fragment">ج) العمل الفردي دون توثيق الكود.</li>
-</ul>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) هي الأساس لضمان استقرار الأنظمة.</p>
-</div>
-</section>
-
-<section id="آفاق-التوسع-المستقبلي" class="title-slide slide level1 center">
-<h1>آفاق التوسع المستقبلي</h1>
-<ul>
-<li class="fragment">استخدام <strong>الذكاء الاصطناعي التوليدي</strong> في تنظيف البيانات.</li>
-<li class="fragment">الانتقال نحو <strong>Data Mesh</strong> في المؤسسات الكبرى.</li>
-<li class="fragment">زيادة الاعتماد على الحلول السحابية (Cloud Native).</li>
-</ul>
-<aside class="notes">
-<p>أعطِ الطلاب لمحة عن المستقبل ليواصلوا البحث.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="نصيحة-للمحترفين" class="title-slide slide level1 center">
-<h1>نصيحة للمحترفين</h1>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment">لا تقع في حب الكود، بل في حب “حل المشكلة”.</li>
-<li class="fragment">استثمر في جودة البيانات أكثر من خوارزميات النموذج.</li>
-<li class="fragment">ابحث دائماً عن التبسيط (Simplify).</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/future?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>future</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>خاتمة ملهمة للمحاضر لإنهاء الدورة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="شكرا-لحسن-استماعكم" class="title-slide slide level1 center">
-<h1>شكراً لحسن استماعكم!</h1>
-<p>هل لديكم أي استفسارات حول مشاريعكم؟ نحن هنا لنبني أنظمة بيانات لا تقهر.</p>
-<aside class="notes">
-<p>افتح باب الأسئلة والمناقشة الختامية.</p>
+<p>شكر المتدربين على مجهودهم خلال المحاكاة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
