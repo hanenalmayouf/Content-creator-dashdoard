@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>تحليل البيانات الاستكشافي (EDA) ومعالجة البيانات المفقودة</title>
+  <title>مقدمة: الذكاء الاصطناعي بين النفع والضرر</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -328,19 +328,18 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">تحليل البيانات الاستكشافي (EDA) ومعالجة البيانات المفقودة</h1>
-  <p class="subtitle">دراسة متعمقة في تقنيات معالجة البيانات غير المتجانسة، التعامل مع القيم الشاذة، وتطبيق تقنيات تقليل الأبعاد (PCA) لرفع كفاءة النماذج.</p>
+  <h1 class="title">مقدمة: الذكاء الاصطناعي بين النفع والضرر</h1>
+  <p class="subtitle">استكشاف ماهية الذكاء الاصطناعي من خلال عدسة أخلاقية وتأثيره على الحياة اليومية.</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section>
-<section id="التحليل-المتقدم-للبيانات-رحلة-استكشاف-ومعالجة-البيانات" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>التحليل المتقدم للبيانات: رحلة استكشاف ومعالجة البيانات</h1>
-<p>أهلاً بكم في رحلة تحويل “البيانات الخام” إلى “حكمة ومعرفة”. اليوم، سنفكك عقدة البيانات المفقودة والشاذة لنبني نماذج ذكاء اصطناعي قوية.</p>
+<section id="رحلة-في-عالم-الذكاء-الاصطناعي-الأخلاقي" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>رحلة في عالم الذكاء الاصطناعي الأخلاقي</h1>
+<p>أهلاً بكم يا شباب في رحلة استكشافية. سنفهم اليوم كيف تفكر الآلات، وهل هي فعلاً عادلة؟</p>
 <aside class="notes">
-<p>رحب بالحضور، أكد على أهمية البيانات كوقود للذكاء الاصطناعي، ومهد للفصل بين البيانات النظيفة والملوثة.</p>
+<p>رحب بالطلاب وأكد لهم أنهم ليسوا مجرد متلقين، بل هم عقول نقدية ستشارك في بناء هذا العلم.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -353,16 +352,17 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="الأهداف-التعليمية-لدرس-اليوم" class="slide level2">
-<h2>الأهداف التعليمية لدرس اليوم</h2>
+
+<section id="الأهداف-التعليمية-لهذا-الدرس" class="title-slide slide level1 sdaia-dark center">
+<h1>الأهداف التعليمية لهذا الدرس</h1>
 <ul>
-<li class="fragment">التمكن من استخدام مكتبات <strong>Pandas</strong> و <strong>NumPy</strong> في معالجة المجموعات الضخمة.</li>
-<li class="fragment">فهم <strong>التوزيعات الإحصائية</strong> وكيفية كشف العلاقات الخفية بين المتغيرات.</li>
-<li class="fragment">تصميم استراتيجيات احترافية للتعامل مع <strong>البيانات المفقودة (Imputation)</strong>.</li>
-<li class="fragment">تطبيق تقنية <strong>تحليل المكونات الرئيسية (PCA)</strong> لتقليل الأبعاد وتحسين كفاءة النماذج.</li>
+<li class="fragment">فهم <strong>الذكاء الاصطناعي</strong> بأسلوب مبسط بعيداً عن التعقيد.</li>
+<li class="fragment">إدراك دور <strong>الأخلاقيات</strong> في تطوير التقنيات الحديثة.</li>
+<li class="fragment">تحليل مفهوم <strong>التحيز الآلي</strong> وأثره على قرارات الأنظمة.</li>
+<li class="fragment">القدرة على التفكير النقدي في حل المشكلات التقنية.</li>
 </ul>
 <aside class="notes">
-<p>استعرض الأهداف بوضوح، اربط كل هدف بالقيمة المضافة للطالب في سوق العمل.</p>
+<p>استعرض الأهداف بوضوح، وركز على أن الهدف ليس “البرمجة” بل “الفهم الأخلاقي” للتقنية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -374,21 +374,18 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
+</section>
+
 <section>
 <section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center">
 <h1>المرحلة الأولى: التهيئة والجذب</h1>
 
 </section>
-<section id="ما-هي-البيانات-الملوثة" class="slide level2">
-<h2>ما هي البيانات الملوثة؟</h2>
-<p>تخيّل أنك طباخ ماهر، لكن المواد الخام (الخضار، اللحم) وصلت إليك غير مغسولة أو بها أجزاء تالفة. هل يمكنك طبخ وجبة فاخرة؟</p>
-<ul>
-<li class="fragment"><strong>البيانات الملوثة</strong>: هي التي تحتوي على قيم مفقودة، قيم شاذة، أو تنسيقات خاطئة.</li>
-<li class="fragment"><strong>تأثيرها</strong>: تسبب انحيازاً في النموذج (Bias) ونتائج غير دقيقة.</li>
-</ul>
+<section id="هل-الآلة-تعتذر" class="slide level2">
+<h2>هل الآلة تعتذر؟</h2>
+<p>تخيل أنك تقدمت لوظيفة، ونظام ذكاء اصطناعي رفض طلبك في ثانية واحدة! هل هو ذكاء خارق؟ أم أنه مجرد آلة نفذت أوامر متحيزة؟</p>
 <aside class="notes">
-<p>استخدم مثال “الطباخ” لتبسيط مفهوم البيانات الملوثة، وأهمية عملية التنظيف قبل البدء بالتحليل.</p>
+<p>ابدأ بطرح سؤال تفاعلي يمس حياة الطلاب العملية مستقبلاً.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -401,16 +398,127 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="تحدي-kaggle-style-كيف-سنعمل" class="slide level2">
-<h2>تحدي Kaggle-style: كيف سنعمل؟</h2>
-<p>اليوم سنعمل كفريق واحد في ورشة تقنية، حيث ستكون البيانات ملوثة وعلينا تولي مهمة “تطهيرها”.</p>
-<ul>
-<li class="fragment">سنستخدم <strong>لوحة متصدرين ديناميكية</strong>.</li>
-<li class="fragment">كلما كانت تقنيات المعالجة لديك أكثر ذكاءً، زادت نقاطك في <strong>هندسة الميزات (Feature Engineering)</strong>.</li>
-<li class="fragment">التعاون بين الفرق هو مفتاح الوصول للنتيجة المثالية.</li>
-</ul>
+<section id="قصة-النظام-المتحيز" class="slide level2">
+<h2>قصة النظام المتحيز</h2>
+<p>في شركة كبرى، صُمم نظام لترشيح الموظفين. كان النظام يرفض النساء تلقائياً! لماذا؟ لأن النظام تدرب على بيانات تاريخية لـ 10 سنوات سابقة كانت أغلب المقبولين فيها من الرجال.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>الآلة لم تكن “شريرة”، بل تعلمت <strong>التحيز</strong> من أخطاء البشر الماضية.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://picsum.photos/seed/robot/600/400.png"></p>
+<figcaption>Robot</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <aside class="notes">
-<p>اشرح جو المنافسة الإيجابية، وأكد أن الغرض هو تبادل الخبرات في طرق المعالجة.</p>
+<p>استخدم قصة واقعية لتبسيط مفهوم التحيز الآلي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="التفكير-في-المشكلة" class="slide level2">
+<h2>التفكير في المشكلة</h2>
+<p>لماذا قد يرفض النظام مرشحاً مؤهلاً؟ - البيانات المدخلة قديمة وغير متوازنة. - البرمجة تركزت على “النتائج” وليس “العدالة”. - غياب العنصر البشري في المراجعة النهائية.</p>
+<aside class="notes">
+<p>دع الطلاب يفكرون في أسباب المشكلة قبل البدء بالشرح العلمي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="هل-الآلة-ذكية-فعلا" class="slide level2">
+<h2>هل الآلة ذكية فعلاً؟</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>الذكاء الاصطناعي</strong>: هو محاكاة للقدرات الذهنية البشرية بواسطة الآلات. - التعلم من البيانات (مثل خبرة الجد). - اتخاذ القرارات (مثل قرار القائد). - حل المشكلات (مثل لغز يصعب حله).</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://picsum.photos/seed/brain/600/400.png"></p>
+<figcaption>Brain</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>بسّط التعريف العلمي عبر التشبيه بالمفاهيم الملموسة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="كيف-نتعامل-مع-التقنية" class="slide level2">
+<h2>كيف نتعامل مع التقنية؟</h2>
+<p>نحتاج لميزان ذهبي: - الاستفادة من السرعة والدقة. - الحذر من التحيز والانحياز. - التفكير الأخلاقي دائماً قبل التنفيذ.</p>
+<aside class="notes">
+<p>اشرح أن التكنولوجيا ليست “خيراً مطلقاً” أو “شراً مطلقاً” بل أداة تحتاج ليد واعية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="جدول-الفروقات-العقل-البشري-والآلي" class="slide level2">
+<h2>جدول الفروقات: العقل البشري والآلي</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">وجه المقارنة</th>
+<th style="text-align: left;">العقل البشري</th>
+<th style="text-align: left;">الذكاء الاصطناعي</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">التعلم</td>
+<td style="text-align: left;">بالتجربة والمشاعر</td>
+<td style="text-align: left;">بالبيانات والأرقام</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">السرعة</td>
+<td style="text-align: left;">أبطأ في المعالجة</td>
+<td style="text-align: left;">فائقة السرعة</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">العدالة</td>
+<td style="text-align: left;">واعية ومبادئية</td>
+<td style="text-align: left;">حسب البيانات المدخلة</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>هذا الجدول يساعد الطلاب على التمييز بين قدرات البشر والآلات.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -424,31 +532,44 @@
       }</style></aside>
 </section></section>
 <section>
-<section id="القسم-الأول-استكشاف-البيانات-eda" class="title-slide slide level1 sdaia-dark center">
-<h1>القسم الأول: استكشاف البيانات (EDA)</h1>
+<section id="المرحلة-الثانية-المفاهيم" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثانية: المفاهيم</h1>
 
 </section>
-<section id="الفهم-قبل-المعالجة" class="slide level2">
-<h2>الفهم قبل المعالجة</h2>
-<p>قبل أن نبدأ بالتعديل، يجب أن “نرى” البيانات. الاستكشاف هو عيون المحلل.</p>
+<section id="ما-هو-الذكاء-الاصطناعي" class="slide level2">
+<h2>ما هو الذكاء الاصطناعي؟</h2>
+<p>تخيل صقرًا مدربًا: - يراقب (البيانات). - يحلل (الخوارزمية). - ينقضّ على الهدف (القرار).</p>
+<aside class="notes">
+<p>استخدم التشبيه التراثي العربي لتقريب مفهوم الخوارزمية والذكاء.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="الخوارزمية-هي-وصفة-الطبخ" class="slide level2">
+<h2>الخوارزمية هي “وصفة الطبخ”</h2>
+<p><strong>الخوارزمية (Algorithm)</strong>: هي سلسلة خطوات محددة للوصول إلى هدف معين. - مثل طريقة تحضير القهوة. - إذا كانت الخطوات غير عادلة، ستكون القهوة (النتيجة) غير صالحة.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
-<ul>
-<li class="fragment"><strong>التوزيع الإحصائي</strong>: هو معرفة كيف تتوزع القيم (هل هي متمركزة أم متشتتة؟).</li>
-<li class="fragment"><strong>العلاقات الخفية</strong>: اكتشاف كيف يؤثر متغير على آخر.</li>
-<li class="fragment"><strong>القيم الشاذة (Outliers)</strong>: قياسات بعيدة جداً عن المنطق قد تكون خطأ في القياس أو اكتشافاً ثميناً.</li>
-</ul>
+<p>نحن مَن يكتب الوصفة، لذا نحن المسؤولون عن جودة النتيجة.</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://picsum.photos/seed/data/600/400.png"></p>
-<figcaption>data</figcaption>
+<p><img data-src="https://picsum.photos/seed/coffee/600/400.png"></p>
+<figcaption>Coffee</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>ركز على أن الاستكشاف ليس مجرد أرقام، بل فهم لقصة البيانات.</p>
+<p>الربط بين المصطلح التقني “الخوارزمية” والواقع المعاش.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -461,36 +582,70 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="جدول-مقارنة-بين-أنواع-البيانات" class="slide level2">
-<h2>جدول: مقارنة بين أنواع البيانات</h2>
+<section id="مفهوم-التحيز-الآلي" class="slide level2">
+<h2>مفهوم التحيز الآلي</h2>
+<p><strong>التحيز الآلي (Bias)</strong>: هو انحياز النموذج التقني نحو فئة معينة بناءً على بيانات غير عادلة. - يحدث عندما تكون البيانات ناقصة. - يحدث عندما لا يمثل النظام التنوع الحقيقي للبشر.</p>
+<aside class="notes">
+<p>عرف المصطلح بشكل دقيق ومختصر.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="لماذا-نحتاج-للأخلاقيات" class="slide level2">
+<h2>لماذا نحتاج للأخلاقيات؟</h2>
+<p>التقنية بدون أخلاق قد تؤدي إلى: - التمييز بين الأشخاص. - نشر معلومات خاطئة. - انتهاك الخصوصية.</p>
+<aside class="notes">
+<p>أكد على أن الأخلاقيات هي “بوصلة” المهندس والمطور.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="جدول-أثر-التحيز-في-حياتنا" class="slide level2">
+<h2>جدول: أثر التحيز في حياتنا</h2>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">نوع البيانات</th>
-<th style="text-align: left;">المشكلة الشائعة</th>
-<th style="text-align: left;">أداة المعالجة</th>
+<th style="text-align: left;">المجال</th>
+<th style="text-align: left;">نوع التحيّز المحتمل</th>
+<th style="text-align: left;">الأثر على الفرد</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">عددية</td>
-<td style="text-align: left;">قيم شاذة (Outliers)</td>
-<td style="text-align: left;">التقييس (Scaling)</td>
+<td style="text-align: left;">التوظيف</td>
+<td style="text-align: left;">استبعاد المؤهلين</td>
+<td style="text-align: left;">فقدان الفرص</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">نصية</td>
-<td style="text-align: left;">تنسيقات غير موحدة</td>
-<td style="text-align: left;">الترميز (Encoding)</td>
+<td style="text-align: left;">التعليم</td>
+<td style="text-align: left;">تهميش مهارات معينة</td>
+<td style="text-align: left;">ضعف تطور الطالب</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">مفقودة</td>
-<td style="text-align: left;">فراغات (NaN)</td>
-<td style="text-align: left;">التعويض (Imputation)</td>
+<td style="text-align: left;">الصحة</td>
+<td style="text-align: left;">التشخيص الخاطئ</td>
+<td style="text-align: left;">تدهور الحالة الصحية</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>جدول توضيحي يساعد الطالب على الربط بين المشكلة وأداة الحل المناسبة.</p>
+<p>جدول توضيحي يوضح أن التكنولوجيا تؤثر في كل مفاصل الحياة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -503,14 +658,237 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="اختبار-معلوماتك" class="slide level2">
-<h2>اختبار معلوماتك! 🧠</h2>
-<p>أي من التالي يعتبر أفضل وسيلة للكشف البصري عن القيم الشاذة؟ - أ) المتوسط الحسابي. - ب) المخطط الصندوقي (Box Plot). - ج) التكرار.</p>
+<section id="كيف-نتجنب-التحيز" class="slide level2">
+<h2>كيف نتجنب التحيز؟</h2>
+<ul>
+<li class="fragment">تنويع البيانات (جمع معلومات من مصادر مختلفة).</li>
+<li class="fragment">الرقابة البشرية (لا نترك الآلة تقرر وحدها).</li>
+<li class="fragment">التدقيق الأخلاقي المستمر للنماذج.</li>
+</ul>
+<aside class="notes">
+<p>قدم الحلول العلمية والعملية للمشكلات التي طرحتها.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="المرحلة-الثالثة-التطبيق" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثالثة: التطبيق</h1>
+
+</section>
+<section id="نشاط-المجموعات-تحدي-التوظيف" class="slide level2">
+<h2>نشاط المجموعات: تحدي التوظيف</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>تخيل أنكم فريق من المبرمجين. - النظام يرفض المتقدمين من المدن البعيدة. - ناقشوا في مجموعات: هل هذا تحيز؟ - اقترحوا حلاً عادلاً.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://picsum.photos/seed/team/600/400.png"></p>
+<figcaption>Team</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>نشاط تفاعلي لحل المشكلات يطبق مفاهيم التحيز والعدالة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="تحليل-الحلول" class="slide level2">
+<h2>تحليل الحلول</h2>
+<ul>
+<li class="fragment">المجموعة الأولى: اقترحت إزالة شرط الموقع.</li>
+<li class="fragment">المجموعة الثانية: اقترحت إضافة معيار الكفاءة والخبرة.</li>
+<li class="fragment">النتيجة: كلما أضفنا “بشراً” في التقييم، زادت دقة النظام.</li>
+</ul>
+<aside class="notes">
+<p>شجع الطلاب على عرض أفكارهم ومناقشتها.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="ماذا-لو-تعلمت-الآلة-منك" class="slide level2">
+<h2>ماذا لو تعلمت الآلة منك؟</h2>
+<p>إذا كانت الآلة تتعلم من تصرفاتك: - هل ستتعلم الصدق؟ - هل ستتعلم التعاون؟ - الآلة مرآة لمجتمعها.</p>
+<aside class="notes">
+<p>فكرة فلسفية تعمق وعي الطالب بدوره كمتعلم ومؤثر في التقنية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="خطوات-بناء-نظام-عادل" class="slide level2">
+<h2>خطوات بناء نظام عادل</h2>
+<ul>
+<li class="fragment">التخطيط (ما هو الهدف؟).</li>
+<li class="fragment">التغذية (جمع بيانات متنوعة).</li>
+<li class="fragment">التدريب (تعليم الآلة).</li>
+<li class="fragment">الاختبار (التأكد من خلوه من التحيز).</li>
+</ul>
+<aside class="notes">
+<p>شرح مبسط لدورة حياة تطوير البرمجيات الأخلاقية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="جدول-خطوات-بناء-المشروع" class="slide level2">
+<h2>جدول: خطوات بناء المشروع</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">الخطوة</th>
+<th style="text-align: left;">الهدف منها</th>
+<th style="text-align: left;">الأداة المستخدمة</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">التخطيط</td>
+<td style="text-align: left;">تحديد المسار</td>
+<td style="text-align: left;">العقل البشري</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">الجمع</td>
+<td style="text-align: left;">تنويع البيانات</td>
+<td style="text-align: left;">قواعد البيانات</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">الاختبار</td>
+<td style="text-align: left;">فحص العدالة</td>
+<td style="text-align: left;">المراجعة البشرية</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>ملخص مريح للعين يسهل الحفظ.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="لماذا-نربط-هذا-بإرثنا" class="slide level2">
+<h2>لماذا نربط هذا بإرثنا؟</h2>
+<p>علماء العرب مثل <strong>الخوارزمي</strong> لم يبحثوا فقط في الأرقام، بل في تنظيم الحياة. الذكاء الاصطناعي هو امتداد لهذا الإرث العلمي العربي.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>نحن أهل الرياضيات، ونحن الأجدر بصناعة تقنية تحترم الإنسان.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://picsum.photos/seed/history/600/400.png"></p>
+<figcaption>History</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>زرع الفخر بالإنجاز العلمي العربي لتعزيز ثقة الطلاب بأنفسهم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="التفكير-النقدي-في-التقنية" class="slide level2">
+<h2>التفكير النقدي في التقنية</h2>
+<ul>
+<li class="fragment">لا تصدق كل ما تراه من الآلة.</li>
+<li class="fragment">اسأل دائماً: من أين أتت المعلومة؟</li>
+<li class="fragment">فكر في النتائج قبل التأييد.</li>
+</ul>
+<aside class="notes">
+<p>أعطهم نصائح عملية لاستخدام الذكاء الاصطناعي في حياتهم اليومية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="هل-الآلة-تعتذر-إعادة-النظر" class="slide level2">
+<h2>هل الآلة تعتذر؟ (إعادة النظر)</h2>
+<p>إذا أخطأت الآلة، المبرمج هو من يعتذر. <strong>الأخلاقيات</strong> تبدأ من الشخص، لا من الكود.</p>
+<aside class="notes">
+<p>خلاصة الدرس: المسؤولية تقع على البشر دائماً.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section id="اختبر-معلوماتك" class="title-slide slide level1 center">
+<h1>اختبر معلوماتك! 🧠</h1>
+<p>ما هو <strong>التحيز الآلي</strong>؟ - أ) ذكاء الآلة في حل المسائل الصعبة. - ب) انحياز النظام التقني بسبب بيانات غير عادلة. - ج) قدرة الآلة على التعلم بسرعة فائقة.</p>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) <strong>المخطط الصندوقي</strong>، لأنه يظهر بوضوح أي نقطة تخرج عن نطاق الربيعيات.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) انحياز النظام التقني بسبب بيانات غير عادلة، وهذا يظهر عندما تعيد الآلة إنتاج أخطاء البشر الماضية.</p>
 </div>
 <aside class="notes">
-<p>تأكد من إشراك الطلاب في الحل قبل ظهور الإجابة.</p>
+<p>اختبار سريع للتأكد من فهم الطلاب للمفهوم الأساسي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -522,23 +900,22 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
+</section>
+
 <section>
-<section id="المرحلة-الثانية-معالجة-البيانات-المفقودة" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثانية: معالجة البيانات المفقودة</h1>
+<section id="المرحلة-الرابعة-الخلاصة" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الرابعة: الخلاصة</h1>
 
 </section>
-<section id="استراتيجيات-التعامل-مع-الفراغات" class="slide level2">
-<h2>استراتيجيات التعامل مع الفراغات</h2>
-<p>ماذا تفعل إذا كان هناك “تمر” ناقص في الصندوق؟</p>
+<section id="ملخص-رحلتنا-اليوم" class="slide level2">
+<h2>ملخص رحلتنا اليوم</h2>
 <ul>
-<li class="fragment"><strong>الحذف</strong>: حذف الصف أو العمود (خطر إذا كانت البيانات كثيرة).</li>
-<li class="fragment"><strong>التعويض بالمتوسط (Mean Imputation)</strong>: إذا كانت البيانات متناظرة.</li>
-<li class="fragment"><strong>التعويض بالوسيط (Median Imputation)</strong>: إذا كان هناك قيم شاذة.</li>
-<li class="fragment"><strong>التعويض بالاستنباط (KNN Imputation)</strong>: استخدام الجيران الأقرب لتخمين القيمة.</li>
+<li class="fragment">الذكاء الاصطناعي أداة عظيمة تحتاج توجيهاً.</li>
+<li class="fragment">التحيز هو التحدي الأكبر للعدالة التقنية.</li>
+<li class="fragment">أنت كبشر، عنصر أساسي في تصميم مستقبل التقنية.</li>
 </ul>
 <aside class="notes">
-<p>استخدم مثال التمر لتقريب المفهوم، أكد أن اختيار الاستراتيجية يعتمد على طبيعة البيانات.</p>
+<p>خلاصة موجزة للدرس.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -551,54 +928,78 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="قوة-مكتبة-pandas-في-المعالجة" class="slide level2">
-<h2>قوة مكتبة Pandas في المعالجة</h2>
-<p>Pandas هي “المشرط” الذي نستخدمه في العمليات الجراحية للبيانات.</p>
+<section id="لماذا-نفخر-بالذكاء-الاصطناعي" class="slide level2">
+<h2>لماذا نفخر بالذكاء الاصطناعي؟</h2>
+<p>لأنه يفتح لنا آفاقاً جديدة: - في الطب (تشخيص دقيق). - في التعليم (معلم لكل طالب). - في حماية البيئة (إدارة الموارد).</p>
+<aside class="notes">
+<p>رغم وجود التحيز، لا ننسى الفوائد العظيمة للتقنية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="مهمتك-المنزلية" class="slide level2">
+<h2>مهمتك المنزلية</h2>
+<p>اشرح لأخيك الصغير: كيف يمكن للآلة أن تكون “ظالمة” إذا أعطيناها معلومات ناقصة؟ استخدم مثالاً من حياتك اليومية.</p>
+<aside class="notes">
+<p>التطبيق في المنزل يعمق الفهم (التعليم للغير).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="التقييم-الذاتي" class="slide level2">
+<h2>التقييم الذاتي</h2>
+<ul>
+<li class="fragment">هل أستطيع تعريف الذكاء الاصطناعي؟</li>
+<li class="fragment">هل عرفت الآن كيف يتسرب التحيز للأنظمة؟</li>
+<li class="fragment">هل أشعر بالثقة في نقاش هذه المواضيع؟</li>
+</ul>
+<aside class="notes">
+<p>اترك مساحة للطلاب لتقييم فهمهم الشخصي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="ختام-الرحلة" class="slide level2">
+<h2>ختام الرحلة</h2>
+<p>شكراً لمشاركتكم الفعالة. أنتم جيل المستقبل الذي سيبني ذكاءً اصطناعياً أخلاقياً يعكس قيمنا.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
-<ul>
-<li class="fragment"><code>df.isnull().sum()</code>: لمعرفة حجم الفراغات.</li>
-<li class="fragment"><code>df.fillna()</code>: لملء الفراغات بطريقة ذكية.</li>
-<li class="fragment"><code>df.dropna()</code>: لإزالة الصفوف التي لا يمكن إصلاحها.</li>
-</ul>
+<p>إلى لقاء في رحلة قادمة!</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://picsum.photos/seed/code/600/400.png"></p>
-<figcaption>code</figcaption>
+<p><img data-src="https://picsum.photos/seed/success/600/400.png"></p>
+<figcaption>Success</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>ركز على الدوال البرمجية الأكثر استخداماً في المشاريع الحقيقية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="القسم-الثاني-هندسة-الميزات-feature-engineering" class="title-slide slide level1 sdaia-dark center">
-<h1>القسم الثاني: هندسة الميزات (Feature Engineering)</h1>
-
-</section>
-<section id="تحويل-البيانات-إلى-أصول" class="slide level2">
-<h2>تحويل البيانات إلى أصول</h2>
-<p>هندسة الميزات هي فن صياغة البيانات لتصبح سهلة الفهم للآلة.</p>
-<ul>
-<li class="fragment"><strong>التحجيم (Scaling)</strong>: جعل القيم في نطاق واحد (0 إلى 1).</li>
-<li class="fragment"><strong>الترميز (Encoding)</strong>: تحويل الكلمات (مثل: ذكر، أنثى) إلى أرقام (0، 1).</li>
-<li class="fragment"><strong>الاشتقاق</strong>: إنشاء ميزة جديدة من ميزتين (مثل: مساحة البيت من الطول والعرض).</li>
-</ul>
-<aside class="notes">
-<p>أكد على أهمية هذه الخطوة في رفع دقة النماذج، فهي الفرق بين نموذج عادي ونموذج ممتاز.</p>
+<p>وداع تشجيعي للطلاب.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -611,327 +1012,11 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="جدول-أساليب-التحجيم" class="slide level2">
-<h2>جدول: أساليب التحجيم</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">الأسلوب</th>
-<th style="text-align: left;">المبدأ</th>
-<th style="text-align: left;">متى نستخدمه؟</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">StandardScalar</td>
-<td style="text-align: left;">المتوسط 0 والتباين 1</td>
-<td style="text-align: left;">التوزيع الطبيعي</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MinMaxScalar</td>
-<td style="text-align: left;">النطاق بين 0 و 1</td>
-<td style="text-align: left;">بيانات محددة النطاق</td>
-</tr>
-</tbody>
-</table>
+<section id="شكر-خاص" class="slide level2">
+<h2>شكر خاص</h2>
+<p>للعقول التي تسأل، وتفكر، وتطور. الذكاء الاصطناعي هو لغتكم، ومجالكم، وإرثكم.</p>
 <aside class="notes">
-<p>جدول مقارنة يساعد في اختيار الأسلوب البرمجي المناسب للبيانات.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="المرحلة-الثالثة-تقليل-الأبعاد-pca" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثالثة: تقليل الأبعاد (PCA)</h1>
-
-</section>
-<section id="لماذا-نقوم-بتقليل-الأبعاد" class="slide level2">
-<h2>لماذا نقوم بتقليل الأبعاد؟</h2>
-<p>إذا كان عندك 100 خريطة لنفس المنطقة، ألن يكون من الأفضل دمجها في خريطة واحدة شاملة؟</p>
-<ul>
-<li class="fragment"><strong>PCA (تحليل المكونات الرئيسية)</strong>: هي تقنية تحول المتغيرات الكثيرة إلى عدد أقل مع الحفاظ على أكبر قدر من المعلومات (التباين).</li>
-<li class="fragment"><strong>الفوائد</strong>: تسريع تدريب النموذج وتقليل التشويش (Noise).</li>
-</ul>
-<aside class="notes">
-<p>استخدم مثال الخرائط لتبسيط مفهوم PCA، فهو مثال ملموس جداً يربط المفهوم بالواقع.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="كيف-يعمل-pca-ببساطة" class="slide level2">
-<h2>كيف يعمل PCA؟ (ببساطة)</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ol type="1">
-<li class="fragment">نجد “الاتجاهات” التي تحتوي على أكبر تباين في البيانات.</li>
-<li class="fragment">نسقط البيانات على هذه الاتجاهات الجديدة.</li>
-<li class="fragment">نختار الاتجاهات الأكثر أهمية ونحذف البقية.</li>
-</ol>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://picsum.photos/seed/math/600/400.png"></p>
-<figcaption>math</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>اشرح العملية كعملية اختزال للمعلومات غير الضرورية، مع الاحتفاظ بجوهر البيانات.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="القسم-الثالث-التحدي-العملي" class="title-slide slide level1 sdaia-dark center">
-<h1>القسم الثالث: التحدي العملي</h1>
-
-</section>
-<section id="قواعد-التحدي-kaggle-style" class="slide level2">
-<h2>قواعد التحدي “Kaggle-Style”</h2>
-<p>الآن ننتقل للتطبيق العملي. لديكم مجموعة بيانات “ملوثة”.</p>
-<ul>
-<li class="fragment">العمل في فرق.</li>
-<li class="fragment">الهدف: تنظيف البيانات للوصول لأعلى دقة للنموذج.</li>
-<li class="fragment">المناقشة: يجب أن تشرح كل فرقة “لماذا” اختارت طريقة معينة للتعويض (Imputation) أو تقليل الأبعاد.</li>
-</ul>
-<aside class="notes">
-<p>هذه الشريحة تحفز الطلاب على التطبيق المباشر وتحويلهم من متلقين إلى ممارسين.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="جدول-خطوات-التحدي" class="slide level2">
-<h2>جدول: خطوات التحدي</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">المرحلة</th>
-<th style="text-align: left;">المطلوب</th>
-<th style="text-align: left;">المخرجات</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">استكشاف البيانات</td>
-<td style="text-align: left;">تقرير عن القيم المفقودة</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">المعالجة</td>
-<td style="text-align: left;">بيانات نظيفة وجاهزة</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">هندسة الميزات</td>
-<td style="text-align: left;">ميزات محسنة</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">تقليل الأبعاد</td>
-<td style="text-align: left;">نموذج مصغر وفعال</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>هيكل واضح للعمل الجماعي داخل الفصل.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="كيف-تشرح-لزميلك" class="slide level2">
-<h2>كيف تشرح لزميلك؟</h2>
-<p>تخيل أن زميلك يسأل: “لماذا قمت بحذف هذه البيانات بدل ملئها؟”</p>
-<ul>
-<li class="fragment">قل له: “حذفنا البيانات التي كانت نسبة الفراغ فيها تتجاوز 90% لأنها لا تقدم معلومات مفيدة وتضلل النموذج.”</li>
-<li class="fragment">دائماً اربط إجابتك بالمنطق وليس فقط بالكود.</li>
-</ul>
-<aside class="notes">
-<p>هذه الشريحة تطبق قاعدة “التعليم للغير”، وهي تزيد من رسوخ المعلومة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="المرحلة-الرابعة-الخلاصة-والتقييم" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الرابعة: الخلاصة والتقييم</h1>
-
-</section>
-<section id="المراجعة-الذهنية" class="slide level2">
-<h2>المراجعة الذهنية</h2>
-<ul>
-<li class="fragment">التنظيف (Clean) يسبق التحليل.</li>
-<li class="fragment">المعالجة (Impute) ليست عشوائية، بل قرار مبني على طبيعة البيانات.</li>
-<li class="fragment">تقليل الأبعاد (PCA) هو سر السرعة والكفاءة.</li>
-<li class="fragment">البيانات الملوثة = نتائج ملوثة.</li>
-</ul>
-<aside class="notes">
-<p>خلاصة سريعة لأهم نقاط الدرس لضمان خروج الطالب بأهم المفاهيم.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="اختبر-معلوماتك" class="slide level2">
-<h2>اختبر معلوماتك! 🧠</h2>
-<p>ماذا يحدث لنموذج الذكاء الاصطناعي إذا دربناه على بيانات بها قيم شاذة (Outliers) كثيرة؟ - أ) يصبح النموذج أسرع. - ب) ينحاز النموذج وتصبح توقعاته غير دقيقة. - ج) لا يتغير شيء.</p>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) <strong>ينحاز النموذج</strong>، لأن القيم الشاذة تعتبر “ضجيجاً” يغطي على النمط الحقيقي للبيانات.</p>
-</div>
-<aside class="notes">
-<p>سؤال ختامي للتأكد من استيعاب مخاطر البيانات غير النظيفة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="خريطة-الطريق-المستقبلية" class="slide level2">
-<h2>خريطة الطريق المستقبلية</h2>
-<ul>
-<li class="fragment">بعد درس اليوم، أنتم قادرون على التعامل مع تحديات البيانات الواقعية.</li>
-<li class="fragment">المرحلة القادمة: بناء النماذج التنبؤية (Predictive Modeling).</li>
-<li class="fragment">تذكروا: الخوارزمي وضع الأسس، وأنتم تبنون على هذا الإرث!</li>
-</ul>
-<aside class="notes">
-<p>تحفيز للطلاب وربطهم بالإرث العلمي العربي لتعزيز الثقة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="مراجعة-متباعدة-تذكير" class="slide level2">
-<h2>مراجعة متباعدة (تذكير)</h2>
-<ul>
-<li class="fragment">بعد ساعة: راجع الدوال البرمجية التي استخدمناها اليوم.</li>
-<li class="fragment">بعد يوم: طبق خطوات EDA على مجموعة بيانات جديدة من Kaggle.</li>
-<li class="fragment">بعد 3 أيام: جرب تقنية PCA على مشروعك الخاص.</li>
-<li class="fragment">بعد أسبوع: قارن دقة نموذجك قبل وبعد التنظيف.</li>
-</ul>
-<aside class="notes">
-<p>جدول زمني لضمان استمرار التعلم بعيداً عن القاعة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="لماذا-نحن-هنا" class="slide level2">
-<h2>لماذا نحن هنا؟</h2>
-<p>الذكاء الاصطناعي ليس مجرد معادلات، هو قدرة على فهم العالم من حولنا.</p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment">نحن نستخدم البيانات لنفهم (السوق، المناخ، الطب، التعليم).</li>
-<li class="fragment">كل خطوة قمت بها اليوم تجعل الآلة أكثر “ذكاءً” و”صدقاً” في نتائجها.</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://picsum.photos/seed/future/600/400.png"></p>
-<figcaption>future</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>رسالة إلهامية لربط التقنية بالأثر الإنساني.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="شكرا-لتميزكم" class="slide level2">
-<h2>شكراً لتميزكم!</h2>
-<p>هل لديكم أي أسئلة حول ما تعلمناه اليوم؟</p>
-<ul>
-<li class="fragment">تذكروا دائماً: السؤال هو أول خطوات المعرفة.</li>
-<li class="fragment">أنا هنا لدعمكم في رحلة احترافكم للذكاء الاصطناعي.</li>
-</ul>
-<aside class="notes">
-<p>ختام دافئ ومشجع يفتح المجال للحوار.</p>
+<p>كلمة أخيرة لتعزيز الثقة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
