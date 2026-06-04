@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دورة هندسة البيانات المتقدمة للمتخصصين - SDAIA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f0f4f8; margin: 0; padding: 0; color: #1C355E; }
+        header { background: linear-gradient(135deg, #1C355E, #00C9A7); color: white; padding: 4rem 1rem; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 1rem; }
+        h1 { margin: 0; font-size: 2.8rem; font-weight: 800; }
+        .section-title { margin: 3rem 0 2rem; color: #1C355E; text-align: center; font-size: 2.2rem; font-weight: 800; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
+        .card { background: white; border-radius: 24px; padding: 2.5rem; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eef2f7; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: #00C9A7; }
+        .card h3 { margin: 0 0 1rem 0; color: #1C355E; font-size: 1.5rem; font-weight: 800; }
+        .card p { margin: 0 0 2.5rem 0; font-size: 1rem; color: #546e7a; line-height: 1.6; flex-grow: 1; }
+        .badge { display: inline-block; padding: 6px 14px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.2rem; background: #e0f2f1; color: #00796b; width: fit-content; }
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn { flex: 1; min-width: 130px; text-align: center; padding: 14px 20px; border-radius: 15px; font-weight: 700; text-decoration: none; font-size: 0.95rem; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-slides { background: #1C355E; color: white; }
+        .btn-slides:hover { background: #2c5282; }
+        .btn-lab { background: #00C9A7; color: white; }
+        .btn-lab:hover { background: #00a88b; }
+        .footer { text-align: center; padding: 4rem 2rem; color: #94a3b8; font-size: 0.9rem; border-top: 1px solid #e2e8f0; margin-top: 4rem; }
+        img.logo { width: 140px; margin-bottom: 1.5rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://hanenalmayouf.github.io/Computer_vision_Arabic-/slides/slides_template/assets/sdaia.svg" alt="SDAIA" class="logo">
+        <h1>دورة هندسة البيانات المتقدمة للمتخصصين</h1>
+        <p>برنامج مكثف مصمم لمهندسي البرمجيات وخبراء الذكاء الاصطناعي لتغطية هندسة خطوط أنابيب البيانات، معالجة البيانات الضخمة، وهياكل قواعد البيانات الموزعة باستخدام أحدث التقنيات.</p>
+    </header>
+    
+    <div class="container">
+        <h2 class="section-title">خارطة الطريق التعليمية 🗺️</h2>
+        <div class="grid">
+
+            <div class="card">
+                <span class="badge">الأسبوع 1 - اليوم 1</span>
+                <h3>خطوط أنابيب البيانات (ETL/ELT) والنمذجة</h3>
+                <p>استكشاف معماري لأنظمة معالجة البيانات، والتحويل بين النماذج، والتركيز على مفاهيم الـ Data Warehousing مقابل Data Lakes.</p>
+                <div class="btn-group">
+                    <a href="/Content-creator-dashdoard/lessons/w1d1/docs/lesson.html" class="btn btn-slides" target="_blank">🎥 عرض المحاضرة</a>
+                    <a href="https://colab.research.google.com/github/hanenalmayouf/Content-creator-dashdoard/blob/main/lessons/w1d1/w1d1_lab.ipynb" class="btn btn-lab" target="_blank">🧪 المعمل</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="badge">الأسبوع 1 - اليوم 2</span>
+                <h3>تقنيات التوزيع والمعالجة المتوازية (Spark & Kafka)</h3>
+                <p>التعمق في معالجة البيانات الموزعة باستخدام Apache Spark وتدفق البيانات عبر Kafka، مع التركيز على تحسين أداء الكود (Query Optimization).</p>
+                <div class="btn-group">
+                    <a href="/Content-creator-dashdoard/lessons/w1d2/docs/lesson.html" class="btn btn-slides" target="_blank">🎥 عرض المحاضرة</a>
+                    <a href="https://colab.research.google.com/github/hanenalmayouf/Content-creator-dashdoard/blob/main/lessons/w1d2/w1d2_lab.ipynb" class="btn btn-lab" target="_blank">🧪 المعمل</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="badge">الأسبوع 1 - اليوم 3</span>
+                <h3>حوكمة البيانات والأمان في أنظمة الذكاء الاصطناعي</h3>
+                <p>مناقشة تحديات جودة البيانات، الأمان، والامتثال في خطوط إنتاج نماذج الذكاء الاصطناعي (MLOps Data Pipelines).</p>
+                <div class="btn-group">
+                    <a href="/Content-creator-dashdoard/lessons/w1d3/docs/lesson.html" class="btn btn-slides" target="_blank">🎥 عرض المحاضرة</a>
+                    <a href="https://colab.research.google.com/github/hanenalmayouf/Content-creator-dashdoard/blob/main/lessons/w1d3/w1d3_lab.ipynb" class="btn btn-lab" target="_blank">🧪 المعمل</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>تم التوليد بواسطة منصة المحتوى التفاعلي © SDAIA</p>
+    </div>
+</body>
+</html>
