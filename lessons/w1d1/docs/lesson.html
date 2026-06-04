@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>خطوط أنابيب البيانات (ETL/ELT) والنمذجة</title>
+  <title>أساسيات البيانات: لماذا نهتم؟</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -328,18 +328,23 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">خطوط أنابيب البيانات (ETL/ELT) والنمذجة</h1>
-  <p class="subtitle">استكشاف معماري لأنظمة معالجة البيانات، والتحويل بين النماذج، والتركيز على مفاهيم الـ Data Warehousing مقابل Data Lakes.</p>
+  <h1 class="title">أساسيات البيانات: لماذا نهتم؟</h1>
+  <p class="subtitle">مقدمة لمفهوم البيانات كعملة العصر الحالي وفهم الفرق بين البيانات الخام والمعلومات القيمة باستخدام أمثلة من الحياة اليومية.</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="خطوط-أنابيب-البيانات-etlelt-والنمذجة" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>خطوط أنابيب البيانات (ETL/ELT) والنمذجة</h1>
-<p>دورة هندسة البيانات المتقدمة للمتخصصين.</p>
+<section id="أساسيات-البيانات-لماذا-نهتم" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>أساسيات البيانات: لماذا نهتم؟</h1>
+<p>أهلاً بكم في رحلة استكشاف عالم البيانات.</p>
+<ul>
+<li class="fragment">سنتعرف اليوم على القوة الخفية التي تحرك عالمنا الرقمي.</li>
+<li class="fragment">لن نتحدث بلغة معقدة، بل سنربط المفاهيم بواقعنا اليومي.</li>
+<li class="fragment">كونوا مستعدين للمشاركة الفعالة.</li>
+</ul>
 <aside class="notes">
-<p>رحب بالمشاركين وأكد على أهمية فهم تدفق البيانات كعصب رئيسي لأي نظام ذكاء اصطناعي أو تحليل بيانات.</p>
+<p>رحب بالجمهور وأكد على أن الدورة مصممة لغير المتخصصين بأسلوب مبسط وتفاعلي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -356,13 +361,13 @@
 <section id="الأهداف-التعليمية-للدرس" class="title-slide slide level1 center">
 <h1>الأهداف التعليمية للدرس</h1>
 <ul>
-<li class="fragment">فهم معماريات <strong>Lambda</strong> و <strong>Kappa</strong> في معالجة البيانات.</li>
-<li class="fragment">المقارنة الدقيقة بين <strong>Data Warehousing</strong> و <strong>Data Lakes</strong>.</li>
-<li class="fragment">تصميم مخططات قواعد بيانات قابلة للتوسع (<strong>Scalable Schemas</strong>).</li>
-<li class="fragment">تقييم كفاءة عمليات التحويل بين <strong>Batch</strong> و <strong>Stream</strong>.</li>
+<li class="fragment">تعريف <strong>هندسة البيانات</strong> كعملية منظمة لاستخراج القيمة.</li>
+<li class="fragment">فهم الفرق الجوهري بين <strong>البيانات الخام</strong> و <strong>المعلومات</strong>.</li>
+<li class="fragment">التمييز بين <strong>البيانات المنظمة</strong> و <strong>البيانات غير المنظمة</strong>.</li>
+<li class="fragment">إدراك الدور الحيوي للبيانات في اتخاذ القرارات اليومية.</li>
 </ul>
 <aside class="notes">
-<p>استعرض الأهداف بوضوح واطلب من الحضور تحديد هدفهم الشخصي من الجلسة.</p>
+<p>استعرض الأهداف بوضوح لضمان تركيز الحضور على مخرجات التعلم الأساسية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -378,31 +383,14 @@
 
 <section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center">
 <h1>المرحلة الأولى: التهيئة والجذب</h1>
-<aside class="notes">
-<p>ابدأ بكسر الجمود من خلال طرح تساؤل حول كيفية انتقال البيانات من المصدر إلى لوحة التحكم.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="التحدي-الاستهلالي-معضلة-البيانات-الضخمة" class="title-slide slide level1 center">
-<h1>التحدي الاستهلالي: معضلة البيانات الضخمة</h1>
-<p>تخيل شركة تجارة إلكترونية تستقبل ملايين العمليات يومياً.</p>
+<p>لنبدأ بالتفكير: كيف تعمل التطبيقات التي نستخدمها يومياً؟</p>
 <ul>
-<li class="fragment">التحدي: كيف نضمن سرعة التقرير وتكامل البيانات؟</li>
-<li class="fragment">السؤال: هل نستخدم معالجة فورية أم ننتظر نهاية اليوم؟</li>
-<li class="fragment">الهدف: موازنة الكلفة مقابل السرعة.</li>
+<li class="fragment">هل فكرت يوماً كيف تعرف خرائط جوجل الطرق المزدحمة؟</li>
+<li class="fragment">كيف يقترح عليك تطبيق “نتفليكس” فيلماً تحبه؟</li>
+<li class="fragment">كل ذلك يعتمد على شيء واحد: البيانات.</li>
 </ul>
 <aside class="notes">
-<p>لا تعطِ الإجابة، اترك المجال للمشاركين للتفكير في التحدي التجاري.</p>
+<p>استخدم هذه الشريحة لكسر الجمود وتحفيز التفكير النقدي حول الأمثلة الحياتية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -416,133 +404,26 @@
       }</style></aside>
 </section>
 
-<section id="ما-هي-هندسة-البيانات" class="title-slide slide level1 center">
-<h1>ما هي هندسة البيانات؟</h1>
-<p>هي العملية الفنية التي تتضمن:</p>
-<ul>
-<li class="fragment"><strong>الاستخراج (Extraction)</strong>: سحب البيانات من مصادرها.</li>
-<li class="fragment"><strong>التحويل (Transformation)</strong>: تنظيف البيانات وتغيير تنسيقها.</li>
-<li class="fragment"><strong>التحميل (Loading)</strong>: تخزين البيانات في الوجهة النهائية.</li>
-</ul>
-<aside class="notes">
-<p>ركز على أن الهندسة ليست مجرد كود، بل هي بنية تحتية متكاملة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="المقارنة-بين-الأنظمة-لمحة-سريعة" class="title-slide slide level1 center">
-<h1>المقارنة بين الأنظمة: لمحة سريعة</h1>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">وجه المقارنة</th>
-<th style="text-align: left;">ETL</th>
-<th style="text-align: left;">ELT</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">مكان التحويل</td>
-<td style="text-align: left;">خادم وسيط</td>
-<td style="text-align: left;">مستودع البيانات</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">السرعة</td>
-<td style="text-align: left;">أبطأ نسبياً</td>
-<td style="text-align: left;">أسرع للمصادر الضخمة</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">المرونة</td>
-<td style="text-align: left;">محدودة</td>
-<td style="text-align: left;">عالية جداً</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>اشرح لماذا انتقلت التكنولوجيا الحديثة نحو ELT بفضل قوة الحوسبة السحابية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="المرحلة-الثانية-المفاهيم" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثانية: المفاهيم</h1>
-<aside class="notes">
-<p>انتقل الآن إلى صلب الموضوع التقني.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="العمارة-المزدوجة-lambda-architecture" class="title-slide slide level1 center">
-<h1>العمارة المزدوجة: Lambda Architecture</h1>
-<p>تتكون من ثلاثة مسارات:</p>
-<ul>
-<li class="fragment"><strong>Batch Layer</strong>: معالجة مجموعات البيانات الضخمة (تاريخية).</li>
-<li class="fragment"><strong>Speed Layer</strong>: معالجة البيانات اللحظية (Stream).</li>
-<li class="fragment"><strong>Serving Layer</strong>: توحيد المخرجات لعرضها للمستخدم.</li>
-</ul>
-<aside class="notes">
-<p>تأكد من شرح سبب وجود هذا التعقيد (دقة البيانات التاريخية + سرعة النتائج اللحظية).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="العمارة-الموحدة-kappa-architecture" class="title-slide slide level1 center">
-<h1>العمارة الموحدة: Kappa Architecture</h1>
+<section id="البيانات-كعملة-العصر" class="title-slide slide level1 center">
+<h1>البيانات كعملة العصر</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li class="fragment">تعتمد كلياً على <strong>Stream Processing</strong>.</li>
-<li class="fragment">تعتبر كل البيانات “تدفقاً” (Stream).</li>
-<li class="fragment">تلغي الحاجة لمسارين منفصلين.</li>
-<li class="fragment">تبسيط في الصيانة ولكن تتطلب معالجة فورية قوية.</li>
+<li class="fragment">في الماضي كان النفط هو الثروة الحقيقية.</li>
+<li class="fragment">اليوم، <strong>البيانات (Data)</strong> هي الوقود الذي يحرك الشركات والابتكارات.</li>
+<li class="fragment">البيانات وحدها لا قيمة لها ما لم يتم معالجتها.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/flow?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Flow</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/Currency?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>Currency</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>وضح أن Kappa هي الأحدث وهي المفضلة في بيئات الأنظمة الموزعة مثل Kafka.</p>
+<p>شبه البيانات بالوقود الخام الذي يحتاج إلى تكرير ليصبح مفيداً.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -556,14 +437,16 @@
       }</style></aside>
 </section>
 
-<section id="مستودع-البيانات-مقابل-بحيرة-البيانات" class="title-slide slide level1 center">
-<h1>مستودع البيانات مقابل بحيرة البيانات</h1>
+<section id="استطلاع-تفاعلي-mentimeter" class="title-slide slide level1 center">
+<h1>استطلاع تفاعلي: Mentimeter</h1>
 <ul>
-<li class="fragment"><strong>Data Warehouse</strong>: بيانات مهيكلة، منظمة، ومعدة للتقارير (SQL-based).</li>
-<li class="fragment"><strong>Data Lake</strong>: مستودع لكل أنواع البيانات الخام (Raw Data)، مهيكلة وغير مهيكلة.</li>
+<li class="fragment">دعونا نفتح هواتفنا الآن.</li>
+<li class="fragment">ما هو أكثر تطبيق تستخدمه ويطلب بياناتك؟</li>
+<li class="fragment">شاركوا في الاستطلاع التفاعلي عبر الرابط المعروض على الشاشة.</li>
+<li class="fragment">سنناقش النتائج معاً لنرى الأنماط الشائعة.</li>
 </ul>
 <aside class="notes">
-<p>استخدم استعارة: المستودع كالمكتبة المنظمة، والبحيرة كخزان عملاق لكل شيء.</p>
+<p>قم بتفعيل رابط Mentimeter مسبقاً لعرض النتائج لحظياً أمام الطلاب لتعزيز التفاعل.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -577,36 +460,59 @@
       }</style></aside>
 </section>
 
-<section id="جدول-المقارنة-التقنية" class="title-slide slide level1 center">
-<h1>جدول المقارنة التقنية</h1>
+<section id="لماذا-نهتم-بالبيانات" class="title-slide slide level1 center">
+<h1>لماذا نهتم بالبيانات؟</h1>
+<ul>
+<li class="fragment"><strong>تحسين القرارات</strong>: تساعدنا على فهم الماضي والتنبؤ بالمستقبل.</li>
+<li class="fragment"><strong>تخصيص التجربة</strong>: تجعل الخدمات تفهم احتياجاتك الخاصة.</li>
+<li class="fragment"><strong>الابتكار</strong>: تفتح الباب لاختراعات لم نكن نتخيلها.</li>
+<li class="fragment"><strong>الكفاءة</strong>: توفر الوقت والجهد في المهام الروتينية.</li>
+</ul>
+<aside class="notes">
+<p>أكد على أهمية البيانات كأداة وليس مجرد أرقام صماء.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="جدول-مقارنة-الحياة-قبل-وبعد-البيانات" class="title-slide slide level1 center">
+<h1>جدول مقارنة: الحياة قبل وبعد البيانات</h1>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">الميزة</th>
-<th style="text-align: left;">Data Warehouse</th>
-<th style="text-align: left;">Data Lake</th>
+<th style="text-align: left;">المجال</th>
+<th style="text-align: left;">قبل الاعتماد على البيانات</th>
+<th style="text-align: left;">بعد الاعتماد على البيانات</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">هيكل البيانات</td>
-<td style="text-align: left;">مخطط مسبق</td>
-<td style="text-align: left;">لا يوجد (Schema-on-read)</td>
+<td style="text-align: left;">التسوق</td>
+<td style="text-align: left;">الذهاب للمحل للسؤال</td>
+<td style="text-align: left;">مقترحات ذكية حسب رغبتك</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">التكلفة</td>
-<td style="text-align: left;">مرتفعة</td>
-<td style="text-align: left;">منخفضة</td>
+<td style="text-align: left;">السفر</td>
+<td style="text-align: left;">استخدام الخرائط الورقية</td>
+<td style="text-align: left;">توقيت دقيق للوصول</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">المستخدم</td>
-<td style="text-align: left;">محلل الأعمال</td>
-<td style="text-align: left;">عالم البيانات</td>
+<td style="text-align: left;">الصحة</td>
+<td style="text-align: left;">التشخيص التخميني</td>
+<td style="text-align: left;">التشخيص المعتمد على التاريخ</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>شدد على أن الاختيار يعتمد على نوع التحليل المطلوب.</p>
+<p>الجدول يساعد الطلاب على ربط المفهوم النظري بالتغيير الحقيقي في نمط الحياة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -620,15 +526,16 @@
       }</style></aside>
 </section>
 
-<section id="تصميم-مخططات-قاعدة-البيانات-القابلة-للتوسع" class="title-slide slide level1 center">
-<h1>تصميم مخططات قاعدة البيانات القابلة للتوسع</h1>
+<section id="المرحلة-الثانية-المفاهيم-الأساسية" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثانية: المفاهيم الأساسية</h1>
+<p>دعونا نغوص في التعريفات الأساسية بأسلوب مبسط.</p>
 <ul>
-<li class="fragment"><strong>Normalization</strong>: تقليل التكرار.</li>
-<li class="fragment"><strong>Partitioning</strong>: تقسيم الجداول لزيادة سرعة الاستعلام.</li>
-<li class="fragment"><strong>Indexing</strong>: الفهرسة الذكية للبيانات الأكثر استخداماً.</li>
+<li class="fragment">ما هي البيانات أصلاً؟</li>
+<li class="fragment">الفرق بين الخام والمعلومات.</li>
+<li class="fragment">أنواع البيانات التي نتعامل معها.</li>
 </ul>
 <aside class="notes">
-<p>ركز على أهمية الـ Partitioning في قواعد البيانات الضخمة.</p>
+<p>الانتقال إلى الجانب التعليمي الأساسي للمحاضرة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -642,33 +549,15 @@
       }</style></aside>
 </section>
 
-<section id="المرحلة-الثالثة-تطبيق" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثالثة: تطبيق</h1>
-<aside class="notes">
-<p>حان وقت العمل الجماعي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="تحدي-معمارية-البيانات-الأمثل" class="title-slide slide level1 center">
-<h1>تحدي: معمارية البيانات الأمثل</h1>
-<p>السيناريو: بنك يحتاج لتحليل كشف الحساب لحظياً لمنع الاحتيال، مع تقارير شهرية للعملاء.</p>
+<section id="تعريف-هندسة-البيانات" class="title-slide slide level1 center">
+<h1>تعريف هندسة البيانات</h1>
 <ul>
-<li class="fragment">انقسموا إلى مجموعات.</li>
-<li class="fragment">ارسموا المسار الأمثل (Lambda vs Kappa).</li>
-<li class="fragment">حددوا الأدوات المطلوبة.</li>
+<li class="fragment"><strong>هندسة البيانات (Data Engineering)</strong>: هي عملية بناء الأنظمة التي تجمع، تخزن، وتعالج البيانات.</li>
+<li class="fragment">تخيلها كبناء “نظام سباكة” للمياه، لكن بدلاً من الماء، نحن ننقل المعلومات لتصل إلى حيث يجب أن تكون.</li>
+<li class="fragment">لا يمكن للذكاء الاصطناعي العمل بدون مهندس بيانات يوفر له الغذاء (البيانات).</li>
 </ul>
 <aside class="notes">
-<p>راقب المجموعات وتفاعل معهم في الوقت الفعلي.</p>
+<p>استخدم تشبيه السباكة لتقريب المفهوم لغير المختصين.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -682,49 +571,26 @@
       }</style></aside>
 </section>
 
-<section id="معايير-اختيار-العمارة" class="title-slide slide level1 center">
-<h1>معايير اختيار العمارة</h1>
-<ul>
-<li class="fragment">حجم البيانات المتدفق يومياً.</li>
-<li class="fragment">ميزانية التخزين المتاحة.</li>
-<li class="fragment">مستوى التسامح مع الخطأ (Fault Tolerance).</li>
-<li class="fragment">الحاجة للنتائج الفورية (Latency).</li>
-</ul>
-<aside class="notes">
-<p>قدم هذه المعايير لتساعدهم في حل التحدي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="ورشة-العمل-رسم-المسار" class="title-slide slide level1 center">
-<h1>ورشة العمل: رسم المسار</h1>
+<section id="البيانات-الخام-مقابل-المعلومات" class="title-slide slide level1 center">
+<h1>البيانات الخام مقابل المعلومات</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li class="fragment">حددوا المصادر (Sources).</li>
-<li class="fragment">حددوا التحويلات (Transformations).</li>
-<li class="fragment">حددوا الوجهة (Warehouse/Lake).</li>
+<li class="fragment"><strong>البيانات الخام (Raw Data)</strong>: حقائق وأرقام غير معالجة (مثل: درجة حرارة 35).</li>
+<li class="fragment"><strong>المعلومات (Information)</strong>: بيانات تم معالجتها لتصبح مفيدة (مثل: الجو حار، ارتدِ ملابس خفيفة).</li>
+<li class="fragment">الفرق هو “السياق” أو “الهدف”.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/architecture?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Architecture</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/Information?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>Information</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>شجع المشاركين على استخدام الأوراق أو الأدوات الرقمية لرسم مخططاتهم.</p>
+<p>ركز على أن القيمة تكمن في المعلومات الناتجة عن المعالجة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -738,14 +604,15 @@
       }</style></aside>
 </section>
 
-<section id="استراتيجيات-التحويل-batch-vs-stream" class="title-slide slide level1 center">
-<h1>استراتيجيات التحويل: Batch vs Stream</h1>
+<section id="البيانات-المنظمة-مقابل-غير-المنظمة" class="title-slide slide level1 center">
+<h1>البيانات المنظمة مقابل غير المنظمة</h1>
 <ul>
-<li class="fragment"><strong>Batch</strong>: كفاءة عالية، تكلفة أقل، تأخير في الزمن.</li>
-<li class="fragment"><strong>Stream</strong>: سرعة فائقة، استهلاك عالي للموارد، معالجة فورية.</li>
+<li class="fragment"><strong>البيانات المنظمة (Structured Data)</strong>: بيانات مرتبة في جداول وأعمدة (مثل قواعد بيانات البنوك).</li>
+<li class="fragment"><strong>البيانات غير المنظمة (Unstructured Data)</strong>: بيانات ليس لها تنسيق ثابت (مثل الصور، الفيديوهات، التغريدات).</li>
+<li class="fragment">التحدي الأكبر يكمن في التعامل مع البيانات غير المنظمة وتحويلها لنظام مفيد.</li>
 </ul>
 <aside class="notes">
-<p>طرح سؤال: متى نختار Batch على Stream؟ (الإجابة: عندما لا نحتاج سرعة فورية ونريد توفير الموارد).</p>
+<p>شرح بسيط للفرق الجوهري في كيفية تخزين وتصنيف البيانات.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -759,15 +626,36 @@
       }</style></aside>
 </section>
 
-<section id="تقييم-كفاءة-خطوط-الأنابيب" class="title-slide slide level1 center">
-<h1>تقييم كفاءة خطوط الأنابيب</h1>
-<ul>
-<li class="fragment">مراقبة الـ <strong>Latency</strong> (زمن الوصول).</li>
-<li class="fragment">مراقبة الـ <strong>Throughput</strong> (كمية البيانات المعالجة).</li>
-<li class="fragment">استخدام أدوات المراقبة اللحظية.</li>
-</ul>
+<section id="جدول-تصنيف-البيانات" class="title-slide slide level1 center">
+<h1>جدول تصنيف البيانات</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">النوع</th>
+<th style="text-align: left;">مثال</th>
+<th style="text-align: left;">قابل للبحث بسهولة؟</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">منظم</td>
+<td style="text-align: left;">جدول إكسل للموظفين</td>
+<td style="text-align: left;">نعم</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">غير منظم</td>
+<td style="text-align: left;">صورة شخصية</td>
+<td style="text-align: left;">لا، إلا بمعالجة متقدمة</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">شبه منظم</td>
+<td style="text-align: left;">ملف JSON أو XML</td>
+<td style="text-align: left;">نعم، جزئياً</td>
+</tr>
+</tbody>
+</table>
 <aside class="notes">
-<p>استخدم أدوات مثل Prometheus أو Grafana كأمثلة عملية.</p>
+<p>الجدول يوضح الفوارق التقنية في التعامل مع كل نوع.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -783,33 +671,17 @@
 
 <section id="اختبر-معلوماتك" class="title-slide slide level1 center">
 <h1>اختبر معلوماتك! 🧠</h1>
-<p>ما الفرق الأساسي بين Lambda و Kappa؟</p>
+<p>ما هي البيانات التي تعتبر “غير منظمة”؟</p>
 <ul>
-<li class="fragment">أ) Lambda تستخدم التخزين فقط، Kappa تستخدم الذاكرة.</li>
-<li class="fragment">ب) Lambda تعتمد مسارين، بينما Kappa تعتبر كل شيء تدفقاً.</li>
-<li class="fragment">ج) لا يوجد فرق تقني.</li>
+<li class="fragment">أ) جدول بأسماء الطلاب ودرجاتهم</li>
+<li class="fragment">ب) مقطع فيديو على يوتيوب</li>
+<li class="fragment">ج) قائمة بمشتريات السوبر ماركت</li>
 </ul>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب، لأن Kappa تبسط المعمارية بدمج المسارين في مسار تدفق واحد.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) مقطع الفيديو، لأنه لا يمتلك هيكلاً جدولياً جاهزاً للبحث.</p>
 </div>
-</section>
-
-<section id="لماذا-نستخدم-elt-بدلا-من-etl-في-السحابة" class="title-slide slide level1 center">
-<h1>لماذا نستخدم ELT بدلاً من ETL في السحابة؟</h1>
-<ul>
-<li class="fragment">أ) لأن السحابة توفر طاقة معالجة هائلة للمستودعات.</li>
-<li class="fragment">ب) لأن ETL غير مدعوم في السحابة.</li>
-<li class="fragment">ج) لأن السحابة تمنع التحويل قبل التحميل.</li>
-</ul>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> أ، القوة الحوسبية العالية للمستودعات الحديثة جعلت تحويل البيانات داخل المستودع خياراً أسرع.</p>
-</div>
-</section>
-
-<section id="المرحلة-الرابعة-خلاصة" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الرابعة: خلاصة</h1>
 <aside class="notes">
-<p>وصلنا لنهاية الدرس، لنلخص ما تعلمناه.</p>
+<p>شجع الطلاب على المشاركة وتوضيح سبب اختيارهم.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -823,14 +695,16 @@
       }</style></aside>
 </section>
 
-<section id="ملخص-الـ-etlelt" class="title-slide slide level1 center">
-<h1>ملخص الـ ETL/ELT</h1>
+<section id="المرحلة-الثالثة-التطبيق-العملي" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثالثة: التطبيق العملي</h1>
+<p>حان وقت تحويل الكلام النظري إلى ممارسة.</p>
 <ul>
-<li class="fragment"><strong>ETL</strong>: التحويل قبل التحميل، أقدم وأكثر صرامة.</li>
-<li class="fragment"><strong>ELT</strong>: التحميل ثم التحويل، أسرع وأكثر مرونة للبيانات الضخمة.</li>
+<li class="fragment">ورشة عمل جماعية.</li>
+<li class="fragment">تحليل سيناريوهات حقيقية.</li>
+<li class="fragment">فهم التحديات التقنية.</li>
 </ul>
 <aside class="notes">
-<p>أكد على ضرورة معرفة متى تستخدم كلاً منهما.</p>
+<p>بداية النشاط التفاعلي لكسر الحاجز بين الطالب والمادة العلمية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -844,14 +718,16 @@
       }</style></aside>
 </section>
 
-<section id="ملخص-العمارة-المتقدمة" class="title-slide slide level1 center">
-<h1>ملخص العمارة المتقدمة</h1>
+<section id="نشاط-المجموعات-تصنيف-البيانات" class="title-slide slide level1 center">
+<h1>نشاط المجموعات: تصنيف البيانات</h1>
 <ul>
-<li class="fragment"><strong>Lambda</strong>: التوازن بين الدقة (Batch) والسرعة (Speed).</li>
-<li class="fragment"><strong>Kappa</strong>: التبسيط والسرعة (Stream).</li>
+<li class="fragment">سنقوم بتقسيمكم إلى مجموعات.</li>
+<li class="fragment">كل مجموعة ستحصل على بطاقات تحتوي على أنواع بيانات مختلفة.</li>
+<li class="fragment">المهمة: فرز البطاقات إلى “منظمة” أو “غير منظمة”.</li>
+<li class="fragment">الوقت المتاح: 5 دقائق فقط.</li>
 </ul>
 <aside class="notes">
-<p>لا توجد إجابة واحدة صحيحة، يعتمد الاختيار على حالة الاستخدام (Use Case).</p>
+<p>التعلم التشاركي يعزز ترسيخ المعلومة من خلال الممارسة العملية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -865,39 +741,26 @@
       }</style></aside>
 </section>
 
-<section id="التقييم-التكويني-ماذا-لو" class="title-slide slide level1 center">
-<h1>التقييم التكويني: ماذا لو؟</h1>
-<p>ماذا يحدث لو تعطل الـ Speed Layer في معمارية Lambda؟</p>
-<ul>
-<li class="fragment">أ) يتوقف النظام بالكامل.</li>
-<li class="fragment">ب) يستمر النظام في العمل بناءً على بيانات الـ Batch ولكن بدون تحديثات لحظية.</li>
-<li class="fragment">ج) تُحذف البيانات تلقائياً.</li>
-</ul>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب، هذه ميزة Lambda؛ فهي تضمن استمرارية الخدمة مع فقدان جزئي للسرعة.</p>
-</div>
-</section>
-
-<section id="كيف-تختار-القاعدة-المناسبة" class="title-slide slide level1 center">
-<h1>كيف تختار القاعدة المناسبة؟</h1>
+<section id="أمثلة-من-حياتنا-1" class="title-slide slide level1 center">
+<h1>أمثلة من حياتنا (1)</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li class="fragment">تقييم تنوع البيانات.</li>
-<li class="fragment">تقييم سرعة الاستعلام.</li>
-<li class="fragment">تقييم مهارات الفريق التقني.</li>
+<li class="fragment">هل صورة “السيلفي” التي التقطتها بيانات؟</li>
+<li class="fragment">نعم! هي بيانات بصرية.</li>
+<li class="fragment">تحتوي على معلومات تقنية: الموقع، الوقت، ونوع الكاميرا.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/database?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Database</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/Camera?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>Camera</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>تذكر أن اختيار التكنولوجيا هو قرار تجاري بقدر ما هو تقني.</p>
+<p>توضيح أن كل شيء نفعله رقمياً يترك أثراً من البيانات.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -911,15 +774,16 @@
       }</style></aside>
 </section>
 
-<section id="مراجعة-مصطلحات-أساسية" class="title-slide slide level1 center">
-<h1>مراجعة: مصطلحات أساسية</h1>
+<section id="أمثلة-من-حياتنا-2" class="title-slide slide level1 center">
+<h1>أمثلة من حياتنا (2)</h1>
 <ul>
-<li class="fragment"><strong>Latency</strong>: التأخير في معالجة البيانات.</li>
-<li class="fragment"><strong>Scalability</strong>: القدرة على التوسع مع زيادة حجم البيانات.</li>
-<li class="fragment"><strong>Schema-on-read</strong>: تحديد الهيكل عند الاستعلام وليس عند التخزين.</li>
+<li class="fragment">سجلات مكالماتك الهاتفية.</li>
+<li class="fragment">عدد الخطوات التي مشيتها اليوم (ساعة ذكية).</li>
+<li class="fragment">رسائل الواتساب التي ترسلها.</li>
+<li class="fragment">كل هذا يُخزن ويُحلل لتقديم خدمة أفضل لك.</li>
 </ul>
 <aside class="notes">
-<p>اطلب من المشاركين استخدام هذه المصطلحات في جمل مفيدة.</p>
+<p>التأكيد على أن البيانات ليست في الخوادم الكبيرة فقط بل في أيدينا.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -933,15 +797,16 @@
       }</style></aside>
 </section>
 
-<section id="خطوات-قادمة-للمهندس-المحترف" class="title-slide slide level1 center">
-<h1>خطوات قادمة للمهندس المحترف</h1>
+<section id="تحدي-ماذا-لو-اختفت-البيانات" class="title-slide slide level1 center">
+<h1>تحدي: ماذا لو اختفت البيانات؟</h1>
 <ul>
-<li class="fragment">تعلم أدوات الـ Orchestration مثل <strong>Airflow</strong>.</li>
-<li class="fragment">ممارسة التعامل مع <strong>Kafka</strong> أو <strong>Kinesis</strong>.</li>
-<li class="fragment">التوسع في فهم الـ <strong>Data Mesh</strong>.</li>
+<li class="fragment">تخيل أن كل سجلات البنك اختفت فجأة.</li>
+<li class="fragment">تخيل أن نظام الملاحة في الطائرات تعطل.</li>
+<li class="fragment">ناقشوا في مجموعاتكم: ما هي أكثر القطاعات تأثراً ولماذا؟</li>
+<li class="fragment">التفكير النقدي هنا هو الهدف الأساسي.</li>
 </ul>
 <aside class="notes">
-<p>شجعهم على الاستمرار في التعلم العملي.</p>
+<p>هذا النشاط يعزز إدراك “الأهمية الاستراتيجية” للبيانات.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -955,39 +820,252 @@
       }</style></aside>
 </section>
 
-<section id="مسابقة-ختامية-أي-خيار-هو-الأفضل" class="title-slide slide level1 center">
-<h1>مسابقة ختامية: أي خيار هو الأفضل؟</h1>
-<p>إذا كان لدي بيانات خام ضخمة غير منظمة، أين أضعها أولاً؟</p>
+<section id="كيف-نعالج-البيانات-دورة-حياة" class="title-slide slide level1 center">
+<h1>كيف نعالج البيانات؟ (دورة حياة)</h1>
+<ol type="1">
+<li class="fragment">الجمع (الاستحواذ).</li>
+<li class="fragment">التخزين (الحفظ).</li>
+<li class="fragment">المعالجة (التنظيف والتحليل).</li>
+<li class="fragment">العرض (التقارير).</li>
+</ol>
+<aside class="notes">
+<p>شرح مبسط لدورة حياة البيانات التي يقوم بها مهندسو البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="جدول-مراحل-معالجة-البيانات" class="title-slide slide level1 center">
+<h1>جدول مراحل معالجة البيانات</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">المرحلة</th>
+<th style="text-align: left;">الوصف المبسط</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">التجميع</td>
+<td style="text-align: left;">جمع البيانات من المصادر</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">التنظيف</td>
+<td style="text-align: left;">إزالة الأخطاء والتكرار</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">التخزين</td>
+<td style="text-align: left;">حفظها في مكان آمن</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">التحليل</td>
+<td style="text-align: left;">استخراج الفوائد منها</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>جدول يلخص العملية برمتها لتسهيل الحفظ.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="اختبر-معلوماتك-1" class="title-slide slide level1 center">
+<h1>اختبر معلوماتك! 🧠</h1>
+<p>ما هي الخطوة التي تلي جمع البيانات مباشرة؟</p>
 <ul>
-<li class="fragment">أ) Data Warehouse.</li>
-<li class="fragment">ب) Data Lake.</li>
-<li class="fragment">ج) Transactional Database.</li>
+<li class="fragment">أ) عرض البيانات في تقرير</li>
+<li class="fragment">ب) تخزين البيانات</li>
+<li class="fragment">ج) التنبؤ بالمستقبل</li>
 </ul>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب، Data Lake هي الأنسب للبيانات غير المنظمة.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) تخزين البيانات، لضمان حفظها قبل المعالجة.</p>
 </div>
+<aside class="notes">
+<p>تأكد من استيعاب الطلاب للتسلسل المنطقي لدورة حياة البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
-<section id="التفكير-التحليلي-تحدي-السرعة" class="title-slide slide level1 center">
-<h1>التفكير التحليلي: تحدي السرعة</h1>
+<section id="المرحلة-الرابعة-الخلاصة-والختام" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الرابعة: الخلاصة والختام</h1>
+<p>وصلنا إلى نهاية رحلتنا اليوم.</p>
+<ul>
+<li class="fragment">مراجعة سريعة لما تعلمناه.</li>
+<li class="fragment">إجابة على التساؤلات.</li>
+<li class="fragment">خارطة طريق للتعلم المستمر.</li>
+</ul>
+<aside class="notes">
+<p>خاتمة الدرس لتثبيت المعلومات الأساسية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="ماذا-تعلمنا-اليوم" class="title-slide slide level1 center">
+<h1>ماذا تعلمنا اليوم؟</h1>
+<ul>
+<li class="fragment">البيانات هي جوهر التطور الرقمي.</li>
+<li class="fragment">الفرق بين الخام والمعلومات هو القيمة.</li>
+<li class="fragment">العالم مليء ببيانات منظمة وغير منظمة.</li>
+<li class="fragment">هندسة البيانات هي العمود الفقري لهذا العالم.</li>
+</ul>
+<aside class="notes">
+<p>تلخيص النقاط الرئيسية للدرس في نقاط مركزة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="التفكير-النقدي-في-البيانات" class="title-slide slide level1 center">
+<h1>التفكير النقدي في البيانات</h1>
+<ul>
+<li class="fragment">لا تصدق كل البيانات التي تراها (البيانات المضللة).</li>
+<li class="fragment">دائماً اسأل: كيف تم جمع هذه البيانات؟</li>
+<li class="fragment">البيانات قوة، واستخدامها يتطلب مسؤولية أخلاقية.</li>
+</ul>
+<aside class="notes">
+<p>زرع قيمة الوعي والأخلاقيات الرقمية في الطلاب.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="مصادر-للتعلم-المستمر" class="title-slide slide level1 center">
+<h1>مصادر للتعلم المستمر</h1>
+<ul>
+<li class="fragment">منصات التعلم الذاتي (Coursera, edX).</li>
+<li class="fragment">قراءة مقالات حول (Data Science for Beginners).</li>
+<li class="fragment">متابعة أخبار التقنية والذكاء الاصطناعي.</li>
+</ul>
+<aside class="notes">
+<p>توجيه الطلاب نحو مصادر خارجية لإثراء معرفتهم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="هل-هناك-أسئلة" class="title-slide slide level1 center">
+<h1>هل هناك أسئلة؟</h1>
+<ul>
+<li class="fragment">استقبل استفسارات الطلاب.</li>
+<li class="fragment">تأكد من أن الجميع فهم المفاهيم الأساسية.</li>
+<li class="fragment">اطلب منهم تقديم مثال واحد على بيانات واجهوها اليوم.</li>
+</ul>
+<aside class="notes">
+<p>مساحة للنقاش المفتوح وتفاعل الحضور.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="شكرا-لحضوركم-المتميز" class="title-slide slide level1 center">
+<h1>شكراً لحضوركم المتميز!</h1>
+<ul>
+<li class="fragment">شكراً لمشاركتكم وتفاعلكم في نشاطات اليوم.</li>
+<li class="fragment">البيانات تبدأ رحلتها من عندكم.</li>
+<li class="fragment">هل أنتم مستعدون لتكونوا جزءاً من هذا العالم؟</li>
+</ul>
+<aside class="notes">
+<p>رسالة شكر ووداع محفزة للطلاب.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="مراجعة-البيانات-الخام" class="title-slide slide level1 center">
+<h1>مراجعة: البيانات الخام</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li class="fragment">إذا كان هدفنا “زمن وصول صفر” (Zero Latency).</li>
-<li class="fragment">التوجه: Kappa Architecture.</li>
-<li class="fragment">تحدي: الصيانة العالية والتعقيد.</li>
+<li class="fragment">تذكر: البيانات الخام مثل حبات الرمل.</li>
+<li class="fragment">تحتاج لتشكيلها (زجاج) لتصبح نافذة ترى من خلالها.</li>
+<li class="fragment">لا تستهن بأي معلومة صغيرة تجمعها.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/speed?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Speed</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/Sand?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>Sand</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>أكد أن السرعة القصوى تأتي دائماً مع تكلفة صيانة إضافية.</p>
+<p>تشبيه بصري أخير لترسيخ الفرق بين البيانات الخام والقيمة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1001,15 +1079,15 @@
       }</style></aside>
 </section>
 
-<section id="الخلاصة-مستقبل-هندسة-البيانات" class="title-slide slide level1 center">
-<h1>الخلاصة: مستقبل هندسة البيانات</h1>
+<section id="تذكر-دائما" class="title-slide slide level1 center">
+<h1>تذكر دائماً</h1>
 <ul>
-<li class="fragment">التحول نحو <strong>Real-time Everything</strong>.</li>
-<li class="fragment">دمج الذكاء الاصطناعي في عمليات <strong>Data Quality</strong>.</li>
-<li class="fragment">الاهتمام بـ <strong>Data Governance</strong> وأمن البيانات.</li>
+<li class="fragment">البيانات = القوة.</li>
+<li class="fragment">التنظيم = الوضوح.</li>
+<li class="fragment">التحليل = القرار الصحيح.</li>
 </ul>
 <aside class="notes">
-<p>هذه النقاط تفتح الباب للدروس القادمة في الدورة.</p>
+<p>قواعد ذهبية يلخص بها الطالب ما تعلمه.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1023,15 +1101,59 @@
       }</style></aside>
 </section>
 
-<section id="ختام-الدورة-الاستثمار-في-المعرفة" class="title-slide slide level1 center">
-<h1>ختام الدورة: الاستثمار في المعرفة</h1>
+<section id="ختاما-ابدأ-رحلتك" class="title-slide slide level1 center">
+<h1>ختاماً: ابدأ رحلتك</h1>
 <ul>
-<li class="fragment">نشكركم على مشاركتكم الفعالة.</li>
-<li class="fragment">المراجع الإضافية متاحة على منصة التعلم.</li>
-<li class="fragment">لننتقل إلى جلسة الأسئلة المفتوحة!</li>
+<li class="fragment">جرب البحث عن كيفية تحويل ملف إكسل إلى رسم بياني.</li>
+<li class="fragment">لاحظ كيف تغير الرسوم البيانية وجهة نظرك في الأرقام.</li>
+<li class="fragment">شارك معرفتك مع زملائك.</li>
 </ul>
 <aside class="notes">
-<p>انتهت العرض، افتح المجال للنقاش العام والأسئلة التقنية المعمقة.</p>
+<p>تحفيز للقيام بخطوة عملية صغيرة بعد المحاضرة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="تقييم-سريع-للدرس-1" class="title-slide slide level1 center">
+<h1>تقييم سريع للدرس (1)</h1>
+<ul>
+<li class="fragment">هل استفدت من النشاط التفاعلي؟</li>
+<li class="fragment">هل المفاهيم أصبحت أوضح الآن؟</li>
+<li class="fragment">ما هو الجزء الأكثر إثارة لاهتمامك؟</li>
+</ul>
+<aside class="notes">
+<p>جمع تغذية راجعة سريعة من الطلاب لتقييم الدرس.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="تقييم-سريع-للدرس-2" class="title-slide slide level1 center">
+<h1>تقييم سريع للدرس (2)</h1>
+<ul>
+<li class="fragment">نحن دائماً نتطور.</li>
+<li class="fragment">ملاحظاتكم هي البيانات التي نعتمد عليها لتحسين هذا الدرس.</li>
+<li class="fragment">شكراً لكم!</li>
+</ul>
+<aside class="notes">
+<p>رسالة تذكير بأن حتى المنهج التعليمي يعتمد على البيانات.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
