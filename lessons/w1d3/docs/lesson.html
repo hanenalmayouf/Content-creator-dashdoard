@@ -337,9 +337,9 @@
 </section>
 <section id="توسيع-البيانات-وتكامل-الذكاء-الاصطناعي" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
 <h1>توسيع البيانات وتكامل الذكاء الاصطناعي</h1>
-<p>أهلاً بكم في دورة <strong>هندسة البيانات المتقدمة للمتخصصين</strong>. سنستكشف اليوم كيف نجعل نماذج الذكاء الاصطناعي تعمل بكفاءة في بيئات الإنتاج الحقيقية.</p>
+<p>أهلاً بكم في دورة: <strong>هندسة البيانات المتقدمة للمتخصصين</strong>. في هذا الدرس سننتقل من مجرد جمع البيانات إلى بناء أنظمة ذكية ومستدامة.</p>
 <aside class="notes">
-<p>رحب بالمتدربين وأكد على أهمية دمج هندسة البيانات مع MLOps.</p>
+<p>رحب بالحضور ووضح أن الهدف هو ربط عالم هندسة البيانات بعالم نماذج التعلم الآلي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -356,13 +356,13 @@
 <section id="الأهداف-التعليمية-للدرس" class="title-slide slide level1 center">
 <h1>الأهداف التعليمية للدرس</h1>
 <ul>
-<li class="fragment">أتمتة خطوط أنابيب البيانات الخاصة بنماذج <strong>تعلم الآلة</strong>.</li>
-<li class="fragment">تطبيق تقنيات التحقق الإحصائي لضمان جودة البيانات.</li>
-<li class="fragment">تصميم ونشر النماذج البرمجية كخدمات بيانات قابلة للتوسع.</li>
-<li class="fragment">تطبيق المنهجيات التشاركية في معالجة الأخطاء البرمجية.</li>
+<li class="fragment">أتمتة خطوط أنابيب البيانات للتعلم الآلي.</li>
+<li class="fragment">استخدام تقنيات التحقق من صحة البيانات إحصائياً.</li>
+<li class="fragment">نشر النماذج البرمجية كخدمات بيانات موثوقة.</li>
+<li class="fragment">تطبيق ممارسات <strong>MLOps</strong> في بيئات الإنتاج الحقيقية.</li>
 </ul>
 <aside class="notes">
-<p>استعرض الأهداف بوضوح لتهيئة الطلاب لمخرجات الدورة.</p>
+<p>استعرض الأهداف بوضوح مؤكداً على أن المحور الأساسي هو الجودة والاستمرارية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -378,51 +378,25 @@
 
 <section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center">
 <h1>المرحلة الأولى: التهيئة والجذب</h1>
-
+<p>لنكتشف لماذا تفشل معظم مشاريع الذكاء الاصطناعي في الواقع.</p>
 </section>
 
-<section id="أهمية-تكامل-البيانات-مع-الذكاء-الاصطناعي" class="title-slide slide level1 center">
-<h1>أهمية تكامل البيانات مع الذكاء الاصطناعي</h1>
-<ul>
-<li class="fragment">معظم مشاريع الذكاء الاصطناعي تفشل بسبب ضعف جودة البيانات.</li>
-<li class="fragment"><strong>توسيع البيانات (Data Scaling)</strong> يعني التعامل مع تدفقات ضخمة لحظية.</li>
-<li class="fragment">التكامل الناجح يتطلب ربطاً وثيقاً بين مهندس البيانات وعالم البيانات.</li>
-</ul>
-<aside class="notes">
-<p>ناقش الفجوة بين بناء النموذج واختباره مقابل تشغيله في الإنتاج.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="التحديات-في-بيئة-الإنتاج" class="title-slide slide level1 center">
-<h1>التحديات في بيئة الإنتاج</h1>
+<section id="واقع-هندسة-البيانات-الحديثة" class="title-slide slide level1 center">
+<h1>واقع هندسة البيانات الحديثة</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
-<ul>
-<li class="fragment">تدهور أداء النماذج مع مرور الوقت (Model Drift).</li>
-<li class="fragment">عدم اتساق البيانات المدخلة (Data Schema Changes).</li>
-<li class="fragment">بطء معالجة البيانات الضخمة (Latency).</li>
-</ul>
+<p>هناك فجوة كبيرة بين بناء نموذج في المختبر وبين تشغيله في الإنتاج. - النماذج تتقادم بسرعة (Model Drift). - البيانات تتغير خصائصها الإحصائية. - الأنظمة المشتتة يصعب ربطها ببعض.</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/challenge?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Challenge</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/gap?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>gap</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>استخدم هذا المثال لتوضيح سبب الحاجة إلى MLOps.</p>
+<p>ركز على أن المشكلة ليست في النموذج بل في “خط الأنابيب” (Pipeline).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -436,36 +410,54 @@
       }</style></aside>
 </section>
 
-<section id="نظرة-مقارنة-التطوير-مقابل-الإنتاج" class="title-slide slide level1 center">
-<h1>نظرة مقارنة: التطوير مقابل الإنتاج</h1>
+<section id="لماذا-نحتاج-إلى-mlops" class="title-slide slide level1 center">
+<h1>لماذا نحتاج إلى MLOps؟</h1>
+<p><strong>MLOps</strong> هو ممارسة دمج تطوير النموذج مع تشغيله لضمان: - سرعة النشر. - استقرار النظام. - قابلية التوسع. - المراقبة المستمرة.</p>
+<aside class="notes">
+<p>اشرح المصطلح كونه جسراً بين DevOps وهندسة البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="تحديات-الإنتاج" class="title-slide slide level1 center">
+<h1>تحديات الإنتاج</h1>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">وجه المقارنة</th>
-<th style="text-align: left;">بيئة التطوير</th>
-<th style="text-align: left;">بيئة الإنتاج</th>
+<th style="text-align: left;">التحدي</th>
+<th style="text-align: left;">الوصف</th>
+<th style="text-align: left;">الأثر</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">استقرار البيانات</td>
-<td style="text-align: left;">ثابتة ومحدودة</td>
-<td style="text-align: left;">متغيرة ومتدفقة</td>
+<td style="text-align: left;"><strong>Data Drift</strong></td>
+<td style="text-align: left;">تغير توزيع المدخلات</td>
+<td style="text-align: left;">انخفاض دقة النموذج</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">هدف الفريق</td>
-<td style="text-align: left;">البحث والاستكشاف</td>
-<td style="text-align: left;">الكفاءة والأتمتة</td>
+<td style="text-align: left;"><strong>Pipeline Failure</strong></td>
+<td style="text-align: left;">تعطل تدفق البيانات</td>
+<td style="text-align: left;">توقف الخدمات</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">مراقبة الأداء</td>
-<td style="text-align: left;">يدوية</td>
-<td style="text-align: left;">آلية ومستمرة</td>
+<td style="text-align: left;"><strong>Model Decay</strong></td>
+<td style="text-align: left;">تقادم النموذج</td>
+<td style="text-align: left;">فقدان القيمة التجارية</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>جدول توضيحي للفروقات الجوهرية.</p>
+<p>استخدم الجدول لتوضيح أن المشاكل تقنية وتجارية في آن واحد.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -481,31 +473,27 @@
 
 <section id="اختبر-معلوماتك" class="title-slide slide level1 center">
 <h1>اختبر معلوماتك! 🧠</h1>
-<p>ما هو المصطلح الذي يصف تدهور دقة النموذج بسبب تغير البيانات بمرور الوقت؟</p>
+<p>ما هو المصطلح الذي يعبر عن تدهور دقة النموذج بسبب تغير طبيعة البيانات المدخلة؟</p>
 <ul>
-<li class="fragment">أ) Data Cleaning</li>
-<li class="fragment">ب) Model Drift</li>
-<li class="fragment">ج) Data Ingestion</li>
+<li class="fragment">أ) Overfitting</li>
+<li class="fragment">ب) Data Drift</li>
+<li class="fragment">ج) Batch Processing</li>
 </ul>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) Model Drift، وهو انحراف أداء النموذج نتيجة تغير إحصائيات البيانات المدخلة عن تلك التي تدرب عليها.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) <strong>Data Drift</strong>، وهو تغير إحصائي في البيانات يؤدي لضعف التنبؤات.</p>
 </div>
 </section>
 
-<section id="المرحلة-الثانية-المفاهيم" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثانية: المفاهيم</h1>
-
+<section id="المرحلة-الثانية-المفاهيم-والأسس" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثانية: المفاهيم والأسس</h1>
+<p>بناء الهيكل المتين لبياناتكم.</p>
 </section>
 
-<section id="أتمتة-خطوط-أنابيب-البيانات-data-pipelines" class="title-slide slide level1 center">
-<h1>أتمتة خطوط أنابيب البيانات (Data Pipelines)</h1>
-<ul>
-<li class="fragment"><strong>خط أنابيب البيانات</strong>: هو سلسلة من العمليات الآلية لنقل البيانات من المصدر إلى وجهة الاستخدام.</li>
-<li class="fragment">الأتمتة تضمن تقليل الأخطاء البشرية.</li>
-<li class="fragment">استخدام أدوات مثل <strong>Airflow</strong> لجدولة المهام.</li>
-</ul>
+<section id="أتمتة-خطوط-أنابيب-البيانات" class="title-slide slide level1 center">
+<h1>أتمتة خطوط أنابيب البيانات</h1>
+<p>تعني الأتمتة إزالة التدخل البشري في عمليات: - جمع البيانات (Ingestion). - التنظيف والمعالجة (Cleaning &amp; Preprocessing). - التحقق من الجودة (Validation).</p>
 <aside class="notes">
-<p>اشرح مفهوم الخط التلقائي (Automated Pipeline).</p>
+<p>أكد على أهمية الـ CI/CD في خطوط الأنابيب.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -521,46 +509,20 @@
 
 <section id="التحقق-من-صحة-البيانات-إحصائيا" class="title-slide slide level1 center">
 <h1>التحقق من صحة البيانات إحصائياً</h1>
-<ul>
-<li class="fragment">استخدام اختبارات إحصائية للتأكد من توزيع البيانات.</li>
-<li class="fragment">اكتشاف القيم الشاذة (<strong>Outliers</strong>) قبل وصولها للنموذج.</li>
-<li class="fragment">الحفاظ على سلامة البيانات عبر أدوات مثل <strong>Great Expectations</strong>.</li>
-</ul>
-<aside class="notes">
-<p>ركز على أن البيانات السامة تؤدي لنتائج سامة (Garbage In, Garbage Out).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="هيكلية-mlops" class="title-slide slide level1 center">
-<h1>هيكلية MLOps</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
-<ul>
-<li class="fragment"><strong>Continuous Integration (CI)</strong>: دمج الكود وتجربته.</li>
-<li class="fragment"><strong>Continuous Deployment (CD)</strong>: نشر النموذج آلياً.</li>
-<li class="fragment"><strong>Continuous Training (CT)</strong>: إعادة تدريب النموذج تلقائياً.</li>
-</ul>
+<p>لا يكفي أن تكون البيانات “موجودة”، بل يجب أن تكون “صحيحة”: - التحقق من القيم المفقودة (Missing Values). - رصد القيم المتطرفة (Outliers). - مراقبة التوزيع التكراري (Distribution Shifts).</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/workflow?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Workflow</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/statistics?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>statistics</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>التشديد على حلقة التغذية الراجعة المستمرة.</p>
+<p>استخدم مفاهيم إحصائية بسيطة لشرح أهمية الجودة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -574,36 +536,78 @@
       }</style></aside>
 </section>
 
-<section id="مقارنة-بين-أدوات-التحقق-من-البيانات" class="title-slide slide level1 center">
-<h1>مقارنة بين أدوات التحقق من البيانات</h1>
+<section id="دورة-حياة-البيانات-في-mlops" class="title-slide slide level1 center">
+<h1>دورة حياة البيانات في MLOps</h1>
+<ol type="1">
+<li class="fragment">جمع المصادر.</li>
+<li class="fragment">هندسة الميزات (Feature Engineering).</li>
+<li class="fragment">تدريب النموذج.</li>
+<li class="fragment">تقييم النموذج.</li>
+<li class="fragment">نشر الخدمة.</li>
+</ol>
+<aside class="notes">
+<p>وضح أن هذه العملية دائرية وليست خطية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="مقارنة-بين-بيئات-التطوير-والإنتاج" class="title-slide slide level1 center">
+<h1>مقارنة بين بيئات التطوير والإنتاج</h1>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">الأداة</th>
-<th style="text-align: left;">الغرض الأساسي</th>
-<th style="text-align: left;">الميزة التنافسية</th>
+<th style="text-align: left;">الميزة</th>
+<th style="text-align: left;">بيئة التطوير</th>
+<th style="text-align: left;">بيئة الإنتاج</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Great Expectations</td>
-<td style="text-align: left;">توثيق وجودة البيانات</td>
-<td style="text-align: left;">سهولة إنشاء التقارير</td>
+<td style="text-align: left;"><strong>البيانات</strong></td>
+<td style="text-align: left;">ثابتة/محملة مسبقاً</td>
+<td style="text-align: left;">تدفق حي/متغير</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Deequ</td>
-<td style="text-align: left;">جودة البيانات الضخمة</td>
-<td style="text-align: left;">التكامل مع Spark</td>
+<td style="text-align: left;"><strong>الاستقرار</strong></td>
+<td style="text-align: left;">تجريبي</td>
+<td style="text-align: left;">صارم ومراقب</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">TFDV</td>
-<td style="text-align: left;">تحليل بيانات TensorFlow</td>
-<td style="text-align: left;">متوافق مع TF</td>
+<td style="text-align: left;"><strong>التحديث</strong></td>
+<td style="text-align: left;">يدوي</td>
+<td style="text-align: left;">مؤتمت بالكامل</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>جدول مفيد لاختيار الأداة المناسبة.</p>
+<p>هذا الجدول يساعد الطلاب على التمييز بين وضع البحث ووضع التشغيل.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="مفهوم-الخدمة-model-as-a-service" class="title-slide slide level1 center">
+<h1>مفهوم الخدمة (Model as a Service)</h1>
+<p>نشر النموذج كـ <strong>API</strong> يسمح لـ: - سهولة التكامل مع تطبيقات أخرى. - التوسع الأفقي (Scaling). - التحديث المستقل للنموذج.</p>
+<aside class="notes">
+<p>اشرح أن النموذج ليس مجرد كود بل هو “خدمة” تُطلب عبر الشبكة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -619,31 +623,27 @@
 
 <section id="اختبر-معلوماتك-1" class="title-slide slide level1 center">
 <h1>اختبر معلوماتك! 🧠</h1>
-<p>ما هي الممارسة التي تضمن إعادة تدريب النموذج بشكل آلي عند وصول بيانات جديدة؟</p>
+<p>ما الهدف الرئيسي من نشر النموذج كـ API؟</p>
 <ul>
-<li class="fragment">أ) Continuous Integration</li>
-<li class="fragment">ب) Continuous Training</li>
-<li class="fragment">ج) Data Warehousing</li>
+<li class="fragment">أ) تقليل سرعة النظام.</li>
+<li class="fragment">ب) تسهيل التكامل وتطوير الخدمة بشكل منفصل.</li>
+<li class="fragment">ج) حصر النموذج في تطبيق واحد فقط.</li>
 </ul>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) Continuous Training (CT)، وهي جوهر الـ MLOps لضمان تحديث النماذج.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) لأن الـ API توفر مرونة عالية للربط مع أنظمة متنوعة.</p>
 </div>
 </section>
 
-<section id="المرحلة-الثالثة-التطبيق" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثالثة: التطبيق</h1>
-
+<section id="المرحلة-الثالثة-التطبيق-العملي" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثالثة: التطبيق العملي</h1>
+<p>تحويل النظريات إلى كود ونظم عاملة.</p>
 </section>
 
-<section id="نشر-النماذج-كخدمات-model-serving" class="title-slide slide level1 center">
-<h1>نشر النماذج كخدمات (Model Serving)</h1>
-<ul>
-<li class="fragment">تحويل النموذج إلى <strong>REST API</strong> باستخدام <strong>FastAPI</strong> أو <strong>Flask</strong>.</li>
-<li class="fragment">استخدام الحاويات (<strong>Docker</strong>) لتغليف البيئة البرمجية.</li>
-<li class="fragment">ضمان التوسع باستخدام <strong>Kubernetes</strong>.</li>
-</ul>
+<section id="تنفيذ-المشروع-التعاوني" class="title-slide slide level1 center">
+<h1>تنفيذ المشروع التعاوني</h1>
+<p>سيكون مشروعنا النهائي: - ربط مصدر بيانات حي (Live Data Stream). - تنظيف البيانات برمجياً (Automated Pipeline). - تحديث التنبؤات لحظياً. - تقييم الأداء عبر لوحة تحكم.</p>
 <aside class="notes">
-<p>وضح كيفية تحويل كود Python إلى خدمة برمجية قابلة للاستدعاء.</p>
+<p>حفز الطلاب على العمل الجماعي وتوزيع الأدوار.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -657,26 +657,26 @@
       }</style></aside>
 </section>
 
-<section id="استراتيجية-معالجة-الأخطاء-البرمجية" class="title-slide slide level1 center">
-<h1>استراتيجية معالجة الأخطاء البرمجية</h1>
+<section id="هندسة-البيانات-الجزء-البرمجي" class="title-slide slide level1 center">
+<h1>هندسة البيانات: الجزء البرمجي</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li class="fragment">تتبع السجلات (<strong>Logging</strong>) لحظة بلحظة.</li>
-<li class="fragment">إنشاء تنبيهات عند فشل خط الأنابيب.</li>
-<li class="fragment">تحليل الأداء بناءً على مقاييس مثل الدقة (Accuracy) والاستدعاء (Recall).</li>
+<li class="fragment">استخدم مكتبات مثل <strong>Pandas</strong> أو <strong>Dask</strong>.</li>
+<li class="fragment">طبق اختبارات الوحدة (Unit Tests) على البيانات.</li>
+<li class="fragment">احتفظ بنسخة من سجلات الأخطاء.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/debugging?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Debugging</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/code?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>code</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>اشرح أن حل المشكلات عملية مستمرة وليست حدثاً عابراً.</p>
+<p>ركز على أن الكود النظيف هو أساس MLOps.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -690,15 +690,15 @@
       }</style></aside>
 </section>
 
-<section id="تطبيق-التعلم-التشاركي" class="title-slide slide level1 center">
-<h1>تطبيق التعلم التشاركي</h1>
+<section id="التعامل-مع-الأخطاء-debugging" class="title-slide slide level1 center">
+<h1>التعامل مع الأخطاء (Debugging)</h1>
 <ul>
-<li class="fragment">تقسيم الطلاب إلى فرق عمل صغيرة.</li>
-<li class="fragment">الربط بين خط بيانات حي ونموذج تنبئي.</li>
-<li class="fragment">تبادل تقييم الكود (Peer Review) بين الفرق.</li>
+<li class="fragment">تحليل الأخطاء البرمجية (Errors).</li>
+<li class="fragment">استخدام مقاييس أداء النظام (System Metrics).</li>
+<li class="fragment">التقييم الدوري من قبل الزملاء (Peer Review).</li>
 </ul>
 <aside class="notes">
-<p>شجع الطلاب على مراجعة كود بعضهم البعض لتعزيز التعلم.</p>
+<p>التركيز هنا على ثقافة “نقد الكود” لتحسين الجودة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -712,16 +712,86 @@
       }</style></aside>
 </section>
 
-<section id="خطوات-تنفيذ-المشروع-النهائي" class="title-slide slide level1 center">
-<h1>خطوات تنفيذ المشروع النهائي</h1>
+<section id="خطوات-التصحيح-الذكي" class="title-slide slide level1 center">
+<h1>خطوات التصحيح الذكي</h1>
 <ol type="1">
-<li class="fragment">اختيار مجموعة بيانات حية من مصدر مفتوح.</li>
-<li class="fragment">بناء خط بيانات يتضمن تنظيفاً وتحققاً إحصائياً.</li>
-<li class="fragment">تدريب نموذج بسيط ونشره كخدمة.</li>
-<li class="fragment">إعداد تقرير أداء ومقارنته بالمعايير المطلوبة.</li>
+<li class="fragment">عزل الجزء المعطل (Isolation).</li>
+<li class="fragment">إعادة إنتاج الخطأ (Reproducibility).</li>
+<li class="fragment">تحديد السبب الجذري (Root Cause Analysis).</li>
+<li class="fragment">تطبيق التصحيح (Patching).</li>
 </ol>
 <aside class="notes">
-<p>تفصيل المراحل العملية للمشروع النهائي.</p>
+<p>هذه خطوات منهجية يجب أن يتبعها الطلاب في مشاريعهم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="جدول-متابعة-المشروع" class="title-slide slide level1 center">
+<h1>جدول متابعة المشروع</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">المرحلة</th>
+<th style="text-align: left;">الأسبوع</th>
+<th style="text-align: left;">الهدف</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">التخطيط</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">تحديد مصادر البيانات</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">البناء</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">بناء خط أنابيب البيانات</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">النشر</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">نشر النموذج كـ API</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">التقييم</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">مراجعة الزملاء والتحسين</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>استخدم هذا الجدول كخارطة طريق للمشاريع.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="التقييم-التكويني-الأداء" class="title-slide slide level1 center">
+<h1>التقييم التكويني: الأداء</h1>
+<ul>
+<li class="fragment">هل خط أنابيب البيانات يعمل دون انقطاع؟</li>
+<li class="fragment">هل يتم التحقق من صحة البيانات قبل النموذج؟</li>
+<li class="fragment">ما مدى دقة التنبؤات مقارنة بالواقع؟</li>
+</ul>
+<aside class="notes">
+<p>هذه أسئلة يجب أن يسألها الطلاب لأنفسهم بانتظام.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -737,31 +807,31 @@
 
 <section id="اختبر-معلوماتك-2" class="title-slide slide level1 center">
 <h1>اختبر معلوماتك! 🧠</h1>
-<p>لماذا نستخدم الحاويات (Docker) عند نشر النماذج؟</p>
+<p>ما هو الإجراء الصحيح عند حدوث خطأ برمجي في نظام الإنتاج؟</p>
 <ul>
-<li class="fragment">أ) لزيادة سرعة معالجة المعالج.</li>
-<li class="fragment">ب) لضمان بيئة تشغيل موحدة في كل الأجهزة.</li>
-<li class="fragment">ج) لتقليل حجم البيانات.</li>
+<li class="fragment">أ) تجاهل الخطأ ومواصلة العمل.</li>
+<li class="fragment">ب) عزل المشكلة، تحديد السبب الجذري، ثم التصحيح.</li>
+<li class="fragment">ج) إعادة تشغيل النظام فقط دون تحليل.</li>
 </ul>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) لضمان بيئة تشغيل موحدة، مما يمنع مشكلة “يعمل على جهازي فقط”.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) التحليل الجذري يمنع تكرار الخطأ مستقبلاً.</p>
 </div>
 </section>
 
-<section id="المرحلة-الرابعة-الخلاصة" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الرابعة: الخلاصة</h1>
-
+<section id="المرحلة-الرابعة-الخلاصة-والاستدامة" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الرابعة: الخلاصة والاستدامة</h1>
+<p>كيف نحافظ على قوة النظام على المدى الطويل.</p>
 </section>
 
-<section id="مراجعة-المكتسبات" class="title-slide slide level1 center">
-<h1>مراجعة المكتسبات</h1>
+<section id="المراقبة-المستمرة-monitoring" class="title-slide slide level1 center">
+<h1>المراقبة المستمرة (Monitoring)</h1>
 <ul>
-<li class="fragment">تعلمت كيف يتم أتمتة البيانات باستخدام MLOps.</li>
-<li class="fragment">أصبحت قادراً على تقييم جودة البيانات إحصائياً.</li>
-<li class="fragment">فهمت دورة حياة النماذج من التطوير حتى النشر.</li>
+<li class="fragment">تتبع استهلاك الموارد (CPU/RAM).</li>
+<li class="fragment">مراقبة دقة النموذج لحظياً.</li>
+<li class="fragment">إرسال تنبيهات (Alerts) عند حدوث خلل.</li>
 </ul>
 <aside class="notes">
-<p>تلخيص سريع لأهم نقاط الدورة.</p>
+<p>المراقبة هي العين التي لا تنام على النظام.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -775,48 +845,26 @@
       }</style></aside>
 </section>
 
-<section id="التقييم-الدوري-للأخطاء-debugging" class="title-slide slide level1 center">
-<h1>التقييم الدوري للأخطاء (Debugging)</h1>
-<ul>
-<li class="fragment"><strong>الخطأ ليس فشلاً، بل فرصة للتحسين.</strong></li>
-<li class="fragment">استخدام المقاييس لاتخاذ قرار الإصلاح.</li>
-<li class="fragment">أهمية التوثيق التقني لكل خطأ يتم معالجته.</li>
-</ul>
-<aside class="notes">
-<p>شجع عقلية النمو لدى المبرمجين.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="خارطة-طريق-التوسع-للمهندس" class="title-slide slide level1 center">
-<h1>خارطة طريق التوسع للمهندس</h1>
+<section id="استراتيجيات-التحسين-المستمر" class="title-slide slide level1 center">
+<h1>استراتيجيات التحسين المستمر</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li class="fragment">التمكن من أدوات السحابة (AWS/Azure).</li>
-<li class="fragment">فهم أعمق لـ <strong>Feature Store</strong>.</li>
-<li class="fragment">متابعة تطورات تقنيات الـ <strong>LLMOps</strong>.</li>
+<li class="fragment">التعلم من البيانات الجديدة (Retraining).</li>
+<li class="fragment">تحسين جودة البيانات باستمرار.</li>
+<li class="fragment">توثيق كل خطوة في عملية التطوير.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/growth?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Growth</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/optimization?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>optimization</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>وجه الطلاب نحو الخطوات القادمة في مسيرتهم المهنية.</p>
+<p>التطوير ليس له نهاية؛ هو عملية مستمرة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -830,36 +878,103 @@
       }</style></aside>
 </section>
 
-<section id="ملخص-المقاييس-التقنية" class="title-slide slide level1 center">
-<h1>ملخص المقاييس التقنية</h1>
+<section id="مراجعة-الزملاء-أهميتها" class="title-slide slide level1 center">
+<h1>مراجعة الزملاء: أهميتها</h1>
+<ul>
+<li class="fragment">اكتشاف الأخطاء التي لا نراها.</li>
+<li class="fragment">تبادل الخبرات البرمجية.</li>
+<li class="fragment">بناء ثقافة الجودة في الفريق.</li>
+</ul>
+<aside class="notes">
+<p>شجع الطلاب على أن يكونوا منفتحين على نقد زملائهم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="ملخص-المفاهيم-الرئيسية" class="title-slide slide level1 center">
+<h1>ملخص المفاهيم الرئيسية</h1>
+<ul>
+<li class="fragment"><strong>MLOps</strong>: تكامل البيانات والنموذج.</li>
+<li class="fragment"><strong>Pipeline</strong>: العمود الفقري لأي نظام بيانات.</li>
+<li class="fragment"><strong>Validation</strong>: حارس الجودة.</li>
+<li class="fragment"><strong>Peer Review</strong>: أداة التحسين الجماعي.</li>
+</ul>
+<aside class="notes">
+<p>خلاصة سريعة لما تم تعلمه.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="جدول-مراجعة-الأدوات" class="title-slide slide level1 center">
+<h1>جدول مراجعة الأدوات</h1>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">المقياس</th>
-<th style="text-align: left;">الهدف</th>
-<th style="text-align: left;">متى نستخدمه؟</th>
+<th style="text-align: left;">الأداة</th>
+<th style="text-align: left;">الغرض</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Latency</td>
-<td style="text-align: left;">سرعة الخدمة</td>
-<td style="text-align: left;">عند قياس كفاءة API</td>
+<td style="text-align: left;"><strong>Git</strong></td>
+<td style="text-align: left;">إدارة النسخ</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Accuracy</td>
-<td style="text-align: left;">جودة التنبؤ</td>
-<td style="text-align: left;">عند تقييم صحة النموذج</td>
+<td style="text-align: left;"><strong>Docker</strong></td>
+<td style="text-align: left;">حاويات النشر</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Throughput</td>
-<td style="text-align: left;">حجم البيانات المعالجة</td>
-<td style="text-align: left;">عند تقييم خط الأنابيب</td>
+<td style="text-align: left;"><strong>MLflow</strong></td>
+<td style="text-align: left;">مراقبة التجارب</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>SQL</strong></td>
+<td style="text-align: left;">استعلام البيانات</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>جدول مرجعي للمقاييس الأساسية للمهندسين.</p>
+<p>هذه هي “حقيبة أدوات” مهندس البيانات المتقدم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="لماذا-فشل-النموذج-دراسة-حالة" class="title-slide slide level1 center">
+<h1>لماذا فشل النموذج؟ (دراسة حالة)</h1>
+<ul>
+<li class="fragment">تغيرت مصادر البيانات فجأة.</li>
+<li class="fragment">لم يتم تنظيف البيانات الحية.</li>
+<li class="fragment">كان هناك تعارض بين مكتبات البرمجة.</li>
+</ul>
+<aside class="notes">
+<p>تعلم من الفشل: كل خطأ هو درس للنجاح في المستقبل.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -875,27 +990,26 @@
 
 <section id="اختبر-معلوماتك-3" class="title-slide slide level1 center">
 <h1>اختبر معلوماتك! 🧠</h1>
-<p>ما هو أفضل إجراء عند اكتشاف خطأ في أداء النموذج في الإنتاج؟</p>
+<p>أي مما يلي يعد من ممارسات الـ MLOps الجيدة؟</p>
 <ul>
-<li class="fragment">أ) تجاهل الخطأ حتى يتراكم.</li>
-<li class="fragment">ب) التراجع فوراً وإيقاف النظام.</li>
-<li class="fragment">ج) تحليل سجلات الخطأ، تصحيحه، وإعادة النشر.</li>
+<li class="fragment">أ) النشر اليدوي للنماذج.</li>
+<li class="fragment">ب) المراقبة المستمرة وأتمتة الاختبارات.</li>
+<li class="fragment">ج) العمل الفردي دون توثيق الكود.</li>
 </ul>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ج) التحليل والإصلاح هو المسار المهني الصحيح.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) هي الأساس لضمان استقرار الأنظمة.</p>
 </div>
 </section>
 
-<section id="كيف-نقيم-المشروع-التعاوني" class="title-slide slide level1 center">
-<h1>كيف نقيم المشروع التعاوني؟</h1>
+<section id="آفاق-التوسع-المستقبلي" class="title-slide slide level1 center">
+<h1>آفاق التوسع المستقبلي</h1>
 <ul>
-<li class="fragment">جودة الكود البرمجي (Code Cleanliness).</li>
-<li class="fragment">دقة التنبؤات (Model Performance).</li>
-<li class="fragment">كفاءة خط أنابيب البيانات.</li>
-<li class="fragment">مهارة تقديم الملاحظات البناءة للزملاء.</li>
+<li class="fragment">استخدام <strong>الذكاء الاصطناعي التوليدي</strong> في تنظيف البيانات.</li>
+<li class="fragment">الانتقال نحو <strong>Data Mesh</strong> في المؤسسات الكبرى.</li>
+<li class="fragment">زيادة الاعتماد على الحلول السحابية (Cloud Native).</li>
 </ul>
 <aside class="notes">
-<p>شرح معايير التقييم التي سيتم الاعتماد عليها.</p>
+<p>أعطِ الطلاب لمحة عن المستقبل ليواصلوا البحث.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -909,48 +1023,26 @@
       }</style></aside>
 </section>
 
-<section id="أهمية-التغذية-الراجعة" class="title-slide slide level1 center">
-<h1>أهمية التغذية الراجعة</h1>
-<ul>
-<li class="fragment">التعلم من أخطاء الزملاء يوفر الوقت.</li>
-<li class="fragment">تبادل الخبرات يسرع عملية حل المشكلات المعقدة.</li>
-<li class="fragment">بناء ثقافة تعاونية داخل فريق البيانات.</li>
-</ul>
-<aside class="notes">
-<p>أكد على قيمة الزملاء كمصدر للمعلومات.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="تطبيقات-واقعية-لخطوط-البيانات" class="title-slide slide level1 center">
-<h1>تطبيقات واقعية لخطوط البيانات</h1>
+<section id="نصيحة-للمحترفين" class="title-slide slide level1 center">
+<h1>نصيحة للمحترفين</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li class="fragment">أنظمة التوصية في التجارة الإلكترونية.</li>
-<li class="fragment">التنبؤ بالأعطال في المصانع الذكية.</li>
-<li class="fragment">تحليل التكاليف اللحظي في المؤسسات المالية.</li>
+<li class="fragment">لا تقع في حب الكود، بل في حب “حل المشكلة”.</li>
+<li class="fragment">استثمر في جودة البيانات أكثر من خوارزميات النموذج.</li>
+<li class="fragment">ابحث دائماً عن التبسيط (Simplify).</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/business?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Business</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/future?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>future</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>ربط المفاهيم النظرية بالتطبيقات العملية في العالم الحقيقي.</p>
+<p>خاتمة ملهمة للمحاضر لإنهاء الدورة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -964,125 +1056,11 @@
       }</style></aside>
 </section>
 
-<section id="الخاتمة-والخطوات-التالية" class="title-slide slide level1 center">
-<h1>الخاتمة والخطوات التالية</h1>
-<ul>
-<li class="fragment">ابدأ بتطبيق صغير وجربه في بيئة تجريبية.</li>
-<li class="fragment">لا تتردد في استخدام الأدوات مفتوحة المصدر.</li>
-<li class="fragment">استمر في التعلم، فالمجال يتطور كل يوم!</li>
-</ul>
+<section id="شكرا-لحسن-استماعكم" class="title-slide slide level1 center">
+<h1>شكراً لحسن استماعكم!</h1>
+<p>هل لديكم أي استفسارات حول مشاريعكم؟ نحن هنا لنبني أنظمة بيانات لا تقهر.</p>
 <aside class="notes">
-<p>ختام تشجيعي للمتدربين.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="موارد-إضافية-للتعلم" class="title-slide slide level1 center">
-<h1>موارد إضافية للتعلم</h1>
-<ul>
-<li class="fragment">وثائق MLOps الرسمية.</li>
-<li class="fragment">مجتمعات المطورين على GitHub.</li>
-<li class="fragment">دورات متقدمة في هندسة البيانات.</li>
-</ul>
-<aside class="notes">
-<p>وفر مصادر تساعدهم على البحث الذاتي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="تذكر-دائما" class="title-slide slide level1 center">
-<h1>تذكر دائماً</h1>
-<ul>
-<li class="fragment"><strong>البيانات هي الوقود</strong> والذكاء الاصطناعي هو المحرك.</li>
-<li class="fragment">لا محرك يعمل بدون وقود نظيف ومستمر.</li>
-<li class="fragment">التعاون بين الفريق هو صمام الأمان.</li>
-</ul>
-<aside class="notes">
-<p>رسالة ختامية تركز على فلسفة المهنة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="شكر-خاص-للجميع" class="title-slide slide level1 center">
-<h1>شكر خاص للجميع</h1>
-<ul>
-<li class="fragment">كنتم فريقاً متميزاً في التفاعل.</li>
-<li class="fragment">نتطلع لرؤية مشاريعكم في الورشة القادمة.</li>
-<li class="fragment">شاركونا ملاحظاتكم حول الدورة!</li>
-</ul>
-<aside class="notes">
-<p>إنهاء الجلسة بعبارات إيجابية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="مساحة-للأسئلة" class="title-slide slide level1 center">
-<h1>مساحة للأسئلة</h1>
-<ul>
-<li class="fragment">هل لديكم استفسارات حول مفاهيم الإنتاج؟</li>
-<li class="fragment">كيف يمكننا مساعدة بعضنا في حل المشكلات التقنية؟</li>
-<li class="fragment">لنفتح باب النقاش الآن.</li>
-</ul>
-<aside class="notes">
-<p>فتح المجال للنقاش الحر.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="ختام-الرحلة-التعليمية" class="title-slide slide level1 center">
-<h1>ختام الرحلة التعليمية</h1>
-<ul>
-<li class="fragment">لقد قطعنا شوطاً طويلاً اليوم.</li>
-<li class="fragment">التحدي يبدأ الآن في تطبيق ما تعلمناه.</li>
-<li class="fragment">شكراً لالتزامكم بتميز العمل التقني.</li>
-</ul>
-<aside class="notes">
-<p>خاتمة الدرس.</p>
+<p>افتح باب الأسئلة والمناقشة الختامية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
