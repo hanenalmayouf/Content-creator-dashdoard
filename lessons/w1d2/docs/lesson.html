@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>معالجة البيانات اللحظية (Stream Processing)</title>
+  <title>تقنيات التوزيع والمعالجة المتوازية (Spark &amp; Kafka)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -328,18 +328,18 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">معالجة البيانات اللحظية (Stream Processing)</h1>
-  <p class="subtitle">تغطية عميقة لتقنيات المعالجة بالتدفق باستخدام Apache Kafka و Spark Streaming مع التحليل الرياضي لزمن التأخير.</p>
+  <h1 class="title">تقنيات التوزيع والمعالجة المتوازية (Spark &amp; Kafka)</h1>
+  <p class="subtitle">التعمق في معالجة البيانات الموزعة باستخدام Apache Spark وتدفق البيانات عبر Kafka، مع التركيز على تحسين أداء الكود (Query Optimization).</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="معالجة-البيانات-اللحظية-stream-processing" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>معالجة البيانات اللحظية (Stream Processing)</h1>
-<p>أهلاً بكم في رحلة احتراف معالجة البيانات اللحظية ضمن مسار هندسة البيانات المتقدمة.</p>
+<section id="تقنيات-التوزيع-والمعالجة-المتوازية-spark-kafka" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>تقنيات التوزيع والمعالجة المتوازية (Spark &amp; Kafka)</h1>
+<p>أهلاً بكم في رحلة احتراف هندسة البيانات. اليوم سنغوص في أعماق المعالجة المتوازية.</p>
 <aside class="notes">
-<p>رحب بالمشاركين وأكد على أهمية السرعة في اتخاذ القرار في بيئات العمل الحديثة.</p>
+<p>رحب بالمتدربين وأكد على أهمية هذا الدرس في سوق العمل الحالي كمهندس بيانات محترف.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -353,17 +353,16 @@
       }</style></aside>
 </section>
 
-<section id="أهداف-الدرس-التعليمية" class="title-slide slide level1 center">
-<h1>أهداف الدرس التعليمية</h1>
+<section id="الأهداف-التعليمية-لهذا-الدرس" class="title-slide slide level1 sdaia-dark center">
+<h1>الأهداف التعليمية لهذا الدرس 🎯</h1>
 <ul>
-<li class="fragment">فهم فلسفة المعالجة اللحظية مقابل المعالجة الدفعية (Batch Processing).</li>
-<li class="fragment">إتقان بنية <strong>Apache Kafka</strong> كعمود فقري لنقل البيانات.</li>
-<li class="fragment">تطبيق تقنيات <strong>Spark Streaming</strong> للمعالجة الآنية.</li>
-<li class="fragment">تحليل زمن التأخير (<strong>Latency</strong>) وتصميم أنظمة ذات كفاءة عالية.</li>
-<li class="fragment">اكتساب مهارات حل المشكلات تحت ضغط البيانات العالية.</li>
+<li class="fragment">إتقان تقنيات تحسين أداء <strong>Apache Spark Jobs</strong>.</li>
+<li class="fragment">فهم عميق لآليات الـ <strong>Partitioning</strong> والـ <strong>Sharding</strong>.</li>
+<li class="fragment">إدارة تدفق البيانات اللحظي عبر <strong>Apache Kafka</strong>.</li>
+<li class="fragment">تطبيق استراتيجيات معالجة البيانات الضخمة بكفاءة عالية.</li>
 </ul>
 <aside class="notes">
-<p>استعرض الأهداف بوضوح لتهيئة الطلاب ذهنياً.</p>
+<p>استعرض الأهداف بوضوح وأكد أننا سننتقل من النظرية إلى التطبيق العملي التنافسي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -382,71 +381,27 @@
 
 </section>
 
-<section id="كسر-الجليد-لماذا-السرعة-أهم-من-الدقة-أحيانا" class="title-slide slide level1 center">
-<h1>كسر الجليد: لماذا السرعة أهم من الدقة أحياناً؟</h1>
-<ul>
-<li class="fragment">في الأنظمة البنكية، خطأ واحد في ثانية قد يكلف الملايين.</li>
-<li class="fragment">في أنظمة التواصل، وصول الرسالة بعد 10 ثوانٍ يعني فشل الخدمة.</li>
-<li class="fragment"><strong>زمن التأخير (Latency)</strong>: هو الفارق الزمني بين وقوع الحدث ومعالجته.</li>
-</ul>
-<aside class="notes">
-<p>اطرح سؤالاً: هل يفضل المستخدم سرعة الوصول أم دقة المعلومة المتأخرة؟</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="تحدي-المحاكاة-سباق-البيانات" class="title-slide slide level1 center">
-<h1>تحدي المحاكاة: سباق البيانات 🏁</h1>
-<ul>
-<li class="fragment">سنستخدم نظام محاكاة تفاعلي لبناء “خط أنابيب” بيانات.</li>
-<li class="fragment">الهدف: تمرير مليون سجل في أقل من ثانية.</li>
-<li class="fragment">سيتم قياس نبضات استجابتكم العاطفية (المحاكاة الاجتماعية).</li>
-<li class="fragment">المتصدرون يحصلون على “مفاتيح هندسية” لفتح تحديات أصعب.</li>
-</ul>
-<aside class="notes">
-<p>اشرح أن التحدي سيتكيف مع سرعة استجابة الطلاب لمنع التوتر المفرط.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="كيف-نقيس-أداء-المعالجة" class="title-slide slide level1 center">
-<h1>كيف نقيس أداء المعالجة؟</h1>
+<section id="لماذا-نحتاج-إلى-المعالجة-الموزعة" class="title-slide slide level1 sdaia-dark center">
+<h1>لماذا نحتاج إلى المعالجة الموزعة؟</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li class="fragment"><strong>Throughput</strong>: كمية البيانات المعالجة في وحدة الزمن.</li>
-<li class="fragment"><strong>Latency</strong>: الزمن المستغرق لمعالجة سجل واحد.</li>
-<li class="fragment"><strong>Consistency</strong>: ضمان عدم فقدان البيانات أو تكرارها.</li>
+<li class="fragment">البيانات اليوم تتجاوز قدرة الحاسب الواحد.</li>
+<li class="fragment"><strong>المعالجة الموزعة</strong> تعتمد على تقسيم العمل بين عدة عقد.</li>
+<li class="fragment">السرعة ليست الخيار الوحيد، بل التوافرية أيضاً.</li>
+<li class="fragment">التعامل مع “البيانات الضخمة” يتطلب بنية تحتية مرنة.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/speed?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Speed</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/cluster?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>cluster</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>قارن بين مفاهيم الأداء الأساسية باستخدام التشبيه بالمرور على الطرق السريعة.</p>
+<p>شرح مفاهيم الحوسبة الموزعة وكيف أنها العمود الفقري للشركات التقنية الكبرى مثل أمازون ونتفليكس.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -460,36 +415,59 @@
       }</style></aside>
 </section>
 
-<section id="جدول-مقارنة-الدفعات-مقابل-التدفق" class="title-slide slide level1 center">
-<h1>جدول مقارنة: الدفعات مقابل التدفق</h1>
+<section id="التحديات-في-بيئات-الـ-big-data" class="title-slide slide level1 sdaia-dark center">
+<h1>التحديات في بيئات الـ Big Data</h1>
+<ul>
+<li class="fragment"><strong>تأخر البيانات (Latency)</strong> في أنظمة الربط.</li>
+<li class="fragment">تعطل العقد الفردية (Node Failure).</li>
+<li class="fragment">صعوبة مزامنة البيانات عبر الشبكة.</li>
+<li class="fragment">تكلفة التخزين العالية للبيانات المكررة.</li>
+</ul>
+<aside class="notes">
+<p>استخدم نبرة صوت مشجعة، ووضح أن هذه التحديات هي فرص للتعلم والتميز.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="جدول-مقارنة-المعالجة-المركزية-vs-الموزعة" class="title-slide slide level1 sdaia-dark center">
+<h1>جدول مقارنة: المعالجة المركزية vs الموزعة</h1>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">الميزة</th>
-<th style="text-align: left;">المعالجة الدفعية (Batch)</th>
-<th style="text-align: left;">المعالجة اللحظية (Stream)</th>
+<th style="text-align: left;">وجه المقارنة</th>
+<th style="text-align: left;">المعالجة المركزية</th>
+<th style="text-align: left;">المعالجة الموزعة</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">زمن الاستجابة</td>
-<td style="text-align: left;">مرتفع (دقائق/ساعات)</td>
-<td style="text-align: left;">منخفض (ملي ثانية)</td>
+<td style="text-align: left;">التوسع</td>
+<td style="text-align: left;">رأسي (زيادة RAM)</td>
+<td style="text-align: left;">أفقي (زيادة عدد العقد)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">حجم البيانات</td>
-<td style="text-align: left;">كبير جداً (مخزنة)</td>
-<td style="text-align: left;">غير محدود (مستمرة)</td>
+<td style="text-align: left;">الموثوقية</td>
+<td style="text-align: left;">منخفضة (نقطة فشل واحدة)</td>
+<td style="text-align: left;">عالية (تعدد العقد)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">التكلفة</td>
-<td style="text-align: left;">اقتصادية للمعالجة الضخمة</td>
-<td style="text-align: left;">عالية تتطلب بنية تحتية نشطة</td>
+<td style="text-align: left;">مرتفعة عند النمو</td>
+<td style="text-align: left;">مرنة واقتصادية</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>هذا الجدول يساعد في التمييز المفاهيمي السريع.</p>
+<p>ركز على أن المعالجة الموزعة هي المعيار الذهبي في هندسة البيانات الحديثة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -503,21 +481,21 @@
       }</style></aside>
 </section>
 
-<section id="المرحلة-الثانية-المفاهيم-والأسس" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثانية: المفاهيم والأسس</h1>
+<section id="المرحلة-الثانية-المفاهيم-التقنية" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثانية: المفاهيم التقنية</h1>
 
 </section>
 
-<section id="هندسة-apache-kafka" class="title-slide slide level1 center">
-<h1>هندسة Apache Kafka</h1>
+<section id="عالم-apache-spark" class="title-slide slide level1 sdaia-dark center">
+<h1>عالم Apache Spark</h1>
 <ul>
-<li class="fragment"><strong>Producer</strong>: المصدر الذي يرسل البيانات.</li>
-<li class="fragment"><strong>Consumer</strong>: الطرف الذي يستهلك البيانات.</li>
-<li class="fragment"><strong>Topic</strong>: القناة أو المسار الذي توضع فيه البيانات.</li>
-<li class="fragment"><strong>Partition</strong>: تقسيم البيانات لتوزيع الحمل.</li>
+<li class="fragment"><strong>Apache Spark</strong> هو محرك معالجة بيانات مفتوح المصدر.</li>
+<li class="fragment">يعمل في الذاكرة (In-Memory) مما يجعله فائق السرعة.</li>
+<li class="fragment">يدعم معالجة الدفعات (Batch) والمعالجة اللحظية (Streaming).</li>
+<li class="fragment">يعتمد على مفهوم <strong>RDD</strong> (Resilient Distributed Datasets).</li>
 </ul>
 <aside class="notes">
-<p>اشرح Kafka كأنه نظام بريد إلكتروني فائق السرعة.</p>
+<p>اشرح أهمية الذاكرة وكيف توفر الوقت مقارنة بمعالجة القرص الصلب التقليدية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -531,174 +509,50 @@
       }</style></aside>
 </section>
 
-<section id="كيف-يضمن-kafka-الاتساق" class="title-slide slide level1 center">
-<h1>كيف يضمن Kafka الاتساق؟</h1>
+<section id="هيكلية-الـ-partitioning" class="title-slide slide level1 sdaia-dark center">
+<h1>هيكلية الـ Partitioning</h1>
+<ul>
+<li class="fragment"><strong>التقسيم (Partitioning)</strong> هو جوهر الأداء في Spark.</li>
+<li class="fragment">توزيع البيانات غير المتساوي يؤدي إلى ظاهرة <strong>Data Skew</strong>.</li>
+<li class="fragment">اختيار مفتاح التقسيم الصحيح يقلل من حركة البيانات عبر الشبكة.</li>
+<li class="fragment">كل تقسيم يعالج بواسطة مهمة (Task) واحدة.</li>
+</ul>
+<aside class="notes">
+<p>هذه نقطة جوهرية؛ استخدم تشبيه توزيع المهام على الموظفين لتقريب الفكرة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="دمج-kafka-في-المعادلة" class="title-slide slide level1 sdaia-dark center">
+<h1>دمج Kafka في المعادلة</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li class="fragment"><strong>Offset</strong>: مؤشر فريد لكل رسالة داخل الـ Partition.</li>
-<li class="fragment"><strong>Replication</strong>: نسخ البيانات على عدة خوادم لمنع الفقدان.</li>
-<li class="fragment"><strong>Ack</strong>: إشارة تأكيد الاستلام من الخادم للمنتج.</li>
+<li class="fragment"><strong>Apache Kafka</strong> هو نظام رسائل موزّع للتدفق اللحظي.</li>
+<li class="fragment">يعمل كقناة اتصال (Pipeline) بين المصدر و Spark.</li>
+<li class="fragment">يسمح بتخزين البيانات مؤقتاً (Buffering) قبل معالجتها.</li>
+<li class="fragment">يضمن عدم فقدان البيانات حتى عند حدوث ضغط عالٍ.</li>
 </ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/network?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Network</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>ركز على أن “الاتساق” هو قلب النظام الموزع.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="مفاهيم-النوافذ-الزمنية-windowing" class="title-slide slide level1 center">
-<h1>مفاهيم النوافذ الزمنية (Windowing)</h1>
-<ul>
-<li class="fragment"><strong>Tumbling Window</strong>: نوافذ ثابتة غير متداخلة.</li>
-<li class="fragment"><strong>Sliding Window</strong>: نوافذ تتحرك وتتداخل زمنياً.</li>
-<li class="fragment"><strong>Session Window</strong>: تعتمد على نشاط المستخدم وتوقفه.</li>
-</ul>
-<aside class="notes">
-<p>أعط مثالاً على مراقبة أسعار الأسهم (Sliding) مقابل إغلاق الحساب البنكي (Session).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="تحليل-زمن-التأخير-latency-analysis" class="title-slide slide level1 center">
-<h1>تحليل زمن التأخير (Latency Analysis)</h1>
-<ul>
-<li class="fragment">الزمن الكلي = زمن النقل + زمن المعالجة + زمن الانتظار.</li>
-<li class="fragment"><strong>Backpressure</strong>: عندما تفوق سرعة البيانات سرعة المعالجة.</li>
-<li class="fragment">الحل البرمجي: تحجيم الموارد (Auto-scaling) تلقائياً.</li>
-</ul>
-<aside class="notes">
-<p>اشرح مفهوم الضغط العكسي (Backpressure) كأنه ازدحام مروري عند مخرج ضيق.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="جدول-أنواع-النوافذ-الزمنية" class="title-slide slide level1 center">
-<h1>جدول أنواع النوافذ الزمنية</h1>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">نوع النافذة</th>
-<th style="text-align: left;">طبيعتها</th>
-<th style="text-align: left;">استخدامها الأمثل</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Tumbling</td>
-<td style="text-align: left;">ثابتة</td>
-<td style="text-align: left;">التلخيص اليومي/الساعي</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sliding</td>
-<td style="text-align: left;">متداخلة</td>
-<td style="text-align: left;">مراقبة الاتجاهات (Trends)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Session</td>
-<td style="text-align: left;">غير منتظمة</td>
-<td style="text-align: left;">سلوك المستخدم</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>استخدم هذا الجدول لتسهيل الحفظ.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="المرحلة-الثالثة-التطبيق-العملي" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثالثة: التطبيق العملي</h1>
-
-</section>
-
-<section id="spark-streaming-معالجة-البيانات" class="title-slide slide level1 center">
-<h1>Spark Streaming: معالجة البيانات</h1>
-<ul>
-<li class="fragment">يعتمد على <strong>Micro-batching</strong>: معالجة دفعات صغيرة جداً.</li>
-<li class="fragment"><strong>DStreams</strong>: واجهة برمجة تطبيقات قديمة.</li>
-<li class="fragment"><strong>Structured Streaming</strong>: الواجهة الحديثة والأكثر قوة.</li>
-</ul>
-<aside class="notes">
-<p>وضح التحول من DStreams إلى Structured Streaming.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="بناء-خط-أنابيب-pipeline-بسيط" class="title-slide slide level1 center">
-<h1>بناء خط أنابيب (Pipeline) بسيط</h1>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ol type="1">
-<li class="fragment">ربط Spark بـ Kafka Source.</li>
-<li class="fragment">تحويل البيانات (Transformations).</li>
-<li class="fragment">تجميع البيانات باستخدام النوافذ.</li>
-<li class="fragment">إرسال النتيجة إلى Sink (قاعدة بيانات).</li>
-</ol>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="https://image.pollinations.ai/prompt/pipeline?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Pipeline</figcaption>
+<figcaption>pipeline</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>خطوات منطقية لعملية البرمجة.</p>
+<p>وضح أن Kafka يعمل كجسر أمان بين الأنظمة، مما يمنع تعطل الأنظمة بسبب تدفق البيانات الهائل.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -712,152 +566,36 @@
       }</style></aside>
 </section>
 
-<section id="الاتساق-في-الأنظمة-الموزعة" class="title-slide slide level1 center">
-<h1>الاتساق في الأنظمة الموزعة</h1>
-<ul>
-<li class="fragment"><strong>Exactly-once semantics</strong>: ضمان معالجة الرسالة مرة واحدة فقط.</li>
-<li class="fragment">التحدي: ماذا لو انقطع الاتصال أثناء المعالجة؟</li>
-<li class="fragment">الحل: استخدام Checkpointing وتخزين الـ Offsets.</li>
-</ul>
-<aside class="notes">
-<p>هذا هو الجزء الأصعب تقنياً، ركز على أهمية “مرة واحدة فقط”.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="اختبر-معلوماتك" class="title-slide slide level1 center">
-<h1>اختبر معلوماتك! 🧠</h1>
-<p>ما هو المصطلح الذي يصف حالة تراكم البيانات عندما لا يستطيع النظام معالجتها بسرعة كافية؟</p>
-<ul>
-<li class="fragment">أ) Latency</li>
-<li class="fragment">ب) Backpressure</li>
-<li class="fragment">ج) Throughput</li>
-</ul>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) <strong>Backpressure</strong>، وهو يشير إلى الضغط المرتد الذي يطلبه النظام لإبطاء المصدر.</p>
-</div>
-</section>
-
-<section id="المرحلة-الرابعة-الخلاصة-والتقييم" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الرابعة: الخلاصة والتقييم</h1>
-
-</section>
-
-<section id="تحليل-النتائج-من-المحاكاة-إلى-الواقع" class="title-slide slide level1 center">
-<h1>تحليل النتائج: من المحاكاة إلى الواقع</h1>
-<ul>
-<li class="fragment">هل لاحظتم زيادة التوتر عند حدوث الـ Backpressure؟</li>
-<li class="fragment">المهندس المتميز هو من يصمم أنظمة تتحمل “الضغط الذهني” و “الضغط الرقمي”.</li>
-<li class="fragment">استراتيجية التكيف: تقليل دقة التحليل لزيادة السرعة في لحظات الذروة.</li>
-</ul>
-<aside class="notes">
-<p>اربط بين تجربة المحاكاة العاطفية والتحديات البرمجية الحقيقية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="استراتيجيات-التحسين-المستمر" class="title-slide slide level1 center">
-<h1>استراتيجيات التحسين المستمر</h1>
-<ul>
-<li class="fragment">المراقبة المستمرة عبر Prometheus و Grafana.</li>
-<li class="fragment">ضبط حجم الـ Batch في Spark.</li>
-<li class="fragment">تحسين توزيع البيانات على الـ Partitions في Kafka.</li>
-</ul>
-<aside class="notes">
-<p>قدم نصائح عملية للعمل المهني.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="ملخص-المفاهيم" class="title-slide slide level1 center">
-<h1>ملخص المفاهيم</h1>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment">الالتزام بالمعالجة اللحظية يقلل التكلفة الاستراتيجية للقرار.</li>
-<li class="fragment">استخدام الأدوات المناسبة (Kafka + Spark) يسهل المهام المعقدة.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/analytics?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>Analytics</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>خلاصة مركزة للمفاهيم الأساسية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="جدول-مراجعة-المصطلحات" class="title-slide slide level1 center">
-<h1>جدول مراجعة المصطلحات</h1>
+<section id="جدول-الفرق-بين-التقنيات" class="title-slide slide level1 sdaia-dark center">
+<h1>جدول: الفرق بين التقنيات</h1>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">المصطلح</th>
-<th style="text-align: left;">الوظيفة</th>
+<th style="text-align: left;">الأداة</th>
+<th style="text-align: left;">الغرض الأساسي</th>
+<th style="text-align: left;">نقطة القوة</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Kafka</td>
-<td style="text-align: left;">وسيط رسائل</td>
+<td style="text-align: left;">Spark</td>
+<td style="text-align: left;">المعالجة الحسابية</td>
+<td style="text-align: left;">السرعة في الذاكرة</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Spark</td>
-<td style="text-align: left;">محرك معالجة</td>
+<td style="text-align: left;">Kafka</td>
+<td style="text-align: left;">نقل البيانات</td>
+<td style="text-align: left;">التحمل والتدفق العالي</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Partition</td>
-<td style="text-align: left;">وحدة تقسيم</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Offset</td>
-<td style="text-align: left;">معرف فريد للرسالة</td>
+<td style="text-align: left;">HDFS</td>
+<td style="text-align: left;">التخزين الدائم</td>
+<td style="text-align: left;">الموثوقية العالية</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>جدول نهائي للتثبيت المعرفي.</p>
+<p>استخدم هذا الجدول كمرجع لربط الأدوات ببعضها في ذهن المتدرب.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -871,28 +609,131 @@
       }</style></aside>
 </section>
 
-<section id="اختبر-معلوماتك-1" class="title-slide slide level1 center">
-<h1>اختبر معلوماتك! 🧠</h1>
-<p>أي من أنواع النوافذ الزمنية هو الأفضل لاكتشاف “اتجاهات الشراء” في آخر 5 دقائق مع تحديث كل دقيقة؟</p>
+<section id="المرحلة-الثالثة-التطبيق-والتحسين" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثالثة: التطبيق والتحسين</h1>
+
+</section>
+
+<section id="استراتيجيات-تحسين-spark-jobs" class="title-slide slide level1 sdaia-dark center">
+<h1>استراتيجيات تحسين Spark Jobs</h1>
 <ul>
-<li class="fragment">أ) Tumbling Window</li>
-<li class="fragment">ب) Session Window</li>
-<li class="fragment">ج) Sliding Window</li>
+<li class="fragment">تجنب استخدام <strong>Collect()</strong> على مجموعات بيانات ضخمة.</li>
+<li class="fragment">استخدام <strong>Caching</strong> للبيانات التي يتم استهلاكها بكثرة.</li>
+<li class="fragment">تقليل عمليات <strong>Shuffle</strong> قدر الإمكان.</li>
+<li class="fragment">مراقبة الـ <strong>Spark UI</strong> لتتبع المهام البطيئة (Stragglers).</li>
+</ul>
+<aside class="notes">
+<p>اشرح أن التحسين (Optimization) هو فن وعلم في آن واحد.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="التعامل-مع-الـ-data-skew" class="title-slide slide level1 sdaia-dark center">
+<h1>التعامل مع الـ Data Skew</h1>
+<ul>
+<li class="fragment"><strong>Data Skew</strong> هو عندما تستحوذ عقدة واحدة على أغلب البيانات.</li>
+<li class="fragment">الحل: إعادة توزيع البيانات باستخدام <strong>Salting</strong>.</li>
+<li class="fragment">الحل: استخدام <strong>Broadcast Join</strong> للجداول الصغيرة.</li>
+<li class="fragment">مراقبة التوزيع الإحصائي للبيانات بانتظام.</li>
+</ul>
+<aside class="notes">
+<p>قدم “Salting” كحيلة ذكية للمهندسين المحترفين.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="محاكاة-التنافس-تحدي-السرعة" class="title-slide slide level1 sdaia-dark center">
+<h1>محاكاة التنافس: تحدي السرعة 🚀</h1>
+<ul>
+<li class="fragment">في هذا النشاط: سنقوم بمحاكاة مهمة Spark بطيئة.</li>
+<li class="fragment">المطلوب: تعديل خوارزمية التوزيع لتحسين زمن التنفيذ.</li>
+<li class="fragment">التقييم: يعتمد على زمن المعالجة (Throughput).</li>
+<li class="fragment">الهدف: ليس الفوز فقط، بل فهم أسباب البطء.</li>
+</ul>
+<aside class="notes">
+<p>هنا يبدأ الجانب التلعيب (Gamified)؛ أكد على أن الدعم النفسي متوفر وأن الخطأ هو جزء من التعلم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="كيف-نقيس-الأداء" class="title-slide slide level1 sdaia-dark center">
+<h1>كيف نقيس الأداء؟</h1>
+<ul>
+<li class="fragment"><strong>Latency</strong>: الوقت المستغرق للمعالجة.</li>
+<li class="fragment"><strong>Throughput</strong>: كمية البيانات المعالجة في الثانية.</li>
+<li class="fragment"><strong>Resource Utilization</strong>: مدى استغلال الذاكرة والمعالج.</li>
+<li class="fragment"><strong>Network I/O</strong>: كمية البيانات المنتقلة عبر العقد.</li>
+</ul>
+<aside class="notes">
+<p>ركز على أن الأرقام هي اللغة التي يتحدث بها مهندس البيانات المحترف.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
+<section id="اختبر-معلوماتك" class="title-slide slide level1 sdaia-dark center">
+<h1>اختبر معلوماتك! 🧠</h1>
+<p>ما هو السبب الرئيسي لظاهرة <strong>Data Skew</strong> في Spark؟</p>
+<ul>
+<li class="fragment">أ) زيادة عدد الـ Workers.</li>
+<li class="fragment">ب) عدم توازن البيانات في الـ Partitions.</li>
+<li class="fragment">ج) استخدام ذاكرة RAM كبيرة.</li>
 </ul>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ج) <strong>Sliding Window</strong>، لأنها تسمح بتداخل الفترات الزمنية وتحديثها بشكل مستمر.</p>
+<p><strong>الإجابة الصحيحة:</strong> (ب) حيث يؤدي توزيع البيانات بشكل غير متكافئ إلى تحميل عقدة واحدة عبئاً أكبر من غيرها.</p>
 </div>
 </section>
 
-<section id="مراجعة-عامة-هل-أنت-مستعد-للإنتاج" class="title-slide slide level1 center">
-<h1>مراجعة عامة: هل أنت مستعد للإنتاج؟</h1>
+<section id="المرحلة-الرابعة-الخلاصة-والاستنتاج" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الرابعة: الخلاصة والاستنتاج</h1>
+
+</section>
+
+<section id="مراجعة-سريعة-لأهم-المفاهيم" class="title-slide slide level1 sdaia-dark center">
+<h1>مراجعة سريعة لأهم المفاهيم</h1>
 <ul>
-<li class="fragment">هل قمت بتأمين نظام الـ Kafka؟</li>
-<li class="fragment">هل وضعت استراتيجية لاستعادة البيانات في حال العطل؟</li>
-<li class="fragment">هل قمت بحساب الـ Latency المتوقع في بيئة التشغيل؟</li>
+<li class="fragment">لا توجد معالجة بدون تخطيط مسبق للـ <strong>Partitioning</strong>.</li>
+<li class="fragment"><strong>Kafka</strong> هو صمام الأمان لتدفق البيانات.</li>
+<li class="fragment"><strong>Spark Optimization</strong> يتطلب مراقبة مستمرة للـ UI.</li>
+<li class="fragment">التعاون والعمل الجماعي يسرع حل المشكلات التقنية المعقدة.</li>
 </ul>
 <aside class="notes">
-<p>أسئلة تحفيزية لضمان الاستعداد المهني.</p>
+<p>لخص النقاط السابقة لتثبيت المعلومة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -906,15 +747,36 @@
       }</style></aside>
 </section>
 
-<section id="تقييم-الضغط-والتدفق" class="title-slide slide level1 center">
-<h1>تقييم الضغط والتدفق</h1>
-<ul>
-<li class="fragment">هل كان التحدي مناسباً؟</li>
-<li class="fragment">كيف أثرت التنبيهات العاطفية في أدائك البرمجي؟</li>
-<li class="fragment">التعديل البرمجي هو انعكاس لاستجابتك البشرية للسرعة.</li>
-</ul>
+<section id="جدول-ملخص-الحلول" class="title-slide slide level1 sdaia-dark center">
+<h1>جدول ملخص الحلول</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">المشكلة</th>
+<th style="text-align: left;">الحل الأمثل</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">بطء الـ Join</td>
+<td style="text-align: left;">Broadcast Join</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ضغط الـ Data Skew</td>
+<td style="text-align: left;">Salting</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">تعطل التدفق</td>
+<td style="text-align: left;">Kafka Partitioning</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">استهلاك الذاكرة</td>
+<td style="text-align: left;">Caching/Persisting</td>
+</tr>
+</tbody>
+</table>
 <aside class="notes">
-<p>استخدم هذه الشريحة لجمع التغذية الراجعة حول التجربة النفسية للمتعلم.</p>
+<p>هذا الجدول هو “حقيبة أدوات” المتدرب للعودة إليها عند مواجهة أي مشكلة في مشاريعه القادمة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -928,15 +790,16 @@
       }</style></aside>
 </section>
 
-<section id="الخاتمة-رحلة-التطور" class="title-slide slide level1 center">
-<h1>الخاتمة: رحلة التطور</h1>
+<section id="النمذجة-العاطفية-كيف-نتعامل-مع-الإحباط" class="title-slide slide level1 sdaia-dark center">
+<h1>النمذجة العاطفية: كيف نتعامل مع الإحباط؟</h1>
 <ul>
-<li class="fragment">هندسة البيانات ليست مجرد كود، بل هي فن التعامل مع تدفقات الزمن.</li>
-<li class="fragment">استمر في التجربة والخطأ.</li>
-<li class="fragment">النظام القوي هو الذي يصمد أمام الفشل وليس الذي يعمل فقط في الظروف المثالية.</li>
+<li class="fragment">الشعور بالإحباط عند تعقد الكود هو شعور طبيعي.</li>
+<li class="fragment">“أنا لا أفهم” تتحول إلى “أنا أتعلم هذا الجزء”.</li>
+<li class="fragment">اطلب المساعدة، فالتخصص هندسي والعمل جماعي.</li>
+<li class="fragment">خذ فترات راحة عند مواجهة الـ Bugs المعقدة.</li>
 </ul>
 <aside class="notes">
-<p>كلمة ختامية تشجيعية.</p>
+<p>أكد على هذا الجزء بشدة؛ المهندس المتمكن هو من يدير مشاعره بجانب إدارته للبيانات.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -950,15 +813,29 @@
       }</style></aside>
 </section>
 
-<section id="مراجع-ومصادر-إضافية" class="title-slide slide level1 center">
-<h1>مراجع ومصادر إضافية</h1>
+<section id="اختبر-معلوماتك-1" class="title-slide slide level1 sdaia-dark center">
+<h1>اختبر معلوماتك! 🧠</h1>
+<p>ما الفائدة من استخدام <strong>Kafka</strong> في هندسة البيانات؟</p>
 <ul>
-<li class="fragment">وثائق Apache Kafka الرسمية.</li>
-<li class="fragment">دليل Spark Structured Streaming.</li>
-<li class="fragment">كتب الهندسة الموزعة المتقدمة (Designing Data-Intensive Applications).</li>
+<li class="fragment">أ) تحويل البيانات إلى تنسيق PDF.</li>
+<li class="fragment">ب) العمل كقناة وسيطة (Buffer) للبيانات المتدفقة.</li>
+<li class="fragment">ج) تسريع معالجة ملفات الإكسيل.</li>
+</ul>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> (ب) فهو يسمح بتخزين البيانات مؤقتاً وفصل الأنظمة عن بعضها.</p>
+</div>
+</section>
+
+<section id="رؤية-مستقبلية" class="title-slide slide level1 sdaia-dark center">
+<h1>رؤية مستقبلية</h1>
+<ul>
+<li class="fragment">الاتجاه نحو <strong>Serverless Computing</strong>.</li>
+<li class="fragment">دمج الذكاء الاصطناعي لتحسين الـ Query تلقائياً.</li>
+<li class="fragment">زيادة الاعتماد على المعالجة بالزمن الحقيقي (Real-time).</li>
+<li class="fragment">التطور مستمر، ومهارتكم هي التي ستقود هذا المستقبل.</li>
 </ul>
 <aside class="notes">
-<p>وجه الطلاب للتعلم الذاتي المستمر.</p>
+<p>أعطهم دفعة إيجابية لمستقبلهم المهني.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -972,14 +849,16 @@
       }</style></aside>
 </section>
 
-<section id="شكرا-لحضوركم-المتميز" class="title-slide slide level1 center">
-<h1>شكراً لحضوركم المتميز!</h1>
+<section id="خاتمة-الدرس" class="title-slide slide level1 sdaia-dark center">
+<h1>خاتمة الدرس</h1>
 <ul>
-<li class="fragment">نلتقي في الدرس القادم: “تكامل البيانات اللحظية مع الذكاء الاصطناعي”.</li>
-<li class="fragment">لا تترددوا في طرح أسئلتكم البرمجية.</li>
+<li class="fragment">لقد قطعنا شوطاً كبيراً اليوم.</li>
+<li class="fragment">التحدي القادم: تطبيق ما تعلمتموه في مشاريعكم.</li>
+<li class="fragment">شكراً لالتزامكم وتفاعلكم الرائع.</li>
+<li class="fragment">الأسئلة والمناقشة مفتوحة للجميع.</li>
 </ul>
 <aside class="notes">
-<p>شكر الطلاب وتذكيرهم بالدرس القادم.</p>
+<p>افتح باب النقاش واسمح للمتدربين بطرح أسئلتهم الشخصية والمشاريع التي يعملون عليها حالياً.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -993,15 +872,29 @@
       }</style></aside>
 </section>
 
-<section id="ملاحظات-ختامية-للمدرب" class="title-slide slide level1 center">
-<h1>ملاحظات ختامية للمدرب</h1>
+<section id="مسابقة-ختامية-تحدي-الـ-30-ثانية" class="title-slide slide level1 sdaia-dark center">
+<h1>مسابقة ختامية: تحدي الـ 30 ثانية</h1>
 <ul>
-<li class="fragment">التأكد من إغلاق بيئة المحاكاة.</li>
-<li class="fragment">مراجعة لوحات قياس الضغط العاطفي للطلاب.</li>
-<li class="fragment">تجميع أفضل الكودات التي قدمها المشاركون في التحدي.</li>
+<li class="fragment">ما هو المفهوم الذي يصف توزيع البيانات غير المتكافئ؟</li>
+<li class="fragment">أ) Shuffle.</li>
+<li class="fragment">ب) Data Skew.</li>
+<li class="fragment">ج) Partition.</li>
+</ul>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> (ب) Data Skew.</p>
+</div>
+</section>
+
+<section id="الموارد-الموصى-بها-للاستزادة" class="title-slide slide level1 sdaia-dark center">
+<h1>الموارد الموصى بها للاستزادة</h1>
+<ul>
+<li class="fragment">توثيق Apache Spark الرسمي.</li>
+<li class="fragment">دروس Kafka للمبتدئين والمحترفين.</li>
+<li class="fragment">مقالات Tech Blogs لشركات التقنية الكبرى.</li>
+<li class="fragment">كتابة “Data Engineering Handbook”.</li>
 </ul>
 <aside class="notes">
-<p>شريحة إدارية للمدرب فقط.</p>
+<p>شجعهم على الاستمرار في القراءة والتعلم الذاتي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1015,74 +908,15 @@
       }</style></aside>
 </section>
 
-<section id="استراحة-فكرية" class="title-slide slide level1 center">
-<h1>استراحة فكرية</h1>
+<section id="شكرا-لكم-جميعا" class="title-slide slide level1 sdaia-dark center">
+<h1>شكراً لكم جميعاً!</h1>
 <ul>
-<li class="fragment">ما هو أصعب جزء واجهته في فهم زمن التأخير؟</li>
-<li class="fragment">هل يمكن تطبيق مفاهيم Kafka في حياتنا اليومية؟</li>
+<li class="fragment">هل لديكم أي استفسار حول تطبيقات اليوم؟</li>
+<li class="fragment">نراكم في الجلسة القادمة بمهارات أقوى.</li>
+<li class="fragment">تذكروا: البيانات هي النفط الجديد، وأنتم من يقوم بتكريرها.</li>
 </ul>
 <aside class="notes">
-<p>شريحة تفاعلية للنقاش الحر.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="تذكير-ببيئة-التطوير" class="title-slide slide level1 center">
-<h1>تذكير ببيئة التطوير</h1>
-<ul>
-<li class="fragment">تأكد من تثبيت مكتبات <code>pyspark</code> و <code>confluent-kafka</code>.</li>
-<li class="fragment">تحقق من إعدادات الـ <code>bootstrap-servers</code>.</li>
-</ul>
-<aside class="notes">
-<p>نصيحة تقنية سريعة قبل المغادرة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="تقييم-المستوى" class="title-slide slide level1 center">
-<h1>تقييم المستوى</h1>
-<ul>
-<li class="fragment">إذا كنت تشعر بالراحة، ابدأ بتحدي الـ Production.</li>
-<li class="fragment">إذا كنت بحاجة للمزيد، أعد تشغيل المحاكاة بمستوى أقل.</li>
-</ul>
-<aside class="notes">
-<p>توجيهات بناءً على أداء الطلاب.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="شكرا-لكم" class="title-slide slide level1 center">
-<h1>شكراً لكم</h1>
-<p>نحن نبني مستقبل البيانات معاً.</p>
-<aside class="notes">
-<p>وداعية نهائية.</p>
+<p>أنهِ الدرس بعبارة ملهمة تترك أثراً طيباً في نفوس المتدربين.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
