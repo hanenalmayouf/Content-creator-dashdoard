@@ -16,7 +16,7 @@ htmlcov/
 
 # Node
 node_modules/
-dist/
+/dist/
 build/
 .npm/
 
