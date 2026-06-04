@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>المعالجة الموزعة والحوسبة العنقودية</title>
+  <title>تخزين البيانات: مستودعات البيانات وبحيرات البيانات</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,71 +28,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lesson_files/libs/revealjs/dist/theme/quarto.css">
   <link href="lesson_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -393,18 +328,18 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">المعالجة الموزعة والحوسبة العنقودية</h1>
-  <p class="subtitle">الغوص في تقنيات Apache Spark و Kafka للتعامل مع البيانات الضخمة في الوقت الحقيقي.</p>
+  <h1 class="title">تخزين البيانات: مستودعات البيانات وبحيرات البيانات</h1>
+  <p class="subtitle">تحليل متعمق لأنظمة تخزين البيانات الهيكلية وغير الهيكلية ومقارنة تقنيات التخزين السحابي.</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="هندسة-البيانات-المتقدمة-من-النظم-الخام-إلى-تحليلات-الذكاء-الاصطناعي" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>هندسة البيانات المتقدمة: من النظم الخام إلى تحليلات الذكاء الاصطناعي</h1>
-<p>أهلاً بكم في رحلة احتراف معالجة البيانات الضخمة. اليوم سنتعلم كيف نحول “بيانات البحار” إلى “قطرات ذهبية” من المعرفة.</p>
+<section id="هندسة-البيانات-المتقدمة-تخزين-البيانات-بذكاء" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>هندسة البيانات المتقدمة: تخزين البيانات بذكاء</h1>
+<p>أهلاً بكم في رحلة التحكم في تدفق البيانات. اليوم لن نتحدث عن مجرد “خزانات”، بل عن “عقول” تحفظ إرثنا الرقمي.</p>
 <aside class="notes">
-<p>رحب بالحضور وأكد أن البيانات اليوم هي النفط الجديد، والمهندس المبدع هو من يعرف كيف يستخرجها ويصفيها.</p>
+<p>رحب بالحضور، أكد على أهمية التخزين كعصب للذكاء الاصطناعي، واربط المفهوم بذكاء العرب القدماء في تنظيم الحكمة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -418,16 +353,16 @@
       }</style></aside>
 </section>
 
-<section id="الأهداف-التعليمية-للدرس" class="title-slide slide level1 sdaia-dark center">
-<h1>الأهداف التعليمية للدرس</h1>
+<section id="أهدافنا-التعليمية-لهذا-اليوم" class="title-slide slide level1 sdaia-dark center">
+<h1>أهدافنا التعليمية لهذا اليوم</h1>
 <ul>
-<li class="fragment">فهم مبادئ <strong>المعالجة الموزعة (Distributed Processing)</strong>.</li>
-<li class="fragment">إدارة تدفق البيانات اللحظي باستخدام <strong>Apache Kafka</strong>.</li>
-<li class="fragment">بناء وتطوير وظائف <strong>Apache Spark</strong> عالية الأداء.</li>
-<li class="fragment">تطبيق استراتيجيات التحسين للتعامل مع تحديات البيانات الضخمة.</li>
+<li class="fragment">فهم الفرق الجوهري بين <strong>مستودعات البيانات (Data Warehouses)</strong> و <strong>بحيرات البيانات (Data Lakes)</strong>.</li>
+<li class="fragment">تعلم كيفية اختيار بنية التخزين الأمثل بناءً على حجم وطبيعة البيانات.</li>
+<li class="fragment">إتقان تقنيات تسريع الوصول للبيانات عبر <strong>التقسيم (Partitioning)</strong> و <strong>الفهرسة (Indexing)</strong>.</li>
+<li class="fragment">محاكاة عملية استعلام واقعية لاكتشاف سرعة استجابة الأنظمة.</li>
 </ul>
 <aside class="notes">
-<p>استعرض الأهداف بوضوح، مؤكداً أننا سننتقل من النظرية إلى التطبيق العملي.</p>
+<p>استعرض الأهداف بوضوح، وركز على أن هذه المهارات هي التي تميز مهندس البيانات المحترف.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -441,54 +376,31 @@
       }</style></aside>
 </section>
 
+<section>
 <section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center">
 <h1>المرحلة الأولى: التهيئة والجذب</h1>
 
 </section>
-
-<section id="تخيل-رحلة-الحج-أو-موسم-الحصاد" class="title-slide slide level1 center">
-<h1>تخيّل رحلة الحج أو موسم الحصاد</h1>
-<p>تخيل لو كان عندك مليون طلب شحن في وقت واحد، هل يستطيع موظف واحد (حاسب واحد) استقبالهم جميعاً؟</p>
-<ul>
-<li class="fragment">بالتأكيد لا، سيحدث تكدس.</li>
-<li class="fragment">الحل في “نظام الحشود”: توزيع المهام على عدد كبير من الموظفين (العناقيد) الذين يعملون بتنسيق دقيق.</li>
-</ul>
-<aside class="notes">
-<p>اربط المثال ببيئة الطالب (موسم الحج أو الحصاد) لتقريب فكرة التوزيع.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="ماذا-لو-تعطل-أحد-الموظفين" class="title-slide slide level1 center">
-<h1>ماذا لو تعطل أحد الموظفين؟</h1>
-<p>في النظام المركزي، إذا تعطل “المعالج” توقف كل شيء.</p>
-<ul>
-<li class="fragment">في <strong>الحوسبة العنقودية (Cluster Computing)</strong>، لدينا نظام بديل.</li>
-<li class="fragment">إذا سقطت “عقدة” (Node)، تتولى العقد الأخرى مهامها فوراً.</li>
-</ul>
+<section id="تخيل-معي-مكتبة-أم-مخزن-حبوب" class="slide level2">
+<h2>تخيل معي: مكتبة أم مخزن حبوب؟</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>هذا ما نسميه <strong>التسامح مع الخطأ (Fault Tolerance)</strong>، وهو العمود الفقري للأنظمة الموثوقة.</p>
+<ul>
+<li class="fragment">في قديماً، كنا نحفظ التمر في “مخازن” منظمة جداً (درجات، أنواع).</li>
+<li class="fragment">لكن اليوم، البيانات تتدفق كالأنهار (صور، فيديوهات، نصوص غير مهيكلة).</li>
+<li class="fragment">هل نضع كل شيء في “مخزن” مرتب؟ أم نتركها في “بحيرة” كبيرة؟</li>
+</ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/server?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>server</figcaption>
+<p><img data-src="https://loremflickr.com/600/600/library.png"></p>
+<figcaption>Library</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>ركز على أهمية الاستمرارية وعدم انقطاع الخدمة في الأنظمة الحديثة.</p>
+<p>استخدم التشبيه بين نظام المخازن المنظم والبحيرة التي تحتوي على كل شيء (البيانات الخام) كمدخل للتشويق.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -501,37 +413,109 @@
           display:block!important;
       }</style></aside>
 </section>
+<section id="لغز-البيانات-المفقودة" class="slide level2">
+<h2>لغز البيانات المفقودة</h2>
+<ul>
+<li class="fragment">ماذا يحدث لو وضعت رسالة بريد إلكتروني في قاعدة بيانات مالية جامدة؟</li>
+<li class="fragment">ستفشل العملية! لأن الأنظمة الصارمة لا تقبل إلا البيانات المهيكلة.</li>
+<li class="fragment">هنا ظهرت الحاجة لمستودعات وبحيرات البيانات.</li>
+</ul>
+<aside class="notes">
+<p>اطرح هذا التساؤل لتحفيز التفكير حول قيود الأنظمة التقليدية (RDBMS).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="المرحلة-الثانية-المفاهيم-والأسس" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثانية: المفاهيم والأسس</h1>
 
-<section id="التطور-التاريخي-من-الصندوق-الواحد-إلى-السحابة" class="title-slide slide level1 center">
-<h1>التطور التاريخي: من الصندوق الواحد إلى السحابة</h1>
+</section>
+<section id="ما-هو-مستودع-البيانات-data-warehouse" class="slide level2">
+<h2>ما هو مستودع البيانات (Data Warehouse)؟</h2>
+<ul>
+<li class="fragment">هو مكان مخصص للبيانات “المغسولة” والمرتبة.</li>
+<li class="fragment">البيانات فيه <strong>مهيكلة (Structured)</strong> وجاهزة للتحليل الفوري.</li>
+<li class="fragment">مثل “خزانة التوابل” في مطبخ الأم، كل علبة لها مكانها واسمها.</li>
+</ul>
+<aside class="notes">
+<p>ركز على أن المستودع لا يقبل إلا البيانات التي تم تنظيفها مسبقاً (ETL).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="ما-هي-بحيرة-البيانات-data-lake" class="slide level2">
+<h2>ما هي بحيرة البيانات (Data Lake)؟</h2>
+<ul>
+<li class="fragment">هي مساحة تخزين ضخمة تحتفظ بالبيانات بصورتها الخام.</li>
+<li class="fragment">تشمل <strong>البيانات غير المهيكلة (Unstructured)</strong> مثل الصور، التغريدات، وملفات PDF.</li>
+<li class="fragment">لا نقوم بفلترة البيانات إلا عند “الاستخراج” (Schema-on-Read).</li>
+</ul>
+<aside class="notes">
+<p>شبهها بالبحيرة التي يصب فيها كل شيء، ويمكنك اصطياد ما تحتاجه لاحقاً عند الطلب.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="مقارنة-سريعة-المستودع-مقابل-البحيرة" class="slide level2">
+<h2>مقارنة سريعة: المستودع مقابل البحيرة</h2>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">الحقبة</th>
-<th style="text-align: left;">التقنية</th>
-<th style="text-align: left;">التحدي</th>
+<th style="text-align: left;">وجه المقارنة</th>
+<th style="text-align: left;">مستودع البيانات</th>
+<th style="text-align: left;">بحيرة البيانات</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">التسعينات</td>
-<td style="text-align: left;">الحاسب المركزي</td>
-<td style="text-align: left;">القدرة المحدودة</td>
+<td style="text-align: left;"><strong>نوع البيانات</strong></td>
+<td style="text-align: left;">مهيكلة ومحسوبة</td>
+<td style="text-align: left;">خام (كل شيء)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">العقد الأول</td>
-<td style="text-align: left;">Hadoop (MapReduce)</td>
-<td style="text-align: left;">بطء المعالجة</td>
+<td style="text-align: left;"><strong>التكلفة</strong></td>
+<td style="text-align: left;">مرتفعة</td>
+<td style="text-align: left;">منخفضة</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">العقد الحالي</td>
-<td style="text-align: left;">Spark &amp; Kafka</td>
-<td style="text-align: left;">المعالجة الآنية</td>
+<td style="text-align: left;"><strong>المرونة</strong></td>
+<td style="text-align: left;">منخفضة (صلبة)</td>
+<td style="text-align: left;">عالية جداً</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>الجمهور</strong></td>
+<td style="text-align: left;">المحللون الماليون</td>
+<td style="text-align: left;">علماء البيانات</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>أظهر للطلاب كيف تطور العلم ليصبح أسرع وأكثر مرونة.</p>
+<p>جدول مفصلي للمقارنة، تأكد من شرح كل نقطة بأسلوب بسيط.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -544,22 +528,15 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="المرحلة-الثانية-المفاهيم-الأساسية" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثانية: المفاهيم الأساسية</h1>
-
-</section>
-
-<section id="ما-هي-الحوسبة-العنقودية" class="title-slide slide level1 center">
-<h1>ما هي الحوسبة العنقودية؟</h1>
-<p>هي مجموعة من الحواسيب المستقلة المرتبطة ببعضها عبر شبكة سريعة لتظهر للمستخدم كحاسب عملاق واحد.</p>
+<section id="هندسة-التقسيم-partitioning" class="slide level2">
+<h2>هندسة التقسيم (Partitioning)</h2>
 <ul>
-<li class="fragment"><strong>العقدة (Node):</strong> جهاز واحد داخل العنقود.</li>
-<li class="fragment"><strong>العنقود (Cluster):</strong> المجموعة الكاملة.</li>
-<li class="fragment"><strong>المهمة (Task):</strong> جزء من العمل الموزع.</li>
+<li class="fragment"><strong>التقسيم (Partitioning)</strong> يعني تقسيم البيانات الكبيرة إلى أجزاء صغيرة يسهل الوصول إليها.</li>
+<li class="fragment">تخيل ترتيب كتب المكتبة حسب “سنة النشر” بدل وضعها فوق بعضها.</li>
+<li class="fragment">يقلل هذا التقسيم من وقت البحث بشكل كبير.</li>
 </ul>
 <aside class="notes">
-<p>بسط المصطلحات التقنية باستخدام تشبيه فريق العمل.</p>
+<p>اربط مفهوم التقسيم بترتيب الخوارزميات (البحث الثنائي أو ترتيب البيانات).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -572,29 +549,89 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="apache-kafka-حارس-البيانات" class="title-slide slide level1 center">
-<h1>Apache Kafka: حارس البيانات</h1>
-<p>يعتبر <strong>Kafka</strong> بمثابة “الجهاز العصبي” لنقل البيانات بين الأنظمة المختلفة بسرعة فائقة.</p>
+<section id="فن-الفهرسة-indexing" class="slide level2">
+<h2>فن الفهرسة (Indexing)</h2>
 <ul>
-<li class="fragment"><strong>المصدر (Producer):</strong> يضخ البيانات.</li>
-<li class="fragment"><strong>المستهلك (Consumer):</strong> يقرأ البيانات.</li>
-<li class="fragment"><strong>الوسيط (Broker):</strong> ينظم تدفق البيانات.</li>
+<li class="fragment"><strong>الفهرس (Index)</strong> هو مثل “فهرس الكتاب” في نهايته.</li>
+<li class="fragment">بدلاً من قراءة الكتاب كاملاً (Scan)، تذهب لرقم الصفحة مباشرة.</li>
+<li class="fragment">في قواعد البيانات، الفهرسة هي ما يجعل الاستعلام يستغرق ثوانٍ بدلاً من دقائق.</li>
 </ul>
+<aside class="notes">
+<p>تأكيد على أن الفهرسة تستهلك مساحة تخزين لكنها توفر وقتاً ثميناً في الاستعلام.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="متى-تختار-المستودع" class="slide level2">
+<h2>متى تختار المستودع؟</h2>
+<ul>
+<li class="fragment">عندما تكون الأسئلة محددة مسبقاً (تقارير الأرباح).</li>
+<li class="fragment">عندما تحتاج لسرعة فائقة في اتخاذ القرار.</li>
+<li class="fragment">عندما تكون جودة البيانات وسلامتها (Data Integrity) هي الأولوية.</li>
+</ul>
+<aside class="notes">
+<p>ركز على أن المستودع هو أداة “دعم اتخاذ القرار” (BI).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="متى-تختار-البحيرة" class="slide level2">
+<h2>متى تختار البحيرة؟</h2>
+<ul>
+<li class="fragment">عندما لا تعرف بعد ماذا ستستخرج من البيانات.</li>
+<li class="fragment">عند التعامل مع أحجام بيانات هائلة (Big Data).</li>
+<li class="fragment">عند الرغبة في تدريب نماذج الذكاء الاصطناعي على بيانات متنوعة.</li>
+</ul>
+<aside class="notes">
+<p>البحيرة هي ملعب “علماء البيانات” الذين يبحثون عن أنماط خفية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="هيكلية-السحابة" class="slide level2">
+<h2>هيكلية السحابة</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>يعمل كمنصة رسائل تضمن عدم ضياع أي معلومة أثناء النقل.</p>
+<ul>
+<li class="fragment">التخزين السحابي يوفر لنا مرونة غير محدودة.</li>
+<li class="fragment">نستخدم خدمات مثل S3 أو Azure Blob Storage للبحيرات.</li>
+<li class="fragment">ونستخدم خدمات مثل Redshift أو BigQuery للمستودعات.</li>
+</ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/pipeline?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>pipeline</figcaption>
+<p><img data-src="https://loremflickr.com/600/600/cloud.png"></p>
+<figcaption>Cloud</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>شبه كافكا بمكتب البريد أو موزع الرسائل في الديوانية.</p>
+<p>بسط مفهوم السحابة كخادم بعيد يوفر موارد تخزين عملاقة دون امتلاك الأجهزة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -607,16 +644,15 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="apache-spark-محرك-العقل" class="title-slide slide level1 center">
-<h1>Apache Spark: محرك العقل</h1>
-<p>بينما ينقل Kafka البيانات، يقوم <strong>Spark</strong> بمعالجتها وتحليلها في الذاكرة (In-Memory).</p>
+<section id="تحديات-التخزين" class="slide level2">
+<h2>تحديات التخزين</h2>
 <ul>
-<li class="fragment">أسرع بـ 100 مرة من Hadoop التقليدي.</li>
-<li class="fragment">يدعم معالجة البيانات الضخمة (Batch) والبيانات اللحظية (Streaming).</li>
+<li class="fragment"><strong>مشكلة swamp (المستنقع)</strong>: عندما تتحول البحيرة إلى كومة بيانات لا يمكن قراءتها بسبب غياب التصنيف.</li>
+<li class="fragment"><strong>تضخم التكاليف</strong>: تخزين كل شيء دون استراتيجية هو هدر للمال.</li>
+<li class="fragment"><strong>الأمن</strong>: حماية البيانات في البحيرة أصعب من المستودع.</li>
 </ul>
 <aside class="notes">
-<p>أكد على السرعة التي يوفرها المعالجة داخل الذاكرة (RAM).</p>
+<p>نبه الطلاب أن البحيرة بلا حوكمة تصبح “مستنقعاً” للبيانات.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -629,37 +665,19 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="مقارنة-بين-kafka-و-spark" class="title-slide slide level1 center">
-<h1>مقارنة بين Kafka و Spark</h1>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">الميزة</th>
-<th style="text-align: left;">Apache Kafka</th>
-<th style="text-align: left;">Apache Spark</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">الوظيفة الأساسية</td>
-<td style="text-align: left;">تخزين ونقل البيانات</td>
-<td style="text-align: left;">معالجة وتحليل البيانات</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">مكان العمل</td>
-<td style="text-align: left;">بين المصادر والأنظمة</td>
-<td style="text-align: left;">داخل الذاكرة للمعالجة</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">الحالة</td>
-<td style="text-align: left;">دائمة (Persistent)</td>
-<td style="text-align: left;">عابرة (Transient)</td>
-</tr>
-</tbody>
-</table>
+<section id="اختبر-معلوماتك" class="slide level2">
+<h2>اختبر معلوماتك! 🧠</h2>
+<p>أي نوع من التخزين تستخدمه إذا كنت تريد تخزين ملايين التغريدات لتحليل مشاعر الناس؟</p>
+<ul>
+<li class="fragment">أ) مستودع بيانات</li>
+<li class="fragment">ب) بحيرة بيانات</li>
+<li class="fragment">ج) ملف Excel بسيط</li>
+</ul>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ب) بحيرة بيانات، لأن التغريدات بيانات غير مهيكلة وتحتاج لمرونة عالية في التخزين والتحليل اللاحق.</p>
+</div>
 <aside class="notes">
-<p>هذا الجدول ضروري لتفريق الأدوار بين التقنيتين.</p>
+<p>التفاعل ضروري هنا للتأكد من استيعاب الفرق الأساسي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -671,23 +689,21 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-
+</section></section>
+<section>
 <section id="المرحلة-الثالثة-التطبيق-العملي" class="title-slide slide level1 sdaia-dark center">
 <h1>المرحلة الثالثة: التطبيق العملي</h1>
 
 </section>
-
-<section id="سباق-البرمجة-القواعد" class="title-slide slide level1 center">
-<h1>سباق البرمجة: القواعد</h1>
-<p>سنقسم القاعة إلى فرق، كل فريق سيعمل على تحسين كود Spark.</p>
+<section id="محاكاة-استعلام-البحث-في-البيانات" class="slide level2">
+<h2>محاكاة استعلام: البحث في البيانات</h2>
 <ul>
-<li class="fragment">الهدف: تقليل وقت معالجة البيانات.</li>
-<li class="fragment">التحدي: التعامل مع “البيانات المائلة” (Data Skew).</li>
-<li class="fragment">المبدأ: “لا تضع كل الحمل على عامل واحد!”.</li>
+<li class="fragment">تخيل جدولاً يحتوي على 100 مليون سجل للمبيعات.</li>
+<li class="fragment">استعلام بدون <strong>فهرسة</strong>: “البحث في كل الأوراق” (ساعة).</li>
+<li class="fragment">استعلام مع <strong>تقسيم</strong>: “البحث في قسم سنة 2023 فقط” (دقيقة).</li>
 </ul>
 <aside class="notes">
-<p>حفز الطلاب للمنافسة الإيجابية وتهيئتهم للنشاط العملي.</p>
+<p>استخدم مثال المبيعات لأنه أقرب للواقع المهني للطالب.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -700,19 +716,15 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="كود-المعالجة-الموزعة-نظرة-أولية" class="title-slide slide level1 center">
-<h1>كود المعالجة الموزعة (نظرة أولية)</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="co"># Spark DataFrame Example</span></span>
-<span id="cb1-2"><a href=""></a>df <span class="op">=</span> spark.read.json(<span class="st">"data.json"</span>)</span>
-<span id="cb1-3"><a href=""></a>result <span class="op">=</span> df.groupBy(<span class="st">"category"</span>).count()</span>
-<span id="cb1-4"><a href=""></a>result.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="تمرين-عملي-صمم-مستودعك" class="slide level2">
+<h2>تمرين عملي: صمم مستودعك</h2>
 <ul>
-<li class="fragment"><strong>التوزيع:</strong> Spark يقوم بتقسيم البيانات إلى <strong>Partitions</strong>.</li>
-<li class="fragment"><strong>العملية:</strong> كل جزء يعالج في عقدة مستقلة.</li>
+<li class="fragment">أنت مهندس بيانات في شركة تمر.</li>
+<li class="fragment">البيانات: سجلات البيع اليومي، صور التمور (للتصنيف بالذكاء الاصطناعي).</li>
+<li class="fragment">السؤال: أين تضع الصور؟ وأين تضع السجلات المالية؟</li>
 </ul>
 <aside class="notes">
-<p>اشرح أن الكود يبدو بسيطاً، لكن السحر يحدث خلف الكواليس في التوزيع.</p>
+<p>شجع الطلاب على التفكير في الهيكلة الهجينة (استخدام المستودع والبحيرة معاً).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -725,17 +737,15 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="إدارة-الإحباط-أنت-لست-فاشلا-أنت-مصحح" class="title-slide slide level1 center">
-<h1>إدارة الإحباط: أنت لست فاشلاً، أنت “مصحح”</h1>
-<p>عندما تظهر أخطاء النظام (Errors)، لا تشعر بالإحباط:</p>
+<section id="الفهرسة-أداة-السرعة" class="slide level2">
+<h2>الفهرسة: أداة السرعة</h2>
 <ul>
-<li class="fragment">الخطأ في البرمجة الموزعة هو “دليل مسار”.</li>
-<li class="fragment">تعلم كيف تقرأ سجلات الأخطاء (Logs).</li>
-<li class="fragment">المبرمج المحترف هو من يضحك على “البق” (Bug) قبل أن يحلّه.</li>
+<li class="fragment"><strong>الفهرسة المتجمعة (Clustered Index)</strong>: تعيد ترتيب البيانات فعلياً.</li>
+<li class="fragment"><strong>الفهرسة غير المتجمعة (Non-Clustered)</strong>: تنشئ جدولاً جانبياً للمراجع.</li>
+<li class="fragment">كلاهما يحسن السرعة لكنه يستهلك “مساحة إضافية”.</li>
 </ul>
 <aside class="notes">
-<p>استخدم النمذجة العاطفية لتهدئة الطلاب عند ظهور تعقيدات تقنية.</p>
+<p>اشرح أن هناك “مقايضة” (Trade-off) دائماً بين السرعة والمساحة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -748,16 +758,15 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="استراتيجيات-تحسين-الأداء" class="title-slide slide level1 center">
-<h1>استراتيجيات تحسين الأداء</h1>
+<section id="استراتيجية-partitioning-ناجحة" class="slide level2">
+<h2>استراتيجية Partitioning ناجحة</h2>
 <ul>
-<li class="fragment"><strong>Caching:</strong> احتفظ بالبيانات المتكررة في الذاكرة.</li>
-<li class="fragment"><strong>Partitioning:</strong> وزع البيانات بذكاء لتجنب التكدس.</li>
-<li class="fragment"><strong>Broadcast Joins:</strong> إذا كان لديك جدول صغير، وزعه على جميع العقد.</li>
+<li class="fragment">قسم بياناتك بناءً على الاستخدام الأكثر تكراراً.</li>
+<li class="fragment">إذا كان العملاء يطلبون تقارير “الشهر الحالي”، قسّم البيانات شهرياً.</li>
+<li class="fragment">هذا يضمن أن النظام يقرأ جزءاً صغيراً من القرص الصلب.</li>
 </ul>
 <aside class="notes">
-<p>ركز على أن الأداء الجيد يعني وفراً في الوقت والمال.</p>
+<p>ركز على أن هندسة البيانات هي فن توزيع الجهد التقني.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -770,34 +779,137 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="اختبر-معلوماتك" class="title-slide slide level1 center">
-<h1>اختبر معلوماتك! 🧠</h1>
-<p>أي من هذه الأدوات يُستخدم لنقل تدفقات البيانات اللحظية؟</p>
+<section id="تحليل-الأداء-الجدول-الزمني" class="slide level2">
+<h2>تحليل الأداء: الجدول الزمني</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">التقنية</th>
+<th style="text-align: left;">وقت الاستجابة</th>
+<th style="text-align: left;">استهلاك الذاكرة</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">بدون فهرسة</td>
+<td style="text-align: left;">طويل جداً</td>
+<td style="text-align: left;">منخفض</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">فهرسة بسيطة</td>
+<td style="text-align: left;">سريع</td>
+<td style="text-align: left;">متوسط</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">تقسيم + فهرسة</td>
+<td style="text-align: left;">فائق السرعة</td>
+<td style="text-align: left;">مرتفع</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>أكد أن هذا الجدول يوضح المقايضات في هندسة البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="الربط-ببيئة-الطالب" class="slide level2">
+<h2>الربط ببيئة الطالب</h2>
 <ul>
-<li class="fragment">أ) Apache Spark</li>
-<li class="fragment">ب) Apache Kafka</li>
-<li class="fragment">ج) SQL Server</li>
+<li class="fragment">فكر في “السجل المدني”.</li>
+<li class="fragment">البيانات الأساسية (الاسم، الميلاد) تكون في قاعدة بيانات مهيكلة (مستودع).</li>
+<li class="fragment">الصور الشخصية وبصمات الأصابع تُخزن في نظام ملفات شبيه بالبحيرة.</li>
+</ul>
+<aside class="notes">
+<p>استخدام أمثلة من البيئة المحلية السعودية يعزز الفهم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="أهمية-جودة-البيانات" class="slide level2">
+<h2>أهمية جودة البيانات</h2>
+<ul>
+<li class="fragment">في المستودع: البيانات نظيفة.</li>
+<li class="fragment">في البحيرة: البيانات الخام تحتاج تنظيف قبل التدريب.</li>
+<li class="fragment"><strong>الخوارزمية</strong> لا تعطي نتائج جيدة إذا كانت البيانات “موسخة” (Dirty Data).</li>
+</ul>
+<aside class="notes">
+<p>استخدم مصطلح “Garbage In, Garbage Out” بشكل مبسط.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="كيف-نضمن-الفخر-العلمي" class="slide level2">
+<h2>كيف نضمن الفخر العلمي؟</h2>
+<ul>
+<li class="fragment">الخوارزمي وضع قواعد الحساب (الخوارزميات).</li>
+<li class="fragment">أنت اليوم تضع قواعد “تخزين البيانات”.</li>
+<li class="fragment">أنت امتداد لعلماء وضعوا الأسس لنظام العالم.</li>
+</ul>
+<aside class="notes">
+<p>تعزيز الثقة بالنفس والربط بالإرث العربي العلمي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="اختبر-معلوماتك-1" class="slide level2">
+<h2>اختبر معلوماتك! 🧠</h2>
+<p>ما هي الميزة الرئيسية لاستخدام التقسيم (Partitioning)؟</p>
+<ul>
+<li class="fragment">أ) زيادة عدد الصور</li>
+<li class="fragment">ب) تقليل زمن الوصول للبيانات</li>
+<li class="fragment">ج) تغيير نوع لغة البرمجة</li>
 </ul>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) Apache Kafka، لأنه مصمم كمنصة رسائل (Messaging Queue) لنقل البيانات بين النظم.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) تقليل زمن الوصول للبيانات، لأن البحث يتم في نطاق أصغر.</p>
 </div>
+</section></section>
+<section>
+<section id="المرحلة-الرابعة-الخلاصة-والمراجعة" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الرابعة: الخلاصة والمراجعة</h1>
+
 </section>
-
-<section id="المرحلة-الرابعة-الخلاصة-والتقييم" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الرابعة: الخلاصة والتقييم</h1>
-
-</section>
-
-<section id="ملخص-رحلة-اليوم" class="title-slide slide level1 center">
-<h1>ملخص رحلة اليوم</h1>
+<section id="ملخص-المفاهيم" class="slide level2">
+<h2>ملخص المفاهيم</h2>
 <ul>
-<li class="fragment">تعلمنا أن <strong>المعالجة الموزعة</strong> هي الحل للبيانات الضخمة.</li>
-<li class="fragment">Kafka هو طريق البيانات، وSpark هو مصنعها.</li>
-<li class="fragment">لا تخف من الأخطاء، فهي جزء من التعلم.</li>
+<li class="fragment">التخزين ليس خياراً واحداً بل استراتيجية.</li>
+<li class="fragment">المستودعات للتقارير، البحيرات للابتكار والذكاء الاصطناعي.</li>
+<li class="fragment">التقسيم والفهرسة هما “مفاتيح السرعة”.</li>
 </ul>
 <aside class="notes">
-<p>لخص النقاط الجوهرية للدرس.</p>
+<p>لخص النقاط الجوهرية قبل الانتقال للختام.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -810,17 +922,15 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="تحدي-المنزل-صمم-نظامك" class="title-slide slide level1 center">
-<h1>تحدي المنزل: صمّم نظامك</h1>
-<p>فكر في نظام يتنبأ بزحمة السير في مدينتك:</p>
+<section id="خارطة-طريق-المهندس" class="slide level2">
+<h2>خارطة طريق المهندس</h2>
 <ul>
-<li class="fragment">من أين تأتي البيانات (Kafka Producers)؟</li>
-<li class="fragment">كيف ستعالجها (Spark Jobs)؟</li>
-<li class="fragment">حاول رسم المخطط على ورقة.</li>
+<li class="fragment">ابدأ بتحديد طبيعة بياناتك (هل هي مهيكلة؟).</li>
+<li class="fragment">اختر الأداة المناسبة (Cloud DW vs Data Lake).</li>
+<li class="fragment">طبق استراتيجية التقسيم منذ اليوم الأول.</li>
 </ul>
 <aside class="notes">
-<p>شجع الطلاب على الربط بالواقع المحيط بهم.</p>
+<p>أعطِ الطلاب خطوات عملية يبدأون بها في مشاريعهم.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -833,46 +943,14 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="هل-هناك-سؤال" class="title-slide slide level1 center">
-<h1>هل هناك سؤال؟</h1>
-<p>نحن هنا لنبني عقولاً، لا لنحفظ نصوصاً. اسأل، ناقش، وتعلّم!</p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>المعرفة التي لا تُشارك، لا تنمو.</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/question?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>question</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>افتح باب النقاش والحوار.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="قائمة-المراجع-والمصادر" class="title-slide slide level1 center">
-<h1>قائمة المراجع والمصادر</h1>
+<section id="سؤال-للنقاش" class="slide level2">
+<h2>سؤال للنقاش</h2>
 <ul>
-<li class="fragment">وثائق Apache Spark الرسمية.</li>
-<li class="fragment">دليل Kafka للمبتدئين.</li>
-<li class="fragment">مقالات حول هندسة البيانات الضخمة (Big Data Engineering).</li>
+<li class="fragment">“لو كان لديك مليار تغريدة، هل ستخزنها في جدول SQL تقليدي؟ ولماذا؟”</li>
+<li class="fragment">فكر في الحجم، وفكر في المرونة.</li>
 </ul>
 <aside class="notes">
-<p>وجه الطلاب للبحث والتعلم الذاتي.</p>
+<p>شجع النقاش الجماعي في القاعة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -885,15 +963,15 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="خريطة-الطريق-القادمة" class="title-slide slide level1 center">
-<h1>خريطة الطريق القادمة</h1>
+<section id="أهمية-التوثيق" class="slide level2">
+<h2>أهمية التوثيق</h2>
 <ul>
-<li class="fragment">الدرس القادم: “التعلم الآلي الموزع”.</li>
-<li class="fragment">سنربط Spark بـ MLlib لتدريب النماذج على بيانات ضخمة.</li>
+<li class="fragment">المهندس الذكي يوثق لماذا اختار هذا التقسيم.</li>
+<li class="fragment">“لماذا” أهم من “كيف”.</li>
+<li class="fragment">سجل قراراتك الهندسية لتعود إليها لاحقاً.</li>
 </ul>
 <aside class="notes">
-<p>خلق حالة من التشويق للدرس القادم.</p>
+<p>التوثيق هو ما يميز المحترف عن الهاوي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -906,12 +984,14 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="كلمة-أخيرة-للمبدعين" class="title-slide slide level1 center">
-<h1>كلمة أخيرة للمبدعين</h1>
-<p>“الخوارزمي” وضع حجر الأساس، وأنتم اليوم تبنون القصر التقني العظيم.</p>
+<section id="ختام-التعليم-للغير" class="slide level2">
+<h2>ختام: التعليم للغير</h2>
+<ul>
+<li class="fragment">اشرح لصديقك بجانبك: “لماذا لا نضع كل شيء في المستودع؟”</li>
+<li class="fragment">التعليم هو خير وسيلة لتثبيت المعلومة في عقلك.</li>
+</ul>
 <aside class="notes">
-<p>ذكّرهم بإرثهم العلمي لتعزيز الثقة بالنفس.</p>
+<p>طبق قاعدة التعليم للغير لتحويل المعرفة إلى مهارة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -924,12 +1004,14 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="شكرا-لحسن-استماعكم" class="title-slide slide level1 center">
-<h1>شكراً لحسن استماعكم</h1>
-<p>نلتقي في المختبر الرقمي!</p>
+<section id="شكرا-لاهتمامكم" class="slide level2">
+<h2>شكرًا لاهتمامكم</h2>
+<ul>
+<li class="fragment">نحن نبني المستقبل ببيانات اليوم.</li>
+<li class="fragment">أي سؤال؟</li>
+</ul>
 <aside class="notes">
-<p>اختم الدرس بأسلوب مشجع وودي.</p>
+<p>أنهِ الدرس بنبرة مشجعة ومحفزة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -941,61 +1023,13 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-
-<section id="مسابقة-ختامية-الترتيب-الصحيح" class="title-slide slide level1 center">
-<h1>مسابقة ختامية: الترتيب الصحيح</h1>
-<p>رتب خطوات معالجة البيانات: 1. معالجة Spark. 2. استقبال Kafka. 3. التخزين النهائي.</p>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> الترتيب هو (2 ثم 1 ثم 3).</p>
-</div>
-</section>
-
-<section id="ملاحظة-المحاضر-نصيحة-إضافية" class="title-slide slide level1 center">
-<h1>ملاحظة المحاضر: نصيحة إضافية</h1>
-<p>دائماً شجع الطلاب على استخدام أجهزة افتراضية (VMs) للتدريب، وتجنب العمل على خوادم الإنتاج مباشرة.</p>
-</section>
-
-<section id="لماذا-spark" class="title-slide slide level1 center">
-<h1>لماذا Spark؟</h1>
-<p>Spark يتفوق لأنه يتجنب القراءة والكتابة على القرص الصلب (Disk) ويستخدم الذاكرة (RAM) بكثافة.</p>
-</section>
-
-<section id="دور-kafka-في-الوقت-الحقيقي" class="title-slide slide level1 center">
-<h1>دور Kafka في الوقت الحقيقي</h1>
-<p>Kafka يحافظ على ترتيب البيانات (Ordering) داخل كل قسم، وهذا يضمن سلامة المنطق التحليلي.</p>
-</section>
-
-<section id="التحدي-التقني-حل-البيانات-المائلة" class="title-slide slide level1 center">
-<h1>التحدي التقني: حل البيانات المائلة</h1>
-<p>إذا كان هناك عقدة تعمل أكثر من غيرها، يعني أن تقسيم البيانات غير متوازن، حاول إعادة توزيع المفاتيح (Keys).</p>
-</section>
-
-<section id="الربط-بالتطبيق-الواقعي" class="title-slide slide level1 center">
-<h1>الربط بالتطبيق الواقعي</h1>
-<p>فكر كيف تستفيد تطبيقات التوصيل من Kafka لإرسال موقع السائق لك في نفس اللحظة!</p>
-</section>
-
-<section id="شكر-خاص" class="title-slide slide level1 center">
-<h1>شكر خاص</h1>
-<p>للمشاركين الفعالين في سباق البرمجة اليوم.</p>
-</section>
-
-<section id="تحفيز-القادم-أجمل" class="title-slide slide level1 center">
-<h1>تحفيز: القادم أجمل</h1>
-<p>كل سطر برمجي تكتبه اليوم يقربك من كونك مهندس بيانات محترفاً.</p>
-</section>
-
-<section id="تقييم-ذاتي" class="title-slide slide level1 center">
-<h1>تقييم ذاتي</h1>
-<p>هل تشعر أنك قادر على شرح دور Kafka لزميلك؟ إذا نعم، فقد أتقنت الدرس!</p>
 <div class="quarto-auto-generated-content">
 <p><img src="slides_template/assets/sdaia.svg" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
