@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>خطوط البيانات في الوقت الفعلي (Real-time Pipelines)</title>
+  <title>هندسة الأوامر التكتيكية: السلسلة الفكرية (CoT) والبرمجة بالتعليمات</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -328,19 +328,21 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">خطوط البيانات في الوقت الفعلي (Real-time Pipelines)</h1>
-  <p class="subtitle">مقدمة إلى المعالجة اللحظية للبيانات باستخدام تقنيات مثل Kafka و Spark Streaming.</p>
+  <h1 class="title">هندسة الأوامر التكتيكية: السلسلة الفكرية (CoT) والبرمجة بالتعليمات</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
 <section>
-<section id="هندسة-البيانات-المتقدمة-خطوط-البيانات-في-الوقت-الفعلي" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>هندسة البيانات المتقدمة: خطوط البيانات في الوقت الفعلي</h1>
-<p>أهلاً بكم في رحلة التحكم في سيل البيانات المتدفق.</p>
+<section id="هندسة-الأوامر-التكتيكية-السلسلة-الفكرية-cot-والبرمجة-بالتعليمات" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>هندسة الأوامر التكتيكية: السلسلة الفكرية (CoT) والبرمجة بالتعليمات</h1>
+
+</section>
+<section id="مرحبا-بكم-أيها-المهندسون-العرب-لمستقبل-الذكاء-الاصطناعي" class="slide level2">
+<h2>مرحباً بكم أيها المهندسون العرب لمستقبل الذكاء الاصطناعي!</h2>
 <aside class="notes">
-<p>رحب بالحضور وذكّرهم أننا اليوم سنتعلم كيف نحول البيانات من “سواقي” ساكنة إلى “أنهار” جارية لحظية.</p>
+<p>أهلاً بكم أيها المهندسون والطامحون في عالم الذكاء الاصطناعي! اليوم سنخوض غمار رحلة تعليمية شيقة حول إحدى أقوى تقنيات هندسة الأوامر التي ستمكنكم من جعل النماذج اللغوية تفكر وتستدل مثل العقول المفكرة. استعدوا لتجربة تعليمية مختلفة، تجمع بين الأصالة العربية وعمق التفكير التقني.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -352,17 +354,49 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="موقعنا-في-الرحلة-فن-صياغة-التفاعل-مع-نماذج-الذكاء-الاصطناعي-التوليدية" class="title-slide slide level1 center">
+<h1>موقعنا في الرحلة: فن صياغة التفاعل مع نماذج الذكاء الاصطناعي التوليدية</h1>
+
 </section>
-<section id="أهدافنا-اليوم" class="slide level2">
-<h2>أهدافنا اليوم</h2>
+<section id="هندسة-الأوامر-فن-صياغة-التفاعل-مع-نماذج-الذكاء-الاصطناعي-التوليدية" class="slide level2">
+<h2>هندسة الأوامر: فن صياغة التفاعل مع نماذج الذكاء الاصطناعي التوليدية</h2>
+<p>اليوم نغوص في صميم <strong>هندسة الأوامر التكتيكية</strong>:</p>
 <ul>
-<li class="fragment">فهم مفهوم <strong>معالجة دفق البيانات</strong> (Stream Processing).</li>
-<li class="fragment">التعرف على معمارية <strong>صفوف الرسائل</strong> (Message Queues).</li>
-<li class="fragment">استكشاف الفرق بين المعالجة الدفعية واللحظية.</li>
-<li class="fragment">بناء أنظمة تتحمل الأخطاء (Fault Tolerance).</li>
+<li class="fragment"><strong>الأساسيات</strong>: تعلّمنا كيف نصيغ الأوامر الأولية.</li>
+<li class="fragment"><strong>الاستراتيجيات المتقدمة</strong>: نبدأ اليوم بتقنيات تجعل النموذج يفكر بعمق أكبر.</li>
+<li class="fragment"><strong>التطبيق العملي</strong>: سنرى كيف نبرمج النموذج ليتبع مسارات منطقية معقدة.</li>
 </ul>
 <aside class="notes">
-<p>ركز على أن الأهداف مرتبطة ببناء أنظمة لا تتوقف ولا تضيع فيها المعلومة.</p>
+<p>في دورتنا هذه، قطعنا شوطًا في فهم أساسيات هندسة الأوامر. اليوم، نحن ننتقل إلى مستوى متقدم، وهو المستوى التكتيكي، حيث لا نكتفي بطلب المعلومات، بل نوجه النموذج ليفكر ويستدل بطريقة ممنهجة. هذا الدرس هو نقطة تحول في قدرتكم على التعامل مع نماذج الذكاء الاصطناعي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="أهدافنا-التعليمية-لهذا-الدرس" class="title-slide slide level1 center">
+<h1>أهدافنا التعليمية لهذا الدرس 🎯</h1>
+
+</section>
+<section id="في-نهاية-هذا-الدرس-ستكون-قادرا-على" class="slide level2">
+<h2>في نهاية هذا الدرس، ستكون قادراً على:</h2>
+<ul>
+<li class="fragment">التعرف على مفهوم <strong>السلسلة الفكرية (Chain-of-Thought Prompting - CoT)</strong> وأهميتها في حل المشكلات المعقدة.</li>
+<li class="fragment">تطبيق تقنيات CoT المتنوعة مثل <strong>Zero-shot CoT</strong> و <strong>Few-shot CoT</strong> بفعالية.</li>
+<li class="fragment">استخدام التعليمات لصياغة أوامر (<strong>Instruction-based Programming</strong>) توجه النموذج لتنفيذ مهام برمجية أو منطقية محددة.</li>
+<li class="fragment">تحليل الآليات الكامنة وراء قدرة نماذج اللغات على <strong>التفكير الاستنتاجي (Reasoning)</strong> عند تطبيق تقنيات CoT.</li>
+</ul>
+<aside class="notes">
+<p>هذه الأهداف ليست مجرد نقاط على شريحة، بل هي وعود بقدرات جديدة ستمتلكونها. القدرة على جعل الذكاء الاصطناعي يحل مشكلات معقدة، وأن توجهوه بدقة، وأن تفهموا كيف “يفكر” أو “يستدل” هو ما يميز المهندس المتمكن في هذا المجال. فلنبدأ!</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -380,51 +414,30 @@
 <h1>المرحلة الأولى: التهيئة والجذب</h1>
 
 </section>
-<section id="تخيل-سوقا-في-يوم-الجمعة" class="slide level2">
-<h2>تخيّل سوقاً في يوم الجمعة</h2>
-<ul>
-<li class="fragment">البائعون يصرخون، والمشترون يتدافعون، والأسعار تتغير في كل لحظة.</li>
-<li class="fragment">لو جئت في نهاية اليوم لتسأل عن “حالة السوق”، ستكون فاتتك آلاف الفرص.</li>
-<li class="fragment"><strong>معالجة الوقت الفعلي</strong> هي أن تكون موجوداً في كل لحظة، تسمع العرض، وتقتنص الفرصة قبل غيرك.</li>
-</ul>
-<aside class="notes">
-<p>استخدم مثال السوق لتقريب مفهوم سرعة اتخاذ القرار.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="البيانات-ليست-مجرد-ملفات-ساكنة" class="slide level2">
-<h2>البيانات ليست مجرد ملفات ساكنة</h2>
-<ul>
-<li class="fragment">في الماضي: كانت البيانات تتجمع في “مخازن” ثم تُحلل لاحقاً.</li>
-<li class="fragment">اليوم: البيانات تتدفق كالأنهار من المستشعرات، كاميرات المراقبة، وتطبيقات التواصل.</li>
-<li class="fragment"><strong>التدفق اللحظي</strong> هو القدرة على فهم الحاضر الآن.</li>
-</ul>
+<section id="كيف-يفكر-العقل-البشري-لحل-المشكلات-المعقدة" class="slide level2">
+<h2>كيف يفكر العقل البشري لحل المشكلات المعقدة؟</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
+<p>تخيّل العالم <strong>ابن الهيثم</strong>، وهو يحاول إثبات كيفية رؤية العين للأشياء. لم يقفز للنتيجة مباشرة. بل:</p>
 <ul>
-<li class="fragment">التدفق المستمر للبيانات يشبه جريان الماء في النهر.</li>
-<li class="fragment">لا يمكنك إيقاف النهر لتعدّه، بل يجب أن تقيسه وهو يجري.</li>
+<li class="fragment">بدأ بوضع <strong>ملاحظات دقيقة</strong>.</li>
+<li class="fragment">صاغ <strong>فرضيات منطقية</strong>.</li>
+<li class="fragment">صمم <strong>تجارب محكمة</strong>.</li>
+<li class="fragment">نفّذ <strong>خطوات متسلسلة</strong> ومنظمة.</li>
+<li class="fragment">حلل <strong>النتائج</strong> ليستنتج قوانين البصريات.</li>
 </ul>
+<p>هذه الرحلة المنهجية خطوة بخطوة هي سر فهمه العميق.</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://loremflickr.com/600/600/river.png"></p>
-<figcaption>River</figcaption>
+<p><img data-src="https://loremflickr.com/600/600/scientist.png"></p>
+<figcaption>صورة تصور العالم ابن الهيثم وهو يجري تجربة بصرية</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>وضح الفرق بين الباتش (التخزين) والستريم (الجريان).</p>
+<p>نبني المعرفة في عالمنا العربي على أسس قوية من التفكير المنهجي والاستدلال. ابن الهيثم، هذا العالم الفذ، لم يأتِ بنتائجه من العدم. لقد اتبع سلسلة فكرية واضحة ومحددة. هذا هو جوهر ما سنستكشفه اليوم: كيف يمكننا أن نجعل الذكاء الاصطناعي يتبع هذه السلسلة الفكرية في حل المشكلات؟</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -437,36 +450,194 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="مقارنة-سريعة-التخزين-vs-التدفق" class="slide level2">
-<h2>مقارنة سريعة: التخزين vs التدفق</h2>
+<section id="لغز-الكنز-المفقود-هل-تصلون-إليه-بخطوة-واحدة" class="slide level2">
+<h2>لغز الكنز المفقود: هل تصلون إليه بخطوة واحدة؟</h2>
+<p>تخيل أنني أعطيتك هذا اللغز:</p>
+<p>“جدتي خَبّأت كنزاً. الدليل الأول: ابحث عن أقدم نخلة في البستان. الدليل الثاني: تحت النخلة ستجد حجراً عليه نقش دائري. الدليل الثالث: تحت الحجر، ستجد خريطة مرسومة بالرمل. الدليل الأخير: الخريطة تدلك على بئر الماء المهجورة، هناك الكنز!”</p>
+<ul>
+<li class="fragment">هل يمكن أن تجد الكنز دون اتباع كل دليل بالترتيب؟</li>
+<li class="fragment">ماذا لو أعطيتك الجواب النهائي فقط: “الكنز في بئر الماء المهجورة”؟ هل ستعرف كيف وصلت إليه؟</li>
+</ul>
+<aside class="notes">
+<p>هذا اللغز البسيط يوضح لنا أهمية الخطوات المتسلسلة. تماماً كالبحث عن كنز جدتي، العديد من المشكلات المعقدة لا يمكن حلها بقفزة واحدة. تتطلب تفكيراً خطوة بخطوة، مساراً واضحاً يوصلنا من البداية إلى النهاية. هذا ما نفقده غالباً عندما نتعامل مع نماذج الذكاء الاصطناعي بدون توجيه كافٍ.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="تحدي-الأمر-المباشر-للنماذج-اللغوية" class="slide level2">
+<h2>تحدي “الأمر المباشر” للنماذج اللغوية</h2>
+<p>عندما نطلب من نموذج الذكاء الاصطناعي حل مشكلة معقدة مباشرة، غالباً ما يحدث أحد أمرين:</p>
+<ul>
+<li class="fragment"><strong>إجابة خاطئة أو غير دقيقة:</strong> لأن النموذج لم يمر بالخطوات المنطقية الصحيحة.</li>
+<li class="fragment"><strong>صعوبة في التتبع:</strong> لا نعرف كيف وصل النموذج إلى إجابته.</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>مثال:</strong></p>
+<p><strong>أمر مباشر:</strong> “كم عدد الأغنام في القطيع إذا كان كل راعٍ يرعى 50 شاة وهناك 7 رعاة، ثم بيع ربع القطيع واشتري 10 أغنام إضافية؟”</p>
+<p><strong>الإجابة المتوقعة من النموذج (دون توجيه):</strong> قد يعطي رقماً عشوائياً أو يحاول الحساب بطريقة غير منطقية.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://loremflickr.com/600/600/sheep.png"></p>
+<figcaption>صورة قطيع أغنام في الصحراء</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>النماذج اللغوية رائعة في فهم اللغة وتوليدها، لكنها تواجه تحدياً في حل المشكلات المعقدة التي تتطلب استدلالاً متعدد الخطوات إذا لم نقم بتوجيهها. وكأنك تطلب من طفل صغير أن يحل معادلة جبرية دون أن تعلمه أساسيات الجمع والطرح والضرب. نحتاج إلى طريقة لتعليمها “كيف تفكر” أو بالأحرى، “كيف تعرض تسلسل تفكيرها”.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="لماذا-التفكير-بصوت-عال-مهم-حتى-للآلة" class="slide level2">
+<h2>لماذا “التفكير بصوت عالٍ” مهم حتى للآلة؟</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>تماماً كما يشرح لنا المعلم خطوات حل المسألة على السبورة، أو كما تشرح الأم طريقة إعداد طبق الطعام بالتفصيل:</p>
+<ul>
+<li class="fragment"><strong>يزيد الفهم:</strong> لك كمهندس، وللنموذج نفسه.</li>
+<li class="fragment"><strong>يقلل الأخطاء:</strong> يمكننا اكتشاف الخطأ في أي خطوة قبل الوصول للنتيجة النهائية.</li>
+<li class="fragment"><strong>يسمح بالتحسين:</strong> نعرف أين يمكننا تحسين توجيه النموذج.</li>
+</ul>
+<p>هذه هي الروح التي ستحرّك درسنا اليوم، لنجعل الآلة “تفكر بصوت عالٍ”.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://loremflickr.com/600/600/teacher.png"></p>
+<figcaption>صورة معلم يشرح على السبورة لطلابه</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>الشفافية في عملية التفكير ليست مهمة للإنسان فقط. عندما تظهر لنا الآلة خطوات استدلالها، نكسب ثقة أكبر في إجاباتها، ونستطيع تصحيح مسارها عند اللزوم. هذا هو أحد الأركان الأساسية في بناء أنظمة ذكاء اصطناعي موثوقة وفعالة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="المرحلة-الثانية-المفاهيم-الأساسية" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثانية: المفاهيم الأساسية</h1>
+
+</section>
+<section id="السلسلة-الفكرية-chain-of-thought---cot---المفهوم" class="slide level2">
+<h2>السلسلة الفكرية (Chain-of-Thought - CoT) - المفهوم</h2>
+<p><strong>السلسلة الفكرية (Chain-of-Thought - CoT)</strong> هي تقنية في هندسة الأوامر (Prompt Engineering) تهدف إلى توجيه نماذج اللغات الكبيرة (LLMs) لإنتاج سلسلة من خطوات التفكير المنطقية الوسيطة قبل تقديم الإجابة النهائية.</p>
+<ul>
+<li class="fragment">وكأننا نطلب من النموذج أن <strong>“يفكر بصوت عالٍ”</strong> أو <strong>“يشرح خطوات استدلاله”</strong>.</li>
+<li class="fragment">هذا النهج يحاكي طريقة البشر في حل المشكلات المعقدة عن طريق تقسيمها إلى أجزاء أصغر وأكثر قابلية للإدارة.</li>
+</ul>
+<aside class="notes">
+<p>تذكروا لغز كنز جدتي؟ السلسلة الفكرية هي تماماً مثل تلك الأدلة المتسلسلة التي قادتنا إلى الكنز. بدلًا من إعطاء النموذج اللغوي المشكلة وطلب الحل النهائي مباشرة، نطلب منه أن يعرض لنا المسار الذي سيسلكه للوصول إلى هذا الحل. هذا المفهوم بسيط في جوهره، لكنه قوي جداً في تطبيقاته.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="cot-وصفة-القهوة-للذكاء-الاصطناعي" class="slide level2">
+<h2>CoT: “وصفة القهوة” للذكاء الاصطناعي</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>تخيل أنك تطلب من صديقك أن يحضر لك قهوة عربية أصيلة. لديك خياران:</p>
+<ol type="1">
+<li class="fragment"><strong>أمر مباشر:</strong> “احضر لي قهوة.” (قد يحضر أي نوع، أو لا يعرف كيف.)</li>
+<li class="fragment"><strong>أمر بالسلسلة الفكرية:</strong> “أولاً، حمّص البن. ثانياً، اطحنه طحناً خشناً. ثالثاً، اغلِ الماء مع الهيل. رابعاً، أضف البن المطحون واتركه يغلي. خامساً، صب القهوة وقدمها ساخنة.”</li>
+</ol>
+<p>الخيار الثاني لا يعطيه الجواب النهائي فقط، بل يرسم له <strong>مساراً واضحاً</strong>. هذا هو جوهر CoT.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://loremflickr.com/600/600/coffee.png"></p>
+<figcaption>صورة خطوات تحضير القهوة العربية</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>هذا المثال الحسي يوضح كيف يمكن لتقسيم المهمة إلى خطوات منطقية أن يضمن جودة النتيجة. نماذج الذكاء الاصطناعي تستفيد بنفس الطريقة. عندما نقدم لها هذا “الدليل الإرشادي” لكيفية التفكير، فإننا نحسن بشكل كبير من قدرتها على معالجة المعلومات المعقدة والوصول إلى حلول صحيحة ومنطقية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="لماذا-السلسلة-الفكرية-cot-مهمة" class="slide level2">
+<h2>لماذا السلسلة الفكرية (CoT) مهمة؟ 🌟</h2>
 <table>
+<colgroup>
+<col style="width: 11%">
+<col style="width: 88%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">الميزة</th>
-<th style="text-align: left;">المعالجة الدفعية (Batch)</th>
-<th style="text-align: left;">المعالجة اللحظية (Real-time)</th>
+<th style="text-align: left;">الشرح</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">زمن الاستجابة</td>
-<td style="text-align: left;">ساعات أو أيام</td>
-<td style="text-align: left;">أجزاء من الثانية</td>
+<td style="text-align: left;"><strong>تحسين دقة الاستدلال (Improved Reasoning)</strong></td>
+<td style="text-align: left;">تمكّن النموذج من التعامل مع المشكلات التي تتطلب عدة خطوات منطقية، مما يزيد من دقة إجاباته.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">طبيعة البيانات</td>
-<td style="text-align: left;">ثابتة ومحدودة</td>
-<td style="text-align: left;">مستمرة وغير محدودة</td>
+<td style="text-align: left;"><strong>تعزيز الشفافية (Enhanced Transparency)</strong></td>
+<td style="text-align: left;">تجعل عملية اتخاذ القرار للنموذج مرئية، مما يسمح للمطورين بفهم كيفية وصول النموذج إلى إجابته وتحديد الأخطاء.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">الهدف</td>
-<td style="text-align: left;">تحليل اتجاهات الماضي</td>
-<td style="text-align: left;">اتخاذ قرارات فورية</td>
+<td style="text-align: left;"><strong>التعامل مع التعقيد (Handling Complexity)</strong></td>
+<td style="text-align: left;">تساعد النموذج على تقسيم المشكلات الكبيرة والمعقدة إلى أجزاء أصغر وأكثر قابلية للإدارة.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>تقليل الأخطاء (Reduced Errors)</strong></td>
+<td style="text-align: left;">تزيد من احتمالية تجنب الأخطاء المنطقية أو الحسابية من خلال مراجعة كل خطوة على حدة.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>تعددية الاستخدام (Versatility)</strong></td>
+<td style="text-align: left;">يمكن تطبيقها على مجموعة واسعة من المهام، من حل المسائل الرياضية إلى التفكير المنطقي وتحليل النصوص.</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>استخدم الجدول لتعزيز الفهم البصري للمقارنة.</p>
+<p>هذه الميزات تجعل من CoT أداة لا غنى عنها في صندوق أدوات أي مهندس أو مطور يتعامل مع نماذج اللغات الكبيرة. إنها لا تحسن فقط من أداء النموذج، بل تجعل التفاعل معه أكثر شفافية وفعالية. وكأنك تمنح النموذج القدرة على “شرح” نفسه، وهذا أمر بالغ الأهمية في بناء الثقة والتحكم.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -479,43 +650,57 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="لماذا-نهتم-بالوقت-الفعلي" class="slide level2">
-<h2>لماذا نهتم بالوقت الفعلي؟</h2>
+<section id="كيف-تفكر-النماذج-اللغوية-باستخدام-cot" class="slide level2">
+<h2>كيف “تفكر” النماذج اللغوية باستخدام CoT؟</h2>
+<p>النماذج اللغوية الكبيرة لا “تفكر” بالمعنى البشري للكلمة، لكنها تقوم بما يسمى <strong>التوليد الشرطي (Conditional Generation)</strong>.</p>
+<p>عندما نطلب منها أن تفكر “خطوة بخطوة”، فإننا في الواقع:</p>
 <ul>
-<li class="fragment">كشف الاحتيال البنكي قبل إتمام العملية.</li>
-<li class="fragment">مراقبة صحة المرضى عبر الأجهزة اللحظية.</li>
-<li class="fragment">تحذيرات سلامة المصانع الذكية.</li>
+<li class="fragment"><strong>نوجهها لتوليد سلسلة من الرموز (Tokens)</strong> التي تمثل خطوات منطقية.</li>
+<li class="fragment">كل خطوة هي بمثابة <strong>“فكرة وسيطة”</strong> تعتمد عليها الخطوة التالية.</li>
+<li class="fragment">تتعلم النماذج هذه الأنماط من البيانات التدريبية التي تحتوي على حلول تفصيلية للمشكلات.</li>
 </ul>
-</section></section>
-<section>
-<section id="المرحلة-الثانية-المفاهيم-التقنية" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثانية: المفاهيم التقنية</h1>
-
+<aside class="notes">
+<p>من المهم أن نفهم أننا لا “نخلق” وعيًا أو تفكيراً حقيقياً داخل النموذج. بل نحن نبرمجه لإنتاج تسلسل من النصوص يحاكي عملية التفكير البشري. إنها تستخدم معرفتها اللغوية الهائلة لإنشاء هذه “الخطوات الفكرية” التي تقودها منطقياً نحو الحل. هذا التمييز مهم لفهم قدرات وقيود الذكاء الاصطناعي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="ما-هو-صف-الرسائل-message-queue" class="slide level2">
-<h2>ما هو صف الرسائل (Message Queue)؟</h2>
-<ul>
-<li class="fragment">هو “وسيط” ذكي بين مصدر البيانات ومستهلكها.</li>
-<li class="fragment">بدلاً من أن يرسل المصدر البيانات مباشرة ويفقدها إذا تعطل المستلم، يضعها في “طابور”.</li>
-<li class="fragment"><strong>Kafka</strong> هو أشهر هذه الوسائط عالمياً.</li>
-</ul>
+<section id="أنواع-السلسلة-الفكرية-cot" class="slide level2">
+<h2>أنواع السلسلة الفكرية (CoT)</h2>
 <div class="columns">
-<div class="column" style="width:60%;">
+<div class="column" style="width:50%;">
+<p>هناك طريقتان رئيسيتان لتطبيق السلسلة الفكرية:</p>
+<ol type="1">
+<li class="fragment"><strong>السلسلة الفكرية بلا أمثلة (Zero-shot CoT)</strong>
 <ul>
-<li class="fragment">تخيل موظف استقبال ينظم دخول المراجعين.</li>
-<li class="fragment">حتى لو كان المكتب مشغولاً، المراجع ينتظر في “الطابور” ولا يرحل.</li>
-</ul>
-</div><div class="column" style="width:40%;">
+<li class="fragment">نكتفي بطلب صريح من النموذج أن يفكر خطوة بخطوة، دون تقديم أي مثال مسبق.</li>
+<li class="fragment">فعالة في العديد من السيناريوهات عندما تكون المشكلة واضحة نسبياً.</li>
+</ul></li>
+<li class="fragment"><strong>السلسلة الفكرية بأمثلة قليلة (Few-shot CoT)</strong>
+<ul>
+<li class="fragment">نقدم للنموذج مثالاً أو مثالين مكتملين لحل مشكلة مشابهة، بما في ذلك خطوات التفكير.</li>
+<li class="fragment">يزيد من دقة النموذج، خاصة في المهام الأكثر تعقيداً أو التي تتطلب تنسيقاً محدداً للإجابة.</li>
+</ul></li>
+</ol>
+</div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://loremflickr.com/600/600/queue.png"></p>
-<figcaption>Queue</figcaption>
+<p><img data-src="https://loremflickr.com/600/600/examples.png"></p>
+<figcaption>صورة توضح الفرق بين “بلا أمثلة” و “بأمثلة”</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>شبه كافكا بالمكتب الذي ينظم الزحام لمنع ضياع الطلبات.</p>
+<p>كلتا الطريقتين لهما استخداماتهما ومزاياهما. Zero-shot CoT هو الأسهل في التطبيق وغالبًا ما يكون كافيًا. أما Few-shot CoT فهو أكثر قوة ولكن يتطلب جهداً إضافياً في إعداد الأمثلة. اختيار الطريقة يعتمد على طبيعة المشكلة ومستوى التعقيد المطلوب.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -528,259 +713,114 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="المعالجة-الموزعة-spark-streaming" class="slide level2">
-<h2>المعالجة الموزعة (Spark Streaming)</h2>
-<ul>
-<li class="fragment">عندما تتدفق البيانات بسرعة، لا يستطيع جهاز واحد معالجتها.</li>
-<li class="fragment"><strong>Spark Streaming</strong> يوزع العمل على جيش من الخوادم.</li>
-<li class="fragment">يقوم بتقسيم البيانات إلى “دفعات صغيرة” (Micro-batches) ليحللها بسرعة البرق.</li>
-</ul>
+<section id="السلسلة-الفكرية-بلا-أمثلة-zero-shot-cot" class="slide level2">
+<h2>السلسلة الفكرية بلا أمثلة (Zero-shot CoT) 🎯</h2>
+<p>تعتمد هذه الطريقة على إضافة عبارة بسيطة في نهاية الأمر، مثل: <strong>“فكر خطوة بخطوة.”</strong> أو <strong>“اشرح لي كيف وصلت للنتيجة.”</strong></p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>مثال:</strong></p>
+<p><strong>المهمة:</strong> حساب عدد التمور المتبقية.</p>
+<p><strong>الأمر:</strong> “كان لدي 125 تمرة في سلة. أكلت منها 30. أعطيت جاري 40. ثم اشتريت 55 تمرة إضافية. كم تمرة لدي الآن؟ <strong>فكر خطوة بخطوة.</strong>”</p>
+<p><strong>الاستجابة المتوقعة:</strong> النموذج سيبدأ بـ: 1. “كان لديك 125 تمرة.” 2. “أكلت 30: 125 - 30 = 95 تمرة.” 3. “أعطيت جاري 40: 95 - 40 = 55 تمرة.” 4. “اشتريت 55 إضافية: 55 + 55 = 110 تمرات.” 5. “إذن، لديك الآن 110 تمرات.”</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://loremflickr.com/600/600/dates.png"></p>
+<figcaption>صورة سلة تمر</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>القوة في Zero-shot CoT تكمن في بساطتها. مجرد إضافة جملة واحدة يمكن أن تحدث فرقاً كبيراً في قدرة النموذج على الاستدلال. النموذج هنا يستغل معرفته المسبقة بأن طلب “التفكير خطوة بخطوة” يعني عليه أن يحلل المشكلة ويقسمها إلى مراحل منطقية. جربوها وسترون الفرق بأنفسكم!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="مصطلحات-أساسية" class="slide level2">
-<h2>مصطلحات أساسية</h2>
-<ul>
-<li class="fragment"><strong>Producer</strong>: المصدر الذي يضخ البيانات.</li>
-<li class="fragment"><strong>Consumer</strong>: الطرف الذي يستهلك ويحلل البيانات.</li>
-<li class="fragment"><strong>Topic</strong>: القناة أو المسار الذي توضع فيه الرسائل.</li>
-</ul>
+<section id="السلسلة-الفكرية-بأمثلة-قليلة-few-shot-cot" class="slide level2">
+<h2>السلسلة الفكرية بأمثلة قليلة (Few-shot CoT) 📚</h2>
+<p>تتضمن هذه الطريقة تقديم <strong>مثال أو أكثر</strong> للنموذج يوضح فيه حل مشكلة معينة <strong>بالتفصيل</strong>، بما في ذلك خطوات التفكير، قبل أن تطلب منه حل مشكلة جديدة.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>مثال:</strong></p>
+<p><strong>الأمر:</strong> “س: أحمد لديه 30 ريالاً. اشترى كتاباً بـ 15 ريالاً و 3 أقلام بسعر ريالين للقلم الواحد. كم ريالاً تبقى لديه؟ ج: أحمد بدأ بـ 30 ريالاً. سعر الأقلام: 3 أقلام * 2 ريال/قلم = 6 ريالات. المبلغ الكلي الذي أنفقه: 15 ريال (كتاب) + 6 ريالات (أقلام) = 21 ريالاً. المبلغ المتبقي: 30 ريالاً - 21 ريالاً = 9 ريالات. إذن، تبقى لديه 9 ريالات.</p>
+<p>س: فاطمة اشترت 5 كجم من الأرز بسعر 7 ريالات للكيلو الواحد و 2 كجم من السكر بسعر 4 ريالات للكيلو الواحد. إذا دفعت 50 ريالاً، فكم ريالاً يجب أن تسترد؟ <strong>فكر خطوة بخطوة.</strong>”</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://loremflickr.com/600/600/market.png"></p>
+<figcaption>صورة لشخص يشتري أغراضاً من السوق</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>في Few-shot CoT، نحن لا نطلب من النموذج فقط أن يفكر، بل نقدم له “دليلاً” على كيفية التفكير. الأمثلة التي نقدمها للنموذج تكون بمثابة “دروس مصغرة” تعلمه النمط الصحيح للاستدلال. هذا مفيد جداً للمهام التي تتطلب تنسيقاً محدداً أو لديها قواعد ضمنية معينة قد لا يفهمها النموذج بدون توجيه صريح.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="مقارنة-بين-zero-shot-cot-و-few-shot-cot" class="slide level2">
+<h2>مقارنة بين Zero-shot CoT و Few-shot CoT</h2>
 <table>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 40%">
+<col style="width: 49%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">المصطلح</th>
-<th style="text-align: left;">المعنى المبسط</th>
+<th style="text-align: left;">الميزة</th>
+<th style="text-align: left;">Zero-shot CoT (بلا أمثلة)</th>
+<th style="text-align: left;">Few-shot CoT (بأمثلة قليلة)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Producer</td>
-<td style="text-align: left;">الذي يرسل رسائل البيانات</td>
+<td style="text-align: left;"><strong>السهولة</strong></td>
+<td style="text-align: left;">أسهل في التطبيق (بمجرد إضافة عبارة “فكر خطوة بخطوة”).</td>
+<td style="text-align: left;">يتطلب وقتاً وجهداً لإعداد أمثلة عالية الجودة.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Consumer</td>
-<td style="text-align: left;">الذي يقرأ ويحلل البيانات</td>
+<td style="text-align: left;"><strong>الأداء</strong></td>
+<td style="text-align: left;">جيد للمشكلات البسيطة والمتوسطة.</td>
+<td style="text-align: left;">ممتاز للمشكلات المعقدة أو التي تتطلب تنسيقاً محدداً للإجابة.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Topic</td>
-<td style="text-align: left;">“صندوق” تصنيف للرسائل</td>
+<td style="text-align: left;"><strong>التكلفة</strong></td>
+<td style="text-align: left;">أقل تكلفة (عدد توكنات أقل في الأمر).</td>
+<td style="text-align: left;">أكثر تكلفة (عدد توكنات أكثر بسبب الأمثلة).</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Offset</td>
-<td style="text-align: left;">مؤشر يحدد أي رسالة قرأنا</td>
+<td style="text-align: left;"><strong>المرونة</strong></td>
+<td style="text-align: left;">عالية المرونة، لا تحتاج لبيانات تدريب إضافية للأمثلة.</td>
+<td style="text-align: left;">أقل مرونة، تحتاج لأمثلة مناسبة لكل مهمة.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>التطبيق</strong></td>
+<td style="text-align: left;">مناسب للتعامل مع مهام واسعة ومتنوعة.</td>
+<td style="text-align: left;">مثالي للمهام المتخصصة أو التي تتطلب دقة عالية جداً.</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="ضمان-استمرارية-البيانات-fault-tolerance" class="slide level2">
-<h2>ضمان استمرارية البيانات (Fault Tolerance)</h2>
-<ul>
-<li class="fragment">ماذا لو انقطع التيار الكهربائي؟</li>
-<li class="fragment">النظام يجب أن يحتفظ بـ “نقطة تفتيش” (Checkpoint).</li>
-<li class="fragment">إذا سقط الخادم، يستعيد البيانات من آخر نقطة وصل إليها الطابور.</li>
-</ul>
-</section>
-<section id="رحلة-البيانات-داخل-النظام" class="slide level2">
-<h2>رحلة البيانات داخل النظام</h2>
-<ul>
-<li class="fragment">المصدر يرسل لـ <strong>Kafka</strong>.</li>
-<li class="fragment"><strong>Spark</strong> يسحب البيانات من الكافكا.</li>
-<li class="fragment">يتم التحليل لحظياً.</li>
-<li class="fragment">النتائج تُخزن في قاعدة بيانات سريعة.</li>
-</ul>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment">الرحلة مستمرة ولا تتوقف.</li>
-<li class="fragment">إذا حدث عطل، النظام يعيد بناء نفسه.</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://loremflickr.com/600/600/pipeline.png"></p>
-<figcaption>Pipeline</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="المرحلة-الثالثة-التطبيق-العملي" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثالثة: التطبيق العملي</h1>
-
-</section>
-<section id="تحدي-الهاكاثون-مراقبة-المصنع-الذكي" class="slide level2">
-<h2>تحدي الهاكاثون: مراقبة المصنع الذكي</h2>
-<ul>
-<li class="fragment">مهمتك: بناء نظام يراقب حرارة المولدات.</li>
-<li class="fragment">المدخلات: بيانات مستشعرات الحرارة.</li>
-<li class="fragment">المطلوب: إطلاق تنبيه إذا تجاوزت الحرارة 90 درجة.</li>
-<li class="fragment">الفائز: الفريق صاحب أقل زمن استجابة (Latency) مع دقة 100%.</li>
-</ul>
-</section>
-<section id="استراتيجية-الفريق-الناجح" class="slide level2">
-<h2>استراتيجية الفريق الناجح</h2>
-<ul>
-<li class="fragment">لا تضغط على الكافكا ببيانات غير ضرورية.</li>
-<li class="fragment">استخدم <strong>النافذة الزمنية</strong> (Windowing) لتحليل متوسط الحرارة.</li>
-<li class="fragment">تأكد من أن كل رسالة تمت معالجتها (Exactly-once semantics).</li>
-</ul>
-</section>
-<section id="خوارزمية-الكشف-عن-الحالات-الشاذة" class="slide level2">
-<h2>خوارزمية الكشف عن الحالات الشاذة</h2>
-<ul>
-<li class="fragment">قارن القيمة الحالية بالمتوسط المتحرك.</li>
-<li class="fragment">إذا كان الفرق ضخماً، فهذا مؤشر خطر.</li>
-<li class="fragment">لا تعتمد على قراءة واحدة، بل على نمط البيانات.</li>
-</ul>
-</section>
-<section id="كيف-نقيس-سرعة-استجابتنا" class="slide level2">
-<h2>كيف نقيس سرعة استجابتنا؟</h2>
-<ul>
-<li class="fragment">نقيس الوقت من لحظة صدور الإشارة من المستشعر.</li>
-<li class="fragment">حتى لحظة ظهور التنبيه على شاشة المشغل.</li>
-<li class="fragment"><strong>Latency</strong> هو العدو الأول في أنظمة الوقت الفعلي.</li>
-</ul>
-</section>
-<section id="اختبر-معلوماتك" class="slide level2">
-<h2>اختبر معلوماتك! 🧠</h2>
-<p>أي جزء في النظام مسؤول عن الاحتفاظ بالبيانات عند تعطل المعالج؟ - أ) الـ Producer - ب) الـ Message Queue - ج) الـ Dashboard</p>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) الـ Message Queue، لأنه يعمل كخزان يحفظ البيانات لحين جاهزية المعالج.</p>
-</div>
-</section>
-<section id="أدوات-التنبيه" class="slide level2">
-<h2>أدوات التنبيه</h2>
-<ul>
-<li class="fragment">عند اكتشاف حالة شاذة، نرسل تنبيهاً.</li>
-<li class="fragment">يمكن أن يكون عبر البريد، أو رسالة فورية، أو إيقاف الماكينة آلياً.</li>
-<li class="fragment">السرعة هنا تساوي الحفاظ على الأرواح والمعدات.</li>
-</ul>
-</section>
-<section id="توزيع-الأدوار-في-الفريق" class="slide level2">
-<h2>توزيع الأدوار في الفريق</h2>
-<ul>
-<li class="fragment">مبرمج <strong>Kafka</strong>: لإعداد خطوط النقل.</li>
-<li class="fragment">مبرمج <strong>Spark</strong>: لكتابة منطق التحليل.</li>
-<li class="fragment">مهندس <strong>Monitoring</strong>: لمتابعة سرعة النظام.</li>
-</ul>
-</section></section>
-<section>
-<section id="المرحلة-الرابعة-الخلاصة-والتقييم" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الرابعة: الخلاصة والتقييم</h1>
-
-</section>
-<section id="تلخيص-رحلتنا" class="slide level2">
-<h2>تلخيص رحلتنا</h2>
-<ul>
-<li class="fragment">تعلمنا أن البيانات كالنهر.</li>
-<li class="fragment">عرفنا أن الـ <strong>Message Queues</strong> هي سدود التنظيم.</li>
-<li class="fragment">استوعبنا أن <strong>الاستمرارية</strong> هي قلب النظام الموثوق.</li>
-</ul>
-</section>
-<section id="الجدول-الذهني-للمهندس" class="slide level2">
-<h2>الجدول الذهني للمهندس</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">المكون</th>
-<th style="text-align: left;">وظيفته في النظام</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Kafka</td>
-<td style="text-align: left;">نقل وحفظ البيانات</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Spark</td>
-<td style="text-align: left;">معالجة وتحليل البيانات</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Alerting</td>
-<td style="text-align: left;">إخطار المستخدم بالخطر</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="أخطاء-شائعة-تجنبها" class="slide level2">
-<h2>أخطاء شائعة (تجنبها)</h2>
-<ul>
-<li class="fragment">إهمال وضع “نقطة تفتيش” للبيانات.</li>
-<li class="fragment">تصميم طابور بيانات صغير جداً.</li>
-<li class="fragment">التغافل عن مراقبة حالة الخوادم لحظياً.</li>
-</ul>
-</section>
-<section id="كيف-تشرح-هذا-لأخيك" class="slide level2">
-<h2>كيف تشرح هذا لأخيك؟</h2>
-<ul>
-<li class="fragment">قل له: “تخيل أنك تنظم طابوراً طويلاً جداً من الناس، ولا تريد أن يضيع أحد منهم أو يهرب من الصف، الكافكا هو المنظم، والسبارك هو من يخدم هؤلاء الناس بسرعة فائقة.”</li>
-</ul>
-</section>
-<section id="اختبر-معلوماتك-1" class="slide level2">
-<h2>اختبر معلوماتك! 🧠</h2>
-<p>ماذا يعني مصطلح (Fault Tolerance) في هندسة البيانات؟ - أ) السرعة العالية في المعالجة. - ب) القدرة على التعافي من الأعطال. - ج) تقليل كمية البيانات المرسلة.</p>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) القدرة على التعافي من الأعطال واستئناف العمل بدون فقدان بيانات.</p>
-</div>
-</section>
-<section id="مستقبل-هندسة-البيانات" class="slide level2">
-<h2>مستقبل هندسة البيانات</h2>
-<ul>
-<li class="fragment">الاتجاه نحو <strong>الذكاء الاصطناعي اللحظي</strong>.</li>
-<li class="fragment">تحليل البيانات ليس فقط لحظياً، بل التنبؤ بالمستقبل قبل وقوع الحدث.</li>
-</ul>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment">البيانات هي النفط الجديد.</li>
-<li class="fragment">والوقت الفعلي هو مصفاة هذا النفط.</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://loremflickr.com/600/600/technology.png"></p>
-<figcaption>Technology</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="المراجعة-الذاتية-بعد-ساعة" class="slide level2">
-<h2>المراجعة الذاتية (بعد ساعة)</h2>
-<ul>
-<li class="fragment">هل يمكنني شرح الفرق بين المعالجة الدفعية واللحظية؟</li>
-<li class="fragment">هل أستطيع رسم مخطط بسيط لنظام Kafka و Spark؟</li>
-<li class="fragment">هل فهمت لماذا نستخدم الطوابير؟</li>
-</ul>
-</section>
-<section id="المراجعة-الذاتية-بعد-يوم" class="slide level2">
-<h2>المراجعة الذاتية (بعد يوم)</h2>
-<ul>
-<li class="fragment">حاول إيجاد مثال من حياتك اليومية يشبه “النافذة الزمنية” في المعالجة.</li>
-<li class="fragment">فكر في نظام بيتي للتدفئة: كيف يمكن تحويله لنظام ذكي يستجيب لحظياً؟</li>
-</ul>
-</section>
-<section id="المراجعة-الذاتية-بعد-٣-أيام" class="slide level2">
-<h2>المراجعة الذاتية (بعد ٣ أيام)</h2>
-<ul>
-<li class="fragment">ابحث عن مشروع مفتوح المصدر يستخدم Kafka.</li>
-<li class="fragment">حاول تشغيل مثال “Hello World” الخاص بهم.</li>
-</ul>
-</section>
-<section id="المراجعة-الذاتية-بعد-أسبوع" class="slide level2">
-<h2>المراجعة الذاتية (بعد أسبوع)</h2>
-<ul>
-<li class="fragment">صمم هيكلاً لنظام يحلل بيانات “تغريدات تويتر” لحظياً لتحديد المواضيع الأكثر تداولاً (Trending).</li>
-</ul>
-</section>
-<section id="الخاتمة" class="slide level2">
-<h2>الخاتمة</h2>
-<ul>
-<li class="fragment">أنت اليوم وضعت قدمك على أول طريق الأنظمة الموزعة.</li>
-<li class="fragment">التحدي الآن هو الممارسة.</li>
-<li class="fragment">ابدأ بالكتابة، وبالخطأ، وبالتعلم.</li>
-</ul>
 <aside class="notes">
-<p>شجع الطلاب على البدء بالتطبيق العملي فوراً، فالمعرفة لا ترسخ إلا بالعمل.</p>
+<p>اختيار الطريقة المناسبة يعتمد على عدة عوامل: مدى تعقيد المشكلة، الميزانية المتاحة (فعدد التوكنات يترجم إلى تكلفة)، والوقت المخصص لتطوير الأمر. كمهندس أوامر، يجب أن تكون قادراً على تقييم هذه العوامل واختيار الأسلوب الأكثر فعالية لكل موقف.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -792,6 +832,42 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="اختبر-معلوماتك" class="title-slide slide level1 center">
+<h1>اختبر معلوماتك! 🧠</h1>
+<p>أي من العبارات التالية تصف <strong>Zero-shot CoT</strong> بشكل أفضل؟</p>
+<ul>
+<li class="fragment">أ) توجيه النموذج ليتبع سلسلة من الخطوات المنطقية دون تقديم أمثلة سابقة.</li>
+<li class="fragment">ب) تزويد النموذج بعدة أمثلة مصحوبة بخطوات التفكير لحل مشكلات مشابهة.</li>
+<li class="fragment">ج) مطالبة النموذج بتقديم الإجابة النهائية مباشرة دون أي شرح لخطواته.</li>
+</ul>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> أ) توجيه النموذج ليتبع سلسلة من الخطوات المنطقية دون تقديم أمثلة سابقة. <strong>التفسير:</strong> Zero-shot CoT يعتمد على “السحر” الكامن في النموذج وقدرته على الاستدلال بمجرد إضافة عبارة بسيطة تحفزه على التفكير المرحلي.</p>
+</div>
+<aside class="notes">
+<p>هذا الاختبار السريع يساعدنا على ترسيخ فهمنا للمفاهيم الأساسية. تذكروا أن فهم الفرق بين هذه التقنيات هو مفتاح استخدامها بفعالية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="البرمجة-بالتعليمات-instruction-based-programming---المفهوم" class="slide level2">
+<h2>البرمجة بالتعليمات (Instruction-based Programming) - المفهوم</h2>
+<p><strong>البرمجة بالتعليمات (Instruction-based Programming)</strong> هي استراتيجية في هندسة الأوامر حيث نستخدم التعليمات الواضحة والمفصلة لـ “برمجة” سلوك النموذج اللغوي، بدلاً من كتابة كود برمجي تقليدي.</p>
+<ul>
+<li class="fragment">وكأننا نكتب <strong>“وصفة تفصيلية”</strong> للنموذج لتنفيذ مهمة محددة.</li>
+<li class="fragment">لا نكتفي بطلب، بل نحدد <strong>الدور، الهدف، الخطوات، القيود، وتنسيق المخرجات</strong> المطلوبة.</li>
+<li class="fragment">هذا يشبه تماماً إعطاء مهندس معماري مخططاً دقيقاً لبناء بيت، بدلاً من مجرد طلب “ابنِ لي بيتاً”.</li>
+</ul>
+<p>::: {.notes} عندما نتحدث عن “البرمجة بالتعليمات” مع نماذج</p>
 <div class="quarto-auto-generated-content">
 <p><img src="slides_template/assets/sdaia.svg" class="slide-logo"></p>
 <div class="footer footer-default">
