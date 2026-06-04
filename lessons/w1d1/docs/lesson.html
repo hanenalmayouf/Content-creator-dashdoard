@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>عمارة خطوط أنابيب البيانات (ETL/ELT)</title>
+  <title>تصميم خطوط معالجة البيانات (ETL/ELT)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -328,18 +328,19 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">عمارة خطوط أنابيب البيانات (ETL/ELT)</h1>
-  <p class="subtitle">مقدمة تقنية في تصميم نظم نقل البيانات ومعالجتها باستخدام تقنيات حديثة مع التركيز على الكفاءة.</p>
+  <h1 class="title">تصميم خطوط معالجة البيانات (ETL/ELT)</h1>
+  <p class="subtitle">استكشاف معماريات البيانات الحديثة والفرق بين ETL و ELT مع التركيز على استخراج وتحويل وتحميل البيانات في بيئات الإنتاج.</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="هندسة-البيانات-المتقدمة-عمارة-خطوط-أنابيب-البيانات" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>هندسة البيانات المتقدمة: عمارة خطوط أنابيب البيانات</h1>
-<p>أهلاً بكم في رحلة بناء الشرايين التي تغذي ذكاء الأنظمة الحديثة.</p>
+<section>
+<section id="هندسة-البيانات-المتقدمة-تصميم-خطوط-معالجة-البيانات-etlelt" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>هندسة البيانات المتقدمة: تصميم خطوط معالجة البيانات (ETL/ELT)</h1>
+<p>أهلاً بكم في رحلة بناء الشرايين التي تغذي العقل الرقمي للمؤسسات. اليوم سنتعلم كيف نحول البيانات الخام إلى حكمة.</p>
 <aside class="notes">
-<p>رحب بالحضور ومهد لأهمية البيانات كوقود للذكاء الاصطناعي.</p>
+<p>رحب بالحضور ووضح أن هندسة البيانات هي العمود الفقري لأي نظام ذكاء اصطناعي ناجح.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -352,17 +353,20 @@
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
 
-<section id="الأهداف-التعليمية-للدرس" class="title-slide slide level1 center">
-<h1>الأهداف التعليمية للدرس</h1>
+</section></section>
+<section>
+<section id="أهدافنا-في-هذا-الدرس" class="title-slide slide level1 center">
+<h1>أهدافنا في هذا الدرس</h1>
 <ul>
-<li class="fragment">تصميم <strong>خط أنابيب بيانات</strong> (Data Pipeline) متكامل وقابل للتوسع.</li>
-<li class="fragment">المقارنة التحليلية بين فلسفتي <strong>ETL</strong> و <strong>ELT</strong> في بيئات السحابة.</li>
-<li class="fragment">فهم دقيق لتحديات <strong>الكمون</strong> (Latency) و<strong>الإنتاجية</strong> (Throughput).</li>
-<li class="fragment">تطبيق حلول عملية لمشكلة <strong>عنق الزجاجة</strong> في تدفق البيانات.</li>
+<li class="fragment">فهم الفرق الجوهري بين <strong>ETL</strong> و <strong>ELT</strong>.</li>
+<li class="fragment">القدرة على تصميم <strong>خط أنابيب بيانات</strong> (Pipeline) فعال.</li>
+<li class="fragment">التعرف على معايير اختيار العمارة المناسبة لكل مشروع.</li>
+<li class="fragment">إدراك تحديات <strong>جودة البيانات</strong> وكيفية معالجتها في بيئات الإنتاج.</li>
 </ul>
 <aside class="notes">
-<p>استعرض الأهداف بوضوح ليركز الطلاب على المخرجات النهائية.</p>
+<p>استعرض الأهداف بوضوح، وأكد على أن الهدف هو الانتقال من الفهم النظري إلى التصميم العملي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -375,22 +379,24 @@
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
 
+</section></section>
+<section>
 <section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center">
 <h1>المرحلة الأولى: التهيئة والجذب</h1>
 
 </section>
+<section class="slide level2">
 
-<section id="تخيل-مصنع-مياه-العذبة" class="title-slide slide level1 center">
-<h1>تخيّل مصنع مياه العذبة</h1>
-<ul>
-<li class="fragment"><strong>المصنع</strong>: هو نظامك التقني.</li>
-<li class="fragment"><strong>المياه الخام</strong>: هي البيانات القادمة من مصادر مختلفة.</li>
-<li class="fragment"><strong>التنقية والفلترة</strong>: هي عمليات المعالجة.</li>
-<li class="fragment"><strong>التعبئة والتخزين</strong>: هي قاعدة البيانات أو مستودع البيانات.</li>
-</ul>
+</section></section>
+<section>
+<section id="قصة-المطبخ-والبيانات" class="title-slide slide level1 center">
+<h1>قصة المطبخ والبيانات</h1>
+<p>تخيل مطعماً كبيراً: - البيانات هي “المواد الخام” (خضار، لحوم، بهارات). - المطبخ هو “نظام المعالجة”. - الزبون هو “صاحب القرار” الذي يحتاج طبقاً جاهزاً.</p>
+<p>هل نطبخ قبل التقديم (ETL) أم نقدّم المكونات ثم نطبخها عند الطلب (ELT)؟</p>
 <aside class="notes">
-<p>استخدم مثال المصنع لتبسيط المفهوم المجرّد لخطوط الأنابيب.</p>
+<p>استخدم هذا المثال لتبسيط مفهوم المعالجة. المطبخ هو أداة التخزين والتحويل.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -403,144 +409,98 @@
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
 
-<section id="التحدي-الواقعي-كيف-ننقل-البيانات" class="title-slide slide level1 center">
-<h1>التحدي الواقعي: كيف ننقل البيانات؟</h1>
+</section></section>
+<section>
+<section id="لماذا-نحتاج-لخطوط-البيانات" class="title-slide slide level1 center">
+<h1>لماذا نحتاج لخطوط البيانات؟</h1>
+<p>البيانات لا تأتي جاهزة للاستخدام: - تأتي من مصادر مشتتة (تطبيقات، حساسات، سجلات). - تكون غير متناسقة (أرقام، نصوص، تواريخ خاطئة). - تحتاج إلى تنظيف وتوحيد لتصبح ذات قيمة.</p>
+<aside class="notes">
+<p>ركز على أن “البيانات الخام” مثل “الذهب الخام” تحتاج تصفية لتصبح عملة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="تحدي-المتجر-الإلكتروني" class="title-slide slide level1 center">
+<h1>تحدي المتجر الإلكتروني</h1>
+<p>تخيل متجراً إلكترونياً ضخماً: - يصلنا سجل من تطبيق الجوال بنظام (iOS). - يصلنا سجل من الموقع الإلكتروني بنظام (Web). - سجلات المبيعات تأتي من قاعدة بيانات (SQL). - كيف نوحد كل هذا؟</p>
+<aside class="notes">
+<p>هذا هو التحدي العملي الذي سيواجهه الطلاب في القسم الأخير من الدرس.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="المرحلة-الثانية-المفاهيم-والأسس" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثانية: المفاهيم والأسس</h1>
+
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ماذا-يعني-etl" class="title-slide slide level1 center">
+<h1>ماذا يعني ETL؟</h1>
+<p><strong>ETL</strong> اختصار لـ: - <strong>Extract</strong> (استخراج): سحب البيانات من المصادر. - <strong>Transform</strong> (تحويل): تنظيفها، فلترتها، وتغيير هيكلها. - <strong>Load</strong> (تحميل): وضع البيانات في المخزن النهائي (Data Warehouse).</p>
+<aside class="notes">
+<p>التأكيد على أن التحويل يحدث قبل الدخول إلى المستودع.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ماذا-يعني-elt" class="title-slide slide level1 center">
+<h1>ماذا يعني ELT؟</h1>
+<p><strong>ELT</strong> اختصار لـ: - <strong>Extract</strong> (استخراج): سحب البيانات. - <strong>Load</strong> (تحميل): وضعها مباشرة في المخزن. - <strong>Transform</strong> (تحويل): تنفيذ عمليات التحويل داخل المستودع نفسه.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
-<ul>
-<li class="fragment">في الأنظمة الضخمة، لا يمكن نقل البيانات يدوياً.</li>
-<li class="fragment">نحتاج إلى <strong>خط أنابيب</strong> (Pipeline) مؤتمت بالكامل.</li>
-<li class="fragment">التحدي ليس في النقل فقط، بل في الحفاظ على جودة البيانات.</li>
-<li class="fragment">السرعة في نقل البيانات تعني قرارات أسرع للشركة.</li>
-</ul>
+<p>هذا التوجه أحدث ويستفيد من قوة الحوسبة السحابية (Cloud).</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/pipeline?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>pipeline</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>أكد على أهمية الأتمتة في هندسة البيانات.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="لماذا-نهتم-بسرعة-البيانات" class="title-slide slide level1 center">
-<h1>لماذا نهتم بسرعة البيانات؟</h1>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">المقياس</th>
-<th style="text-align: left;">التحدي</th>
-<th style="text-align: left;">التأثير</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>الكمون</strong></td>
-<td style="text-align: left;">تأخر وصول البيانات</td>
-<td style="text-align: left;">قرارات متأخرة</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>الإنتاجية</strong></td>
-<td style="text-align: left;">كثرة البيانات</td>
-<td style="text-align: left;">انهيار النظام</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>الجودة</strong></td>
-<td style="text-align: left;">بيانات خاطئة</td>
-<td style="text-align: left;">نتائج مضللة</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>جدول توضيحي يربط المقاييس بالأثر العملي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="اختبر-معلوماتك" class="title-slide slide level1 center">
-<h1>اختبر معلوماتك! 🧠</h1>
-<p>أي مما يلي يعتبر المكوّن الأساسي لضمان تدفق البيانات بكفاءة؟</p>
-<ul>
-<li class="fragment">أ) زيادة عدد الموظفين لإدخال البيانات.</li>
-<li class="fragment">ب) استخدام <strong>خط أنابيب</strong> (Pipeline) مؤتمت وقابل للتوسع.</li>
-<li class="fragment">ج) تخزين البيانات في ملفات Excel فقط.</li>
-</ul>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) استخدام خط أنابيب مؤتمت هو العمود الفقري لهندسة البيانات الحديثة.</p>
-</div>
-</section>
-
-<section id="المرحلة-الثانية-المفاهيم-الأساسية" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثانية: المفاهيم الأساسية</h1>
-
-</section>
-
-<section id="فلسفة-etl-الاستخراج-التحويل-التحميل" class="title-slide slide level1 center">
-<h1>فلسفة ETL: الاستخراج، التحويل، التحميل</h1>
-<ul>
-<li class="fragment"><strong>الاستخراج</strong> (Extract): سحب البيانات من المصادر الخام.</li>
-<li class="fragment"><strong>التحويل</strong> (Transform): تنظيف وتنسيق البيانات قبل التخزين.</li>
-<li class="fragment"><strong>التحميل</strong> (Load): إدخال البيانات في المستودع النهائي.</li>
-</ul>
-<aside class="notes">
-<p>اشرح ETL كمنهج كلاسيكي منظم.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="فلسفة-elt-التطور-في-عصر-السحابة" class="title-slide slide level1 center">
-<h1>فلسفة ELT: التطور في عصر السحابة</h1>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment"><strong>الاستخراج</strong> (Extract): سحب البيانات من المصادر.</li>
-<li class="fragment"><strong>التحميل</strong> (Load): تحميل البيانات الخام مباشرة للسحابة.</li>
-<li class="fragment"><strong>التحويل</strong> (Transform): تحويل البيانات داخل المستودع (بواسطة قوة الحوسبة السحابية).</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/cloud?width=600&amp;height=600&amp;nologo=true.png"></p>
+<p><img data-src="https://loremflickr.com/600/600/cloud.png"></p>
 <figcaption>cloud</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>ركز على أن ELT يعتمد على قوة معالجة السحابة الحديثة.</p>
+<p>اشرح أن ELT هو ابن عصر البيانات الضخمة (Big Data) والحوسبة السحابية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -553,37 +513,45 @@
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
 
+</section></section>
+<section>
 <section id="مقارنة-بين-etl-و-elt" class="title-slide slide level1 center">
 <h1>مقارنة بين ETL و ELT</h1>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">الميزة</th>
+<th style="text-align: left;">وجه المقارنة</th>
 <th style="text-align: left;">ETL</th>
 <th style="text-align: left;">ELT</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>مكان التحويل</strong></td>
-<td style="text-align: left;">خادم وسيط</td>
-<td style="text-align: left;">المستودع السحابي</td>
+<td style="text-align: left;">مكان التحويل</td>
+<td style="text-align: left;">خادم وسيط (Staging)</td>
+<td style="text-align: left;">داخل مخزن البيانات</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>السرعة</strong></td>
-<td style="text-align: left;">أبطأ بسبب المعالجة</td>
-<td style="text-align: left;">أسرع في التحميل</td>
+<td style="text-align: left;">السرعة</td>
+<td style="text-align: left;">أبطأ في التحميل</td>
+<td style="text-align: left;">أسرع في الوصول</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>التكلفة</strong></td>
-<td style="text-align: left;">تحتاج خوادم قوية</td>
-<td style="text-align: left;">تستغل مرونة السحابة</td>
+<td style="text-align: left;">المرونة</td>
+<td style="text-align: left;">محدودة</td>
+<td style="text-align: left;">عالية جداً</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">التكلفة</td>
+<td style="text-align: left;">قد تتطلب خوادم مستقلة</td>
+<td style="text-align: left;">تعتمد على قوة المخزن</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>مقارنة تقنية تساعد المهندس في اتخاذ قرار الاختيار بين المنهجيتين.</p>
+<p>استخدم الجدول لتلخيص المقارنة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -596,67 +564,92 @@
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
 
-<section id="اختبر-معلوماتك-1" class="title-slide slide level1 center">
+</section></section>
+<section>
+<section id="ما-هو-خط-أنابيب-البيانات-data-pipeline" class="title-slide slide level1 center">
+<h1>ما هو “خط أنابيب البيانات” (Data Pipeline)؟</h1>
+<p>هو المسار الآلي الذي تسلكه البيانات: - يبدأ من <strong>المصدر</strong> (Source). - يمر عبر <strong>المعالجة</strong> (Processing Engine). - ينتهي في <strong>الوجهة</strong> (Destination/Sink).</p>
+<aside class="notes">
+<p>شبه الأنابيب بأنابيب المياه في المنزل؛ لا تراها ولكنها تنقل المصدر إلى الصنبور.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="جودة-البيانات-حارس-البوابة" class="title-slide slide level1 center">
+<h1>جودة البيانات: حارس البوابة</h1>
+<p>لا فائدة من بيانات سريعة إذا كانت خاطئة. - <strong>الدقة</strong>: هل الأرقام صحيحة؟ - <strong>الاكتمال</strong>: هل هناك حقول فارغة؟ - <strong>الاتساق</strong>: هل “ذكر” في نظام تعني “1” في نظام آخر؟</p>
+<aside class="notes">
+<p>أكد أن “البيانات السيئة تؤدي إلى قرارات سيئة”.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="اختبر-معلوماتك" class="title-slide slide level1 center">
 <h1>اختبر معلوماتك! 🧠</h1>
-<p>لماذا يفضل المطورون ELT في بيئات السحابة الكبيرة؟</p>
-<ul>
-<li class="fragment">أ) لأن السحابة توفر قوة معالجة هائلة للتحويل.</li>
-<li class="fragment">ب) لأنها تتطلب تحويل البيانات قبل تحميلها دائماً.</li>
-<li class="fragment">ج) لأنها تستخدم أجهزة قديمة.</li>
-</ul>
+<p>في أي حالة نفضل استخدام <strong>ETL</strong> بدلاً من <strong>ELT</strong>؟ - أ) عند استخدام مخازن بيانات سحابية فائقة القوة. - ب) عندما نحتاج لتنظيف البيانات الحساسة قبل دخولها للمخزن لأسباب أمنية. - ج) عندما تكون البيانات غير مهيكلة بالكامل.</p>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> أ) بفضل قوة الحوسبة السحابية، يمكن إجراء التحويلات الضخمة بكفاءة عالية بعد التحميل.</p>
+<p><strong>الإجابة الصحيحة:</strong> (ب) لأن ETL يسمح بالتحكم في البيانات وتنظيفها وتشفيرها قبل أن تصل إلى المستودع الرئيسي، وهو أمر حيوي في القطاعات الحساسة مثل البنوك.</p>
 </div>
 </section>
+<section class="slide level2">
 
+</section></section>
+<section>
 <section id="المرحلة-الثالثة-التطبيق-العملي" class="title-slide slide level1 sdaia-dark center">
 <h1>المرحلة الثالثة: التطبيق العملي</h1>
 
 </section>
+<section class="slide level2">
 
-<section id="تصميم-نظام-تدفق-بيانات" class="title-slide slide level1 center">
-<h1>تصميم نظام تدفق بيانات</h1>
-<ul>
-<li class="fragment">تحديد المصدر: (قواعد بيانات، سجلات، مستشعرات).</li>
-<li class="fragment">اختيار أداة النقل: (مثل Apache Kafka أو Airflow).</li>
-<li class="fragment">تحديد الوجهة: (مستودع بيانات مثل BigQuery أو Snowflake).</li>
-</ul>
-<aside class="notes">
-<p>خطوات عملية لبناء هيكلية النظام.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="تحدي-عنق-الزجاجة" class="title-slide slide level1 center">
-<h1>تحدي عنق الزجاجة</h1>
+</section></section>
+<section>
+<section id="مهمة-الفرق-معمارية-المتجر" class="title-slide slide level1 center">
+<h1>مهمة الفرق: معمارية المتجر</h1>
+<p>تخيل أنك مهندس بيانات في شركة تجارة إلكترونية: - لديكم بيانات من مليون مستخدم. - البيانات تصل بتنسيقات (JSON, CSV, SQL). - مطلوب بناء تصميم خط بيانات.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li class="fragment">يحدث <strong>عنق الزجاجة</strong> عندما تتراكم البيانات أسرع من قدرة النظام على معالجتها.</li>
-<li class="fragment">الحل يكمن في <strong>الموازنة</strong> (Load Balancing).</li>
-<li class="fragment">أو عبر توزيع المهام على وحدات معالجة متعددة.</li>
+<li class="fragment">صمم المخطط: من أين تبدأ؟</li>
+<li class="fragment">أين ستضع مرحلة التنظيف؟</li>
+<li class="fragment">كيف ستتعامل مع البيانات المكررة؟</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/bottleneck?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>bottleneck</figcaption>
+<p><img data-src="https://loremflickr.com/600/600/database.png"></p>
+<figcaption>database</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>ناقش الحلول التقنية لمشاكل الأداء.</p>
+<p>اترك للطلاب 10 دقائق للنقاش والتخطيط على الورق.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -669,16 +662,15 @@
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
 
-<section id="استراتيجية-التعامل-مع-البيانات-الكبيرة" class="title-slide slide level1 center">
-<h1>استراتيجية التعامل مع البيانات الكبيرة</h1>
-<ul>
-<li class="fragment">استخدام <strong>المعالجة بالدفعات</strong> (Batch Processing) للبيانات غير العاجلة.</li>
-<li class="fragment">استخدام <strong>المعالجة الآنية</strong> (Stream Processing) للبيانات الحرجة.</li>
-<li class="fragment">ضمان تكرار البيانات (Redundancy) لتفادي الفقدان.</li>
-</ul>
+</section></section>
+<section>
+<section id="أدوات-المهندس-الحديث" class="title-slide slide level1 center">
+<h1>أدوات المهندس الحديث</h1>
+<p>لا تكتب كل شيء من الصفر. استخدم الأدوات الاحترافية: - <strong>Apache Airflow</strong>: لجدولة المهام. - <strong>dbt (data build tool)</strong>: لعمليات التحويل داخل المخزن. - <strong>Spark</strong>: للمعالجة الموزعة للبيانات الضخمة.</p>
 <aside class="notes">
-<p>استراتيجيات التعامل مع أنماط البيانات المختلفة.</p>
+<p>اذكر أن الأدوات تتغير، لكن المبادئ (ETL/ELT) ثابتة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -691,35 +683,49 @@
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
 
-<section id="اختبر-معلوماتك-2" class="title-slide slide level1 center">
-<h1>اختبر معلوماتك! 🧠</h1>
-<p>ما هو الحل الأمثل لتجاوز “عنق الزجاجة” في نظام بيانات مزدحم؟</p>
-<ul>
-<li class="fragment">أ) حذف جزء من البيانات.</li>
-<li class="fragment">ب) توزيع المهام على خوادم متعددة (الموازنة).</li>
-<li class="fragment">ج) انتظار النظام حتى يهدأ.</li>
-</ul>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) توزيع المهام يمنع تكدس البيانات ويزيد من إنتاجية النظام.</p>
-</div>
+</section></section>
+<section>
+<section id="التغلب-على-بيانات-الغابة" class="title-slide slide level1 center">
+<h1>التغلب على “بيانات الغابة”</h1>
+<p>عندما تأتي البيانات من مصادر غير متجانسة: - استخدم <strong>Schema Registry</strong> لتوحيد الأشكال. - قم بعمل <strong>Logging</strong> لكل خطوة لتعرف أين توقفت البيانات في حال حدوث خطأ.</p>
+<aside class="notes">
+<p>المراقبة هي الفرق بين المهندس الهاوي والمحترف.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
+<section class="slide level2">
 
+</section></section>
+<section>
 <section id="المرحلة-الرابعة-الخلاصة-والتقييم" class="title-slide slide level1 sdaia-dark center">
 <h1>المرحلة الرابعة: الخلاصة والتقييم</h1>
 
 </section>
+<section class="slide level2">
 
-<section id="مراجعة-المكتسبات" class="title-slide slide level1 center">
-<h1>مراجعة المكتسبات</h1>
+</section></section>
+<section>
+<section id="ملخص-الرحلة" class="title-slide slide level1 center">
+<h1>ملخص الرحلة</h1>
 <ul>
-<li class="fragment">لقد تعلمنا الفرق بين ETL و ELT.</li>
-<li class="fragment">تعرفنا على أهمية مراقبة الكمون والإنتاجية.</li>
-<li class="fragment">استعرضنا طرق مواجهة عنق الزجاجة.</li>
-<li class="fragment">أدركنا أن هندسة البيانات هي الأساس لأي نظام ذكي.</li>
+<li class="fragment"><strong>ETL</strong> للبيانات المنظمة والمحدودة.</li>
+<li class="fragment"><strong>ELT</strong> لقوة الحوسبة والبيانات الضخمة.</li>
+<li class="fragment"><strong>الجودة</strong> تبدأ من التصميم.</li>
+<li class="fragment"><strong>التعلم</strong> لا ينتهي، فالأدوات تتطور.</li>
 </ul>
 <aside class="notes">
-<p>تلخيص سريع لما تم تعلمه.</p>
+<p>لخص النقاط الجوهرية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -732,33 +738,15 @@
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
 
-<section id="جدول-مراجعة-سريع-للمهندس" class="title-slide slide level1 center">
-<h1>جدول مراجعة سريع للمهندس</h1>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">المفهوم</th>
-<th style="text-align: left;">التعريف المختصر</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Pipeline</strong></td>
-<td style="text-align: left;">سلسلة العمليات المؤتمتة لنقل البيانات.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Latency</strong></td>
-<td style="text-align: left;">الوقت المستغرق لنقل وحدة بيانات.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Throughput</strong></td>
-<td style="text-align: left;">كمية البيانات المعالجة في وحدة زمنية.</td>
-</tr>
-</tbody>
-</table>
+</section></section>
+<section>
+<section id="كيف-نشرح-هذا-لغير-المختصين" class="title-slide slide level1 center">
+<h1>كيف نشرح هذا لغير المختصين؟</h1>
+<p>“نحن لا نقوم فقط بنقل البيانات، نحن نقوم بفرزها وتنظيمها في مكتبة ضخمة ليسهل على الجميع الوصول للمعلومة الصحيحة في الوقت الصحيح.”</p>
 <aside class="notes">
-<p>جدول مرجعي للمفاهيم الأساسية التي تم طرحها.</p>
+<p>تشجيع الطلاب على القدرة على تبسيط المفاهيم المعقدة (قاعدة التعليم للغير).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -771,14 +759,53 @@
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
 
-<section id="كيف-تشرح-هذا-لصديقك" class="title-slide slide level1 center">
-<h1>كيف تشرح هذا لصديقك؟</h1>
+</section></section>
+<section>
+<section id="مراجعة-سريعة-13" class="title-slide slide level1 center">
+<h1>مراجعة سريعة (1/3)</h1>
+<p>ما هو الدور الذي يلعبه الـ <strong>Staging Area</strong> في ETL؟ - أ) هو المخزن النهائي. - ب) منطقة وسطية لتنظيف وتحويل البيانات. - ج) مصدر البيانات الخام.</p>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> (ب) هي المنطقة التي يحدث فيها التغيير قبل التحميل النهائي.</p>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="مراجعة-سريعة-23" class="title-slide slide level1 center">
+<h1>مراجعة سريعة (2/3)</h1>
+<p>لماذا يفضل <strong>ELT</strong> في الأنظمة السحابية؟ - أ) لأن التخزين في السحابة أغلى. - ب) لأن السحابة توفر طاقة معالجة هائلة تسمح بالتحويل بعد التحميل. - ج) لأنها أسهل في البرمجة.</p>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> (ب) لأن السحابة توفر سرعة معالجة عالية جداً تجعل من التحويل داخل المستودع أمراً فعالاً وموفراً للوقت.</p>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="مراجعة-سريعة-33" class="title-slide slide level1 center">
+<h1>مراجعة سريعة (3/3)</h1>
+<p>أيهما أكثر أماناً في معالجة البيانات الشخصية (PII) قبل التخزين؟ - أ) ELT - ب) ETL - ج) كلاهما متساوٍ</p>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> (ب) ETL، لأننا نستطيع تنقية وحجب البيانات الشخصية قبل أن تصل إلى المستودع المركزي.</p>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="خطة-المراجعة-القادمة" class="title-slide slide level1 center">
+<h1>خطة المراجعة القادمة</h1>
 <ul>
-<li class="fragment">قل له: “تخيل أنك تبني طريقاً سريعاً للبيانات، إذا كان الطريق ضيقاً (عنق الزجاجة) ستتوقف الحركة. هندسة البيانات هي فن توسيع الطرق وضمان وصول الشحنات بسرعة وأمان.”</li>
+<li class="fragment">بعد ساعة: تأمل في مخطط المتجر الذي صممته.</li>
+<li class="fragment">بعد يوم: ابحث عن أداة dbt واقرأ وثائقها.</li>
+<li class="fragment">بعد 3 أيام: حاول شرح الفرق بين ETL و ELT لزميل.</li>
+<li class="fragment">بعد أسبوع: صمم خط بيانات بسيط لملف Excel لديك في البيت.</li>
 </ul>
 <aside class="notes">
-<p>تعزيز مهارة التبسيط والشرح للغير.</p>
+<p>التأكيد على المراجعة المتباعدة لترسيخ المعلومات.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -791,17 +818,15 @@
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
 
-<section id="ختام-الرحلة-التعليمية" class="title-slide slide level1 center">
-<h1>ختام الرحلة التعليمية</h1>
-<ul>
-<li class="fragment">ابدأ اليوم بتطبيق خط أنابيب بسيط.</li>
-<li class="fragment">استخدم الأدوات السحابية المتاحة.</li>
-<li class="fragment">شارك الكود مع زملائك.</li>
-<li class="fragment">تذكر: العالم يُبنى بالبيانات التي نحسن إدارتها!</li>
-</ul>
+</section></section>
+<section>
+<section id="فخر-الإرث" class="title-slide slide level1 center">
+<h1>فخر الإرث</h1>
+<p>لا تنسوا أن <strong>الخوارزمي</strong> لم يضع “الخوارزميات” للترف، بل كانت أدوات لحل مشاكل الميراث والمسح والحساب. أنتم اليوم تكملون نفس المسيرة في معالجة بيانات العالم.</p>
 <aside class="notes">
-<p>رسالة تحفيزية ختامية للطلاب.</p>
+<p>إضافة لمسة فخر بالهوية العلمية العربية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -814,15 +839,180 @@
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
 
-<section id="شكرا-لحسن-استماعكم" class="title-slide slide level1 center">
-<h1>شكراً لحسن استماعكم!</h1>
+</section></section>
+<section>
+<section id="المراجع-والتعلم-الذاتي" class="title-slide slide level1 center">
+<h1>المراجع والتعلم الذاتي</h1>
 <ul>
-<li class="fragment">هل لديكم أي استفسار عن عمارة البيانات؟</li>
-<li class="fragment">استعدوا للجلسة العملية القادمة.</li>
+<li class="fragment"><strong>Fundamentals of Data Engineering</strong> (كتاب أساسي).</li>
+<li class="fragment">وثائق <strong>Apache Airflow</strong>.</li>
+<li class="fragment">المقالات التقنية حول <strong>Modern Data Stack</strong>.</li>
 </ul>
 <aside class="notes">
-<p>فتح باب النقاش والأسئلة.</p>
+<p>تزويد الطلاب بمصادر للبحث المستقل.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="مساحة-للأسئلة" class="title-slide slide level1 center">
+<h1>مساحة للأسئلة</h1>
+<ul>
+<li class="fragment">هل هناك تحدٍ واجهته في بياناتك؟</li>
+<li class="fragment">ما هو الجزء الأكثر غموضاً في خط أنابيب البيانات؟</li>
+</ul>
+<aside class="notes">
+<p>فتح المجال للنقاش الحر.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="شكر-خاص-لمشاركتكم" class="title-slide slide level1 center">
+<h1>شكر خاص لمشاركتكم</h1>
+<p>نهاية درس اليوم هي بداية رحلة تطبيقكم لهندسة البيانات. استمروا في التعلم، فالبيانات هي وقود المستقبل.</p>
+<aside class="notes">
+<p>شكر الطلاب وتشجيعهم على البحث المستمر.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="مراجعة-إضافية-أنواع-البيانات" class="title-slide slide level1 center">
+<h1>مراجعة إضافية: أنواع البيانات</h1>
+<p>هل البيانات دائمة أم لحظية؟ - <strong>Batch Processing</strong>: معالجة مجموعات كبيرة دفعة واحدة. - <strong>Streaming Processing</strong>: معالجة البيانات لحظة وصولها.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>الفرق يؤثر على اختيار الأدوات في الـ Pipeline.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://loremflickr.com/600/600/stream.png"></p>
+<figcaption>stream</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>توضيح الفرق بين معالجة الدفعات والتدفق.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="التحدي-القادم" class="title-slide slide level1 center">
+<h1>التحدي القادم</h1>
+<p>كيف نضمن عدم فقدان أي سجل أثناء النقل؟ - <strong>Idempotency</strong>: القدرة على إعادة تشغيل المهمة دون تكرار البيانات. - <strong>Retry Logic</strong>: محاولة الإرسال عند الفشل.</p>
+<aside class="notes">
+<p>مفاهيم متقدمة لضمان استقرار الأنظمة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="تذكير-بـ-قاعدة-التمر" class="title-slide slide level1 center">
+<h1>تذكير بـ “قاعدة التمر”</h1>
+<p>تذكروا: التمر الجيد يفرز من الرديء في البداية (ETL) ليظل المستودع نظيفاً. لا تدخلوا “بيانات فاسدة” لمستودعكم، وإلا سيفسد التحليل!</p>
+<aside class="notes">
+<p>ربط المفهوم بالبيئة المحلية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ختام-البرنامج" class="title-slide slide level1 center">
+<h1>ختام البرنامج</h1>
+<p>لقد غطينا اليوم: - المفاهيم الأساسية. - المقارنات التقنية. - التصميم العملي. - الجودة والنمو.</p>
+<aside class="notes">
+<p>تلخيص شامل لما تم تغطيته.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section id="ابقوا-على-تواصل" class="title-slide slide level1 center">
+<h1>ابقوا على تواصل</h1>
+<p>البيانات عالم واسع، والمجتمع التقني العربي بحاجة إلى مهندسين مثلك يبنون أنظمة ذكية بمعايير عالمية.</p>
+<aside class="notes">
+<p>خاتمة ملهمة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
