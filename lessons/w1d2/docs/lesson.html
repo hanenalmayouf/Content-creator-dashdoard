@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>تقنيات التوزيع والمعالجة المتوازية (Spark &amp; Kafka)</title>
+  <title>مستودعات البيانات: أين نضع كنوزنا؟</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -328,18 +328,19 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">تقنيات التوزيع والمعالجة المتوازية (Spark &amp; Kafka)</h1>
-  <p class="subtitle">التعمق في معالجة البيانات الموزعة باستخدام Apache Spark وتدفق البيانات عبر Kafka، مع التركيز على تحسين أداء الكود (Query Optimization).</p>
+  <h1 class="title">مستودعات البيانات: أين نضع كنوزنا؟</h1>
+  <p class="subtitle">استكشاف طرق تخزين البيانات وكيفية عمل قواعد البيانات السحابية والمحلية بأسلوب يحاكي تنظيم خزانة الملابس أو المكتبة.</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="تقنيات-التوزيع-والمعالجة-المتوازية-spark-kafka" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>تقنيات التوزيع والمعالجة المتوازية (Spark &amp; Kafka)</h1>
-<p>أهلاً بكم في رحلة احتراف هندسة البيانات. اليوم سنغوص في أعماق المعالجة المتوازية.</p>
+<section>
+<section id="مستودعات-البيانات-أين-نضع-كنوزنا" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>مستودعات البيانات: أين نضع كنوزنا؟</h1>
+<p>أهلاً بكم في رحلة استكشاف عالم تخزين البيانات.</p>
 <aside class="notes">
-<p>رحب بالمتدربين وأكد على أهمية هذا الدرس في سوق العمل الحالي كمهندس بيانات محترف.</p>
+<p>رحب بالحضور وأكد أن البيانات هي النفط الجديد، وأن طريقة تخزينها تحدد قيمتها.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -352,17 +353,16 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="الأهداف-التعليمية-لهذا-الدرس" class="title-slide slide level1 sdaia-dark center">
-<h1>الأهداف التعليمية لهذا الدرس 🎯</h1>
+<section id="أهدافنا-في-هذه-الرحلة" class="slide level2">
+<h2>أهدافنا في هذه الرحلة</h2>
 <ul>
-<li class="fragment">إتقان تقنيات تحسين أداء <strong>Apache Spark Jobs</strong>.</li>
-<li class="fragment">فهم عميق لآليات الـ <strong>Partitioning</strong> والـ <strong>Sharding</strong>.</li>
-<li class="fragment">إدارة تدفق البيانات اللحظي عبر <strong>Apache Kafka</strong>.</li>
-<li class="fragment">تطبيق استراتيجيات معالجة البيانات الضخمة بكفاءة عالية.</li>
+<li class="fragment">فهم فلسفة تخزين البيانات بأسلوب مبسط.</li>
+<li class="fragment">التمييز بين المستودعات السحابية والمحلية.</li>
+<li class="fragment">إدراك تحديات ضياع البيانات وأهمية تنظيمها.</li>
+<li class="fragment">ممارسة تنظيم البيانات عبر محاكاة عملية.</li>
 </ul>
 <aside class="notes">
-<p>استعرض الأهداف بوضوح وأكد أننا سننتقل من النظرية إلى التطبيق العملي التنافسي.</p>
+<p>وضح أن الأهداف تركز على الفهم النظري والممارسة العملية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -374,34 +374,72 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-
+</section></section>
+<section>
 <section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center">
 <h1>المرحلة الأولى: التهيئة والجذب</h1>
 
 </section>
-
-<section id="لماذا-نحتاج-إلى-المعالجة-الموزعة" class="title-slide slide level1 sdaia-dark center">
-<h1>لماذا نحتاج إلى المعالجة الموزعة؟</h1>
+<section id="خزانة-ملابسك-أم-المستودع-الرقمي" class="slide level2">
+<h2>خزانة ملابسك أم المستودع الرقمي؟</h2>
+<p>هل فكرت يوماً كيف تجد قميصك المفضل في ثوانٍ؟ السر يكمن في <strong>التنظيم (Organization)</strong>.</p>
+<ul>
+<li class="fragment">البيانات تحتاج لنفس طريقة تنظيم خزانة الملابس.</li>
+<li class="fragment">الفوضى في البيانات تعني ضياع الفرص.</li>
+<li class="fragment">الترتيب الذكي يوفر وقت الاسترجاع.</li>
+</ul>
+<aside class="notes">
+<p>استخدم استراتيجية النمذجة العاطفية عبر سؤالهم عن شعورهم عند ضياع شيء ثمين.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="قصص-الضياع-المؤلمة" class="slide level2">
+<h2>قصص الضياع المؤلمة</h2>
+<p>الجميع مر بتجربة فقدان ملف هام:</p>
+<ul>
+<li class="fragment">ضياع صور شخصية بسبب تعطل الهاتف.</li>
+<li class="fragment">فقدان واجب دراسي لعدم حفظ الملف.</li>
+<li class="fragment">نسيان كلمة سر لحساب مهم.</li>
+</ul>
+<aside class="notes">
+<p>شجع الطلاب على مشاركة قصص قصيرة لتوليد رابط عاطفي مع أهمية النسخ الاحتياطي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="أين-تذهب-بياناتك" class="slide level2">
+<h2>أين تذهب بياناتك؟</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<ul>
-<li class="fragment">البيانات اليوم تتجاوز قدرة الحاسب الواحد.</li>
-<li class="fragment"><strong>المعالجة الموزعة</strong> تعتمد على تقسيم العمل بين عدة عقد.</li>
-<li class="fragment">السرعة ليست الخيار الوحيد، بل التوافرية أيضاً.</li>
-<li class="fragment">التعامل مع “البيانات الضخمة” يتطلب بنية تحتية مرنة.</li>
-</ul>
+<p>نحن نضع بياناتنا في أماكن متنوعة: - في ذاكرة الهاتف (محلية). - في البريد الإلكتروني (سحابية). - في أقراص خارجية (محلية). - في تطبيقات التواصل (سحابية).</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/cluster?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>cluster</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/cloud?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>cloud</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>شرح مفاهيم الحوسبة الموزعة وكيف أنها العمود الفقري للشركات التقنية الكبرى مثل أمازون ونتفليكس.</p>
+<p>بين أن المكان ليس مجرد صندوق، بل تقنية متكاملة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -414,60 +452,36 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="التحديات-في-بيئات-الـ-big-data" class="title-slide slide level1 sdaia-dark center">
-<h1>التحديات في بيئات الـ Big Data</h1>
-<ul>
-<li class="fragment"><strong>تأخر البيانات (Latency)</strong> في أنظمة الربط.</li>
-<li class="fragment">تعطل العقد الفردية (Node Failure).</li>
-<li class="fragment">صعوبة مزامنة البيانات عبر الشبكة.</li>
-<li class="fragment">تكلفة التخزين العالية للبيانات المكررة.</li>
-</ul>
-<aside class="notes">
-<p>استخدم نبرة صوت مشجعة، ووضح أن هذه التحديات هي فرص للتعلم والتميز.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="جدول-مقارنة-المعالجة-المركزية-vs-الموزعة" class="title-slide slide level1 sdaia-dark center">
-<h1>جدول مقارنة: المعالجة المركزية vs الموزعة</h1>
+<section id="جدول-المقارنة-التخزين-المحلي-مقابل-السحابي" class="slide level2">
+<h2>جدول المقارنة: التخزين المحلي مقابل السحابي</h2>
 <table>
 <thead>
 <tr class="header">
 <th style="text-align: left;">وجه المقارنة</th>
-<th style="text-align: left;">المعالجة المركزية</th>
-<th style="text-align: left;">المعالجة الموزعة</th>
+<th style="text-align: left;">التخزين المحلي</th>
+<th style="text-align: left;">التخزين السحابي</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">التوسع</td>
-<td style="text-align: left;">رأسي (زيادة RAM)</td>
-<td style="text-align: left;">أفقي (زيادة عدد العقد)</td>
+<td style="text-align: left;">التكلفة</td>
+<td style="text-align: left;">تدفع مرة واحدة</td>
+<td style="text-align: left;">اشتراك دوري</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">الموثوقية</td>
-<td style="text-align: left;">منخفضة (نقطة فشل واحدة)</td>
-<td style="text-align: left;">عالية (تعدد العقد)</td>
+<td style="text-align: left;">الوصول</td>
+<td style="text-align: left;">من الجهاز فقط</td>
+<td style="text-align: left;">من أي مكان</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">التكلفة</td>
-<td style="text-align: left;">مرتفعة عند النمو</td>
-<td style="text-align: left;">مرنة واقتصادية</td>
+<td style="text-align: left;">الحماية</td>
+<td style="text-align: left;">مسؤوليتك الخاصة</td>
+<td style="text-align: left;">مسؤولية المزود</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>ركز على أن المعالجة الموزعة هي المعيار الذهبي في هندسة البيانات الحديثة.</p>
+<p>اشرح الجدول بوضوح وركز على مفاهيم الأمان والسهولة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -479,23 +493,22 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="المرحلة-الثانية-مفاهيم-هندسة-البيانات" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثانية: مفاهيم هندسة البيانات</h1>
+
 </section>
-
-<section id="المرحلة-الثانية-المفاهيم-التقنية" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثانية: المفاهيم التقنية</h1>
-
-</section>
-
-<section id="عالم-apache-spark" class="title-slide slide level1 sdaia-dark center">
-<h1>عالم Apache Spark</h1>
+<section id="ما-هي-قاعدة-البيانات" class="slide level2">
+<h2>ما هي قاعدة البيانات؟</h2>
+<p><strong>قاعدة البيانات (Database)</strong> هي مستودع رقمي منظم يتم فيه تخزين المعلومات بشكل يسهل الوصول إليه وتحديثه.</p>
 <ul>
-<li class="fragment"><strong>Apache Spark</strong> هو محرك معالجة بيانات مفتوح المصدر.</li>
-<li class="fragment">يعمل في الذاكرة (In-Memory) مما يجعله فائق السرعة.</li>
-<li class="fragment">يدعم معالجة الدفعات (Batch) والمعالجة اللحظية (Streaming).</li>
-<li class="fragment">يعتمد على مفهوم <strong>RDD</strong> (Resilient Distributed Datasets).</li>
+<li class="fragment">تشبه المكتبة الكبيرة.</li>
+<li class="fragment">تحتوي على فهارس للبحث.</li>
+<li class="fragment">تمنع تكرار المعلومات.</li>
 </ul>
 <aside class="notes">
-<p>اشرح أهمية الذاكرة وكيف توفر الوقت مقارنة بمعالجة القرص الصلب التقليدية.</p>
+<p>شبه قاعدة البيانات بمكتبة منظمة حيث لكل كتاب “مكان” و”رقم تصنيف”.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -508,51 +521,25 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="هيكلية-الـ-partitioning" class="title-slide slide level1 sdaia-dark center">
-<h1>هيكلية الـ Partitioning</h1>
-<ul>
-<li class="fragment"><strong>التقسيم (Partitioning)</strong> هو جوهر الأداء في Spark.</li>
-<li class="fragment">توزيع البيانات غير المتساوي يؤدي إلى ظاهرة <strong>Data Skew</strong>.</li>
-<li class="fragment">اختيار مفتاح التقسيم الصحيح يقلل من حركة البيانات عبر الشبكة.</li>
-<li class="fragment">كل تقسيم يعالج بواسطة مهمة (Task) واحدة.</li>
-</ul>
-<aside class="notes">
-<p>هذه نقطة جوهرية؛ استخدم تشبيه توزيع المهام على الموظفين لتقريب الفكرة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="دمج-kafka-في-المعادلة" class="title-slide slide level1 sdaia-dark center">
-<h1>دمج Kafka في المعادلة</h1>
+<section id="أنواع-التخزين-المكتبة-المنزلية-مقابل-المكتبة-العامة" class="slide level2">
+<h2>أنواع التخزين: المكتبة المنزلية مقابل المكتبة العامة</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li class="fragment"><strong>Apache Kafka</strong> هو نظام رسائل موزّع للتدفق اللحظي.</li>
-<li class="fragment">يعمل كقناة اتصال (Pipeline) بين المصدر و Spark.</li>
-<li class="fragment">يسمح بتخزين البيانات مؤقتاً (Buffering) قبل معالجتها.</li>
-<li class="fragment">يضمن عدم فقدان البيانات حتى عند حدوث ضغط عالٍ.</li>
+<li class="fragment"><strong>التخزين المحلي (Local Storage):</strong> يشبه رفوف كتبك في غرفتك؛ أنت تملكها وتتحكم فيها بالكامل.</li>
+<li class="fragment"><strong>التخزين السحابي (Cloud Storage):</strong> يشبه المكتبة العامة؛ تستعير المساحة مقابل رسوم وتستفيد من خدماتهم الأمنية.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/pipeline?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>pipeline</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/library?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>library</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>وضح أن Kafka يعمل كجسر أمان بين الأنظمة، مما يمنع تعطل الأنظمة بسبب تدفق البيانات الهائل.</p>
+<p>استخدم تشبيه المكتبة لتقريب المفهوم التقني لغير المتخصصين.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -565,37 +552,80 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="جدول-الفرق-بين-التقنيات" class="title-slide slide level1 sdaia-dark center">
-<h1>جدول: الفرق بين التقنيات</h1>
+<section id="لماذا-نحتاج-إلى-سحابة" class="slide level2">
+<h2>لماذا نحتاج إلى “سحابة”؟</h2>
+<ul>
+<li class="fragment">توفير المساحة في أجهزتنا.</li>
+<li class="fragment">التزامن اللحظي بين الأجهزة.</li>
+<li class="fragment">القدرة على التعاون مع الآخرين في نفس الملف.</li>
+<li class="fragment">أمان أعلى ضد السرقة أو الضياع الفيزيائي.</li>
+</ul>
+<aside class="notes">
+<p>ركز على أن السحابة ليست في السماء بل هي خوادم قوية في أماكن بعيدة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="تحديات-التخزين-ماذا-لو-انهار-الرف" class="slide level2">
+<h2>تحديات التخزين: ماذا لو انهار الرف؟</h2>
+<ul>
+<li class="fragment"><strong>انقطاع الاتصال:</strong> بدون إنترنت لا توجد سحابة.</li>
+<li class="fragment"><strong>الاختراقات:</strong> المخاطر الأمنية في التخزين السحابي.</li>
+<li class="fragment"><strong>تلف الأجهزة:</strong> المخاطر في التخزين المحلي.</li>
+<li class="fragment"><strong>التكلفة:</strong> التكاليف الخفية لتخزين البيانات الضخمة.</li>
+</ul>
+<aside class="notes">
+<p>ناقش التحديات بواقعية دون إخافة الطلاب.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="جدول-تحديات-وحلول-التخزين" class="slide level2">
+<h2>جدول تحديات وحلول التخزين</h2>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">الأداة</th>
-<th style="text-align: left;">الغرض الأساسي</th>
-<th style="text-align: left;">نقطة القوة</th>
+<th style="text-align: left;">التحدي</th>
+<th style="text-align: left;">التخزين المحلي</th>
+<th style="text-align: left;">التخزين السحابي</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Spark</td>
-<td style="text-align: left;">المعالجة الحسابية</td>
-<td style="text-align: left;">السرعة في الذاكرة</td>
+<td style="text-align: left;">سرقة الجهاز</td>
+<td style="text-align: left;">ضياع كلي</td>
+<td style="text-align: left;">حماية عبر الحساب</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Kafka</td>
-<td style="text-align: left;">نقل البيانات</td>
-<td style="text-align: left;">التحمل والتدفق العالي</td>
+<td style="text-align: left;">تلف القرص</td>
+<td style="text-align: left;">ضياع البيانات</td>
+<td style="text-align: left;">وجود نسخ احتياطي</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">HDFS</td>
-<td style="text-align: left;">التخزين الدائم</td>
-<td style="text-align: left;">الموثوقية العالية</td>
+<td style="text-align: left;">نسيان المكان</td>
+<td style="text-align: left;">فوضى شخصية</td>
+<td style="text-align: left;">بحث ذكي متقدم</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>استخدم هذا الجدول كمرجع لربط الأدوات ببعضها في ذهن المتدرب.</p>
+<p>أكد على أن الحل الأمثل هو “النسخ المتعدد” (قاعدة 3-2-1).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -607,23 +637,22 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="المرحلة-الثالثة-التطبيق-والتعلم-التشاركي" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثالثة: التطبيق والتعلم التشاركي</h1>
+
 </section>
-
-<section id="المرحلة-الثالثة-التطبيق-والتحسين" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثالثة: التطبيق والتحسين</h1>
-
-</section>
-
-<section id="استراتيجيات-تحسين-spark-jobs" class="title-slide slide level1 sdaia-dark center">
-<h1>استراتيجيات تحسين Spark Jobs</h1>
+<section id="لعبة-أمين-المستودع" class="slide level2">
+<h2>لعبة: أمين المستودع</h2>
+<p>الآن سنقوم بتطبيق عملي لتنظيم البيانات:</p>
 <ul>
-<li class="fragment">تجنب استخدام <strong>Collect()</strong> على مجموعات بيانات ضخمة.</li>
-<li class="fragment">استخدام <strong>Caching</strong> للبيانات التي يتم استهلاكها بكثرة.</li>
-<li class="fragment">تقليل عمليات <strong>Shuffle</strong> قدر الإمكان.</li>
-<li class="fragment">مراقبة الـ <strong>Spark UI</strong> لتتبع المهام البطيئة (Stragglers).</li>
+<li class="fragment">لدينا بطاقات بيانات مشتتة.</li>
+<li class="fragment">يجب تصنيفها إلى: (وثائق، صور، مشاريع، أرشيف).</li>
+<li class="fragment">الفئة التي تنهي التنظيم أولاً تفوز.</li>
 </ul>
 <aside class="notes">
-<p>اشرح أن التحسين (Optimization) هو فن وعلم في آن واحد.</p>
+<p>اشرح قوانين اللعبة وأهمية السرعة والدقة في التصنيف.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -636,17 +665,44 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="التعامل-مع-الـ-data-skew" class="title-slide slide level1 sdaia-dark center">
-<h1>التعامل مع الـ Data Skew</h1>
+<section id="محاكاة-كيف-يعمل-خادم-البيانات" class="slide level2">
+<h2>محاكاة: كيف يعمل خادم البيانات؟</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>تخيل أنك أنت الخادم: - تأتيك الطلبات (البيانات). - تقوم بتصنيفها (الفهرسة). - تضعها في الرف المخصص (قاعدة البيانات). - تسترجعها عند الطلب (الاستعلام).</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/robot?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>robot</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>اجعل الطلاب يتخيلون أنفسهم كخوادم بيانات لمعرفة حجم المسؤولية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="تنظيم-البيانات-القواعد-الذهبية" class="slide level2">
+<h2>تنظيم البيانات: القواعد الذهبية</h2>
 <ul>
-<li class="fragment"><strong>Data Skew</strong> هو عندما تستحوذ عقدة واحدة على أغلب البيانات.</li>
-<li class="fragment">الحل: إعادة توزيع البيانات باستخدام <strong>Salting</strong>.</li>
-<li class="fragment">الحل: استخدام <strong>Broadcast Join</strong> للجداول الصغيرة.</li>
-<li class="fragment">مراقبة التوزيع الإحصائي للبيانات بانتظام.</li>
+<li class="fragment"><strong>التسمية الواضحة:</strong> لا تسمِّ ملفاتك “جديد 1”.</li>
+<li class="fragment"><strong>التصنيف الهرمي:</strong> استخدم المجلدات والمجلدات الفرعية.</li>
+<li class="fragment"><strong>التاريخ:</strong> أضف التواريخ للملفات المهمة.</li>
+<li class="fragment"><strong>التحديث الدوري:</strong> تخلص من البيانات غير الضرورية.</li>
 </ul>
 <aside class="notes">
-<p>قدم “Salting” كحيلة ذكية للمهندسين المحترفين.</p>
+<p>قدم نصائح عملية يمكنهم تطبيقها اليوم على هواتفهم.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -659,17 +715,15 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="محاكاة-التنافس-تحدي-السرعة" class="title-slide slide level1 sdaia-dark center">
-<h1>محاكاة التنافس: تحدي السرعة 🚀</h1>
+<section id="تمرين-تنظيم-المجلدات" class="slide level2">
+<h2>تمرين: تنظيم المجلدات</h2>
 <ul>
-<li class="fragment">في هذا النشاط: سنقوم بمحاكاة مهمة Spark بطيئة.</li>
-<li class="fragment">المطلوب: تعديل خوارزمية التوزيع لتحسين زمن التنفيذ.</li>
-<li class="fragment">التقييم: يعتمد على زمن المعالجة (Throughput).</li>
-<li class="fragment">الهدف: ليس الفوز فقط، بل فهم أسباب البطء.</li>
+<li class="fragment">أنشئ مجلداً باسم “الدراسة”.</li>
+<li class="fragment">ضع بداخله مجلدات لكل مادة.</li>
+<li class="fragment">اختر تسمية موحدة لكل ملف: (تاريخ_اسم الملف).</li>
 </ul>
 <aside class="notes">
-<p>هنا يبدأ الجانب التلعيب (Gamified)؛ أكد على أن الدعم النفسي متوفر وأن الخطأ هو جزء من التعلم.</p>
+<p>شجع الطلاب على تجربة هذا التنظيم على أجهزتهم الآن.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -682,58 +736,55 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="كيف-نقيس-الأداء" class="title-slide slide level1 sdaia-dark center">
-<h1>كيف نقيس الأداء؟</h1>
+<section id="اختبر-معلوماتك" class="slide level2">
+<h2>اختبر معلوماتك! 🧠</h2>
+<p>أي نوع من التخزين هو الأفضل للحفاظ على البيانات عند ضياع جهازك الشخصي؟</p>
 <ul>
-<li class="fragment"><strong>Latency</strong>: الوقت المستغرق للمعالجة.</li>
-<li class="fragment"><strong>Throughput</strong>: كمية البيانات المعالجة في الثانية.</li>
-<li class="fragment"><strong>Resource Utilization</strong>: مدى استغلال الذاكرة والمعالج.</li>
-<li class="fragment"><strong>Network I/O</strong>: كمية البيانات المنتقلة عبر العقد.</li>
-</ul>
-<aside class="notes">
-<p>ركز على أن الأرقام هي اللغة التي يتحدث بها مهندس البيانات المحترف.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-
-<section id="اختبر-معلوماتك" class="title-slide slide level1 sdaia-dark center">
-<h1>اختبر معلوماتك! 🧠</h1>
-<p>ما هو السبب الرئيسي لظاهرة <strong>Data Skew</strong> في Spark؟</p>
-<ul>
-<li class="fragment">أ) زيادة عدد الـ Workers.</li>
-<li class="fragment">ب) عدم توازن البيانات في الـ Partitions.</li>
-<li class="fragment">ج) استخدام ذاكرة RAM كبيرة.</li>
+<li class="fragment">أ) التخزين على القرص الصلب الخارجي.</li>
+<li class="fragment">ب) التخزين السحابي.</li>
+<li class="fragment">ج) الذاكرة العشوائية (RAM).</li>
 </ul>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> (ب) حيث يؤدي توزيع البيانات بشكل غير متكافئ إلى تحميل عقدة واحدة عبئاً أكبر من غيرها.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) التخزين السحابي؛ لأن البيانات مخزنة في خوادم بعيدة وليست مرتبطة بجهازك المادي.</p>
 </div>
 </section>
-
-<section id="المرحلة-الرابعة-الخلاصة-والاستنتاج" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الرابعة: الخلاصة والاستنتاج</h1>
-
-</section>
-
-<section id="مراجعة-سريعة-لأهم-المفاهيم" class="title-slide slide level1 sdaia-dark center">
-<h1>مراجعة سريعة لأهم المفاهيم</h1>
+<section id="فوائد-التصنيف-الصحيح" class="slide level2">
+<h2>فوائد التصنيف الصحيح</h2>
 <ul>
-<li class="fragment">لا توجد معالجة بدون تخطيط مسبق للـ <strong>Partitioning</strong>.</li>
-<li class="fragment"><strong>Kafka</strong> هو صمام الأمان لتدفق البيانات.</li>
-<li class="fragment"><strong>Spark Optimization</strong> يتطلب مراقبة مستمرة للـ UI.</li>
-<li class="fragment">التعاون والعمل الجماعي يسرع حل المشكلات التقنية المعقدة.</li>
+<li class="fragment">تقليل التوتر الناتج عن البحث عن الملفات.</li>
+<li class="fragment">سرعة اتخاذ القرار.</li>
+<li class="fragment">استغلال أفضل للمساحة المتاحة.</li>
+<li class="fragment">تجنب الحذف الخاطئ للملفات المهمة.</li>
 </ul>
 <aside class="notes">
-<p>لخص النقاط السابقة لتثبيت المعلومة.</p>
+<p>ركز على الجانب النفسي للتنظيم (تقليل التوتر).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="المرحلة-الرابعة-الخلاصة-والختام" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الرابعة: الخلاصة والختام</h1>
+
+</section>
+<section id="ملخص-رحلتنا-اليوم" class="slide level2">
+<h2>ملخص رحلتنا اليوم</h2>
+<ul>
+<li class="fragment">تعلمنا الفرق بين المحلي والسحابي.</li>
+<li class="fragment">أدركنا أن البيانات هي أصول ثمينة.</li>
+<li class="fragment">جربنا مهارات التنظيم في لعبة أمين المستودع.</li>
+<li class="fragment">عرفنا أن التنظيم الرقمي يبدأ من خطوات بسيطة.</li>
+</ul>
+<aside class="notes">
+<p>لخص النقاط الرئيسية باختصار.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -746,37 +797,58 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="جدول-ملخص-الحلول" class="title-slide slide level1 sdaia-dark center">
-<h1>جدول ملخص الحلول</h1>
+<section id="مفاهيم-للذكرى" class="slide level2">
+<h2>مفاهيم للذكرى</h2>
+<ul>
+<li class="fragment"><strong>سحابة:</strong> تعني خوادم شخص آخر.</li>
+<li class="fragment"><strong>نسخ احتياطي:</strong> هو طوق النجاة الوحيد.</li>
+<li class="fragment"><strong>بيانات مهيكلة:</strong> هي بيانات سهلة القراءة.</li>
+<li class="fragment"><strong>أمن البيانات:</strong> هو الأولوية القصوى دائماً.</li>
+</ul>
+<aside class="notes">
+<p>ثبت المصطلحات التي يجب أن يخرج بها الطالب من الدرس.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="جدول-رحلة-التخزين-عبر-الزمن" class="slide level2">
+<h2>جدول: رحلة التخزين عبر الزمن</h2>
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">المشكلة</th>
-<th style="text-align: left;">الحل الأمثل</th>
+<th style="text-align: left;">العصر</th>
+<th style="text-align: left;">طريقة التخزين</th>
+<th style="text-align: left;">الموثوقية</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">بطء الـ Join</td>
-<td style="text-align: left;">Broadcast Join</td>
+<td style="text-align: left;">القديم</td>
+<td style="text-align: left;">الورق والأرشيف</td>
+<td style="text-align: left;">منخفضة (عرضة للحريق)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">ضغط الـ Data Skew</td>
-<td style="text-align: left;">Salting</td>
+<td style="text-align: left;">الحديث</td>
+<td style="text-align: left;">الأقراص الصلبة</td>
+<td style="text-align: left;">متوسطة (عرضة للتلف)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">تعطل التدفق</td>
-<td style="text-align: left;">Kafka Partitioning</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">استهلاك الذاكرة</td>
-<td style="text-align: left;">Caching/Persisting</td>
+<td style="text-align: left;">الحالي</td>
+<td style="text-align: left;">السحابة الذكية</td>
+<td style="text-align: left;">عالية (تكرار البيانات)</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>هذا الجدول هو “حقيبة أدوات” المتدرب للعودة إليها عند مواجهة أي مشكلة في مشاريعه القادمة.</p>
+<p>استعرض تطور التخزين ليعرفوا قيمة التقنيات الحديثة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -789,17 +861,15 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="النمذجة-العاطفية-كيف-نتعامل-مع-الإحباط" class="title-slide slide level1 sdaia-dark center">
-<h1>النمذجة العاطفية: كيف نتعامل مع الإحباط؟</h1>
+<section id="كيف-تستمر-في-التعلم" class="slide level2">
+<h2>كيف تستمر في التعلم؟</h2>
 <ul>
-<li class="fragment">الشعور بالإحباط عند تعقد الكود هو شعور طبيعي.</li>
-<li class="fragment">“أنا لا أفهم” تتحول إلى “أنا أتعلم هذا الجزء”.</li>
-<li class="fragment">اطلب المساعدة، فالتخصص هندسي والعمل جماعي.</li>
-<li class="fragment">خذ فترات راحة عند مواجهة الـ Bugs المعقدة.</li>
+<li class="fragment">ابحث عن “مقدمة في إدارة قواعد البيانات”.</li>
+<li class="fragment">جرب تطبيقات التنظيم الرقمي (مثل Notion أو Obsidian).</li>
+<li class="fragment">اقرأ عن أمن المعلومات بشكل دوري.</li>
 </ul>
 <aside class="notes">
-<p>أكد على هذا الجزء بشدة؛ المهندس المتمكن هو من يدير مشاعره بجانب إدارته للبيانات.</p>
+<p>وجههم لمصادر إضافية لتنمية مهاراتهم.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -812,30 +882,28 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="اختبر-معلوماتك-1" class="title-slide slide level1 sdaia-dark center">
-<h1>اختبر معلوماتك! 🧠</h1>
-<p>ما الفائدة من استخدام <strong>Kafka</strong> في هندسة البيانات؟</p>
+<section id="اختبر-معلوماتك-1" class="slide level2">
+<h2>اختبر معلوماتك! 🧠</h2>
+<p>ماذا يعني مصطلح “البيانات المهيكلة”؟</p>
 <ul>
-<li class="fragment">أ) تحويل البيانات إلى تنسيق PDF.</li>
-<li class="fragment">ب) العمل كقناة وسيطة (Buffer) للبيانات المتدفقة.</li>
-<li class="fragment">ج) تسريع معالجة ملفات الإكسيل.</li>
+<li class="fragment">أ) بيانات عشوائية لا رابط بينها.</li>
+<li class="fragment">ب) بيانات منظمة في جداول أو صفوف وأعمدة.</li>
+<li class="fragment">ج) بيانات مخزنة فقط في السحابة.</li>
 </ul>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> (ب) فهو يسمح بتخزين البيانات مؤقتاً وفصل الأنظمة عن بعضها.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) بيانات منظمة في جداول؛ مما يجعل البحث فيها والتعامل معها سهلاً جداً للآلات والبشر.</p>
 </div>
 </section>
-
-<section id="رؤية-مستقبلية" class="title-slide slide level1 sdaia-dark center">
-<h1>رؤية مستقبلية</h1>
+<section id="رسالة-أخيرة-بياناتك-هي-هويتك" class="slide level2">
+<h2>رسالة أخيرة: بياناتك هي هويتك</h2>
 <ul>
-<li class="fragment">الاتجاه نحو <strong>Serverless Computing</strong>.</li>
-<li class="fragment">دمج الذكاء الاصطناعي لتحسين الـ Query تلقائياً.</li>
-<li class="fragment">زيادة الاعتماد على المعالجة بالزمن الحقيقي (Real-time).</li>
-<li class="fragment">التطور مستمر، ومهارتكم هي التي ستقود هذا المستقبل.</li>
+<li class="fragment">اهتم بتنظيمها.</li>
+<li class="fragment">احمِ أسرارك بكلمات مرور قوية.</li>
+<li class="fragment">احفظ نسخة احتياطية دائماً.</li>
+<li class="fragment">“خزانة” بياناتك هي مرآة لذكائك الرقمي.</li>
 </ul>
 <aside class="notes">
-<p>أعطهم دفعة إيجابية لمستقبلهم المهني.</p>
+<p>أنهِ الدرس برسالة ملهمة تزيد من وعيهم الرقمي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -848,17 +916,14 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="خاتمة-الدرس" class="title-slide slide level1 sdaia-dark center">
-<h1>خاتمة الدرس</h1>
+<section id="خريطة-الطريق-القادمة" class="slide level2">
+<h2>خريطة الطريق القادمة</h2>
 <ul>
-<li class="fragment">لقد قطعنا شوطاً كبيراً اليوم.</li>
-<li class="fragment">التحدي القادم: تطبيق ما تعلمتموه في مشاريعكم.</li>
-<li class="fragment">شكراً لالتزامكم وتفاعلكم الرائع.</li>
-<li class="fragment">الأسئلة والمناقشة مفتوحة للجميع.</li>
+<li class="fragment">الدرس التالي: <strong>الذكاء الاصطناعي وكيف يقرأ كنوزنا؟</strong></li>
+<li class="fragment">سنستكشف كيف يمكن للحاسب أن “يفهم” ما وضعناه في مستودعاتنا.</li>
 </ul>
 <aside class="notes">
-<p>افتح باب النقاش واسمح للمتدربين بطرح أسئلتهم الشخصية والمشاريع التي يعملون عليها حالياً.</p>
+<p>شوقهم للدرس القادم.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -871,30 +936,15 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="مسابقة-ختامية-تحدي-الـ-30-ثانية" class="title-slide slide level1 sdaia-dark center">
-<h1>مسابقة ختامية: تحدي الـ 30 ثانية</h1>
+<section id="شكرا-لاستماعكم" class="slide level2">
+<h2>شكراً لاستماعكم!</h2>
+<p>هل لديكم أي أسئلة حول مستودعات البيانات؟</p>
 <ul>
-<li class="fragment">ما هو المفهوم الذي يصف توزيع البيانات غير المتكافئ؟</li>
-<li class="fragment">أ) Shuffle.</li>
-<li class="fragment">ب) Data Skew.</li>
-<li class="fragment">ج) Partition.</li>
-</ul>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> (ب) Data Skew.</p>
-</div>
-</section>
-
-<section id="الموارد-الموصى-بها-للاستزادة" class="title-slide slide level1 sdaia-dark center">
-<h1>الموارد الموصى بها للاستزادة</h1>
-<ul>
-<li class="fragment">توثيق Apache Spark الرسمي.</li>
-<li class="fragment">دروس Kafka للمبتدئين والمحترفين.</li>
-<li class="fragment">مقالات Tech Blogs لشركات التقنية الكبرى.</li>
-<li class="fragment">كتابة “Data Engineering Handbook”.</li>
+<li class="fragment">البريد الإلكتروني: (أضف بريدك)</li>
+<li class="fragment">الموقع: (أضف موقع الدورة)</li>
 </ul>
 <aside class="notes">
-<p>شجعهم على الاستمرار في القراءة والتعلم الذاتي.</p>
+<p>افتح باب النقاش للأسئلة المتبقية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -907,16 +957,151 @@
           display:block!important;
       }</style></aside>
 </section>
-
-<section id="شكرا-لكم-جميعا" class="title-slide slide level1 sdaia-dark center">
-<h1>شكراً لكم جميعاً!</h1>
+<section id="المراجع-والمصادر-الإضافية" class="slide level2">
+<h2>المراجع والمصادر الإضافية</h2>
 <ul>
-<li class="fragment">هل لديكم أي استفسار حول تطبيقات اليوم؟</li>
-<li class="fragment">نراكم في الجلسة القادمة بمهارات أقوى.</li>
-<li class="fragment">تذكروا: البيانات هي النفط الجديد، وأنتم من يقوم بتكريرها.</li>
+<li class="fragment">فيديوهات تعليمية عن السحابة الرقمية.</li>
+<li class="fragment">مقالات حول تقنيات التخزين الحديثة.</li>
+<li class="fragment">تمارين تفاعلية عبر الإنترنت.</li>
 </ul>
 <aside class="notes">
-<p>أنهِ الدرس بعبارة ملهمة تترك أثراً طيباً في نفوس المتدربين.</p>
+<p>وفر روابط إضافية للمهتمين.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="فكر-هل-بياناتك-الحالية-آمنة" class="slide level2">
+<h2>فكر: هل بياناتك الحالية آمنة؟</h2>
+<p>قبل أن تغادر:</p>
+<ul>
+<li class="fragment">تأكد من تفعيل المصادقة الثنائية.</li>
+<li class="fragment">تأكد من وجود نسخة احتياطية واحدة على الأقل.</li>
+</ul>
+<aside class="notes">
+<p>نصيحة أخيرة عملية ومهمة للأمن الرقمي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="ختام-الجلسة" class="slide level2">
+<h2>ختام الجلسة</h2>
+<p>لقد أصبحتم اليوم أكثر مهارة في فهم أين تضعون كنوزكم الرقمية. إلى اللقاء في مغامرة تقنية جديدة!</p>
+<aside class="notes">
+<p>ودع الطلاب بكلمات تشجيعية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="شريحة-إضافية-كيف-نحافظ-على-الزخم" class="slide level2">
+<h2>(شريحة إضافية) كيف نحافظ على الزخم؟</h2>
+<ul>
+<li class="fragment">استمروا في تصنيف ملفاتكم يومياً.</li>
+<li class="fragment">لا تتركوا “الفوضى” تتراكم في مجلد التنزيلات.</li>
+<li class="fragment">التنظيم عادة وليست مهمة لمرة واحدة.</li>
+</ul>
+<aside class="notes">
+<p>شجع على بناء عادات مستدامة في التعامل مع البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="شريحة-إضافية-تذكر-دائما" class="slide level2">
+<h2>(شريحة إضافية) تذكر دائماً</h2>
+<p>الأمان ليس منتجاً، بل هو سلوك يومي. خزانتك الرقمية تعكس مدى وعيك التقني.</p>
+<aside class="notes">
+<p>أكد على أن الأمن يبدأ من المستخدم (الإنسان).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="شريحة-إضافية-لوحة-المتميزين" class="slide level2">
+<h2>(شريحة إضافية) لوحة المتميزين</h2>
+<ul>
+<li class="fragment">شاركونا اليوم تجاربكم.</li>
+<li class="fragment">شكر خاص لكل من ساعد في تنظيم البطاقات في النشاط.</li>
+</ul>
+<aside class="notes">
+<p>كافئ المشاركين في النشاط التشاركي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="شريحة-إضافية-هل-ترغب-في-المزيد" class="slide level2">
+<h2>(شريحة إضافية) هل ترغب في المزيد؟</h2>
+<ul>
+<li class="fragment">إذا أردتم التعمق في الجانب البرمجي، تابعوا دورة هندسة البيانات المتقدمة.</li>
+<li class="fragment">ننتظر ملاحظاتكم على استمارة التقييم.</li>
+</ul>
+<aside class="notes">
+<p>وفر لهم مساراً تعليمياً واضحاً للمستقبل.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="شريحة-إضافية-تذكر-أهدافك" class="slide level2">
+<h2>(شريحة إضافية) تذكر أهدافك</h2>
+<ul>
+<li class="fragment">أعد قراءة الأهداف الأربعة التي بدأنا بها.</li>
+<li class="fragment">هل تشعر أنك حققتها جميعاً؟</li>
+</ul>
+<aside class="notes">
+<p>أعدهم للتقييم الذاتي لمدى استفادتهم.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -934,7 +1119,7 @@
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
