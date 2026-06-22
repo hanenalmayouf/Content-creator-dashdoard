@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>استكشاف النماذج التوليدية المتقدمة وتطبيقاتها</title>
+  <title>تصميم وبناء أنظمة هندسة البيانات الموزعة لدعم الذكاء الاصطناعي</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,71 +28,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lesson_files/libs/revealjs/dist/theme/quarto.css">
   <link href="lesson_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -396,42 +331,17 @@
     <div class="slides">
 
 <section id="title-slide" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">استكشاف النماذج التوليدية المتقدمة وتطبيقاتها</h1>
+  <h1 class="title">تصميم وبناء أنظمة هندسة البيانات الموزعة لدعم الذكاء الاصطناعي</h1>
 
 <div class="quarto-title-authors">
 </div>
-
-</section>
-<section id="الأهداف-التعليمية" class="slide level2">
-<h2>الأهداف التعليمية</h2>
-<ul>
-<li class="fragment">فهم معمق للمبادئ الأساسية للهندسة التوليدية والأسس النظرية لنماذجها الرئيسية.</li>
-<li class="fragment">تحليل البنية الرياضية والخوارزمية المعقدة لـ <strong>GANs</strong>، <strong>VAEs</strong>، ونماذج الانتشار.</li>
-<li class="fragment">تحديد وتقييم التطبيقات المتقدمة للهندسة التوليدية في مختلف المجالات الصناعية والبحثية.</li>
-<li class="fragment">استكشاف التحديات التقنية والبحثية الحالية، والمساهمة في تحديد مسارات البحث المستقبلية.</li>
-</ul>
-<aside class="notes">
-<p>في هذه الشريحة، سنحدد بوضوح ما يتوقع من المتدربين تحقيقه بنهاية هذا الدرس. من المهم التأكد من أن الأهداف قابلة للقياس وذات صلة بالمحتوى المقدم. هذه الأهداف ستكون بمثابة خريطة طريق للدرس بأكمله.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
 
 </section>
 <section>
 <section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
 <h1>المرحلة الأولى: التهيئة والجذب</h1>
 <aside class="notes">
-<p>هذه الشريحة تمثل بداية المرحلة الأولى من الدرس، وهي مخصصة لتهيئة المتدربين وجذب اهتمامهم للموضوع من خلال طرح المفاهيم الأساسية والتحديات.</p>
+<p>مرحباً بالجميع! في هذه المرحلة الافتتاحية، سنضع الأساس للدرس من خلال تحديد الأهداف، فهم السياق العام لدور هندسة البيانات في عصر الذكاء الاصطناعي، وتهيئة المشاركين ذهنياً للمفاهيم والتحديات القادمة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -444,27 +354,53 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="ما-هي-الهندسة-التوليدية" class="slide level2">
-<h2>ما هي الهندسة التوليدية؟</h2>
+<section id="أهداف-التعلم-الرئيسية-لهذه-الجلسة" class="slide level2">
+<h2>أهداف التعلم الرئيسية لهذه الجلسة</h2>
+<p>تُمكنك هذه الجلسة من:</p>
+<ul>
+<li class="fragment">فهم <strong>الدور الاستراتيجي لهندسة البيانات</strong> في تطوير ونشر تطبيقات الذكاء الاصطناعي وتعلم الآلة.</li>
+<li class="fragment">تحليل ومقارنة أنماط استيعاب ومعالجة البيانات المختلفة (<strong>الدفعات</strong> وال<strong>تدفق</strong>) واختيار الأنسب لسيناريوهات معينة.</li>
+<li class="fragment">تصميم <strong>خطوط أنابيب بيانات قوية وقابلة للتوسع</strong> باستخدام أطر عمل المعالجة الموزعة مثل <strong>Apache Spark</strong>.</li>
+<li class="fragment">تقييم واختيار حلول التخزين المناسبة للبيانات الضخمة (تنسيقات الملفات، قواعد البيانات NoSQL، البنى السحابية).</li>
+<li class="fragment">تطبيق مبادئ أتمتة خطوط الأنابيب والمراقبة لضمان استقرار وأداء الأنظمة.</li>
+<li class="fragment">التعرف على التحديات المتقدمة في هندسة البيانات مثل <strong>Data Mesh</strong> ومبادئ <strong>DataOps</strong>.</li>
+</ul>
+<aside class="notes">
+<p>هذه هي الأهداف التعليمية التي نطمح لتحقيقها معًا اليوم. كل نقطة من هذه النقاط ستكون محط تركيزنا وستُبنى عليها المعرفة خطوة بخطوة. أشجعكم على تدوين أي أسئلة تطرأ على ذهنكم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="لماذا-هندسة-البيانات-أساسية-لعصر-الذكاء-الاصطناعي" class="slide level2">
+<h2>لماذا هندسة البيانات أساسية لعصر الذكاء الاصطناعي؟</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>تُعرف <strong>الهندسة التوليدية</strong> بأنها فرع من فروع الذكاء الاصطناعي يركز على إنشاء بيانات جديدة تحاكي خصائص بيانات التدريب الأصلية.</p>
+<p>الذكاء الاصطناعي ليس سحراً، بل هو نتاج <strong>بيانات عالية الجودة ومتاحة</strong>. بدون بيانات منظمة ومُعالجة بشكل فعال، تظل نماذج الذكاء الاصطناعي مجرد نظريات.</p>
 <ul>
-<li class="fragment">الهدف الأساسي هو تعلم <strong>التوزيع الاحتمالي</strong> للبيانات المدخلة.</li>
-<li class="fragment">تمكّن هذه النماذج من توليد أمثلة واقعية وغير موجودة مسبقاً، مثل الصور، النصوص، الأصوات، وحتى الجزيئات الكيميائية.</li>
-<li class="fragment">على عكس النماذج التمييزية التي تصنف البيانات، تعمل النماذج التوليدية على فهم كيفية إنشاء البيانات.</li>
+<li class="fragment"><strong>الوقود للنماذج:</strong> البيانات هي الوقود الذي يشغل نماذج التعلم الآلي والذكاء الاصطناعي.</li>
+<li class="fragment"><strong>جودة مقابل كمية:</strong> ليست فقط كمية البيانات مهمة، بل جودتها ونظافتها وقابليتها للاستخدام.</li>
+<li class="fragment"><strong>القرار المبني على البيانات:</strong> تمكين اتخاذ قرارات دقيقة وموثوقة استنادًا إلى تحليلات بيانات متعمقة.</li>
+<li class="fragment"><strong>قابلية التوسع:</strong> دعم النمو الهائل في حجم البيانات وتنوعها الذي تتطلبه تطبيقات الذكاء الاصطناعي المتزايدة.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/AI-generating-creative-and-complex-shapes-with-glowing-lines-representing-data-and-ideas?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>صورة توضيحية لذكاء اصطناعي يولد أشكالاً إبداعية ومعقدة، مع خطوط متوهجة تمثل البيانات والأفكار.</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/A-stylized-image-showing-data-flowing-into-a-brain-like-structure,-symbolizing-data-as-the-fuel-for-AI?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A stylized image showing data flowing into a brain-like structure, symbolizing data as the fuel for AI.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>اشرح للمتدربين أن الهندسة التوليدية تتجاوز مجرد التصنيف أو التنبؤ، بل تسعى لفهم “جوهر” البيانات لإنشاء نسخ جديدة. يمكن ضرب أمثلة سريعة مثل توليد وجوه بشرية غير موجودة.</p>
+<p>هذه الشريحة تُبرز أهمية هندسة البيانات كعمود فقري للذكاء الاصطناعي. يمكن طرح سؤال افتتاحي مثل: “من منكم واجه تحديات في توفير بيانات نظيفة لمشروع ذكاء اصطناعي؟”</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -477,28 +413,30 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="لماذا-النماذج-التوليدية-ثورية" class="slide level2">
-<h2>لماذا النماذج التوليدية ثورية؟</h2>
+<section id="منظومة-الذكاء-الاصطناعي-ودور-البيانات-فيها" class="slide level2">
+<h2>منظومة الذكاء الاصطناعي ودور البيانات فيها</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>أحدثت النماذج التوليدية ثورة في العديد من المجالات بفضل قدرتها الفريدة على:</p>
+<p>تتكون منظومة الذكاء الاصطناعي من عدة طبقات مترابطة، والبيانات هي العنصر المشترك الذي يربطها جميعاً:</p>
 <ul>
-<li class="fragment"><strong>الإبداع والتوليد:</strong> إنشاء محتوى جديد كليًا (صور، نصوص، موسيقى) يتسم بالواقعية والجودة العالية.</li>
-<li class="fragment"><strong>تعزيز البيانات:</strong> توليد بيانات اصطناعية لزيادة مجموعات بيانات التدريب، خاصة في السيناريوهات التي تكون فيها البيانات الحقيقية نادرة أو حساسة.</li>
-<li class="fragment"><strong>الاستكشاف والتصميم:</strong> مساعدة الباحثين والمهندسين في استكشاف مساحات تصميمية معقدة، مثل تصميم الأدوية والمواد الجديدة.</li>
-<li class="fragment"><strong>فهم أعمق للبيانات:</strong> من خلال محاولة إعادة إنشاء البيانات، تكتسب النماذج فهمًا أعمق للأنماط والهياكل الكامنة.</li>
+<li class="fragment"><strong>مصدر البيانات:</strong> أنظمة المعاملات، أجهزة الاستشعار، سجلات الويب، وسائل التواصل الاجتماعي.</li>
+<li class="fragment"><strong>هندسة البيانات:</strong> جمع، تنظيف، تحويل، تخزين، وإتاحة البيانات.</li>
+<li class="fragment"><strong>علم البيانات/تعلم الآلة:</strong> بناء وتدريب وتقييم النماذج باستخدام البيانات الجاهزة.</li>
+<li class="fragment"><strong>نشر الذكاء الاصطناعي (MLOps):</strong> دمج النماذج في تطبيقات الإنتاج ومراقبتها.</li>
+<li class="fragment"><strong>التطبيقات النهائية:</strong> تطبيقات الويب، تطبيقات الجوال، أنظمة التوصية، التحليلات التنبؤية.</li>
 </ul>
+<p><strong>لا يمكن لأي طبقة أن تعمل بفعالية بدون البيانات المهيأة بشكل صحيح.</strong></p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/3D-icon-representing-creativity-and-generation-in-AI-context-with-small-icons-of-images-music-and-text?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>أيقونة ثلاثية الأبعاد تمثل الإبداع والتوليد في سياق الذكاء الاصطناعي، مع أيقونات صغيرة تمثل صورًا وموسيقى ونصوصًا.</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/A-diagram-illustrating-the-AI-ecosystem,-with-data-engineering-as-a-foundational-layer-connecting-data-sources-to-machine-learning-models-and-AI-applications?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A diagram illustrating the AI ecosystem, with data engineering as a foundational layer connecting data sources to machine learning models and AI applications.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>ركز على الجوانب العملية والتأثير الكبير لهذه التقنيات. اذكر كيف أن القدرة على توليد البيانات يمكن أن تحل مشكلات مثل خصوصية البيانات وتوفرها.</p>
+<p>يُفضل هنا شرح كل طبقة بإيجاز وكيف تتداخل مع دور مهندس البيانات. يمكن الإشارة إلى أن هندسة البيانات هي الجسر بين البيانات الخام والذكاء الاصطناعي القابل للاستخدام.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -511,88 +449,30 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="كيف-تعمل-النماذج-التوليدية-المفهوم-الأساسي" class="slide level2">
-<h2>كيف تعمل النماذج التوليدية؟ المفهوم الأساسي</h2>
-<p>تعتمد النماذج التوليدية على مبدأ تعلم <strong>التوزيع الاحتمالي المشترك</strong> للبيانات.</p>
-<ul>
-<li class="fragment"><strong>المدخلات:</strong> مجموعة كبيرة من البيانات الحقيقية (مثل صور القطط).</li>
-<li class="fragment"><strong>التعلم:</strong> يحاول النموذج تعلم القواعد والأنماط التي تحكم هذه البيانات.</li>
-<li class="fragment"><strong>المخرجات:</strong> بعد التدريب، يمكن للنموذج استخدام هذا الفهم لإنشاء عينات جديدة تبدو وكأنها مستمدة من نفس التوزيع (صور قطط واقعية ولكنها غير موجودة في بيانات التدريب).</li>
-<li class="fragment">يتم ذلك غالبًا عن طريق تعيين نقطة عشوائية في “فضاء كامن” (latent space) ثم تحويلها إلى بيانات ذات معنى.</li>
-</ul>
-<aside class="notes">
-<p>وضح الفكرة الأساسية خلف النماذج التوليدية بطريقة مبسطة قبل الغوص في التفاصيل المعقدة. يمكن تشبيهها بالرسام الذي يدرس آلاف اللوحات ليتعلم كيف يرسم لوحات جديدة بأسلوبه الخاص.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="النماذج-التوليدية-مقابل-النماذج-التمييزية" class="slide level2">
-<h2>النماذج التوليدية مقابل النماذج التمييزية</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="النماذج-التوليدية-generative-models">النماذج التوليدية (Generative Models)</h3>
-<ul>
-<li class="fragment"><strong>الهدف:</strong> تعلم التوزيع الاحتمالي للبيانات (<span class="math inline">\(P(x)\)</span>) أو التوزيع المشترك (<span class="math inline">\(P(x, y)\)</span>).</li>
-<li class="fragment"><strong>القدرة:</strong> إنشاء أمثلة جديدة من البيانات.</li>
-<li class="fragment"><strong>أمثلة:</strong> GANs, VAEs, Diffusion Models.</li>
-<li class="fragment"><strong>الاستخدام:</strong> توليد الصور، النصوص، الصوت، تعزيز البيانات.</li>
-<li class="fragment"><strong>الميزة:</strong> فهم عميق لهيكل البيانات.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<h3 id="النماذج-التمييزية-discriminative-models">النماذج التمييزية (Discriminative Models)</h3>
-<ul>
-<li class="fragment"><strong>الهدف:</strong> تعلم التوزيع الشرطي (<span class="math inline">\(P(y|x)\)</span>) لتصنيف البيانات.</li>
-<li class="fragment"><strong>القدرة:</strong> التمييز بين الفئات المختلفة أو التنبؤ بالتسميات.</li>
-<li class="fragment"><strong>أمثلة:</strong> SVMs, Logistic Regression, Classification CNNs.</li>
-<li class="fragment"><strong>الاستخدام:</strong> تصنيف الصور، اكتشاف البريد العشوائي، التعرف على الكلام.</li>
-<li class="fragment"><strong>الميزة:</strong> فعالية عالية في مهام التصنيف والتنبؤ.</li>
-</ul>
-</div>
-</div>
-<aside class="notes">
-<p>هذا الجدول مهم لترسيخ الفهم الأساسي للفرق بين النوعين الرئيسيين من نماذج التعلم الآلي. شدد على أن الهدف مختلف كليًا، وأن كلاهما له مكانته وأهميته.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="تحدي-الأكواد-والمعادلات-السرية-تحدي-تفاعلي" class="slide level2">
-<h2>تحدي الأكواد والمعادلات السرية (تحدي تفاعلي)</h2>
+<section id="من-هو-مهندس-البيانات-في-عصر-الذكاء-الاصطناعي" class="slide level2">
+<h2>من هو مهندس البيانات في عصر الذكاء الاصطناعي؟</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>مرحباً بكم في ‘تحدي الأكواد والمعادلات السرية’!</p>
-<p>سنعرض عليكم مقتطفات من أكواد بايثون أو معادلات رياضية متقدمة. مهمتكم هي:</p>
-<ol type="1">
-<li class="fragment"><strong>تحديد النموذج التوليدي</strong> المرتبط بالمقتطف (GAN, VAE, Diffusion).</li>
-<li class="fragment"><strong>شرح المفهوم الرياضي أو الخوارزمي</strong> الكامن وراءه بإيجاز.</li>
-</ol>
-<p>لديك وقت محدود للإجابة، وسيحصل المتدربون الأسرع والأكثر دقة على نقاط. استخدموا هواتفكم أو أجهزتكم للدخول إلى المنصة التفاعلية (مثل Kahoot/Mentimeter) التي ستظهر على الشاشة.</p>
+<p><strong>مهندس البيانات</strong> هو المهندس المعماري والبنّاء لـ “خطوط الأنابيب” التي تنقل البيانات من مصادرها الخام إلى شكل يمكن لعلماء البيانات ونماذج الذكاء الاصطناعي استخدامه.</p>
+<p>مهامه تشمل:</p>
+<ul>
+<li class="fragment"><strong>بناء البنى التحتية:</strong> تصميم وتطوير وصيانة البنى التحتية للبيانات القابلة للتوسع.</li>
+<li class="fragment"><strong>إدارة البيانات:</strong> التأكد من <strong>جودة البيانات</strong>، <strong>الموثوقية</strong>، و<strong>الأمان</strong>.</li>
+<li class="fragment"><strong>أتمتة خطوط الأنابيب:</strong> بناء وتشغيل عمليات ETL/ELT المؤتمتة.</li>
+<li class="fragment"><strong>دعم نماذج الذكاء الاصطناعي:</strong> تجهيز البيانات وتوحيدها لتدريب ونشر نماذج التعلم الآلي.</li>
+<li class="fragment"><strong>تحسين الأداء:</strong> ضبط الأنظمة لتحقيق أقصى كفاءة وسرعة في معالجة البيانات الضخمة.</li>
+</ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/Interactive-quiz-logo-combining-math-symbols-python-code-and-glowing-brain-shape?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>شعار مسابقة تفاعلية يجمع بين الرموز الرياضية وأكواد بايثون وشكل دماغ متوهج.</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/A-depiction-of-a-data-engineer-connecting-various-data-sources-to-a-central-processing-unit,-with-data-pipelines-flowing-towards-AI/ML-applications?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A depiction of a data engineer connecting various data sources to a central processing unit, with data pipelines flowing towards AI/ML applications.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>جهز منصة Kahoot أو Mentimeter مسبقًا بالأسئلة والمقتطفات. اشرح قواعد اللعبة بوضوح. هذا النشاط يهدف إلى جذب الانتباه وتنشيط المتدربين من البداية.</p>
+<p>التأكيد على أن مهندس البيانات ليس فقط مبرمجًا، بل مهندس بنية تحتية ومحلل بيانات في آن واحد، وله دور حيوي في نجاح مشاريع الذكاء الاصطناعي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -605,34 +485,19 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="تحدي-الأكواد-مقتطف-1-المعادلات" class="slide level2">
-<h2>تحدي الأكواد: مقتطف 1 (المعادلات)</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>المقتطف الرياضي:</strong></p>
-<p><span class="math display">\[
-\min_G \max_D V(D, G) = \mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]
-\]</span></p>
-<p><strong>السؤال:</strong> ما هو النموذج التوليدي الذي تمثله هذه المعادلة؟ وما هو المفهوم الرئيسي الذي تعبر عنه؟</p>
+<section id="استبيان-سريع-مستوى-خبرتكم-في-هندسة-البيانات-تقييم-تكويني" class="slide level2">
+<h2>استبيان سريع: مستوى خبرتكم في هندسة البيانات (تقييم تكويني)</h2>
 <ul>
-<li class="fragment">أ) VAEs - تباعد KL</li>
-<li class="fragment">ب) Diffusion Models - عملية الضوضاء الأمامية</li>
-<li class="fragment">ج) GANs - لعبة المينيماكس بين المولد والمميز</li>
+<li class="fragment">أ) مبتدئ: لدي معرفة قليلة أو لا توجد خبرة سابقة في هندسة البيانات.</li>
+<li class="fragment">ب) متوسط: لدي بعض الخبرة في التعامل مع البيانات أو أدوات ETL الأساسية.</li>
+<li class="fragment">ج) متقدم: عملت على تصميم وبناء خطوط أنابيب بيانات معقدة.</li>
+<li class="fragment">د) خبير: لدي خبرة واسعة في تصميم حلول البيانات الموزعة للذكاء الاصطناعي.</li>
 </ul>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ج) GANs - لعبة المينيماكس بين المولد والمميز. تصف هذه المعادلة دالة الخسارة التي يسعى فيها المولد (G) لتقليل دالة الخسارة بينما يسعى المميز (D) لزيادتها، وهو جوهر الشبكات التنافسية التوليدية.</p>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/Mathematical-equation-displayed-on-a-screen-with-glowing-blue-lines-on-a-dark-background-symbolizing-AI?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>شاشة عرض معادلة رياضية معقدة باللون الأزرق المتوهج على خلفية مظلمة، ترمز إلى الذكاء الاصطناعي.</figcaption>
-</figure>
-</div>
-</div>
+<p><strong>توضيح:</strong> هذا الاستبيان يساعدنا على تكييف المحتوى والأمثلة لتناسب مستوى الخبرة الجماعي للمشاركين. لا توجد إجابات خاطئة، فقط تحديد لمستوى البداية.</p>
 </div>
 <aside class="notes">
-<p>بعد أن يجيب المتدربون عبر المنصة التفاعلية، اعرض الإجابة الصحيحة وفسرها. هذا يعزز التعلم الفوري ويوفر سياقًا للمفاهيم التي سيتم شرحها لاحقًا.</p>
+<p>استخدم أداة استطلاع تفاعلية هنا (مثل Mentimeter) لجمع الإجابات الفورية. بناءً على النتائج، يمكن للمدرب تكييف عمق الشرح في الشرائح اللاحقة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -645,41 +510,30 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="تحدي-الأكواد-مقتطف-2-مقتطف-برمجي" class="slide level2">
-<h2>تحدي الأكواد: مقتطف 2 (مقتطف برمجي)</h2>
+<section id="مسار-التعلم-التكيفي-كيف-سنخصص-تجربتك-اليوم" class="slide level2">
+<h2>مسار التعلم التكيّفي: كيف سنُخصص تجربتك اليوم؟</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p><strong>المقتطف البرمجي (Python PyTorch):</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="co"># Encoder output</span></span>
-<span id="cb1-2"><a href=""></a>mu, log_var <span class="op">=</span> encoder(x)</span>
-<span id="cb1-3"><a href=""></a>std <span class="op">=</span> torch.exp(<span class="fl">0.5</span> <span class="op">*</span> log_var)</span>
-<span id="cb1-4"><a href=""></a>eps <span class="op">=</span> torch.randn_like(std)</span>
-<span id="cb1-5"><a href=""></a>z <span class="op">=</span> mu <span class="op">+</span> eps <span class="op">*</span> std <span class="co"># Reparameterization Trick</span></span>
-<span id="cb1-6"><a href=""></a></span>
-<span id="cb1-7"><a href=""></a><span class="co"># VAE loss components</span></span>
-<span id="cb1-8"><a href=""></a>kl_divergence <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> torch.<span class="bu">sum</span>(<span class="dv">1</span> <span class="op">+</span> log_var <span class="op">-</span> mu.<span class="bu">pow</span>(<span class="dv">2</span>) <span class="op">-</span> log_var.exp())</span>
-<span id="cb1-9"><a href=""></a>reconstruction_loss <span class="op">=</span> F.binary_cross_entropy(decoder(z), x.view(<span class="op">-</span><span class="dv">1</span>, <span class="dv">784</span>), reduction<span class="op">=</span><span class="st">'sum'</span>)</span>
-<span id="cb1-10"><a href=""></a>total_loss <span class="op">=</span> reconstruction_loss <span class="op">+</span> kl_divergence</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>السؤال:</strong> أي نموذج توليدي يستخدم هذه التقنيات والمفاهيم؟ وماذا تعني <code>mu</code> و <code>log_var</code> و <code>z</code>؟</p>
+<p>نحن نؤمن بأن كل مشارك فريد ولديه خلفية مختلفة. لذلك، صُممت هذه الجلسة لتكون <strong>تكيّفية ومُخصصة</strong>:</p>
 <ul>
-<li class="fragment">أ) GANs - المتجه الكامن ومخرجات المولد</li>
-<li class="fragment">ب) VAEs - متوسط وتباين الفضاء الكامن والمتغير الكامن المعاد تهيئته</li>
-<li class="fragment">ج) Diffusion Models - الضوضاء المقدرة والمتجه الزمني</li>
+<li class="fragment"><strong>مواد مرجعية اختيارية:</strong> تم توفير مواد إضافية قبل الجلسة بناءً على استبيان سابق.</li>
+<li class="fragment"><strong>استطلاعات رأي فورية:</strong> نتائج الاستبيانات الفورية وأسئلتكم ستوجه مستوى التعمق.</li>
+<li class="fragment"><strong>اختيار مواضيع فرعية:</strong> في بعض الأحيان، سنسمح باختيار مواضيع فرعية للنقاش المعمق بناءً على اهتماماتكم.</li>
+<li class="fragment"><strong>تحديات معمارية:</strong> ستتيح لك هذه التحديات تطبيق المفاهيم على مشكلات حقيقية واكتساب نقاط.</li>
+<li class="fragment"><strong>محاكاة مشروع:</strong> فرصة لتصميم حلول بيانات في مجموعات صغيرة.</li>
 </ul>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) VAEs - متوسط وتباين الفضاء الكامن والمتغير الكامن المعاد تهيئته. هذا المقتطف يوضح <strong>خدعة إعادة المعايرة (Reparameterization Trick)</strong> ودالة خسارة الـ <strong>VAEs</strong> التي تتكون من خسارة إعادة البناء و<strong>تباين KL</strong>. <code>mu</code> و <code>log_var</code> هما متوسط وتباين التوزيع الاحتمالي للفضاء الكامن، و<code>z</code> هو المتغير الكامن المُعاد تهيئته.</p>
-</div>
+<p><strong>هدفنا:</strong> أن تخرج بأكبر قدر من الفائدة العملية والتعليمية التي تناسب مسارك.</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/Screen-displaying-Python-code-in-a-clear-programming-language-with-focus-on-mathematical-variables-like-mu-and-log_var-within-a-modern-IDE?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>شاشة عرض كود بايثون بلغة برمجة واضحة، مع التركيز على المتغيرات الرياضية مثل mu و log_var، داخل واجهة برمجة حديثة.</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/A-graphic-symbolizing-a-personalized-learning-path,-with-diverging-arrows-representing-choices-and-adaptation,-leading-to-a-customized-learning-experience?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A graphic symbolizing a personalized learning path, with diverging arrows representing choices and adaptation, leading to a customized learning experience.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>ناقش أهمية خدعة إعادة المعايرة في تمكين تدريب الـ VAEs عبر الانتشار العكسي (Backpropagation). هذا يعطي لمحة مبكرة عن التعقيدات الرياضية التي سنتعمق فيها.</p>
+<p>شرح كيفية تفعيل استراتيجية التعلم التكيّفي. يمكن للمدرب أن يذكر مثالاً: “إذا رأيت أن غالبية المشاركين لديهم خبرة في Spark، يمكننا التركيز أكثر على الجوانب المتقدمة أو تحديات الأداء”.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -691,15 +545,12 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
-<section id="المرحلة-الثانية-المفاهيم-والأسس-النظرية" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>المرحلة الثانية: المفاهيم والأسس النظرية</h1>
+<section id="المرحلة-الثانية-المفاهيم-الأساسية" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>المرحلة الثانية: المفاهيم الأساسية</h1>
 <aside class="notes">
-<p>هذه الشريحة تمثل بداية المرحلة الثانية، حيث ننتقل إلى التفاصيل المعمقة لكل نوع من النماذج التوليدية الرئيسية.</p>
+<p>في هذه المرحلة، سنغوص في الأسس النظرية والتحديات العملية التي تواجه مهندسي البيانات. سنستكشف خصائص البيانات الضخمة، أنماط معالجتها، وبنى التخزين الموزعة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -712,30 +563,40 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="الشبكات-التنافسية-التوليدية-gans" class="slide level2">
-<h2>الشبكات التنافسية التوليدية (GANs)</h2>
+<section id="تحديات-البيانات-الضخمة-الأبعاد-الأربعة-4vs" class="slide level2">
+<h2>تحديات البيانات الضخمة: الأبعاد الأربعة (4Vs)</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>تعتبر <strong>الشبكات التنافسية التوليدية (Generative Adversarial Networks - GANs)</strong> من أشهر وأقوى النماذج التوليدية، وقد قدمها Ian Goodfellow وزملاؤه في عام 2014.</p>
+<p>لفهم هندسة البيانات، يجب أولاً فهم التحديات التي تطرحها <strong>البيانات الضخمة (Big Data)</strong>، والتي تُعرف تقليدياً بـ “الأبعاد الأربعة”:</p>
 <ul>
-<li class="fragment"><strong>الفكرة الرئيسية:</strong> تتألف الـ GAN من شبكتين عصبيتين تتنافسان في “لعبة محصلتها صفر” (zero-sum game).</li>
-<li class="fragment"><strong>الشبكتان:</strong>
+<li class="fragment"><strong>الحجم (Volume):</strong> الكميات الهائلة من البيانات التي يتم إنشاؤها وتخزينها يوميًا (تيرابايت، بيتابايت، إكسابايت).
 <ul>
-<li class="fragment"><strong>المولد (Generator - G):</strong> يتعلم توليد بيانات جديدة تبدو وكأنها حقيقية.</li>
-<li class="fragment"><strong>المميز (Discriminator - D):</strong> يتعلم التمييز بين البيانات الحقيقية والبيانات المولدة.</li>
+<li class="fragment"><em>مثال:</em> سجلات خادم الويب، بيانات أجهزة الاستشعار، بيانات وسائل التواصل الاجتماعي.</li>
+</ul></li>
+<li class="fragment"><strong>السرعة (Velocity):</strong> السرعة التي يتم بها إنشاء البيانات وتدفقها ومعالجتها.
+<ul>
+<li class="fragment"><em>مثال:</em> تدفقات بيانات الأسهم، بيانات المعاملات المالية في الوقت الفعلي.</li>
+</ul></li>
+<li class="fragment"><strong>التنوع (Variety):</strong> الأشكال المختلفة للبيانات التي يجب التعامل معها (منظمة، شبه منظمة، غير منظمة).
+<ul>
+<li class="fragment"><em>مثال:</em> قواعد بيانات علائقية، مستندات JSON، صور، مقاطع فيديو، نصوص.</li>
+</ul></li>
+<li class="fragment"><strong>الموثوقية (Veracity):</strong> جودة البيانات وصدقها ودقتها ومدى الثقة بها.
+<ul>
+<li class="fragment"><em>مثال:</em> بيانات غير كاملة، متضاربة، أو خاطئة تؤثر على نتائج التحليلات.</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/Simplified-diagram-of-GAN-architecture-showing-generator-and-discriminator-in-an-adversarial-loop-with-data-flow-arrows?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>رسم توضيحي مبسط لبنية GAN، يظهر المولد والمميز في حلقة تنافسية، مع أسهم توضح تدفق البيانات.</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/An-infographic-illustrating-the-4-Vs-of-Big-Data:-Volume,-Velocity,-Variety,-and-Veracity,-each-with-a-small-icon-representing-its-meaning?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>An infographic illustrating the 4 Vs of Big Data: Volume, Velocity, Variety, and Veracity, each with a small icon representing its meaning.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>وضح مفهوم اللعبة التنافسية بمثال بسيط: المولد هو مزور الفن الذي يحاول إنتاج لوحات تبدو حقيقية، والمميز هو الخبير الفني الذي يحاول اكتشاف التزوير. كلاهما يتطور بمرور الوقت.</p>
+<p>اشرح كل “V” بمثال بسيط لترسيخ الفهم. يمكن فتح نقاش حول أي من هذه التحديات يجدونه الأكثر صعوبة في مشاريعهم.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -748,106 +609,35 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="بنية-عمل-الـ-gans-المولد-والتمييز" class="slide level2">
-<h2>بنية عمل الـ GANs: المولد والتمييز</h2>
+<section id="أنماط-استيعاب-ومعالجة-البيانات-نظرة-عامة" class="slide level2">
+<h2>أنماط استيعاب ومعالجة البيانات: نظرة عامة</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>تتكون الـ GANs من عنصرين أساسيين يعملان معاً بشكل تنافسي:</p>
-<ol type="1">
-<li class="fragment"><strong>المولد (Generator - G):</strong>
+<p>عند التعامل مع البيانات الضخمة، هناك نمطان رئيسيان لاستيعاب ومعالجة البيانات، كل منهما يناسب سيناريوهات مختلفة:</p>
 <ul>
-<li class="fragment">يأخذ <strong>متجهاً كامناً عشوائياً (random latent vector)</strong> كمدخل (عادةً ما يكون ضوضاء عشوائية من توزيع بسيط مثل التوزيع الطبيعي).</li>
-<li class="fragment">يحول هذا المتجه الكامن إلى عينة بيانات جديدة (مثل صورة).</li>
-<li class="fragment">هدفه هو خداع المميز بجعل البيانات المولدة تبدو حقيقية قدر الإمكان.</li>
+<li class="fragment"><strong>معالجة الدفعات (Batch Processing):</strong>
+<ul>
+<li class="fragment">تجميع ومعالجة كميات كبيرة من البيانات دفعة واحدة (على فترات زمنية محددة).</li>
+<li class="fragment">مثالي للتحليلات التاريخية، تقارير نهاية اليوم، مهام ETL التقليدية.</li>
 </ul></li>
-<li class="fragment"><strong>المميز (Discriminator - D):</strong>
+<li class="fragment"><strong>معالجة التدفق (Streaming Processing):</strong>
 <ul>
-<li class="fragment">يأخذ عينات بيانات إما من بيانات التدريب الحقيقية أو من مخرجات المولد.</li>
-<li class="fragment">يصنف المدخلات على أنها “حقيقية” أو “مزيفة” (مولدة).</li>
-<li class="fragment">هدفه هو التمييز بدقة بين البيانات الحقيقية والمولدة.</li>
+<li class="fragment">معالجة البيانات في الوقت الفعلي فور وصولها أو بعد فترة قصيرة جداً.</li>
+<li class="fragment">ضروري للتطبيقات التي تتطلب استجابة فورية، مثل اكتشاف الاحتيال، المراقبة اللحظية.</li>
 </ul></li>
-</ol>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/Diagram-showing-GAN-generator-transforming-noise-vector-into-image-and-discriminator-classifying-real-and-generated-images?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>مخطط يوضح المولد في GAN يحول متجه الضوضاء إلى صورة، والمميز يصنف الصور الحقيقية والمولدة.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>اشرح كيف يتلقى المولد الضوضاء العشوائية، والتي تمثل نقطة في الفضاء الكامن، ثم يتعلم تحويلها إلى بنية بيانات ذات معنى. ركز على أن المميز هو مجرد مصنف ثنائي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="آلية-التدريب-في-الـ-gans-التنافس" class="slide level2">
-<h2>آلية التدريب في الـ GANs (التنافس)</h2>
-<p>يتم تدريب الـ GANs بشكل متناوب (Alternating Training) عبر خطوتين رئيسيتين:</p>
-<ol type="1">
-<li class="fragment"><strong>تدريب المميز (Discriminator Training):</strong>
-<ul>
-<li class="fragment">يتم تغذية المميز ببيانات حقيقية (labels = 1) وبيانات مولدة من المولد (labels = 0).</li>
-<li class="fragment">يتم تحديث أوزان المميز لزيادة دقته في التمييز بين البيانات الحقيقية والمولدة.</li>
-</ul></li>
-<li class="fragment"><strong>تدريب المولد (Generator Training):</strong>
-<ul>
-<li class="fragment">يتم تغذية المولد بضوضاء عشوائية لإنشاء بيانات مزيفة.</li>
-<li class="fragment">يتم تمرير هذه البيانات المزيفة إلى المميز.</li>
-<li class="fragment">يتم تحديث أوزان المولد لزيادة احتمالية خداع المميز، أي جعل المميز يصنف البيانات المولدة على أنها “حقيقية” (labels = 1).</li>
-</ul></li>
-</ol>
-<ul>
-<li class="fragment">تستمر هذه العملية حتى يصل المولد إلى قدرة عالية على توليد بيانات واقعية لا يستطيع المميز التمييز بينها وبين البيانات الحقيقية بشكل موثوق.</li>
 </ul>
-<aside class="notes">
-<p>وضح أن هذا التدريب المتناوب هو جوهر اللعبة. لا يتم تحديث الشبكتين في نفس الوقت، بل بالتناوب. هذا يخلق ديناميكية تنافسية تجبر كل شبكة على التحسن.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="دالة-الخسارة-للمولد-والتمييز-في-الـ-gans" class="slide level2">
-<h2>دالة الخسارة للمولد والتمييز في الـ GANs</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>دالة الخسارة (Loss Function) هي قلب عملية التدريب في الـ GANs، حيث تعكس الهدف التنافسي:</p>
-<p><strong>دالة خسارة المميز (<span class="math inline">\(D_{loss}\)</span>):</strong> <span class="math display">\[
-L_D = - \mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] - \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]
-\]</span> - يسعى المميز لزيادة هذه الدالة، حيث <span class="math inline">\(D(x)\)</span> هو احتمال أن يكون <span class="math inline">\(x\)</span> حقيقياً، و <span class="math inline">\(D(G(z))\)</span> هو احتمال أن تكون الصورة المولدة <span class="math inline">\(G(z)\)</span> حقيقية.</p>
-<p><strong>دالة خسارة المولد (<span class="math inline">\(G_{loss}\)</span>):</strong> <span class="math display">\[
-L_G = - \mathbb{E}_{z \sim p_z(z)}[\log D(G(z))]
-\]</span> - يسعى المولد لتقليل هذه الدالة، بهدف جعل <span class="math inline">\(D(G(z))\)</span> قريباً من 1 (أي خداع المميز).</p>
-<p><strong>الهدف الكلي (Minimax Game):</strong> <span class="math display">\[
-\min_G \max_D V(D, G) = \mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]
-\]</span></p>
+<p>الاختيار بين النمطين يعتمد على متطلبات التطبيق من حيث <strong>التأخير (Latency)</strong> و<strong>حجم البيانات</strong>.</p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/Screen-displaying-complex-mathematical-equations-with-glowing-blue-color-and-arrows-pointing-to-minimax-operations-in-a-programming-environment?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>شاشة تعرض معادلات رياضية معقدة باللون الأزرق المتوهج، مع أسهم تشير إلى عمليات المينيماكس، في بيئة برمجة.</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/A-conceptual-image-showing-two-parallel-flows-of-data:-one-representing-large-blocks-moving-slowly-(batch),-and-another-showing-continuous,-fast-moving-streams-(streaming)?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A conceptual image showing two parallel flows of data: one representing large blocks moving slowly (batch), and another showing continuous, fast-moving streams (streaming).</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>اشرح كل جزء من المعادلة بوضوح. ركز على أن المميز يحاول زيادة log D(x) وتقليل log(1-D(G(z)))، بينما المولد يحاول تقليل log(1-D(G(z))) (مكافئ لزيادة log D(G(z))).</p>
+<p>تقديم مفهومي Batch و Streaming بشكل مبسط قبل التعمق في كل منهما. هذا يضع السياق لاختيار الأداة المناسبة لاحقًا.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -860,36 +650,37 @@ L_G = - \mathbb{E}_{z \sim p_z(z)}[\log D(G(z))]
           display:block!important;
       }</style></aside>
 </section>
-<section id="تحديات-الـ-gans-انهيار-النمط-mode-collapse" class="slide level2">
-<h2>تحديات الـ GANs: انهيار النمط (Mode Collapse)</h2>
+<section id="معالجة-الدفعات-batch-processing-المفهوم-وحالات-الاستخدام" class="slide level2">
+<h2>معالجة الدفعات (Batch Processing): المفهوم وحالات الاستخدام</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>على الرغم من قوة الـ GANs، إلا أنها تواجه عدة تحديات بحثية وعملية:</p>
+<p><strong>معالجة الدفعات</strong> هي طريقة لمعالجة البيانات حيث يتم تجميع مجموعة كبيرة من البيانات ومعالجتها كـ “دفعة” واحدة.</p>
 <ul>
-<li class="fragment"><strong>انهيار النمط (Mode Collapse):</strong>
+<li class="fragment"><strong>الخصائص الرئيسية:</strong>
 <ul>
-<li class="fragment">هي ظاهرة تحدث عندما يبدأ المولد بإنتاج عدد محدود جداً من أنواع العينات، بدلاً من استكشاف التنوع الكامل في البيانات الحقيقية.</li>
-<li class="fragment">مثال: إذا كان المولد يرى صوراً لقطط وكلاب وأسود، فقد يركز على توليد صور لقطط فقط لأنها الأسهل في خداع المميز.</li>
-<li class="fragment">السبب: يصبح المولد “ماهراً” في إنتاج عينات معينة تخدع المميز، فيتجاهل الأنماط الأخرى.</li>
+<li class="fragment"><strong>التأخير العالي:</strong> يمكن أن يستغرق إعداد النتائج ساعات أو أيام.</li>
+<li class="fragment"><strong>كفاءة التكلفة:</strong> غالبًا ما تكون أقل تكلفة للحوسبة والتخزين.</li>
+<li class="fragment"><strong>التعامل مع كميات ضخمة:</strong> مناسبة لمعالجة كميات هائلة من البيانات.</li>
 </ul></li>
-<li class="fragment"><strong>صعوبة التدريب (Training Instability):</strong>
+<li class="fragment"><strong>حالات الاستخدام الشائعة:</strong>
 <ul>
-<li class="fragment">يمكن أن يكون تدريب الـ GANs صعباً جداً وغير مستقر، حيث يمكن أن تتأرجح الخسائر ولا تتقارب.</li>
-<li class="fragment">يتطلب ضبط دقيق للـ <strong>مُعاملات فائقة (Hyperparameters)</strong>.</li>
+<li class="fragment"><strong>التقارير الشهرية/السنوية:</strong> إنشاء تقارير الأداء أو المبيعات.</li>
+<li class="fragment"><strong>تحليل السجلات التاريخية:</strong> تحليل سلوك المستخدم على المدى الطويل.</li>
+<li class="fragment"><strong>مهام ETL التقليدية:</strong> استخراج وتحويل وتحميل البيانات إلى مستودعات البيانات.</li>
+<li class="fragment"><strong>إعادة تدريب نماذج الذكاء الاصطناعي:</strong> على مجموعات بيانات كبيرة بشكل دوري.</li>
 </ul></li>
-<li class="fragment"><strong>تقييم الجودة:</strong> من الصعب قياس جودة العينات المولدة بمقاييس كمية دقيقة (مثل Inception Score و FID Score).</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/Diagram-illustrating-mode-collapse-in-GAN-where-generated-points-cluster-in-a-small-region-instead-of-spreading-to-cover-the-entire-real-data-space?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>مخطط يوضح ظاهرة انهيار النمط في GAN، حيث تتجمع النقاط المولدة في منطقة صغيرة بدلاً من الانتشار لتغطية كامل مساحة البيانات الحقيقية.</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/A-visual-representation-of-batch-processing,-showing-large-datasets-being-collected-over-time-and-then-processed-in-distinct,-scheduled-blocks?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A visual representation of batch processing, showing large datasets being collected over time and then processed in distinct, scheduled blocks.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>اشرح انهيار النمط كمشكلة رئيسية تمنع الـ GANs من استكشاف التنوع الكامل للبيانات. اذكر الحلول المقترحة مثل WGANs أو استخدام هياكل أكثر تعقيداً.</p>
+<p>شرح متى يكون Batch Processing هو الخيار الأفضل. يمكن ذكر أمثلة أخرى مثل “حساب الرواتب” أو “فواتير الخدمات”.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -902,20 +693,37 @@ L_G = - \mathbb{E}_{z \sim p_z(z)}[\log D(G(z))]
           display:block!important;
       }</style></aside>
 </section>
-<section id="اختبار-سريع-فهم-الـ-gans" class="slide level2">
-<h2>اختبار سريع: فهم الـ GANs 🧠</h2>
-<p><strong>السؤال:</strong> ما هو الدور الرئيسي للمميز (Discriminator) في الشبكات التنافسية التوليدية (GANs)؟</p>
+<section id="معالجة-التدفق-streaming-processing-المفهوم-وحالات-الاستخدام" class="slide level2">
+<h2>معالجة التدفق (Streaming Processing): المفهوم وحالات الاستخدام</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>معالجة التدفق</strong> هي طريقة لمعالجة البيانات حيث يتم تحليل البيانات فور وصولها أو في “وقت حقيقي” تقريبًا.</p>
 <ul>
-<li class="fragment">أ) توليد بيانات جديدة ومبتكرة</li>
-<li class="fragment">ب) تحويل الضوضاء العشوائية إلى بيانات ذات معنى</li>
-<li class="fragment">ج) التمييز بين البيانات الحقيقية والبيانات المولدة</li>
-<li class="fragment">د) تحديد الأنماط الخفية في الفضاء الكامن</li>
+<li class="fragment"><strong>الخصائص الرئيسية:</strong>
+<ul>
+<li class="fragment"><strong>التأخير المنخفض جداً:</strong> استجابة فورية أو شبه فورية (ميلي ثانية إلى ثوانٍ).</li>
+<li class="fragment"><strong>تحدي التعقيد:</strong> تتطلب بنى تحتية أكثر تعقيداً وأدوات متخصصة.</li>
+<li class="fragment"><strong>التعامل مع تدفق مستمر:</strong> مصممة لمعالجة تدفق لا نهائي من البيانات.</li>
+</ul></li>
+<li class="fragment"><strong>حالات الاستخدام الشائعة:</strong>
+<ul>
+<li class="fragment"><strong>اكتشاف الاحتيال:</strong> تحليل المعاملات البنكية فوراً لتحديد الأنماط المشبوهة.</li>
+<li class="fragment"><strong>المراقبة في الوقت الفعلي:</strong> مراقبة أداء الخوادم أو أجهزة إنترنت الأشياء (IoT).</li>
+<li class="fragment"><strong>تخصيص المحتوى:</strong> تحديث توصيات المنتجات بناءً على سلوك المستخدم الحالي.</li>
+<li class="fragment"><strong>تحليل المشاعر:</strong> تحليل منشورات وسائل التواصل الاجتماعي لحظياً.</li>
+</ul></li>
 </ul>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ج) التمييز بين البيانات الحقيقية والبيانات المولدة. المميز هو بمثابة خبير الجودة الذي يحاول تحديد ما إذا كانت العينة المعروضة عليه حقيقية أم تم توليدها بواسطة المولد.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-dynamic-image-showing-continuous-data-streams-flowing-rapidly-through-a-processing-unit,-with-immediate-output?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A dynamic image showing continuous data streams flowing rapidly through a processing unit, with immediate output.</figcaption>
+</figure>
+</div>
+</div>
 </div>
 <aside class="notes">
-<p>شجع المتدربين على استخدام المنصة التفاعلية للإ</p>
+<p>التركيز على أهمية “الوقت الحقيقي” و”الاستجابة الفورية” في Streaming. يمكن التساؤل: “ما هي تطبيقات الذكاء الاصطناعي التي تعتمد بشكل كبير على معالجة التدفق؟” (مثل روبوتات الدردشة، أنظمة القيادة الذاتية).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -927,6 +735,225 @@ L_G = - \mathbb{E}_{z \sim p_z(z)}[\log D(G(z))]
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="مقارنة-بين-أنماط-معالجة-البيانات-الدفعات-مقابل-التدفق" class="slide level2">
+<h2>مقارنة بين أنماط معالجة البيانات: الدفعات مقابل التدفق</h2>
+<table>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 39%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">الميزة</th>
+<th style="text-align: left;">معالجة الدفعات (Batch Processing)</th>
+<th style="text-align: left;">معالجة التدفق (Streaming Processing)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>التأخير (Latency)</strong></td>
+<td style="text-align: left;">عالي (ساعات، أيام)</td>
+<td style="text-align: left;">منخفض جداً (ميلي ثانية، ثوانٍ)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>حجم البيانات</strong></td>
+<td style="text-align: left;">كميات ضخمة جداً (أرشيفية)</td>
+<td style="text-align: left;">تدفق مستمر من البيانات</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>التعقيد</strong></td>
+<td style="text-align: left;">أقل تعقيداً في التصميم والتطبيق</td>
+<td style="text-align: left;">أكثر تعقيداً؛ يتطلب أدوات متخصصة</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>حالة الاستخدام</strong></td>
+<td style="text-align: left;">التقارير التحليلية، ETL، إعادة تدريب النماذج</td>
+<td style="text-align: left;">اكتشاف الاحتيال، مراقبة IoT، توصيات فورية</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>الاستهلاك</strong></td>
+<td style="text-align: left;">عالي للموارد لفترة محددة ثم ينخفض</td>
+<td style="text-align: left;">مستمر للموارد بكميات متفاوتة</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>التحمل الفشل</strong></td>
+<td style="text-align: left;">أسهل في الاستعادة من الأخطاء</td>
+<td style="text-align: left;">يتطلب آليات قوية للتحمل الفشل وتكرار المعالجة</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>هذا الجدول مهم جداً لتلخيص الفروقات الرئيسية. يمكن للمدرب أن يطلب من المشاركين تحديد أي من الأنماط قد يكون أفضل لسيناريو معين يطرحه.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="بنى-تخزين-البيانات-الموزعة-نظرة-شاملة" class="slide level2">
+<h2>بنى تخزين البيانات الموزعة: نظرة شاملة</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>تعتبر بنى تخزين البيانات الموزعة حجر الزاوية في أي نظام بيانات ضخمة لدعم الذكاء الاصطناعي. تهدف هذه البنى إلى التعامل مع الحجم الهائل والتنوع والسرعة للبيانات.</p>
+<ul>
+<li class="fragment"><strong>نظام الملفات الموزعة (Distributed File Systems):</strong> مثل HDFS، يوفر تخزيناً قابلاً للتوسع وعالي التوافر.</li>
+<li class="fragment"><strong>قواعد البيانات NoSQL:</strong> مصممة للتعامل مع كميات هائلة من البيانات غير المنظمة أو شبه المنظمة بسرعة عالية (MongoDB, Cassandra, DynamoDB).</li>
+<li class="fragment"><strong>تخزين الكائنات (Object Storage):</strong> مثل Amazon S3 وAzure Blob Storage، مثالي لتخزين البيانات الخام بتكلفة منخفضة ومرونة عالية.</li>
+<li class="fragment"><strong>بنى الطبقات (Tiered Architectures):</strong> الجمع بين أنواع مختلفة من التخزين لتحقيق التوازن بين التكلفة والأداء.</li>
+</ul>
+<p>الاختيار الصحيح للتخزين يؤثر بشكل مباشر على كفاءة وأداء خطوط أنابيب البيانات ونماذج الذكاء الاصطناعي.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-diagram-showing-multiple-interconnected-storage-units,-each-labeled-with-a-different-storage-type-(HDFS,-NoSQL,-Object-Storage),-all-contributing-to-a-large,-distributed-data-infrastructure?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A diagram showing multiple interconnected storage units, each labeled with a different storage type (HDFS, NoSQL, Object Storage), all contributing to a large, distributed data infrastructure.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>تقديم المفاهيم الأساسية لبنى التخزين قبل التعمق في Data Lakes و Warehouses. يمكن الإشارة إلى أن هذه الأدوات ليست بدائل لبعضها البعض بل مكملة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="بحيرات-البيانات-data-lakes-المفهوم-والمميزات" class="slide level2">
+<h2>بحيرات البيانات (Data Lakes): المفهوم والمميزات</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>بحيرة البيانات (Data Lake)</strong> هي مستودع مركزي يسمح بتخزين كميات هائلة من البيانات الخام في تنسيقها الأصلي.</p>
+<ul>
+<li class="fragment"><strong>الخصائص الرئيسية:</strong>
+<ul>
+<li class="fragment"><strong>تخزين البيانات الخام:</strong> يتم تخزين البيانات “كما هي” دون تحويل مسبق.</li>
+<li class="fragment"><strong>مرونة المخطط:</strong> “المخطط عند القراءة” (Schema-on-read)، مما يعني تعريف البنية عند الاستعلام.</li>
+<li class="fragment"><strong>تنوع البيانات:</strong> يدعم البيانات المنظمة، شبه المنظمة، وغير المنظمة.</li>
+<li class="fragment"><strong>قابلية التوسع:</strong> مصممة للتوسع اللانهائي تقريباً.</li>
+</ul></li>
+<li class="fragment"><strong>المميزات:</strong>
+<ul>
+<li class="fragment"><strong>تكلفة منخفضة:</strong> عادة ما تكون أقل تكلفة للتخزين مقارنة بمستودعات البيانات.</li>
+<li class="fragment"><strong>مرونة:</strong> تتيح استكشاف البيانات واكتشاف الأنماط الجديدة.</li>
+<li class="fragment"><strong>دعم الذكاء الاصطناعي:</strong> مصدر ممتاز للبيانات الخام لتدريب نماذج التعلم الآلي.</li>
+</ul></li>
+<li class="fragment"><strong>التحديات:</strong>
+<ul>
+<li class="fragment">قد تتحول إلى “مستنقع بيانات” (Data Swamp) بدون إدارة جيدة.</li>
+<li class="fragment">صعوبة اكتشاف البيانات والحوكمة.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/An-illustration-of-a-vast-data-lake,-with-various-data-types-(structured,-semi-structured,-unstructured)-flowing-into-a-large,-central-reservoir-of-raw-data?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>An illustration of a vast data lake, with various data types (structured, semi-structured, unstructured) flowing into a large, central reservoir of raw data.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>التأكيد على أن Data Lake هو الأفضل للبيانات الخام والمرونة. يمكن طرح سؤال عن الفرق بين “بحيرة البيانات” و “مستنقع البيانات”.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="مستودعات-البيانات-data-warehouses-المفهوم-والمميزات" class="slide level2">
+<h2>مستودعات البيانات (Data Warehouses): المفهوم والمميزات</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>مستودع البيانات (Data Warehouse)</strong> هو مستودع مركزي للبيانات المنظمة التي تم تحويلها وتجهيزها خصيصاً للتحليلات وإعداد التقارير.</p>
+<ul>
+<li class="fragment"><strong>الخصائص الرئيسية:</strong>
+<ul>
+<li class="fragment"><strong>بيانات منظمة:</strong> تخزين البيانات في جداول وعلاقات محددة مسبقاً.</li>
+<li class="fragment"><strong>المخطط عند الكتابة:</strong> “المخطط عند الكتابة” (Schema-on-write)، يتم تطبيق البنية قبل التخزين.</li>
+<li class="fragment"><strong>تحسين الأداء للاستعلامات:</strong> مصمم للاستعلامات المعقدة والتحليلات السريعة.</li>
+<li class="fragment"><strong>تاريخية وموضوعية:</strong> بيانات متكاملة من مصادر متعددة، غالباً تاريخية.</li>
+</ul></li>
+<li class="fragment"><strong>المميزات:</strong>
+<ul>
+<li class="fragment"><strong>جودة بيانات عالية:</strong> بيانات نظيفة ومتسقة وموثوقة.</li>
+<li class="fragment"><strong>أداء استعلام ممتاز:</strong> مثالي لذكاء الأعمال (BI) والتقارير.</li>
+<li class="fragment"><strong>سهولة الاستخدام:</strong> للمحللين ومستخدمي الأعمال.</li>
+</ul></li>
+<li class="fragment"><strong>التحديات:</strong>
+<ul>
+<li class="fragment">أقل مرونة في التعامل مع البيانات غير المنظمة.</li>
+<li class="fragment">تكلفة أعلى للتخزين والمعالجة.</li>
+<li class="fragment">قد يتطلب وقتاً وجهداً كبيراً لبناء ETL.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-diagram-representing-a-data-warehouse-as-a-highly-structured-and-organized-collection-of-data-cubes-and-tables,-optimized-for-reporting-and-analysis?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A diagram representing a data warehouse as a highly structured and organized collection of data cubes and tables, optimized for reporting and analysis.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>التركيز على أن Data Warehouse هو الأفضل للبيانات المنظمة والتقارير. مقارنته بـ Data Lake من حيث المرونة والبنية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-lakehouse-سد-الفجوة-بين-البحيرات-والمستودعات" class="slide level2">
+<h2>Data Lakehouse: سد الفجوة بين البحيرات والمستودعات</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>ظهر مفهوم <strong>Data Lakehouse</strong> لسد الفجوة بين مرونة بحيرات البيانات وأداء وموثوقية مستودعات البيانات.</p>
+<ul>
+<li class="fragment"><strong>تعريف:</strong> بنية جديدة تجمع بين أفضل ميزات بحيرات البيانات (التخزين المرن للبيانات الخام) ومستودعات البيانات (جودة البيانات، إدارة المخطط، أداء الاستعلام).</li>
+<li class="fragment"><strong>الخصائص:</strong>
+<ul>
+<li class="fragment"><strong>بناء على Data Lake:</strong> يستخدم تخزين الكائنات بتكلفة منخفضة (مثل S3، ADLS).</li>
+<li class="fragment"><strong>جداول مفتوحة المصدر:</strong> يستخدم تنسيقات جداول مثل Delta Lake، Apache Iceberg، Apache Hudi.</li>
+<li class="fragment"><strong>المعاملات ACID:</strong> يدعم معاملات ACID (الذرية، الاتساق، العزل، الديمومة) على Data Lake.</li>
+<li class="fragment"><strong>إدارة المخطط:</strong> يوفر إدارة للمخطط وتطوراً له.</li>
+<li class="fragment"><strong>دعم لكل من BI و ML:</strong> يمكن استخدامه للتحليلات التقليدية ونماذج الذكاء الاصطناعي.</li>
+</ul></li>
+<li class="fragment"><strong>المميزات:</strong>
+<ul>
+<li class="fragment"><strong>تبسيط البنية:</strong> تقليل تعقيد الحفاظ على نظامين منفصلين.</li>
+<li class="fragment"><strong>تكلفة أقل:</strong> الاستفادة من التخزين السحابي الرخيص.</li>
+<li class="fragment"><strong>مرونة وتحكم:</strong> يجمع بين مرونة التعامل مع البيانات الخام والتح</li>
+</ul></li>
+</ul>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="slides_template/assets/sdaia.svg" class="slide-logo"></p>
 <div class="footer footer-default">
