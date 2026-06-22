@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>هندسة الأوامر التكتيكية: السلسلة الفكرية (CoT) والبرمجة بالتعليمات</title>
+  <title>تحويل البيانات وتجهيزها للاستخدام: من الخام إلى الجاهز</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -322,27 +322,26 @@
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYSIgeDE9Ii0xLjkxMSIgeDI9IjIuOTg1IiB5MT0iLS44NDEiIHkyPSIxLjQxNCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjOTlkNjMzIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjM2M5Ii8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyNzM0NzAiLz4NCiAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYSIgaWQ9ImQiIHgxPSItMy41NjkiIHgyPSIxLjMyOCIgeTE9Ii0xLjYwNSIgeTI9Ii42NTEiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJlIiB4MT0iLTMuMDQ3IiB4Mj0iMS44NDkiIHkxPSItLjkwNCIgeTI9IjEuMzUyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iZiIgeDE9Ii0yLjg5IiB4Mj0iMi4wMDciIHkxPSItMS4yOTIiIHkyPSIuOTY0Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iZyIgeDE9Ii0yLjQiIHgyPSIyLjQ5NyIgeTE9Ii0xLjA2NiIgeTI9IjEuMTg5Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iaCIgeDE9Ii0uOTkyIiB4Mj0iMi42NzkiIHkxPSItLjQxOCIgeTI9IjEuMjczIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iaSIgeDE9Ii0xLjUxMiIgeDI9IjIuMTU5IiB5MT0iLS4xOTciIHkyPSIxLjQ5NSIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYSIgaWQ9ImoiIHgxPSItLjkxNCIgeDI9IjIuNzU4IiB5MT0iLjA3OSIgeTI9IjEuNzcxIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iayIgeDE9Ii0zLjQwNSIgeDI9IjEuNDkzIiB5MT0iLTEuMDY4IiB5Mj0iMS4xODciLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJsIiB4MT0iLjM0NyIgeDI9IjMuMjg1IiB5MT0iLjE5OSIgeTI9IjEuNTUyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0ibSIgeDE9Ii0uOTA1IiB4Mj0iMi43NjciIHkxPSIuMDgzIiB5Mj0iMS43NzUiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJuIiB4MT0iLTIuMTE5IiB4Mj0iMi43NzgiIHkxPSItLjQ3NiIgeTI9IjEuNzc5Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0ibyIgeDE9Ii01LjY0NCIgeDI9Ii40ODYiIHkxPSItMi45OTgiIHkyPSIuNzQxIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0icCIgeDE9Ii0zLjQ5NSIgeDI9IjIuNjM2IiB5MT0iLTEuNjg3IiB5Mj0iMi4wNTMiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJxIiB4MT0iLTEuNDIyIiB4Mj0iMy4xNzUiIHkxPSItLjkyMyIgeTI9IjEuODgyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iciIgeDE9Ii0zLjMwNiIgeDI9IjIuODI1IiB5MT0iLTIuMDcyIiB5Mj0iMS42NjgiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJzIiB4MT0iLTEuNjgzIiB4Mj0iMi45MTQiIHkxPSItMS4wODEiIHkyPSIxLjcyMyIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYSIgaWQ9InQiIHgxPSItMS4xNTgiIHgyPSIyLjUyMSIgeTE9Ii0uMjYxIiB5Mj0iMS45ODMiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgxPSIuMjYxIiB4Mj0iLjYyNCIgeTE9IjMuNTYiIHkyPSItMS40NjkiIGdyYWRpZW50VW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij4NCiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzZjZiIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iIzYyNThhNiIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjczNDcwIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJ1IiB4MT0iLjE2MyIgeDI9Ii41MjYiIHkxPSI0LjkyNCIgeTI9Ii0uMTAzIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0idiIgeDE9Ii4zODYiIHgyPSIuNjU4IiB5MT0iMS44MjUiIHkyPSItMS45NDUiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJ3IiB4MT0iLjI1MiIgeDI9Ii42MTUiIHkxPSI0LjE4MiIgeTI9Ii0uODQ1Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0ieCIgeDE9Ii40MTciIHgyPSIuNjg5IiB5MT0iMS45IiB5Mj0iLTEuODciLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJ5IiB4MT0iLjQ4NSIgeDI9Ii43MDMiIHkxPSIuOTU2IiB5Mj0iLTIuMDYiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJ6IiB4MT0iLjM3NyIgeDI9Ii42NDkiIHkxPSIyLjQ1NSIgeTI9Ii0xLjMxNCIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYiIgaWQ9IkEiIHgxPSIuMTk5IiB4Mj0iLjU2MiIgeTE9IjQuOTIyIiB5Mj0iLS4xMDUiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJCIiB4MT0iLjQzNyIgeDI9Ii43MDkiIHkxPSIxLjYyNSIgeTI9Ii0yLjE0NSIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYiIgaWQ9IkMiIHgxPSIuMjYxIiB4Mj0iLjYyNCIgeTE9IjQuMDU1IiB5Mj0iLS45NzIiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJEIiB4MT0iLjUiIHgyPSIuNSIgeTE9IjMuMDQ1IiB5Mj0iLTEuOTI3Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0iRSIgeDE9Ii41IiB4Mj0iLjUiIHkxPSI0LjkwMSIgeTI9Ii0uMDcyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0iRiIgeDE9Ii41IiB4Mj0iLjUiIHkxPSIyLjQzNSIgeTI9Ii0xLjI5NiIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYiIgaWQ9IkciIHgxPSIuNSIgeDI9Ii41IiB5MT0iLjkzNCIgeTI9Ii0yLjA1Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0iSCIgeDE9Ii41IiB4Mj0iLjUiIHkxPSIzLjc4NSIgeTI9Ii0xLjE4NyIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYiIgaWQ9IkkiIHgxPSIuNSIgeDI9Ii41IiB5MT0iMS44MDkiIHkyPSItMS45MjEiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJKIiB4MT0iLjUiIHgyPSIuNSIgeTE9IjMuMDQ2IiB5Mj0iLTEuOTI4Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0iSyIgeDE9Ii41IiB4Mj0iLjUiIHkxPSIyLjc5NCIgeTI9Ii0yLjE3NyIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYyIgeDE9IjUuMDEiIHgyPSItMi4yNzciIHkxPSItMS4zODMiIHkyPSIyLjAzOSIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmRiZDRkIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjZjYzIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyNzM0NzAiLz4NCiAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IkwiIHgxPSIyLjIzOSIgeDI9Ii0yLjEzNCIgeTE9Ii0uMDgyIiB5Mj0iMS45NzEiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2MiIGlkPSJNIiB4MT0iNi4wOTgiIHgyPSItMS4xOTEiIHkxPSItMS44OTMiIHkyPSIxLjUyOCIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9Ik4iIHgxPSIzLjM4NCIgeDI9Ii0yLjA4MSIgeTE9Ii0xLjA4OCIgeTI9IjEuNDc3Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iTyIgeDE9IjIuNzgiIHgyPSItMi42ODYiIHkxPSItLjgwNSIgeTI9IjEuNzYxIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iUCIgeDE9IjcuMDc0IiB4Mj0iLS4yMTIiIHkxPSItMi4zNTMiIHkyPSIxLjA2OSIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IlEiIHgxPSI1LjA3NSIgeDI9Ii0yLjIxMSIgeTE9Ii0xLjQxNCIgeTI9IjIuMDA4Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iUiIgeDE9IjUuNzM2IiB4Mj0iLTEuNTUiIHkxPSItMi4xOTQiIHkyPSIxLjIyOCIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IlMiIHgxPSIyLjA4MSIgeDI9Ii0xLjc4MSIgeTE9Ii0uMDQ3IiB5Mj0iMS45Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iVCIgeDE9Ii43MjkiIHgyPSItMi4zNjEiIHkxPSIuMTM1IiB5Mj0iMS42OTIiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2MiIGlkPSJVIiB4MT0iMi43MTciIHgyPSItMi40MzMiIHkxPSItLjg2OCIgeTI9IjEuNzI4Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iViIgeDE9IjEuNTE3IiB4Mj0iLTIuMzQ3IiB5MT0iLS4yNjIiIHkyPSIxLjY4NCIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IlciIHgxPSIzLjU0NCIgeDI9Ii0xLjYwNiIgeTE9Ii0xLjI4NCIgeTI9IjEuMzEyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iWCIgeDE9IjIuNjMxIiB4Mj0iLTEuMjMzIiB5MT0iLS4zMjQiIHkyPSIxLjYyMyIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IlkiIHgxPSIyLjAwMyIgeDI9Ii0xLjg2IiB5MT0iLS4wMDciIHkyPSIxLjk0Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iWiIgeDE9IjQuMTI1IiB4Mj0iLTEuMDI1IiB5MT0iLTEuMDc3IiB5Mj0iMS41MTgiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2MiIGlkPSJhYSIgeDE9IjMuMDIyIiB4Mj0iLTIuMTI3IiB5MT0iLTEuMDIxIiB5Mj0iMS41NzQiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2MiIGlkPSJhYiIgeDE9IjQuNjgxIiB4Mj0iLS40NjkiIHkxPSItMS44NTciIHkyPSIuNzM4Ii8+DQogIDwvZGVmcz4NCiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMy44IDEpIj4NCiAgPHBhdGggZmlsbD0iIzNjOSIgZD0ibTM2LjA0MSAyNi41My0xMS40NDggNi42MTF2MTMuMjJsMTEuNDQ4IDYuNjEyIDExLjQ0Ni02LjYwOFYzMy4xNDFaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Ik03MS40NjQgMjAuOTF2Ny45MzJsLTYuODctMy45NjVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjZCkiIGQ9Ik02NC4yNDkgNTIuOTdsNi44NjkgMy45NjV2LTcuOTNaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjZSkiIGQ9Im02OC4xIDQ2LjM1OSAtNi44NjkgMy45Njd2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI2YpIiBkPSJNNzIuMzkyIDM1LjM3djcuOTMybC02Ljg2OSAtMy45NjVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjZykiIGQ9Ik01Ni42NTEgNTYuODQ3djcuOTMybC02Ljg2OSAtMy45NjVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjaCkiIGQ9Im01Ny43OTQgNTEuNjQzIC05LjE2IC01LjI4NiA5LjE2IC01LjI5WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI2kpIiBkPSJtNTcuNzk1IDUyLjk3IC05LjE2IDUuMjlWNDcuNjg0WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI2opIiBkPSJtNTcuNzkyIDM5Ljc0OSAtOS4xNTggNS4yODZ2LTEwLjU3MloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNrKSIgZD0ibTU4LjUgNzAuMzE4IC02Ljg2OCAzLjk2N3YtNy45MzJaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjbCkiIGQ9Im00Ny40ODcgNDYuMzYxIC0xMS40NDYgLTYuNjEyIDExLjQ0NiAtNi42MTFaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjbSkiIGQ9Im00Ni4zNDQgNjEuMDc3IC05LjE1OCA1LjI4NnYtMTAuNTcyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI24pIiBkPSJtNDUuMTk5IDc0LjAzNSAtNi44NjggMy45NjV2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI28pIiBkPSJtNzAuMDIxIDYxLjc3NSAtNi44NjkgMy45Njd2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3ApIiBkPSJtNjguMSAzMy4xNDIgLTYuODY5IDMuOTY3di03LjkzMloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNxKSIgZD0iTTU3Ljc5NCAyNy44NTJ2MTAuNTc2bC05LjE2IC01LjI5WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3IpIiBkPSJNNDUuMjAyIDYyLjg5MXY3LjkzMmwtNi44NjkgLTMuOTY3WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3MpIiBkPSJtNDYuMzQzIDU5Ljc1NiAtOS4xNTcgLTUuMjg2IDkuMTU3IC01LjI5WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3QpIiBkPSJtMzYuMDQxIDM5Ljc1IDExLjQ0NiA2LjYxMiAtMTEuNDQ2IDYuNjA4WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI2IpIiBkPSJtNjkuMzM0IDE3LjAzMSAtNi44NjkgMy45NjV2LTcuOTNaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjdSkiIGQ9Im01OC4wODIgNS40NiAtNi44NzEgMy45Njd2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3YpIiBkPSJtNTcuNzk2IDI2LjUyOSAtOS4xNjIgNS4yODZWMjEuMjQxWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3cpIiBkPSJtNDUuMiAxNC41NDUgLTYuODY5IC0zLjk2NSA2Ljg2OSAtMy45NjdaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjeCkiIGQ9Ik00Ni4zNDQgMTkuNzQ0VjMwLjMxOWwtOS4xNTggLTUuMjg2WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3kpIiBkPSJNMzYuMDQxIDI2LjUzdjEzLjIyTDI0LjU5MyAzMy4xNDFaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjeikiIGQ9Im0zNC44OTcgMjMuNzA5IC05LjE1OCAtNS4yODYgOS4xNTggLTUuMjlaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjQSkiIGQ9Im0zMy43NSA3LjkzMiAtNi44NyAtMy45NjUgNi44NyAtMy45NjdaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjQikiIGQ9Im0yMy40NDkgMzEuODE2IC05LjE1OCAtNS4yOSA5LjE1OCAtNS4yODVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjQykiIGQ9Ik0xOS43NiA2LjAzOXY3LjkzMmwtNi44NjkgLTMuOTY1WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI0QpIiBkPSJtNTYuNjQ3IDIyLjY1MSAtNi44NzEgLTMuOTY3IDYuODcxIC0zLjk2N1oiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNFKSIgZD0ibTQ1LjIgMy45NjcgLTYuODY5IDMuOTY1di03LjkzMloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNGKSIgZD0ibTQ2LjM0NCAxOC40MTcgLTkuMTU4IDUuMjg2di0xMC41NjhaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjRykiIGQ9Im00Ny40ODcgMzMuMTQxIC0xMS40NDYgNi42MTF2LTEzLjIyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI0gpIiBkPSJtMzMuNzUzIDEyLjgxNCAtNi44NzEgMy45Njd2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI0kpIiBkPSJtMzQuODk2IDI1LjAzMyAtOS4xNTggNS4yODZ2LTEwLjU3NVoiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNKKSIgZD0ibTIyLjMgMTguNjg0IC02Ljg3IDMuOTY1di03LjkzWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI0spIiBkPSJtNy41NTYgMjQuNjM3IC02Ljg3IC0zLjk2NSA2Ljg3IC0zLjk2N1oiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNjKSIgZD0ibTMzLjc1MSA3OC4wMDEgLTYuODcxIC0zLjk2NSA2Ljg3MSAtMy45NjdaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjTCkiIGQ9Ik0zNi4wNDEgMzkuNzV2MTMuMjJsLTExLjQ0OCAtNi42MTJaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjTSkiIGQ9Ik0yMi4zIDY2Ljc2M3Y3LjkzMmwtNi44NyAtMy45NjZaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjTikiIGQ9Im0yMy40NDkgNDYuMzYyIC05LjE1OCA1LjI4NnYtMTAuNTc2WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI08pIiBkPSJtMjMuNDQ5IDMzLjE0MiAtOS4xNTggNS4yOXYtMTAuNThaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjUCkiIGQ9Ik05LjYxNiA1OS40MDF2Ny45M2wtNi44NzEgLTMuOTY1WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI1EpIiBkPSJNMTAuODUxIDI4Ljg5OXY3LjkzMmwtNi44NzEgLTMuOTY1WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI1IpIiBkPSJtNi44NzEgNDAuMDkzIC02Ljg3MSAzLjk2NXYtNy45M1oiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNTKSIgZD0ibTM0Ljg5NCA2Ni4zNjcgLTkuMTYgLTUuMjg2IDkuMTYgLTUuMjlaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjVCkiIGQ9Im0zNi4wNDEgMzkuNzUgLTExLjQ0OCA2LjYwOHYtMTMuMjJaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjVSkiIGQ9Im0zMy43NSA2Ny40MjUgLTYuODcxIDMuOTY3di03LjkzMloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNWKSIgZD0ibTM0Ljg5MiA1NC40NjcgLTkuMTU3IDUuMjl2LTEwLjU4MloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNXKSIgZD0ibTIyLjI5OSA2MC44MTQgLTYuODY5IDMuOTY1di03LjkzWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI1gpIiBkPSJNMjMuNDQ5IDQ3LjY4M3YxMC41NzNsLTkuMTU4IC01LjI4NloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNZKSIgZD0iTTIzLjQ0OSAzNC40NTl2MTAuNTczbC05LjE1OCAtNS4yODNaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjWikiIGQ9Im0xMC44NSA1MC4zMjYgLTYuODcxIC0zLjk2NyA2Ljg3MSAtMy45NjVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjYWEpIiBkPSJtNy4xNDUgMjYuNTMxIC02Ljg2OSAzLjk2NXYtNy45MzJaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjYWIpIiBkPSJtNy41NTYgNTMuNDUyIC02Ljg3MSAzLjk2NXYtNy45MzVaIi8+DQogIDwvZz4NCjwvc3ZnPg0K">
+  <style>
+  .sdaia-dark, .sdaia-dark h1, .sdaia-dark h2, .sdaia-dark h3, .sdaia-dark p, .sdaia-dark li { color: white !important; }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">هندسة الأوامر التكتيكية: السلسلة الفكرية (CoT) والبرمجة بالتعليمات</h1>
+<section id="title-slide" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
+  <h1 class="title">تحويل البيانات وتجهيزها للاستخدام: من الخام إلى الجاهز</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
 <section>
-<section id="هندسة-الأوامر-التكتيكية-السلسلة-الفكرية-cot-والبرمجة-بالتعليمات" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>هندسة الأوامر التكتيكية: السلسلة الفكرية (CoT) والبرمجة بالتعليمات</h1>
-
-</section>
-<section id="مرحبا-بكم-أيها-المهندسون-العرب-لمستقبل-الذكاء-الاصطناعي" class="slide level2">
-<h2>مرحباً بكم أيها المهندسون العرب لمستقبل الذكاء الاصطناعي!</h2>
+<section id="تحويل-البيانات-وتجهيزها-للاستخدام-من-الخام-إلى-الجاهز" class="title-slide slide level1 center">
+<h1>تحويل البيانات وتجهيزها للاستخدام: من الخام إلى الجاهز</h1>
 <aside class="notes">
-<p>أهلاً بكم أيها المهندسون والطامحون في عالم الذكاء الاصطناعي! اليوم سنخوض غمار رحلة تعليمية شيقة حول إحدى أقوى تقنيات هندسة الأوامر التي ستمكنكم من جعل النماذج اللغوية تفكر وتستدل مثل العقول المفكرة. استعدوا لتجربة تعليمية مختلفة، تجمع بين الأصالة العربية وعمق التفكير التقني.</p>
+<p>أهلاً بكم في درس جديد ضمن دورة “هندسة البيانات للمبتدئين”. اليوم سنتعمق في أحد أهم المراحل في رحلة البيانات: تحويلها وتجهيزها للاستخدام الفعلي. تخيلوا أننا نستعد لطبخة شهية، فهل يمكننا استخدام المكونات الخام مباشرة؟ بالطبع لا! نحتاج لتنظيفها، تقطيعها، وربما خلطها. هذا بالضبط ما نفعله بالبيانات.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -354,22 +353,15 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section class="slide level2">
+
 </section></section>
 <section>
-<section id="موقعنا-في-الرحلة-فن-صياغة-التفاعل-مع-نماذج-الذكاء-الاصطناعي-التوليدية" class="title-slide slide level1 center">
-<h1>موقعنا في الرحلة: فن صياغة التفاعل مع نماذج الذكاء الاصطناعي التوليدية</h1>
-
-</section>
-<section id="هندسة-الأوامر-فن-صياغة-التفاعل-مع-نماذج-الذكاء-الاصطناعي-التوليدية" class="slide level2">
-<h2>هندسة الأوامر: فن صياغة التفاعل مع نماذج الذكاء الاصطناعي التوليدية</h2>
-<p>اليوم نغوص في صميم <strong>هندسة الأوامر التكتيكية</strong>:</p>
-<ul>
-<li class="fragment"><strong>الأساسيات</strong>: تعلّمنا كيف نصيغ الأوامر الأولية.</li>
-<li class="fragment"><strong>الاستراتيجيات المتقدمة</strong>: نبدأ اليوم بتقنيات تجعل النموذج يفكر بعمق أكبر.</li>
-<li class="fragment"><strong>التطبيق العملي</strong>: سنرى كيف نبرمج النموذج ليتبع مسارات منطقية معقدة.</li>
-</ul>
+<section id="بيانات-اليوم-من-الفوضى-إلى-النظام" class="title-slide slide level1 center">
+<h1>بيانات اليوم: من الفوضى إلى النظام</h1>
 <aside class="notes">
-<p>في دورتنا هذه، قطعنا شوطًا في فهم أساسيات هندسة الأوامر. اليوم، نحن ننتقل إلى مستوى متقدم، وهو المستوى التكتيكي، حيث لا نكتفي بطلب المعلومات، بل نوجه النموذج ليفكر ويستدل بطريقة ممنهجة. هذا الدرس هو نقطة تحول في قدرتكم على التعامل مع نماذج الذكاء الاصطناعي.</p>
+<p>في هذا الدرس، سنبدأ رحلتنا من عالم البيانات الخام الفوضوي، وسنتعلم كيف نحول هذه البيانات إلى كنوز منظمة ونظيفة جاهزة لتقديم رؤى قيمة واتخاذ قرارات ذكية. هذا هو جوهر ما يفعله مهندس البيانات يومياً.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -381,22 +373,74 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section class="slide level2">
+
+</section>
+<div class="columns">
+<div class="column" style="width:65%;">
+<section id="ما-الذي-سنتعلمه-اليوم" class="slide level2">
+<h2>ما الذي سنتعلمه اليوم؟ 🚀</h2>
+<p>اليوم سنتعلم معًا:</p>
+<ul>
+<li class="fragment"><strong>فهم الحاجة:</strong> لماذا يجب علينا تنظيف وتحويل البيانات؟</li>
+<li class="fragment"><strong>أمثلة بسيطة:</strong> كيف ننظف ونحول البيانات خطوة بخطوة.</li>
+<li class="fragment"><strong>الاستعداد للمستقبل:</strong> تجهيز البيانات للتحليل والذكاء الاصطناعي.</li>
+<li class="fragment"><strong>مسار البيانات:</strong> مفهوم مبسط لمسار البيانات باستخدام تشبيهات.</li>
+</ul>
+</section>
+</div><div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-question-mark-inside-a-lightbulb,-symbolizing-learning-and-understanding-concepts,-with-gears-in-the-background-representing-data-processing.?width=600&amp;height=600&amp;nologo=true"></p>
+<figcaption>A question mark inside a lightbulb, symbolizing learning and understanding concepts, with gears in the background representing data processing.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>هذه هي خريطتنا التعليمية لليوم. كل نقطة من هذه النقاط ستأخذنا خطوة أعمق في فهم عالم تحويل البيانات. سنركز على الجانب العملي والتبسيطي للمفاهيم حتى تكون واضحة للجميع.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+<p>{.sdaia-dark data-background-gradient=“linear-gradient(135deg, #1C355E, #00C9A7)”} # المرحلة الأولى: لماذا نحتاج لتحويل وتجهيز البيانات؟ 🤔</p>
+<aside class="notes">
+<p>لنبدأ بسؤال أساسي: لماذا كل هذا الجهد؟ لماذا لا يمكننا ببساطة استخدام البيانات كما هي بمجرد جمعها؟ هذه المرحلة ستجيب على هذا السؤال وتوضح لنا أهمية هذه الخطوات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
 </section></section>
 <section>
-<section id="أهدافنا-التعليمية-لهذا-الدرس" class="title-slide slide level1 center">
-<h1>أهدافنا التعليمية لهذا الدرس 🎯</h1>
-
-</section>
-<section id="في-نهاية-هذا-الدرس-ستكون-قادرا-على" class="slide level2">
-<h2>في نهاية هذا الدرس، ستكون قادراً على:</h2>
+<section id="البيانات-في-حالتها-الطبيعية-الفوضى-الخلاقة" class="title-slide slide level1 center">
+<h1>البيانات في حالتها الطبيعية: الفوضى الخلاقة!</h1>
 <ul>
-<li class="fragment">التعرف على مفهوم <strong>السلسلة الفكرية (Chain-of-Thought Prompting - CoT)</strong> وأهميتها في حل المشكلات المعقدة.</li>
-<li class="fragment">تطبيق تقنيات CoT المتنوعة مثل <strong>Zero-shot CoT</strong> و <strong>Few-shot CoT</strong> بفعالية.</li>
-<li class="fragment">استخدام التعليمات لصياغة أوامر (<strong>Instruction-based Programming</strong>) توجه النموذج لتنفيذ مهام برمجية أو منطقية محددة.</li>
-<li class="fragment">تحليل الآليات الكامنة وراء قدرة نماذج اللغات على <strong>التفكير الاستنتاجي (Reasoning)</strong> عند تطبيق تقنيات CoT.</li>
+<li class="fragment">تخيل أنك تجمع بيانات من مصادر مختلفة: مواقع ويب، تطبيقات، استبيانات ورقية.</li>
+<li class="fragment">كل مصدر له طريقة مختلفة لتخزين البيانات وعرضها.</li>
+<li class="fragment">هذا يؤدي إلى بيانات غير متجانسة ومليئة بالمشاكل.</li>
 </ul>
 <aside class="notes">
-<p>هذه الأهداف ليست مجرد نقاط على شريحة، بل هي وعود بقدرات جديدة ستمتلكونها. القدرة على جعل الذكاء الاصطناعي يحل مشكلات معقدة، وأن توجهوه بدقة، وأن تفهموا كيف “يفكر” أو “يستدل” هو ما يميز المهندس المتمكن في هذا المجال. فلنبدأ!</p>
+<p>في عالمنا الرقمي، البيانات تولد وتجمع من مصادر لا حصر لها. ولكن، هل هذه البيانات جاهزة للاستخدام بمجرد جمعها؟ نادراً ما يكون الأمر كذلك. مثل الذهب الخام، البيانات تحتاج لعمليات صقل وتجهيز لتصبح ذات قيمة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -408,445 +452,122 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<div class="columns">
+<div class="column" style="width:65%;">
+<section id="ما-هي-المشاكل-الشائعة-في-البيانات-الخام" class="title-slide slide level1 center">
+<h1>ما هي المشاكل الشائعة في البيانات الخام؟</h1>
+<p>البيانات الخام غالبًا ما تكون:</p>
+<ul>
+<li class="fragment"><strong>غير كاملة:</strong> قيم مفقودة (مثلاً، رقم هاتف أو عمر غير مدون).</li>
+<li class="fragment"><strong>غير دقيقة:</strong> أخطاء إملائية، أرقام خاطئة، معلومات قديمة.</li>
+<li class="fragment"><strong>غير متناسقة:</strong> نفس المعلومات مكتوبة بطرق مختلفة (مثلاً، “الرياض” و “الرياض، السعودية”).</li>
+<li class="fragment"><strong>مكررة:</strong> نفس السجل موجود عدة مرات.</li>
+<li class="fragment"><strong>غير منظمة:</strong> بيانات نصية مختلطة بأرقام أو تواريخ بتنسيقات مختلفة.</li>
+</ul>
+</section>
+
+</div><div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-pile-of-tangled-and-messy-data-files,-with-some-files-corrupted-or-incomplete,-symbolizing-raw-and-unorganized-data.?width=600&amp;height=600&amp;nologo=true"></p>
+<figcaption>A pile of tangled and messy data files, with some files corrupted or incomplete, symbolizing raw and unorganized data.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>لنستعرض بعض الأمثلة على هذه المشاكل. تخيل قاعدة بيانات لعملاء: قد تجد عميلاً مسجلاً مرتين، مرة باسم “أحمد” ومرة “أحمد م.”، أو تاريخ ميلاد مكتوباً مرة “01-01-1990” ومرة “يناير 1، 1990”. كل هذه التناقضات تجعل من الصعب تحليل البيانات بشكل صحيح.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section>
+<section>
+<section id="تأثير-البيانات-السيئة" class="title-slide slide level1 center">
+<h1>تأثير البيانات السيئة 📉</h1>
+<ul>
+<li class="fragment"><strong>قرارات خاطئة:</strong> إذا كانت البيانات التي تبني عليها قراراتك معيبة، فستكون قراراتك كذلك.</li>
+<li class="fragment"><strong>تحليلات مضللة:</strong> الرسوم البيانية والتقارير ستكون غير صحيحة وتعطي صورة مشوهة للواقع.</li>
+<li class="fragment"><strong>هدر للوقت والموارد:</strong> قضاء وقت طويل في تصحيح الأخطاء يدوياً بدلاً من التركيز على التحليل.</li>
+<li class="fragment"><strong>فشل نماذج الذكاء الاصطناعي:</strong> نماذج التعلم الآلي تعتمد بشكل كبير على جودة البيانات المدربة عليها.</li>
+</ul>
+<aside class="notes">
+<p>البيانات السيئة مثل الأساسات المتشققة لبناء ضخم. مهما كان البناء جميلاً من الخارج، فإنه سينهار إذا كانت أساساته ضعيفة. في عالم البيانات، هذا يعني فشل المشاريع، خسارة الأموال، وفقدان الثقة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
 </section></section>
 <section>
-<section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الأولى: التهيئة والجذب</h1>
+<section id="تشبيه-مطبخ-البيانات" class="title-slide slide level1 center">
+<h1>تشبيه “مطبخ البيانات” 🍳</h1>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p>تخيل أن البيانات الخام هي مكونات الطعام التي تشتريها من السوق:</p>
+<ul>
+<li class="fragment"><strong>خضروات غير مغسولة:</strong> قد تحتوي على أتربة أو أجزاء تالفة (بيانات غير نظيفة).</li>
+<li class="fragment"><strong>مكونات بأوزان مختلفة:</strong> أحياناً بالغرام، أحياناً بالكوب (تنسيقات غير موحدة).</li>
+<li class="fragment"><strong>مكونات زائدة:</strong> اشتريت كمية أكبر من اللازم أو بعضها مكرر (بيانات مكررة).</li>
+</ul>
+<p>لتحضير وجبة شهية، يجب عليك تنظيف المكونات، تقطيعها، وقياسها بدقة.</p>
+</div><div class="column" style="width:width: 35%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-chef's-hand-cleaning-raw-vegetables-under-running-water,-with-various-kitchen-ingredients-in-the-background,-symbolizing-data-cleaning.?width=600&amp;height=600&amp;nologo=true"></p>
+<figcaption>A chef’s hand cleaning raw vegetables under running water, with various kitchen ingredients in the background, symbolizing data cleaning.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>هذا التشبيه بسيط ولكنه قوي. لا يمكننا طهي وجبة لذيذة بمكونات غير جاهزة. كذلك لا يمكننا الحصول على رؤى قيمة من بيانات غير نظيفة أو غير منظمة. عملية التحويل هي “تحضير المكونات” للوجبة النهائية (التحليل أو اتخاذ القرار).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
 
-</section>
-<section id="كيف-يفكر-العقل-البشري-لحل-المشكلات-المعقدة" class="slide level2">
-<h2>كيف يفكر العقل البشري لحل المشكلات المعقدة؟</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>تخيّل العالم <strong>ابن الهيثم</strong>، وهو يحاول إثبات كيفية رؤية العين للأشياء. لم يقفز للنتيجة مباشرة. بل:</p>
-<ul>
-<li class="fragment">بدأ بوضع <strong>ملاحظات دقيقة</strong>.</li>
-<li class="fragment">صاغ <strong>فرضيات منطقية</strong>.</li>
-<li class="fragment">صمم <strong>تجارب محكمة</strong>.</li>
-<li class="fragment">نفّذ <strong>خطوات متسلسلة</strong> ومنظمة.</li>
-<li class="fragment">حلل <strong>النتائج</strong> ليستنتج قوانين البصريات.</li>
-</ul>
-<p>هذه الرحلة المنهجية خطوة بخطوة هي سر فهمه العميق.</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://loremflickr.com/600/600/scientist.png"></p>
-<figcaption>صورة تصور العالم ابن الهيثم وهو يجري تجربة بصرية</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>نبني المعرفة في عالمنا العربي على أسس قوية من التفكير المنهجي والاستدلال. ابن الهيثم، هذا العالم الفذ، لم يأتِ بنتائجه من العدم. لقد اتبع سلسلة فكرية واضحة ومحددة. هذا هو جوهر ما سنستكشفه اليوم: كيف يمكننا أن نجعل الذكاء الاصطناعي يتبع هذه السلسلة الفكرية في حل المشكلات؟</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="لغز-الكنز-المفقود-هل-تصلون-إليه-بخطوة-واحدة" class="slide level2">
-<h2>لغز الكنز المفقود: هل تصلون إليه بخطوة واحدة؟</h2>
-<p>تخيل أنني أعطيتك هذا اللغز:</p>
-<p>“جدتي خَبّأت كنزاً. الدليل الأول: ابحث عن أقدم نخلة في البستان. الدليل الثاني: تحت النخلة ستجد حجراً عليه نقش دائري. الدليل الثالث: تحت الحجر، ستجد خريطة مرسومة بالرمل. الدليل الأخير: الخريطة تدلك على بئر الماء المهجورة، هناك الكنز!”</p>
-<ul>
-<li class="fragment">هل يمكن أن تجد الكنز دون اتباع كل دليل بالترتيب؟</li>
-<li class="fragment">ماذا لو أعطيتك الجواب النهائي فقط: “الكنز في بئر الماء المهجورة”؟ هل ستعرف كيف وصلت إليه؟</li>
-</ul>
-<aside class="notes">
-<p>هذا اللغز البسيط يوضح لنا أهمية الخطوات المتسلسلة. تماماً كالبحث عن كنز جدتي، العديد من المشكلات المعقدة لا يمكن حلها بقفزة واحدة. تتطلب تفكيراً خطوة بخطوة، مساراً واضحاً يوصلنا من البداية إلى النهاية. هذا ما نفقده غالباً عندما نتعامل مع نماذج الذكاء الاصطناعي بدون توجيه كافٍ.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="تحدي-الأمر-المباشر-للنماذج-اللغوية" class="slide level2">
-<h2>تحدي “الأمر المباشر” للنماذج اللغوية</h2>
-<p>عندما نطلب من نموذج الذكاء الاصطناعي حل مشكلة معقدة مباشرة، غالباً ما يحدث أحد أمرين:</p>
-<ul>
-<li class="fragment"><strong>إجابة خاطئة أو غير دقيقة:</strong> لأن النموذج لم يمر بالخطوات المنطقية الصحيحة.</li>
-<li class="fragment"><strong>صعوبة في التتبع:</strong> لا نعرف كيف وصل النموذج إلى إجابته.</li>
-</ul>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>مثال:</strong></p>
-<p><strong>أمر مباشر:</strong> “كم عدد الأغنام في القطيع إذا كان كل راعٍ يرعى 50 شاة وهناك 7 رعاة، ثم بيع ربع القطيع واشتري 10 أغنام إضافية؟”</p>
-<p><strong>الإجابة المتوقعة من النموذج (دون توجيه):</strong> قد يعطي رقماً عشوائياً أو يحاول الحساب بطريقة غير منطقية.</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://loremflickr.com/600/600/sheep.png"></p>
-<figcaption>صورة قطيع أغنام في الصحراء</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>النماذج اللغوية رائعة في فهم اللغة وتوليدها، لكنها تواجه تحدياً في حل المشكلات المعقدة التي تتطلب استدلالاً متعدد الخطوات إذا لم نقم بتوجيهها. وكأنك تطلب من طفل صغير أن يحل معادلة جبرية دون أن تعلمه أساسيات الجمع والطرح والضرب. نحتاج إلى طريقة لتعليمها “كيف تفكر” أو بالأحرى، “كيف تعرض تسلسل تفكيرها”.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="لماذا-التفكير-بصوت-عال-مهم-حتى-للآلة" class="slide level2">
-<h2>لماذا “التفكير بصوت عالٍ” مهم حتى للآلة؟</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>تماماً كما يشرح لنا المعلم خطوات حل المسألة على السبورة، أو كما تشرح الأم طريقة إعداد طبق الطعام بالتفصيل:</p>
-<ul>
-<li class="fragment"><strong>يزيد الفهم:</strong> لك كمهندس، وللنموذج نفسه.</li>
-<li class="fragment"><strong>يقلل الأخطاء:</strong> يمكننا اكتشاف الخطأ في أي خطوة قبل الوصول للنتيجة النهائية.</li>
-<li class="fragment"><strong>يسمح بالتحسين:</strong> نعرف أين يمكننا تحسين توجيه النموذج.</li>
-</ul>
-<p>هذه هي الروح التي ستحرّك درسنا اليوم، لنجعل الآلة “تفكر بصوت عالٍ”.</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://loremflickr.com/600/600/teacher.png"></p>
-<figcaption>صورة معلم يشرح على السبورة لطلابه</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>الشفافية في عملية التفكير ليست مهمة للإنسان فقط. عندما تظهر لنا الآلة خطوات استدلالها، نكسب ثقة أكبر في إجاباتها، ونستطيع تصحيح مسارها عند اللزوم. هذا هو أحد الأركان الأساسية في بناء أنظمة ذكاء اصطناعي موثوقة وفعالة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="المرحلة-الثانية-المفاهيم-الأساسية" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثانية: المفاهيم الأساسية</h1>
-
-</section>
-<section id="السلسلة-الفكرية-chain-of-thought---cot---المفهوم" class="slide level2">
-<h2>السلسلة الفكرية (Chain-of-Thought - CoT) - المفهوم</h2>
-<p><strong>السلسلة الفكرية (Chain-of-Thought - CoT)</strong> هي تقنية في هندسة الأوامر (Prompt Engineering) تهدف إلى توجيه نماذج اللغات الكبيرة (LLMs) لإنتاج سلسلة من خطوات التفكير المنطقية الوسيطة قبل تقديم الإجابة النهائية.</p>
-<ul>
-<li class="fragment">وكأننا نطلب من النموذج أن <strong>“يفكر بصوت عالٍ”</strong> أو <strong>“يشرح خطوات استدلاله”</strong>.</li>
-<li class="fragment">هذا النهج يحاكي طريقة البشر في حل المشكلات المعقدة عن طريق تقسيمها إلى أجزاء أصغر وأكثر قابلية للإدارة.</li>
-</ul>
-<aside class="notes">
-<p>تذكروا لغز كنز جدتي؟ السلسلة الفكرية هي تماماً مثل تلك الأدلة المتسلسلة التي قادتنا إلى الكنز. بدلًا من إعطاء النموذج اللغوي المشكلة وطلب الحل النهائي مباشرة، نطلب منه أن يعرض لنا المسار الذي سيسلكه للوصول إلى هذا الحل. هذا المفهوم بسيط في جوهره، لكنه قوي جداً في تطبيقاته.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="cot-وصفة-القهوة-للذكاء-الاصطناعي" class="slide level2">
-<h2>CoT: “وصفة القهوة” للذكاء الاصطناعي</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>تخيل أنك تطلب من صديقك أن يحضر لك قهوة عربية أصيلة. لديك خياران:</p>
-<ol type="1">
-<li class="fragment"><strong>أمر مباشر:</strong> “احضر لي قهوة.” (قد يحضر أي نوع، أو لا يعرف كيف.)</li>
-<li class="fragment"><strong>أمر بالسلسلة الفكرية:</strong> “أولاً، حمّص البن. ثانياً، اطحنه طحناً خشناً. ثالثاً، اغلِ الماء مع الهيل. رابعاً، أضف البن المطحون واتركه يغلي. خامساً، صب القهوة وقدمها ساخنة.”</li>
-</ol>
-<p>الخيار الثاني لا يعطيه الجواب النهائي فقط، بل يرسم له <strong>مساراً واضحاً</strong>. هذا هو جوهر CoT.</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://loremflickr.com/600/600/coffee.png"></p>
-<figcaption>صورة خطوات تحضير القهوة العربية</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>هذا المثال الحسي يوضح كيف يمكن لتقسيم المهمة إلى خطوات منطقية أن يضمن جودة النتيجة. نماذج الذكاء الاصطناعي تستفيد بنفس الطريقة. عندما نقدم لها هذا “الدليل الإرشادي” لكيفية التفكير، فإننا نحسن بشكل كبير من قدرتها على معالجة المعلومات المعقدة والوصول إلى حلول صحيحة ومنطقية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="لماذا-السلسلة-الفكرية-cot-مهمة" class="slide level2">
-<h2>لماذا السلسلة الفكرية (CoT) مهمة؟ 🌟</h2>
-<table>
-<colgroup>
-<col style="width: 11%">
-<col style="width: 88%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">الميزة</th>
-<th style="text-align: left;">الشرح</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>تحسين دقة الاستدلال (Improved Reasoning)</strong></td>
-<td style="text-align: left;">تمكّن النموذج من التعامل مع المشكلات التي تتطلب عدة خطوات منطقية، مما يزيد من دقة إجاباته.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>تعزيز الشفافية (Enhanced Transparency)</strong></td>
-<td style="text-align: left;">تجعل عملية اتخاذ القرار للنموذج مرئية، مما يسمح للمطورين بفهم كيفية وصول النموذج إلى إجابته وتحديد الأخطاء.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>التعامل مع التعقيد (Handling Complexity)</strong></td>
-<td style="text-align: left;">تساعد النموذج على تقسيم المشكلات الكبيرة والمعقدة إلى أجزاء أصغر وأكثر قابلية للإدارة.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>تقليل الأخطاء (Reduced Errors)</strong></td>
-<td style="text-align: left;">تزيد من احتمالية تجنب الأخطاء المنطقية أو الحسابية من خلال مراجعة كل خطوة على حدة.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>تعددية الاستخدام (Versatility)</strong></td>
-<td style="text-align: left;">يمكن تطبيقها على مجموعة واسعة من المهام، من حل المسائل الرياضية إلى التفكير المنطقي وتحليل النصوص.</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>هذه الميزات تجعل من CoT أداة لا غنى عنها في صندوق أدوات أي مهندس أو مطور يتعامل مع نماذج اللغات الكبيرة. إنها لا تحسن فقط من أداء النموذج، بل تجعل التفاعل معه أكثر شفافية وفعالية. وكأنك تمنح النموذج القدرة على “شرح” نفسه، وهذا أمر بالغ الأهمية في بناء الثقة والتحكم.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="كيف-تفكر-النماذج-اللغوية-باستخدام-cot" class="slide level2">
-<h2>كيف “تفكر” النماذج اللغوية باستخدام CoT؟</h2>
-<p>النماذج اللغوية الكبيرة لا “تفكر” بالمعنى البشري للكلمة، لكنها تقوم بما يسمى <strong>التوليد الشرطي (Conditional Generation)</strong>.</p>
-<p>عندما نطلب منها أن تفكر “خطوة بخطوة”، فإننا في الواقع:</p>
-<ul>
-<li class="fragment"><strong>نوجهها لتوليد سلسلة من الرموز (Tokens)</strong> التي تمثل خطوات منطقية.</li>
-<li class="fragment">كل خطوة هي بمثابة <strong>“فكرة وسيطة”</strong> تعتمد عليها الخطوة التالية.</li>
-<li class="fragment">تتعلم النماذج هذه الأنماط من البيانات التدريبية التي تحتوي على حلول تفصيلية للمشكلات.</li>
-</ul>
-<aside class="notes">
-<p>من المهم أن نفهم أننا لا “نخلق” وعيًا أو تفكيراً حقيقياً داخل النموذج. بل نحن نبرمجه لإنتاج تسلسل من النصوص يحاكي عملية التفكير البشري. إنها تستخدم معرفتها اللغوية الهائلة لإنشاء هذه “الخطوات الفكرية” التي تقودها منطقياً نحو الحل. هذا التمييز مهم لفهم قدرات وقيود الذكاء الاصطناعي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="أنواع-السلسلة-الفكرية-cot" class="slide level2">
-<h2>أنواع السلسلة الفكرية (CoT)</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>هناك طريقتان رئيسيتان لتطبيق السلسلة الفكرية:</p>
-<ol type="1">
-<li class="fragment"><strong>السلسلة الفكرية بلا أمثلة (Zero-shot CoT)</strong>
-<ul>
-<li class="fragment">نكتفي بطلب صريح من النموذج أن يفكر خطوة بخطوة، دون تقديم أي مثال مسبق.</li>
-<li class="fragment">فعالة في العديد من السيناريوهات عندما تكون المشكلة واضحة نسبياً.</li>
-</ul></li>
-<li class="fragment"><strong>السلسلة الفكرية بأمثلة قليلة (Few-shot CoT)</strong>
-<ul>
-<li class="fragment">نقدم للنموذج مثالاً أو مثالين مكتملين لحل مشكلة مشابهة، بما في ذلك خطوات التفكير.</li>
-<li class="fragment">يزيد من دقة النموذج، خاصة في المهام الأكثر تعقيداً أو التي تتطلب تنسيقاً محدداً للإجابة.</li>
-</ul></li>
-</ol>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://loremflickr.com/600/600/examples.png"></p>
-<figcaption>صورة توضح الفرق بين “بلا أمثلة” و “بأمثلة”</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>كلتا الطريقتين لهما استخداماتهما ومزاياهما. Zero-shot CoT هو الأسهل في التطبيق وغالبًا ما يكون كافيًا. أما Few-shot CoT فهو أكثر قوة ولكن يتطلب جهداً إضافياً في إعداد الأمثلة. اختيار الطريقة يعتمد على طبيعة المشكلة ومستوى التعقيد المطلوب.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="السلسلة-الفكرية-بلا-أمثلة-zero-shot-cot" class="slide level2">
-<h2>السلسلة الفكرية بلا أمثلة (Zero-shot CoT) 🎯</h2>
-<p>تعتمد هذه الطريقة على إضافة عبارة بسيطة في نهاية الأمر، مثل: <strong>“فكر خطوة بخطوة.”</strong> أو <strong>“اشرح لي كيف وصلت للنتيجة.”</strong></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>مثال:</strong></p>
-<p><strong>المهمة:</strong> حساب عدد التمور المتبقية.</p>
-<p><strong>الأمر:</strong> “كان لدي 125 تمرة في سلة. أكلت منها 30. أعطيت جاري 40. ثم اشتريت 55 تمرة إضافية. كم تمرة لدي الآن؟ <strong>فكر خطوة بخطوة.</strong>”</p>
-<p><strong>الاستجابة المتوقعة:</strong> النموذج سيبدأ بـ: 1. “كان لديك 125 تمرة.” 2. “أكلت 30: 125 - 30 = 95 تمرة.” 3. “أعطيت جاري 40: 95 - 40 = 55 تمرة.” 4. “اشتريت 55 إضافية: 55 + 55 = 110 تمرات.” 5. “إذن، لديك الآن 110 تمرات.”</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://loremflickr.com/600/600/dates.png"></p>
-<figcaption>صورة سلة تمر</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>القوة في Zero-shot CoT تكمن في بساطتها. مجرد إضافة جملة واحدة يمكن أن تحدث فرقاً كبيراً في قدرة النموذج على الاستدلال. النموذج هنا يستغل معرفته المسبقة بأن طلب “التفكير خطوة بخطوة” يعني عليه أن يحلل المشكلة ويقسمها إلى مراحل منطقية. جربوها وسترون الفرق بأنفسكم!</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="السلسلة-الفكرية-بأمثلة-قليلة-few-shot-cot" class="slide level2">
-<h2>السلسلة الفكرية بأمثلة قليلة (Few-shot CoT) 📚</h2>
-<p>تتضمن هذه الطريقة تقديم <strong>مثال أو أكثر</strong> للنموذج يوضح فيه حل مشكلة معينة <strong>بالتفصيل</strong>، بما في ذلك خطوات التفكير، قبل أن تطلب منه حل مشكلة جديدة.</p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>مثال:</strong></p>
-<p><strong>الأمر:</strong> “س: أحمد لديه 30 ريالاً. اشترى كتاباً بـ 15 ريالاً و 3 أقلام بسعر ريالين للقلم الواحد. كم ريالاً تبقى لديه؟ ج: أحمد بدأ بـ 30 ريالاً. سعر الأقلام: 3 أقلام * 2 ريال/قلم = 6 ريالات. المبلغ الكلي الذي أنفقه: 15 ريال (كتاب) + 6 ريالات (أقلام) = 21 ريالاً. المبلغ المتبقي: 30 ريالاً - 21 ريالاً = 9 ريالات. إذن، تبقى لديه 9 ريالات.</p>
-<p>س: فاطمة اشترت 5 كجم من الأرز بسعر 7 ريالات للكيلو الواحد و 2 كجم من السكر بسعر 4 ريالات للكيلو الواحد. إذا دفعت 50 ريالاً، فكم ريالاً يجب أن تسترد؟ <strong>فكر خطوة بخطوة.</strong>”</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://loremflickr.com/600/600/market.png"></p>
-<figcaption>صورة لشخص يشتري أغراضاً من السوق</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>في Few-shot CoT، نحن لا نطلب من النموذج فقط أن يفكر، بل نقدم له “دليلاً” على كيفية التفكير. الأمثلة التي نقدمها للنموذج تكون بمثابة “دروس مصغرة” تعلمه النمط الصحيح للاستدلال. هذا مفيد جداً للمهام التي تتطلب تنسيقاً محدداً أو لديها قواعد ضمنية معينة قد لا يفهمها النموذج بدون توجيه صريح.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="مقارنة-بين-zero-shot-cot-و-few-shot-cot" class="slide level2">
-<h2>مقارنة بين Zero-shot CoT و Few-shot CoT</h2>
-<table>
-<colgroup>
-<col style="width: 10%">
-<col style="width: 40%">
-<col style="width: 49%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">الميزة</th>
-<th style="text-align: left;">Zero-shot CoT (بلا أمثلة)</th>
-<th style="text-align: left;">Few-shot CoT (بأمثلة قليلة)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>السهولة</strong></td>
-<td style="text-align: left;">أسهل في التطبيق (بمجرد إضافة عبارة “فكر خطوة بخطوة”).</td>
-<td style="text-align: left;">يتطلب وقتاً وجهداً لإعداد أمثلة عالية الجودة.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>الأداء</strong></td>
-<td style="text-align: left;">جيد للمشكلات البسيطة والمتوسطة.</td>
-<td style="text-align: left;">ممتاز للمشكلات المعقدة أو التي تتطلب تنسيقاً محدداً للإجابة.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>التكلفة</strong></td>
-<td style="text-align: left;">أقل تكلفة (عدد توكنات أقل في الأمر).</td>
-<td style="text-align: left;">أكثر تكلفة (عدد توكنات أكثر بسبب الأمثلة).</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>المرونة</strong></td>
-<td style="text-align: left;">عالية المرونة، لا تحتاج لبيانات تدريب إضافية للأمثلة.</td>
-<td style="text-align: left;">أقل مرونة، تحتاج لأمثلة مناسبة لكل مهمة.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>التطبيق</strong></td>
-<td style="text-align: left;">مناسب للتعامل مع مهام واسعة ومتنوعة.</td>
-<td style="text-align: left;">مثالي للمهام المتخصصة أو التي تتطلب دقة عالية جداً.</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>اختيار الطريقة المناسبة يعتمد على عدة عوامل: مدى تعقيد المشكلة، الميزانية المتاحة (فعدد التوكنات يترجم إلى تكلفة)، والوقت المخصص لتطوير الأمر. كمهندس أوامر، يجب أن تكون قادراً على تقييم هذه العوامل واختيار الأسلوب الأكثر فعالية لكل موقف.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="اختبر-معلوماتك" class="title-slide slide level1 center">
 <h1>اختبر معلوماتك! 🧠</h1>
-<p>أي من العبارات التالية تصف <strong>Zero-shot CoT</strong> بشكل أفضل؟</p>
-<ul>
-<li class="fragment">أ) توجيه النموذج ليتبع سلسلة من الخطوات المنطقية دون تقديم أمثلة سابقة.</li>
-<li class="fragment">ب) تزويد النموذج بعدة أمثلة مصحوبة بخطوات التفكير لحل مشكلات مشابهة.</li>
-<li class="fragment">ج) مطالبة النموذج بتقديم الإجابة النهائية مباشرة دون أي شرح لخطواته.</li>
-</ul>
+<p>ما هو أحد الآثار السلبية الرئيسية للبيانات السيئة على عملية اتخاذ القرار؟ - أ) زيادة سرعة التحليلات - ب) بناء قرارات مبنية على معلومات خاطئة - ج) تقليل الحاجة إلى تنظيف البيانات</p>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> أ) توجيه النموذج ليتبع سلسلة من الخطوات المنطقية دون تقديم أمثلة سابقة. <strong>التفسير:</strong> Zero-shot CoT يعتمد على “السحر” الكامن في النموذج وقدرته على الاستدلال بمجرد إضافة عبارة بسيطة تحفزه على التفكير المرحلي.</p>
+<p><strong>الإجابة الصحيحة:</strong> ب) بناء قرارات مبنية على معلومات خاطئة. البيانات السيئة تؤدي إلى تحليلات مضللة، وبالتالي قرارات غير صحيحة.</p>
 </div>
 <aside class="notes">
-<p>هذا الاختبار السريع يساعدنا على ترسيخ فهمنا للمفاهيم الأساسية. تذكروا أن فهم الفرق بين هذه التقنيات هو مفتاح استخدامها بفعالية.</p>
+<p>هيا بنا نختبر فهمكم لما تعلمناه حتى الآن. هذه الأسئلة البسيطة ستساعدنا على تثبيت المفاهيم.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -859,22 +580,699 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="البرمجة-بالتعليمات-instruction-based-programming---المفهوم" class="slide level2">
-<h2>البرمجة بالتعليمات (Instruction-based Programming) - المفهوم</h2>
-<p><strong>البرمجة بالتعليمات (Instruction-based Programming)</strong> هي استراتيجية في هندسة الأوامر حيث نستخدم التعليمات الواضحة والمفصلة لـ “برمجة” سلوك النموذج اللغوي، بدلاً من كتابة كود برمجي تقليدي.</p>
+<section class="slide level2">
+
+<p>{.sdaia-dark data-background-gradient=“linear-gradient(135deg, #1C355E, #00C9A7)”} # المرحلة الثانية: أساسيات تنظيف البيانات 🧹</p>
+<aside class="notes">
+<p>بعد أن فهمنا أهمية تنظيف البيانات، حان الوقت لنتعلم كيف نقوم بذلك. هذه المرحلة ستغطي الخطوات الأساسية لتنظيف البيانات وجعلها قابلة للاستخدام.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ما-هو-تنظيف-البيانات" class="title-slide slide level1 center">
+<h1>ما هو تنظيف البيانات؟</h1>
 <ul>
-<li class="fragment">وكأننا نكتب <strong>“وصفة تفصيلية”</strong> للنموذج لتنفيذ مهمة محددة.</li>
-<li class="fragment">لا نكتفي بطلب، بل نحدد <strong>الدور، الهدف، الخطوات، القيود، وتنسيق المخرجات</strong> المطلوبة.</li>
-<li class="fragment">هذا يشبه تماماً إعطاء مهندس معماري مخططاً دقيقاً لبناء بيت، بدلاً من مجرد طلب “ابنِ لي بيتاً”.</li>
+<li class="fragment">تنظيف البيانات (Data Cleaning) هي عملية اكتشاف وتصحيح أو إزالة البيانات غير الدقيقة، أو غير المكتملة، أو غير ذات الصلة، أو المكررة، أو غير الصحيحة من مجموعة البيانات.</li>
+<li class="fragment">الهدف هو تحسين جودة البيانات لزيادة فعاليتها في التحليل واتخاذ القرارات.</li>
 </ul>
-<p>::: {.notes} عندما نتحدث عن “البرمجة بالتعليمات” مع نماذج</p>
+<aside class="notes">
+<p>تنظيف البيانات ليس مجرد “ترتيب”. إنه عملية منهجية تتضمن العديد من الخطوات لضمان أن كل جزء من بياناتنا موثوق ودقيق. تخيلوها كعملية صيانة دورية للمعلومات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="أمثلة-لعمليات-تنظيف-البيانات" class="title-slide slide level1 center">
+<h1>أمثلة لعمليات تنظيف البيانات</h1>
+
+</section>
+<div class="columns">
+<div class="column" style="width:65%;">
+<h3 id="التعامل-مع-القيم-المفقودة-missing-values">1. التعامل مع القيم المفقودة (Missing Values)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> وجود حقول فارغة أو قيم غير معروفة.</li>
+<li class="fragment"><strong>لماذا مهم؟:</strong> قد تسبب أخطاء في الحسابات أو تجاهل لبعض السجلات.</li>
+<li class="fragment"><strong>الحلول الممكنة:</strong>
+<ul>
+<li class="fragment"><strong>الإزالة:</strong> حذف السجل بالكامل إذا كان عدد القيم المفقودة كبيراً جداً.</li>
+<li class="fragment"><strong>الاستبدال (Imputation):</strong> ملء القيم المفقودة بـ:
+<ul>
+<li class="fragment">متوسط (Mean) أو وسيط (Median) القيم الأخرى.</li>
+<li class="fragment">القيمة الأكثر تكرارًا (Mode).</li>
+<li class="fragment">توقع القيمة باستخدام نماذج إحصائية.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-missing-piece-in-a-puzzle,-symbolizing-missing-data-values,-with-a-magnifying-glass-hovering-over-it-to-highlight-the-issue.?width=600&amp;height=600&amp;nologo=true"></p>
+<figcaption>A missing piece in a puzzle, symbolizing missing data values, with a magnifying glass hovering over it to highlight the issue.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>التعامل مع القيم المفقودة يتطلب حذرًا. إزالة الصفوف قد يؤدي إلى فقدان معلومات قيمة، بينما ملء القيم بطريقة خاطئة قد يشوه البيانات. يجب اختيار الطريقة المناسبة بناءً على نوع البيانات والسياق.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="أمثلة-لعمليات-تنظيف-البيانات-تابع" class="title-slide slide level1 center">
+<h1>أمثلة لعمليات تنظيف البيانات (تابع)</h1>
+
+</section>
+<h3 id="إزالة-البيانات-المكررة-duplicate-data">2. إزالة البيانات المكررة (Duplicate Data)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> وجود سجلات متطابقة تماماً أو شبه متطابقة.</li>
+<li class="fragment"><strong>لماذا مهم؟:</strong> تضخيم غير واقعي للبيانات، تحليلات غير دقيقة.</li>
+<li class="fragment"><strong>الحلول:</strong>
+<ul>
+<li class="fragment">تحديد السجلات المكررة بناءً على عمود أو مجموعة أعمدة معينة.</li>
+<li class="fragment">حذف النسخ الزائدة والاحتفاظ بنسخة واحدة فقط (عادةً الأحدث أو الأكمل).</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>البيانات المكررة هي إحدى أكثر المشاكل شيوعاً. تخيل أن لديك قائمة عملاء، وكل عميل مسجل مرتين. إذا قمت بإحصاء عدد العملاء، ستحصل على ضعف العدد الحقيقي! إزالة التكرار ضروري للحصول على رؤى صحيحة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="أمثلة-لعمليات-تنظيف-البيانات-تابع-1" class="title-slide slide level1 center">
+<h1>أمثلة لعمليات تنظيف البيانات (تابع)</h1>
+
+</section>
+<h3 id="تصحيح-الأخطاء-الإملائية-والنحوية-spelling-grammatical-errors">3. تصحيح الأخطاء الإملائية والنحوية (Spelling &amp; Grammatical Errors)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> أخطاء في إدخال النصوص (مثل “جدة” بدلاً من “جدة”).</li>
+<li class="fragment"><strong>لماذا مهم؟:</strong> تؤثر على توحيد البيانات وتجعل البحث والتجميع صعباً.</li>
+<li class="fragment"><strong>الحلول:</strong>
+<ul>
+<li class="fragment">استخدام القواميس أو قوائم القيم المحددة مسبقاً.</li>
+<li class="fragment">تطبيق خوارزميات تصحيح الأخطاء اللغوية.</li>
+<li class="fragment">التوحيد اليدوي للحالات القليلة.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>الأخطاء الإملائية قد تبدو بسيطة، ولكنها كابوس لتحليل البيانات. إذا كان لديك “الرياض” و “الرياض، السعودية” و “الريااض” في نفس العمود، فإن كل منها سيعتبر كياناً منفصلاً عند التجميع، مما يفسد أي تحليل إحصائي للمدن.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="أمثلة-لعمليات-تنظيف-البيانات-تابع-2" class="title-slide slide level1 center">
+<h1>أمثلة لعمليات تنظيف البيانات (تابع)</h1>
+
+</section>
+<h3 id="توحيد-التنسيقات-standardizing-formats">4. توحيد التنسيقات (Standardizing Formats)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> التأكد من أن جميع البيانات من نفس النوع لها نفس التنسيق.</li>
+<li class="fragment"><strong>أمثلة:</strong>
+<ul>
+<li class="fragment"><strong>التواريخ:</strong> تحويل “12/31/2023”، “ديسمبر 31, 2023”، “31-12-2023” إلى “2023-12-31”.</li>
+<li class="fragment"><strong>الأرقام:</strong> إزالة الرموز مثل “$” أو “%” أو الفواصل العشرية الزائدة.</li>
+<li class="fragment"><strong>النصوص:</strong> تحويل كل النصوص إلى أحرف صغيرة (lowercase) أو كبيرة (uppercase).</li>
+</ul></li>
+<li class="fragment"><strong>لماذا مهم؟:</strong> يسهل عمليات المقارنة، الفرز، والتجميع.</li>
+</ul>
+<aside class="notes">
+<p>توحيد التنسيقات هو أساس المقارنة الفعالة. لا يمكنك مقارنة تواريخ مكتوبة بتنسيقات مختلفة بشكل مباشر. يجب أن يكون للجميع نفس الهيئة القياسية قبل أي عملية تحليل.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="أمثلة-لعمليات-تنظيف-البيانات-تابع-3" class="title-slide slide level1 center">
+<h1>أمثلة لعمليات تنظيف البيانات (تابع)</h1>
+
+</section>
+<h3 id="التعامل-مع-القيم-الخارجية-outliers">5. التعامل مع القيم الخارجية (Outliers)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> قيم تقع بعيداً بشكل غير عادي عن معظم البيانات الأخرى (مثل سعر منتج فائق الارتفاع مقارنة بالبقية).</li>
+<li class="fragment"><strong>لماذا مهم؟:</strong> قد تشوه النتائج الإحصائية ونماذج التعلم الآلي.</li>
+<li class="fragment"><strong>الحلول:</strong>
+<ul>
+<li class="fragment">تحديد القيم الخارجية باستخدام طرق إحصائية (مثل المدى الربيعي IQR).</li>
+<li class="fragment">إزالتها إذا كانت ناتجة عن خطأ في الإدخال.</li>
+<li class="fragment">تغييرها إلى قيمة مقبولة (مثل سقف أو أرضية معينة).</li>
+<li class="fragment">في بعض الحالات، قد تكون القيم الخارجية معلومات مهمة وتُترك كما هي.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>القيم الخارجية يمكن أن تكون أخطاء، أو يمكن أن تكون بيانات حقيقية ولكنها نادرة جداً. التحدي هو التمييز بين الاثنين وكيفية التعامل مع كل حالة بحكمة. مثلاً، إذا كان متوسط أعمار العملاء 30 سنة وهناك عميل عمره 200 سنة، فهذا بالتأكيد خطأ إدخال.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="اختبر-معلوماتك-1" class="title-slide slide level1 center">
+<h1>اختبر معلوماتك! 🧠</h1>
+<p>أي من العمليات التالية تُعد جزءًا أساسيًا من تنظيف البيانات؟ - أ) إضافة المزيد من البيانات العشوائية - ب) إزالة البيانات المكررة - ج) تغيير تنسيقات البيانات إلى أنواع غير متجانسة</p>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ب) إزالة البيانات المكررة. هي خطوة حاسمة لضمان دقة وسلامة مجموعة البيانات.</p>
+</div>
+<aside class="notes">
+<p>لنراجع سريعاً ما تعلمناه عن تنظيف البيانات. هل أنتم مستعدون للتحدي؟</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<p>{.sdaia-dark data-background-gradient=“linear-gradient(135deg, #1C355E, #00C9A7)”} # المرحلة الثالثة: أساسيات تحويل البيانات ✨</p>
+<aside class="notes">
+<p>بعد أن أصبحت بياناتنا نظيفة، حان الوقت “لتشكيلها” وتعديلها لتناسب أغراض التحليل المختلفة. هذه هي مرحلة تحويل البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ما-هو-تحويل-البيانات" class="title-slide slide level1 center">
+<h1>ما هو تحويل البيانات؟</h1>
+<ul>
+<li class="fragment">تحويل البيانات (Data Transformation) هي عملية تغيير بنية أو تنسيق البيانات لتلبية متطلبات معينة.</li>
+<li class="fragment">قد يتضمن ذلك تغيير أنواع البيانات، دمج الجداول، تجميع البيانات، أو إنشاء ميزات جديدة.</li>
+<li class="fragment">الهدف هو جعل البيانات أكثر قابلية للاستخدام والتحليل.</li>
+</ul>
+<aside class="notes">
+<p>تحويل البيانات هو أكثر من مجرد تنظيف. إنه يتعلق بإعادة تشكيل البيانات لتصبح أكثر فائدة وقوة للتحليل. فكروا في تحويل اللبن الخام إلى جبن أو زبادي. كلاهما من اللبن، لكن المنتجات النهائية تخدم أغراضاً مختلفة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<div class="columns">
+<div class="column" style="width:65%;">
+<section>
+<section id="أمثلة-لعمليات-تحويل-البيانات" class="title-slide slide level1 center">
+<h1>أمثلة لعمليات تحويل البيانات</h1>
+
+</section>
+<h3 id="تحويل-أنواع-البيانات-data-type-conversion">1. تحويل أنواع البيانات (Data Type Conversion)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> تغيير نوع البيانات من شكل لآخر.</li>
+<li class="fragment"><strong>أمثلة:</strong>
+<ul>
+<li class="fragment">تحويل عمود يحتوي على أرقام مخزنة كنصوص إلى أرقام فعلية.</li>
+<li class="fragment">تحويل سلسلة نصية تمثل تاريخاً إلى نوع بيانات “تاريخ”.</li>
+</ul></li>
+<li class="fragment"><strong>لماذا مهم؟:</strong> يسمح بإجراء عمليات رياضية أو منطقية صحيحة على البيانات.</li>
+</ul></section>
+</div><div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-digital-representation-of-different-data-types-transforming-from-one-form-to-another,-like-'text'-morphing-into-a-'number'-or-'date'-icon.?width=600&amp;height=600&amp;nologo=true"></p>
+<figcaption>A digital representation of different data types transforming from one form to another, like ‘text’ morphing into a ‘number’ or ‘date’ icon.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>إذا كان لديك عمود “العمر” مخزن كنص، فلا يمكنك حساب متوسط الأعمار أو إيجاد أكبر عمر. تحويله إلى رقم ضروري لهذه العمليات. هذا التحويل هو خطوة أساسية لتمكين أي تحليل كمي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section>
+<section>
+<section id="أمثلة-لعمليات-تحويل-البيانات-تابع" class="title-slide slide level1 center">
+<h1>أمثلة لعمليات تحويل البيانات (تابع)</h1>
+
+</section>
+<h3 id="تجميع-البيانات-aggregation">2. تجميع البيانات (Aggregation)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> تلخيص البيانات وتجميعها من مستوى مفصل إلى مستوى أعلى.</li>
+<li class="fragment"><strong>أمثلة:</strong>
+<ul>
+<li class="fragment">حساب إجمالي المبيعات لكل منتج.</li>
+<li class="fragment">إيجاد متوسط أعمار العملاء في كل مدينة.</li>
+<li class="fragment">عدّ عدد الطلبات لكل عميل.</li>
+</ul></li>
+<li class="fragment"><strong>لماذا مهم؟:</strong> يقدم رؤى إجمالية ويقلل من حجم البيانات عند الحاجة.</li>
+</ul>
+<aside class="notes">
+<p>تجميع البيانات يساعدنا على الانتقال من “الغابة إلى الشجرة”. بدلاً من النظر إلى كل عملية بيع فردية، يمكننا رؤية إجمالي المبيعات الشهرية أو الأرباح حسب المنطقة، مما يسهل فهم الصورة الكبيرة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="أمثلة-لعمليات-تحويل-البيانات-تابع-1" class="title-slide slide level1 center">
+<h1>أمثلة لعمليات تحويل البيانات (تابع)</h1>
+
+</section>
+<h3 id="إنشاء-ميزات-جديدة-feature-engineering">3. إنشاء ميزات جديدة (Feature Engineering)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> بناء أعمدة جديدة (ميزات) من الأعمدة الموجودة لتوفير معلومات إضافية أو تحسين دقة النماذج.</li>
+<li class="fragment"><strong>أمثلة:</strong>
+<ul>
+<li class="fragment">حساب “مؤشر كتلة الجسم” من الطول والوزن.</li>
+<li class="fragment">استخراج “يوم الأسبوع” أو “الشهر” من عمود التاريخ.</li>
+<li class="fragment">إنشاء عمود “فئة العمر” (مثل: صغار، شباب، كبار) من عمود العمر.</li>
+</ul></li>
+<li class="fragment"><strong>لماذا مهم؟:</strong> يعزز قوة التحليل ونماذج التعلم الآلي.</li>
+</ul>
+<aside class="notes">
+<p>هذه العملية تشبه “استخلاص العصير”. من المكونات الأساسية، نستخرج نكهات جديدة ومفيدة. على سبيل المثال، معرفة يوم الأسبوع من التاريخ قد يكشف لنا أن المبيعات تزداد في أيام عطلة نهاية الأسبوع، وهي معلومة لا يمكن استنتاجها من التاريخ الخام وحده.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="أمثلة-لعمليات-تحويل-البيانات-تابع-2" class="title-slide slide level1 center">
+<h1>أمثلة لعمليات تحويل البيانات (تابع)</h1>
+
+</section>
+<h3 id="دمج-وربط-البيانات-joining-and-merging-data">4. دمج وربط البيانات (Joining and Merging Data)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> جمع البيانات من مصادر أو جداول مختلفة في جدول واحد متكامل.</li>
+<li class="fragment"><strong>أمثلة:</strong>
+<ul>
+<li class="fragment">دمج بيانات العملاء مع بيانات طلباتهم.</li>
+<li class="fragment">ربط معلومات المنتج من جدول ببيانات المبيعات.</li>
+</ul></li>
+<li class="fragment"><strong>لماذا مهم؟:</strong> بناء رؤية شاملة ومتكاملة للكيانات المختلفة.</li>
+</ul>
+<aside class="notes">
+<p>نادراً ما تأتي كل المعلومات التي نحتاجها في جدول واحد. غالبًا ما تكون البيانات موزعة عبر جداول مختلفة أو حتى قواعد بيانات مختلفة. دمج وربط هذه الجداول هو ما يسمح لنا بإنشاء “صورة كاملة” للعميل أو المنتج أو عملية البيع.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="مقارنة-تنظيف-البيانات-مقابل-تحويلها" class="title-slide slide level1 center">
+<h1>مقارنة: تنظيف البيانات مقابل تحويلها</h1>
+<p>لنوضح الفرق بين العمليتين بجداول مقارنة:</p>
+<table>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 44%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">الميزة</th>
+<th style="text-align: left;">تنظيف البيانات (Data Cleaning)</th>
+<th style="text-align: left;">تحويل البيانات (Data Transformation)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>الهدف الرئيسي</strong></td>
+<td style="text-align: left;">تحسين جودة البيانات، إزالة الأخطاء والتناقضات</td>
+<td style="text-align: left;">تغيير شكل وبنية البيانات لتناسب التحليل</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ماذا تفعل؟</strong></td>
+<td style="text-align: left;">إصلاح، إزالة، ملء القيم</td>
+<td style="text-align: left;">تغيير أنواع، دمج، تجميع، إنشاء جديد</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>أمثلة</strong></td>
+<td style="text-align: left;">إزالة التكرار، معالجة المفقود، توحيد التنسيق</td>
+<td style="text-align: left;">تغيير نوع البيانات، التجميع، إنشاء ميزات جديدة</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>متى تتم؟</strong></td>
+<td style="text-align: left;">عادةً في المراحل الأولى لتجهيز البيانات</td>
+<td style="text-align: left;">بعد التنظيف، وقبل أو أثناء التحليل</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>هذه المقارنة توضح أن العمليتين ليستا بديلتين لبعضهما البعض، بل هما متكاملتان. التنظيف يركز على صحة البيانات، بينما التحويل يركز على قابليتها للاستخدام.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="اختبر-معلوماتك-2" class="title-slide slide level1 center">
+<h1>اختبر معلوماتك! 🧠</h1>
+<p>ما هي عملية تحويل البيانات التي تتضمن تلخيص البيانات من مستوى مفصل إلى مستوى أعلى؟ - أ) إزالة القيم المفقودة - ب) تجميع البيانات - ج) تصحيح الأخطاء الإملائية</p>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ب) تجميع البيانات. هذه العملية تهدف إلى تلخيص المعلومات مثل حساب الإجماليات أو المتوسطات.</p>
+</div>
+<aside class="notes">
+<p>لنواصل مع اختبار قصير آخر. هل يمكنكم التمييز بين أنواع التحويلات المختلفة؟</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<p>{.sdaia-dark data-background-gradient=“linear-gradient(135deg, #1C355E, #00C9A7)”} # المرحلة الرابعة: مسار البيانات (Data Pipeline) 🛤️</p>
+<aside class="notes">
+<p>الآن وقد فهمنا عمليات التنظيف والتحويل بشكل منفصل، حان الوقت لنتعلم كيف تعمل هذه العمليات معاً في تدفق مستمر ومنظم. هذا هو مفهوم “مسار البيانات”.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ما-هو-مسار-البيانات-data-pipeline" class="title-slide slide level1 center">
+<h1>ما هو مسار البيانات (Data Pipeline)؟</h1>
+<div class="columns">
+<div class="column" style="width:65%;">
+<ul>
+<li class="fragment">مسار البيانات هو سلسلة من الخطوات الآلية التي يتم من خلالها نقل البيانات من مصدرها الخام، ومعالجتها، وتحويلها، ثم تحميلها إلى وجهة معينة.</li>
+<li class="fragment">فكروا فيه كـ “خط تجميع” للبيانات.</li>
+<li class="fragment">الهدف هو أتمتة تدفق البيانات وتجهيزها للاستخدام باستمرار.</li>
+</ul>
+</div><div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-stylized-illustration-of-a-data-pipeline,-showing-raw-data-entering-on-one-side,-moving-through-several-processing-stations-(cleaning,-transforming,-loading),-and-exiting-as-refined,-structured-data.?width=600&amp;height=600&amp;nologo=true"></p>
+<figcaption>A stylized illustration of a data pipeline, showing raw data entering on one side, moving through several processing stations (cleaning, transforming, loading), and exiting as refined, structured data.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>تخيل مصنعاً لتعبئة المياه. تبدأ المياه بالمرور عبر فلاتر متعددة، ثم يتم تعقيمها، وتعبئتها في زجاجات، وأخيراً تغليفها. هذا هو بالضبط ما يفعله مسار البيانات، لكن مع المعلومات بدلاً من الماء.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="تشبيهات-لمسار-البيانات" class="title-slide slide level1 center">
+<h1>تشبيهات لمسار البيانات</h1>
+
+</section>
+<h3 id="خط-إنتاج-المصنع">1. خط إنتاج المصنع 🏭</h3>
+<ul>
+<li class="fragment"><strong>المكونات الخام:</strong> المواد الخام تدخل المصنع.</li>
+<li class="fragment"><strong>التصنيع:</strong> تمر بمحطات معالجة مختلفة (تقطيع، تشكيل، تجميع).</li>
+<li class="fragment"><strong>المنتج النهائي:</strong> تخرج كمنتج جاهز للاستخدام أو البيع.</li>
+</ul>
+<h3 id="مجرى-النهر">2. مجرى النهر 🏞️</h3>
+<ul>
+<li class="fragment"><strong>المنبع:</strong> تجمع المياه من مصادر مختلفة.</li>
+<li class="fragment"><strong>التدفق:</strong> تمر عبر الشلالات، الصخور، وتنقي نفسها طبيعياً.</li>
+<li class="fragment"><strong>المصب:</strong> تصل إلى البحر أو البحيرة أنقى وأصفى.</li>
+</ul>
+<aside class="notes">
+<p>هذه التشبيهات تساعدنا على فهم طبيعة مسار البيانات. إنه تدفق منظم ومراحل متعاقبة، حيث يتم تحسين البيانات في كل خطوة حتى تصبح في حالتها المثلى للاستهلاك.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="مراحل-مسار-البيانات-الأساسية-بشكل-مبسط" class="title-slide slide level1 center">
+<h1>مراحل مسار البيانات الأساسية (بشكل مبسط)</h1>
+
+</section>
+<h3 id="الاستخلاص-extraction">1. الاستخلاص (Extraction)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> سحب البيانات من مصادرها المختلفة (قواعد بيانات، ملفات، APIs).</li>
+<li class="fragment"><strong>مثال:</strong> جمع بيانات المبيعات من نظام نقاط البيع، وبيانات العملاء من نظام إدارة العلاقات.</li>
+</ul>
+<h3 id="التحميل-loading">2. التحميل (Loading)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> نقل البيانات إلى منطقة تخزين مؤقتة أو مستودع بيانات.</li>
+<li class="fragment"><strong>مثال:</strong> تخزين البيانات الخام المجمعة في بحيرة بيانات (Data Lake) أو قاعدة بيانات مؤقتة.</li>
+</ul>
+<aside class="notes">
+<p>المرحلة الأولى هي “الاصطياد”. نحضر البيانات من حيث توجد. ثم نقوم بـ “التخزين الأولي” في مكان يمكننا العمل عليه.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="مراحل-مسار-البيانات-الأساسية-تابع" class="title-slide slide level1 center">
+<h1>مراحل مسار البيانات الأساسية (تابع)</h1>
+
+</section>
+<h3 id="التحويل-transformation">3. التحويل (Transformation)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> تطبيق عمليات التنظيف والتحويل التي تحدثنا عنها.</li>
+<li class="fragment"><strong>مثال:</strong>
+<ul>
+<li class="fragment">إزالة التكرار من سجلات العملاء.</li>
+<li class="fragment">توحيد تنسيقات التواريخ.</li>
+<li class="fragment">حساب الإيرادات الشهرية من المبيعات اليومية.</li>
+</ul></li>
+</ul>
+<h3 id="التحميل-النهائي-final-loading">4. التحميل النهائي (Final Loading)</h3>
+<ul>
+<li class="fragment"><strong>التعريف:</strong> نقل البيانات بعد معالجتها وتحويلها إلى وجهتها النهائية (مستودع بيانات، قاعدة بيانات تحليلية، لوحة تحكم).</li>
+<li class="fragment"><strong>مثال:</strong> إرسال بيانات المبيعات النظيفة والمحولة إلى مستودع البيانات المركزي لإعداد التقارير والتحليلات.</li>
+</ul>
+<aside class="notes">
+<p>هذه هي المرحلة الجوهرية التي يتم فيها “صقل” البيانات. بعد ذلك، يتم وضع البيانات في مكانها النهائي حيث ستكون متاحة للمستخدمين النهائيين، سواء كانوا محللين، علماء بيانات، أو صناع قرار.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="فوائد-مسار-البيانات" class="title-slide slide level1 center">
+<h1>فوائد مسار البيانات</h1>
+<ul>
+<li class="fragment"><strong>الكفاءة:</strong> أتمتة العمليات يوفر الوقت والموارد.</li>
+<li class="fragment"><strong>الاتساق:</strong> ضمان تطبيق نفس قواعد التنظيف والتحويل دائماً.</li>
+<li class="fragment"><strong>الجودة:</strong> تحسين جودة البيانات باستمرار.</li>
+<li class="fragment"><strong>قابلية التوسع:</strong> القدرة على التعامل مع كميات متزايدة من البيانات.</li>
+<li class="fragment"><strong>الموثوقية:</strong> تقليل الأخطاء البشرية وزيادة الثقة في البيانات.</li>
+</ul>
+<aside class="notes">
+<p>إنشاء مسار بيانات ليس مجرد رفاهية، بل هو ضرورة في عالم البيانات الحديث. يوفر هذا المسار الأساس المتين الذي تبنى عليه جميع التحليلات والقرارات الذكية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section id="اختبر-معلوماتك-3" class="title-slide slide level1 center">
+<h1>اختبر معلوماتك! 🧠</h1>
+<p>ما هي المرحلة في مسار البيانات حيث يتم فيها تطبيق عمليات ::: ::::</p>
 <div class="quarto-auto-generated-content">
 <p><img src="slides_template/assets/sdaia.svg" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
