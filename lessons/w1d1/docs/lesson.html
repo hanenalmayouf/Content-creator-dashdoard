@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>مقدمة إلى هندسة البيانات: الأساسيات والأهمية</title>
+  <title>استكشاف النماذج التوليدية المتقدمة وتطبيقاتها</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="lesson_files/libs/revealjs/dist/theme/quarto.css">
   <link href="lesson_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -322,77 +387,51 @@
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYSIgeDE9Ii0xLjkxMSIgeDI9IjIuOTg1IiB5MT0iLS44NDEiIHkyPSIxLjQxNCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjOTlkNjMzIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjM2M5Ii8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyNzM0NzAiLz4NCiAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYSIgaWQ9ImQiIHgxPSItMy41NjkiIHgyPSIxLjMyOCIgeTE9Ii0xLjYwNSIgeTI9Ii42NTEiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJlIiB4MT0iLTMuMDQ3IiB4Mj0iMS44NDkiIHkxPSItLjkwNCIgeTI9IjEuMzUyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iZiIgeDE9Ii0yLjg5IiB4Mj0iMi4wMDciIHkxPSItMS4yOTIiIHkyPSIuOTY0Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iZyIgeDE9Ii0yLjQiIHgyPSIyLjQ5NyIgeTE9Ii0xLjA2NiIgeTI9IjEuMTg5Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iaCIgeDE9Ii0uOTkyIiB4Mj0iMi42NzkiIHkxPSItLjQxOCIgeTI9IjEuMjczIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iaSIgeDE9Ii0xLjUxMiIgeDI9IjIuMTU5IiB5MT0iLS4xOTciIHkyPSIxLjQ5NSIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYSIgaWQ9ImoiIHgxPSItLjkxNCIgeDI9IjIuNzU4IiB5MT0iLjA3OSIgeTI9IjEuNzcxIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iayIgeDE9Ii0zLjQwNSIgeDI9IjEuNDkzIiB5MT0iLTEuMDY4IiB5Mj0iMS4xODciLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJsIiB4MT0iLjM0NyIgeDI9IjMuMjg1IiB5MT0iLjE5OSIgeTI9IjEuNTUyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0ibSIgeDE9Ii0uOTA1IiB4Mj0iMi43NjciIHkxPSIuMDgzIiB5Mj0iMS43NzUiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJuIiB4MT0iLTIuMTE5IiB4Mj0iMi43NzgiIHkxPSItLjQ3NiIgeTI9IjEuNzc5Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0ibyIgeDE9Ii01LjY0NCIgeDI9Ii40ODYiIHkxPSItMi45OTgiIHkyPSIuNzQxIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0icCIgeDE9Ii0zLjQ5NSIgeDI9IjIuNjM2IiB5MT0iLTEuNjg3IiB5Mj0iMi4wNTMiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJxIiB4MT0iLTEuNDIyIiB4Mj0iMy4xNzUiIHkxPSItLjkyMyIgeTI9IjEuODgyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iciIgeDE9Ii0zLjMwNiIgeDI9IjIuODI1IiB5MT0iLTIuMDcyIiB5Mj0iMS42NjgiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJzIiB4MT0iLTEuNjgzIiB4Mj0iMi45MTQiIHkxPSItMS4wODEiIHkyPSIxLjcyMyIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYSIgaWQ9InQiIHgxPSItMS4xNTgiIHgyPSIyLjUyMSIgeTE9Ii0uMjYxIiB5Mj0iMS45ODMiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgxPSIuMjYxIiB4Mj0iLjYyNCIgeTE9IjMuNTYiIHkyPSItMS40NjkiIGdyYWRpZW50VW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij4NCiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzZjZiIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iIzYyNThhNiIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjczNDcwIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJ1IiB4MT0iLjE2MyIgeDI9Ii41MjYiIHkxPSI0LjkyNCIgeTI9Ii0uMTAzIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0idiIgeDE9Ii4zODYiIHgyPSIuNjU4IiB5MT0iMS44MjUiIHkyPSItMS45NDUiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJ3IiB4MT0iLjI1MiIgeDI9Ii42MTUiIHkxPSI0LjE4MiIgeTI9Ii0uODQ1Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0ieCIgeDE9Ii40MTciIHgyPSIuNjg5IiB5MT0iMS45IiB5Mj0iLTEuODciLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJ5IiB4MT0iLjQ4NSIgeDI9Ii43MDMiIHkxPSIuOTU2IiB5Mj0iLTIuMDYiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJ6IiB4MT0iLjM3NyIgeDI9Ii42NDkiIHkxPSIyLjQ1NSIgeTI9Ii0xLjMxNCIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYiIgaWQ9IkEiIHgxPSIuMTk5IiB4Mj0iLjU2MiIgeTE9IjQuOTIyIiB5Mj0iLS4xMDUiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJCIiB4MT0iLjQzNyIgeDI9Ii43MDkiIHkxPSIxLjYyNSIgeTI9Ii0yLjE0NSIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYiIgaWQ9IkMiIHgxPSIuMjYxIiB4Mj0iLjYyNCIgeTE9IjQuMDU1IiB5Mj0iLS45NzIiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJEIiB4MT0iLjUiIHgyPSIuNSIgeTE9IjMuMDQ1IiB5Mj0iLTEuOTI3Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0iRSIgeDE9Ii41IiB4Mj0iLjUiIHkxPSI0LjkwMSIgeTI9Ii0uMDcyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0iRiIgeDE9Ii41IiB4Mj0iLjUiIHkxPSIyLjQzNSIgeTI9Ii0xLjI5NiIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYiIgaWQ9IkciIHgxPSIuNSIgeDI9Ii41IiB5MT0iLjkzNCIgeTI9Ii0yLjA1Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0iSCIgeDE9Ii41IiB4Mj0iLjUiIHkxPSIzLjc4NSIgeTI9Ii0xLjE4NyIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYiIgaWQ9IkkiIHgxPSIuNSIgeDI9Ii41IiB5MT0iMS44MDkiIHkyPSItMS45MjEiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJKIiB4MT0iLjUiIHgyPSIuNSIgeTE9IjMuMDQ2IiB5Mj0iLTEuOTI4Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0iSyIgeDE9Ii41IiB4Mj0iLjUiIHkxPSIyLjc5NCIgeTI9Ii0yLjE3NyIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYyIgeDE9IjUuMDEiIHgyPSItMi4yNzciIHkxPSItMS4zODMiIHkyPSIyLjAzOSIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmRiZDRkIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjZjYzIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyNzM0NzAiLz4NCiAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IkwiIHgxPSIyLjIzOSIgeDI9Ii0yLjEzNCIgeTE9Ii0uMDgyIiB5Mj0iMS45NzEiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2MiIGlkPSJNIiB4MT0iNi4wOTgiIHgyPSItMS4xOTEiIHkxPSItMS44OTMiIHkyPSIxLjUyOCIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9Ik4iIHgxPSIzLjM4NCIgeDI9Ii0yLjA4MSIgeTE9Ii0xLjA4OCIgeTI9IjEuNDc3Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iTyIgeDE9IjIuNzgiIHgyPSItMi42ODYiIHkxPSItLjgwNSIgeTI9IjEuNzYxIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iUCIgeDE9IjcuMDc0IiB4Mj0iLS4yMTIiIHkxPSItMi4zNTMiIHkyPSIxLjA2OSIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IlEiIHgxPSI1LjA3NSIgeDI9Ii0yLjIxMSIgeTE9Ii0xLjQxNCIgeTI9IjIuMDA4Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iUiIgeDE9IjUuNzM2IiB4Mj0iLTEuNTUiIHkxPSItMi4xOTQiIHkyPSIxLjIyOCIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IlMiIHgxPSIyLjA4MSIgeDI9Ii0xLjc4MSIgeTE9Ii0uMDQ3IiB5Mj0iMS45Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iVCIgeDE9Ii43MjkiIHgyPSItMi4zNjEiIHkxPSIuMTM1IiB5Mj0iMS42OTIiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2MiIGlkPSJVIiB4MT0iMi43MTciIHgyPSItMi40MzMiIHkxPSItLjg2OCIgeTI9IjEuNzI4Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iViIgeDE9IjEuNTE3IiB4Mj0iLTIuMzQ3IiB5MT0iLS4yNjIiIHkyPSIxLjY4NCIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IlciIHgxPSIzLjU0NCIgeDI9Ii0xLjYwNiIgeTE9Ii0xLjI4NCIgeTI9IjEuMzEyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iWCIgeDE9IjIuNjMxIiB4Mj0iLTEuMjMzIiB5MT0iLS4zMjQiIHkyPSIxLjYyMyIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IlkiIHgxPSIyLjAwMyIgeDI9Ii0xLjg2IiB5MT0iLS4wMDciIHkyPSIxLjk0Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iWiIgeDE9IjQuMTI1IiB4Mj0iLTEuMDI1IiB5MT0iLTEuMDc3IiB5Mj0iMS41MTgiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2MiIGlkPSJhYSIgeDE9IjMuMDIyIiB4Mj0iLTIuMTI3IiB5MT0iLTEuMDIxIiB5Mj0iMS41NzQiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2MiIGlkPSJhYiIgeDE9IjQuNjgxIiB4Mj0iLS40NjkiIHkxPSItMS44NTciIHkyPSIuNzM4Ii8+DQogIDwvZGVmcz4NCiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMy44IDEpIj4NCiAgPHBhdGggZmlsbD0iIzNjOSIgZD0ibTM2LjA0MSAyNi41My0xMS40NDggNi42MTF2MTMuMjJsMTEuNDQ4IDYuNjEyIDExLjQ0Ni02LjYwOFYzMy4xNDFaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Ik03MS40NjQgMjAuOTF2Ny45MzJsLTYuODctMy45NjVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjZCkiIGQ9Ik02NC4yNDkgNTIuOTdsNi44NjkgMy45NjV2LTcuOTNaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjZSkiIGQ9Im02OC4xIDQ2LjM1OSAtNi44NjkgMy45Njd2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI2YpIiBkPSJNNzIuMzkyIDM1LjM3djcuOTMybC02Ljg2OSAtMy45NjVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjZykiIGQ9Ik01Ni42NTEgNTYuODQ3djcuOTMybC02Ljg2OSAtMy45NjVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjaCkiIGQ9Im01Ny43OTQgNTEuNjQzIC05LjE2IC01LjI4NiA5LjE2IC01LjI5WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI2kpIiBkPSJtNTcuNzk1IDUyLjk3IC05LjE2IDUuMjlWNDcuNjg0WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI2opIiBkPSJtNTcuNzkyIDM5Ljc0OSAtOS4xNTggNS4yODZ2LTEwLjU3MloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNrKSIgZD0ibTU4LjUgNzAuMzE4IC02Ljg2OCAzLjk2N3YtNy45MzJaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjbCkiIGQ9Im00Ny40ODcgNDYuMzYxIC0xMS40NDYgLTYuNjEyIDExLjQ0NiAtNi42MTFaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjbSkiIGQ9Im00Ni4zNDQgNjEuMDc3IC05LjE1OCA1LjI4NnYtMTAuNTcyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI24pIiBkPSJtNDUuMTk5IDc0LjAzNSAtNi44NjggMy45NjV2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI28pIiBkPSJtNzAuMDIxIDYxLjc3NSAtNi44NjkgMy45Njd2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3ApIiBkPSJtNjguMSAzMy4xNDIgLTYuODY5IDMuOTY3di03LjkzMloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNxKSIgZD0iTTU3Ljc5NCAyNy44NTJ2MTAuNTc2bC05LjE2IC01LjI5WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3IpIiBkPSJNNDUuMjAyIDYyLjg5MXY3LjkzMmwtNi44NjkgLTMuOTY3WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3MpIiBkPSJtNDYuMzQzIDU5Ljc1NiAtOS4xNTcgLTUuMjg2IDkuMTU3IC01LjI5WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3QpIiBkPSJtMzYuMDQxIDM5Ljc1IDExLjQ0NiA2LjYxMiAtMTEuNDQ2IDYuNjA4WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI2IpIiBkPSJtNjkuMzM0IDE3LjAzMSAtNi44NjkgMy45NjV2LTcuOTNaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjdSkiIGQ9Im01OC4wODIgNS40NiAtNi44NzEgMy45Njd2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3YpIiBkPSJtNTcuNzk2IDI2LjUyOSAtOS4xNjIgNS4yODZWMjEuMjQxWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3cpIiBkPSJtNDUuMiAxNC41NDUgLTYuODY5IC0zLjk2NSA2Ljg2OSAtMy45NjdaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjeCkiIGQ9Ik00Ni4zNDQgMTkuNzQ0VjMwLjMxOWwtOS4xNTggLTUuMjg2WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3kpIiBkPSJNMzYuMDQxIDI2LjUzdjEzLjIyTDI0LjU5MyAzMy4xNDFaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjeikiIGQ9Im0zNC44OTcgMjMuNzA5IC05LjE1OCAtNS4yODYgOS4xNTggLTUuMjlaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjQSkiIGQ9Im0zMy43NSA3LjkzMiAtNi44NyAtMy45NjUgNi44NyAtMy45NjdaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjQikiIGQ9Im0yMy40NDkgMzEuODE2IC05LjE1OCAtNS4yOSA5LjE1OCAtNS4yODVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjQykiIGQ9Ik0xOS43NiA2LjAzOXY3LjkzMmwtNi44NjkgLTMuOTY1WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI0QpIiBkPSJtNTYuNjQ3IDIyLjY1MSAtNi44NzEgLTMuOTY3IDYuODcxIC0zLjk2N1oiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNFKSIgZD0ibTQ1LjIgMy45NjcgLTYuODY5IDMuOTY1di03LjkzMloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNGKSIgZD0ibTQ2LjM0NCAxOC40MTcgLTkuMTU4IDUuMjg2di0xMC41NjhaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjRykiIGQ9Im00Ny40ODcgMzMuMTQxIC0xMS40NDYgNi42MTF2LTEzLjIyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI0gpIiBkPSJtMzMuNzUzIDEyLjgxNCAtNi44NzEgMy45Njd2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI0kpIiBkPSJtMzQuODk2IDI1LjAzMyAtOS4xNTggNS4yODZ2LTEwLjU3NVoiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNKKSIgZD0ibTIyLjMgMTguNjg0IC02Ljg3IDMuOTY1di03LjkzWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI0spIiBkPSJtNy41NTYgMjQuNjM3IC02Ljg3IC0zLjk2NSA2Ljg3IC0zLjk2N1oiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNjKSIgZD0ibTMzLjc1MSA3OC4wMDEgLTYuODcxIC0zLjk2NSA2Ljg3MSAtMy45NjdaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjTCkiIGQ9Ik0zNi4wNDEgMzkuNzV2MTMuMjJsLTExLjQ0OCAtNi42MTJaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjTSkiIGQ9Ik0yMi4zIDY2Ljc2M3Y3LjkzMmwtNi44NyAtMy45NjZaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjTikiIGQ9Im0yMy40NDkgNDYuMzYyIC05LjE1OCA1LjI4NnYtMTAuNTc2WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI08pIiBkPSJtMjMuNDQ5IDMzLjE0MiAtOS4xNTggNS4yOXYtMTAuNThaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjUCkiIGQ9Ik05LjYxNiA1OS40MDF2Ny45M2wtNi44NzEgLTMuOTY1WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI1EpIiBkPSJNMTAuODUxIDI4Ljg5OXY3LjkzMmwtNi44NzEgLTMuOTY1WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI1IpIiBkPSJtNi44NzEgNDAuMDkzIC02Ljg3MSAzLjk2NXYtNy45M1oiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNTKSIgZD0ibTM0Ljg5NCA2Ni4zNjcgLTkuMTYgLTUuMjg2IDkuMTYgLTUuMjlaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjVCkiIGQ9Im0zNi4wNDEgMzkuNzUgLTExLjQ0OCA2LjYwOHYtMTMuMjJaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjVSkiIGQ9Im0zMy43NSA2Ny40MjUgLTYuODcxIDMuOTY3di03LjkzMloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNWKSIgZD0ibTM0Ljg5MiA1NC40NjcgLTkuMTU3IDUuMjl2LTEwLjU4MloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNXKSIgZD0ibTIyLjI5OSA2MC44MTQgLTYuODY5IDMuOTY1di03LjkzWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI1gpIiBkPSJNMjMuNDQ5IDQ3LjY4M3YxMC41NzNsLTkuMTU4IC01LjI4NloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNZKSIgZD0iTTIzLjQ0OSAzNC40NTl2MTAuNTczbC05LjE1OCAtNS4yODNaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjWikiIGQ9Im0xMC44NSA1MC4zMjYgLTYuODcxIC0zLjk2NyA2Ljg3MSAtMy45NjVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjYWEpIiBkPSJtNy4xNDUgMjYuNTMxIC02Ljg2OSAzLjk2NXYtNy45MzJaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjYWIpIiBkPSJtNy41NTYgNTMuNDUyIC02Ljg3MSAzLjk2NXYtNy45MzVaIi8+DQogIDwvZz4NCjwvc3ZnPg0K">
+  <style>
+  .sdaia-dark, .sdaia-dark h1, .sdaia-dark h2, .sdaia-dark h3, .sdaia-dark p, .sdaia-dark li { color: white !important; }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">مقدمة إلى هندسة البيانات: الأساسيات والأهمية</h1>
+<section id="title-slide" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
+  <h1 class="title">استكشاف النماذج التوليدية المتقدمة وتطبيقاتها</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section>
-<section id="مقدمة-إلى-هندسة-البيانات-الأساسيات-والأهمية" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>مقدمة إلى هندسة البيانات: الأساسيات والأهمية</h1>
-<aside class="notes">
-<p>أهلاً وسهلاً بكم في أولى محطات رحلتنا في عالم هندسة البيانات. يسعدني أن أكون معكم اليوم في هذه الدورة الشيقة. في هذه الشريحة الترحيبية، نستقبل الطلاب ونعطيهم لمحة سريعة عن عنوان الدرس الذي سيبدأون به.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="اسم-الدورة-هندسة-البيانات-للمبتدئين-رحلة-استكشاف-عالم-البيانات" class="slide level2">
-<h2>اسم الدورة: هندسة البيانات للمبتدئين: رحلة استكشاف عالم البيانات</h2>
-<aside class="notes">
-<p>نقدم هنا اسم الدورة الكلية لتحديد السياق الذي يقع فيه هذا الدرس المحدد. هذا يساعد الطلاب على فهم مكان هذا الدرس في المسار التعليمي الأوسع.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="أهدافنا-التعليمية-لهذا-الدرس" class="slide level2">
-<h2>أهدافنا التعليمية لهذا الدرس 🎯</h2>
-<aside class="notes">
-<p>في هذه الشريحة، نوضح للطلاب الأهداف التعليمية الأساسية التي نسعى لتحقيقها معًا بنهاية هذا الدرس. من المهم تحديد هذه الأهداف بوضوح لتركيز الانتباه وتوجيه عملية التعلم.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="الأهداف-التعليمية" class="slide level2">
+<h2>الأهداف التعليمية</h2>
 <ul>
-<li class="fragment"><strong>فهم ماهية البيانات وأنواعها المختلفة:</strong> سنتعرف على البيانات من حولنا وعلى أشكالها المتعددة مثل البيانات النصية، الرقمية، والصور.</li>
-<li class="fragment"><strong>التعرف على مفهوم هندسة البيانات ودور مهندس البيانات:</strong> سنكتشف كيف يتم تنظيم البيانات وتبسيطها، وما هو الدور المحوري لمهندس البيانات في هذه العملية.</li>
-<li class="fragment"><strong>إدراك أهمية هندسة البيانات في دعم اتخاذ القرارات وتطوير التطبيقات:</strong> سنرى كيف تساهم هندسة البيانات في حياتنا اليومية، من توصيات الأفلام إلى خرائط الملاحة.</li>
+<li class="fragment">فهم معمق للمبادئ الأساسية للهندسة التوليدية والأسس النظرية لنماذجها الرئيسية.</li>
+<li class="fragment">تحليل البنية الرياضية والخوارزمية المعقدة لـ <strong>GANs</strong>، <strong>VAEs</strong>، ونماذج الانتشار.</li>
+<li class="fragment">تحديد وتقييم التطبيقات المتقدمة للهندسة التوليدية في مختلف المجالات الصناعية والبحثية.</li>
+<li class="fragment">استكشاف التحديات التقنية والبحثية الحالية، والمساهمة في تحديد مسارات البحث المستقبلية.</li>
 </ul>
-</section></section>
+<aside class="notes">
+<p>في هذه الشريحة، سنحدد بوضوح ما يتوقع من المتدربين تحقيقه بنهاية هذا الدرس. من المهم التأكد من أن الأهداف قابلة للقياس وذات صلة بالمحتوى المقدم. هذه الأهداف ستكون بمثابة خريطة طريق للدرس بأكمله.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section>
 <section>
-<section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center">
+<section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
 <h1>المرحلة الأولى: التهيئة والجذب</h1>
 <aside class="notes">
-<p>هذه هي الشريحة الافتتاحية للمرحلة الأولى، وهي مرحلة “التهيئة والجذب”. الهدف هنا هو إثارة فضول الطلاب وربط الموضوع بتجاربهم اليومية لجذب انتباههم.</p>
+<p>هذه الشريحة تمثل بداية المرحلة الأولى من الدرس، وهي مخصصة لتهيئة المتدربين وجذب اهتمامهم للموضوع من خلال طرح المفاهيم الأساسية والتحديات.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -405,97 +444,27 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="البيانات-وقود-عالمنا-الحديث" class="slide level2">
-<h2>البيانات: وقود عالمنا الحديث 💡</h2>
-<aside class="notes">
-<p>نبدأ بطرح فكرة أن البيانات هي القوة الدافعة للعصر الحديث، باستخدام تشبيه بسيط مثل “الوقود”. هذا يساعد على ترسيخ أهمية البيانات منذ البداية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<ul>
-<li class="fragment">في عالمنا اليوم، أصبحت البيانات أكثر قيمة من أي وقت مضى.</li>
-<li class="fragment">إنها ليست مجرد أرقام وحروف، بل هي معلومات تحمل قصصًا وتكشف عن اتجاهات.</li>
-<li class="fragment">كل تفاعل رقمي نقوم به يولد بيانات، وكل جهاز نستخدمه يجمع بيانات.</li>
-<li class="fragment">هذه البيانات هي التي تمكننا من اتخاذ قرارات أفضل، وتطوير منتجات وخدمات مبتكرة.</li>
-</ul>
-</section>
-<section id="أين-نرى-البيانات-من-حولنا-12" class="slide level2">
-<h2>أين نرى البيانات من حولنا؟ (1/2) 🌍</h2>
-<aside class="notes">
-<p>هذه الشريحة تبدأ في تقديم أمثلة ملموسة للبيانات التي يواجهها الطلاب في حياتهم اليومية، مما يجعل المفهوم أقل تجريدًا وأكثر واقعية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<ul>
-<li class="fragment"><strong>تطبيقات الهواتف الذكية:</strong> عندما تستخدم تطبيق الطقس، تصفح وسائل التواصل الاجتماعي، أو تشاهد فيلمًا على منصة البث.</li>
-<li class="fragment"><strong>الإنترنت والتسوق الإلكتروني:</strong> عند البحث عن منتج، مقارنة الأسعار، أو شراء شيء عبر الإنترنت.</li>
-<li class="fragment"><strong>المدن الذكية والمنازل الذكية:</strong> من أنظمة المرور التي تجمع بيانات تدفق السيارات إلى منظمات الحرارة الذكية التي تتعلم تفضيلاتك.</li>
-<li class="fragment"><strong>الرعاية الصحية واللياقة البدنية:</strong> أجهزة تتبع اللياقة البدنية التي تراقب نبضات القلب وعدد الخطوات، والسجلات الطبية الإلكترونية.</li>
-</ul>
-<aside class="notes">
-<p>نحث الطلاب على التفكير في الأمثلة التي ذكرناها ونشجعهم على طرح أمثلة إضافية من وحي تجاربهم الشخصية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="أين-نرى-البيانات-من-حولنا-22" class="slide level2">
-<h2>أين نرى البيانات من حولنا؟ (2/2) 📊</h2>
-<aside class="notes">
-<p>نستمر في عرض أمثلة إضافية لتوضيح مدى انتشار البيانات في حياتنا اليومية، مع التركيز على مصادر مختلفة. هذه الشريحة تتبع الشريحة السابقة لتقديم تفاصيل أكثر.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="ما-هي-الهندسة-التوليدية" class="slide level2">
+<h2>ما هي الهندسة التوليدية؟</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
+<p>تُعرف <strong>الهندسة التوليدية</strong> بأنها فرع من فروع الذكاء الاصطناعي يركز على إنشاء بيانات جديدة تحاكي خصائص بيانات التدريب الأصلية.</p>
 <ul>
-<li class="fragment"><strong>المواقع الإلكترونية ومحركات البحث:</strong> كل عملية بحث تقوم بها، وكل رابط تنقر عليه يولد بيانات حول اهتماماتك.</li>
-<li class="fragment"><strong>الخدمات المصرفية والمالية:</strong> جميع معاملاتك البنكية، عمليات السحب والإيداع، واستثماراتك هي بيانات مالية ضخمة.</li>
-<li class="fragment"><strong>التعليم والتعلم عن بعد:</strong> الدورات التدريبية عبر الإنترنت، الاختبارات الرقمية، وتفاعل الطلاب مع المحتوى التعليمي.</li>
-<li class="fragment"><strong>النقل والمواصلات:</strong> أنظمة تحديد المواقع (GPS)، وتطبيقات مشاركة الركوب التي تستخدم بيانات الموقع والحركة.</li>
+<li class="fragment">الهدف الأساسي هو تعلم <strong>التوزيع الاحتمالي</strong> للبيانات المدخلة.</li>
+<li class="fragment">تمكّن هذه النماذج من توليد أمثلة واقعية وغير موجودة مسبقاً، مثل الصور، النصوص، الأصوات، وحتى الجزيئات الكيميائية.</li>
+<li class="fragment">على عكس النماذج التمييزية التي تصنف البيانات، تعمل النماذج التوليدية على فهم كيفية إنشاء البيانات.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://tse1.mm.bing.net/th?q=digital+data+interface&amp;w=600&amp;h=600.png"></p>
-<figcaption>شاب يتفاعل مع واجهة بيانات رقمية</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/AI-generating-creative-and-complex-shapes-with-glowing-lines-representing-data-and-ideas?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>صورة توضيحية لذكاء اصطناعي يولد أشكالاً إبداعية ومعقدة، مع خطوط متوهجة تمثل البيانات والأفكار.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>نسأل الطلاب كيف يمكن أن تُستخدم هذه البيانات، ومن يظنون أنه يستفيد منها. هذا يمهد للحديث عن هندسة البيانات.</p>
+<p>اشرح للمتدربين أن الهندسة التوليدية تتجاوز مجرد التصنيف أو التنبؤ، بل تسعى لفهم “جوهر” البيانات لإنشاء نسخ جديدة. يمكن ضرب أمثلة سريعة مثل توليد وجوه بشرية غير موجودة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -508,10 +477,28 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="تحدي-فكر-سريع-ما-هي-البيانات" class="slide level2">
-<h2>تحدي فكر سريع: ما هي البيانات؟ 🤔</h2>
+<section id="لماذا-النماذج-التوليدية-ثورية" class="slide level2">
+<h2>لماذا النماذج التوليدية ثورية؟</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>أحدثت النماذج التوليدية ثورة في العديد من المجالات بفضل قدرتها الفريدة على:</p>
+<ul>
+<li class="fragment"><strong>الإبداع والتوليد:</strong> إنشاء محتوى جديد كليًا (صور، نصوص، موسيقى) يتسم بالواقعية والجودة العالية.</li>
+<li class="fragment"><strong>تعزيز البيانات:</strong> توليد بيانات اصطناعية لزيادة مجموعات بيانات التدريب، خاصة في السيناريوهات التي تكون فيها البيانات الحقيقية نادرة أو حساسة.</li>
+<li class="fragment"><strong>الاستكشاف والتصميم:</strong> مساعدة الباحثين والمهندسين في استكشاف مساحات تصميمية معقدة، مثل تصميم الأدوية والمواد الجديدة.</li>
+<li class="fragment"><strong>فهم أعمق للبيانات:</strong> من خلال محاولة إعادة إنشاء البيانات، تكتسب النماذج فهمًا أعمق للأنماط والهياكل الكامنة.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/3D-icon-representing-creativity-and-generation-in-AI-context-with-small-icons-of-images-music-and-text?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>أيقونة ثلاثية الأبعاد تمثل الإبداع والتوليد في سياق الذكاء الاصطناعي، مع أيقونات صغيرة تمثل صورًا وموسيقى ونصوصًا.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <aside class="notes">
-<p>هذه الشريحة عبارة عن تحدي سريع لتقييم الفهم الأولي للطلاب حول تعريف البيانات. نستخدم استراتيجية “فكر-شارك-زاوج” بشكل غير مباشر.</p>
+<p>ركز على الجوانب العملية والتأثير الكبير لهذه التقنيات. اذكر كيف أن القدرة على توليد البيانات يمكن أن تحل مشكلات مثل خصوصية البيانات وتوفرها.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -523,12 +510,18 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="كيف-تعمل-النماذج-التوليدية-المفهوم-الأساسي" class="slide level2">
+<h2>كيف تعمل النماذج التوليدية؟ المفهوم الأساسي</h2>
+<p>تعتمد النماذج التوليدية على مبدأ تعلم <strong>التوزيع الاحتمالي المشترك</strong> للبيانات.</p>
 <ul>
-<li class="fragment"><strong>سؤال:</strong> إذا التقطت صورة بهاتفك، هل تعتبر هذه الصورة بيانات؟ ولماذا؟</li>
-<li class="fragment"><strong>سؤال:</strong> عندما تتلقى إشعارًا بأن درجة الحرارة ستنخفض غدًا، ما أنواع البيانات التي ساهمت في وصول هذا الإشعار إليك؟</li>
+<li class="fragment"><strong>المدخلات:</strong> مجموعة كبيرة من البيانات الحقيقية (مثل صور القطط).</li>
+<li class="fragment"><strong>التعلم:</strong> يحاول النموذج تعلم القواعد والأنماط التي تحكم هذه البيانات.</li>
+<li class="fragment"><strong>المخرجات:</strong> بعد التدريب، يمكن للنموذج استخدام هذا الفهم لإنشاء عينات جديدة تبدو وكأنها مستمدة من نفس التوزيع (صور قطط واقعية ولكنها غير موجودة في بيانات التدريب).</li>
+<li class="fragment">يتم ذلك غالبًا عن طريق تعيين نقطة عشوائية في “فضاء كامن” (latent space) ثم تحويلها إلى بيانات ذات معنى.</li>
 </ul>
 <aside class="notes">
-<p>نطلب من الطلاب التفكير لدقيقة ثم مشاركة أفكارهم مع زميل قريب، ثم يمكننا أخذ بعض الإجابات من المجموعات. نؤكد على أن الصور والنصوص والأرقام كلها أشكال من البيانات.</p>
+<p>وضح الفكرة الأساسية خلف النماذج التوليدية بطريقة مبسطة قبل الغوص في التفاصيل المعقدة. يمكن تشبيهها بالرسام الذي يدرس آلاف اللوحات ليتعلم كيف يرسم لوحات جديدة بأسلوبه الخاص.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -541,10 +534,31 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="نشاط-لعبة-كشف-البيانات-12" class="slide level2">
-<h2>نشاط: لعبة كشف البيانات 🕵️‍♀️ (1/2)</h2>
+<section id="النماذج-التوليدية-مقابل-النماذج-التمييزية" class="slide level2">
+<h2>النماذج التوليدية مقابل النماذج التمييزية</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="النماذج-التوليدية-generative-models">النماذج التوليدية (Generative Models)</h3>
+<ul>
+<li class="fragment"><strong>الهدف:</strong> تعلم التوزيع الاحتمالي للبيانات (<span class="math inline">\(P(x)\)</span>) أو التوزيع المشترك (<span class="math inline">\(P(x, y)\)</span>).</li>
+<li class="fragment"><strong>القدرة:</strong> إنشاء أمثلة جديدة من البيانات.</li>
+<li class="fragment"><strong>أمثلة:</strong> GANs, VAEs, Diffusion Models.</li>
+<li class="fragment"><strong>الاستخدام:</strong> توليد الصور، النصوص، الصوت، تعزيز البيانات.</li>
+<li class="fragment"><strong>الميزة:</strong> فهم عميق لهيكل البيانات.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="النماذج-التمييزية-discriminative-models">النماذج التمييزية (Discriminative Models)</h3>
+<ul>
+<li class="fragment"><strong>الهدف:</strong> تعلم التوزيع الشرطي (<span class="math inline">\(P(y|x)\)</span>) لتصنيف البيانات.</li>
+<li class="fragment"><strong>القدرة:</strong> التمييز بين الفئات المختلفة أو التنبؤ بالتسميات.</li>
+<li class="fragment"><strong>أمثلة:</strong> SVMs, Logistic Regression, Classification CNNs.</li>
+<li class="fragment"><strong>الاستخدام:</strong> تصنيف الصور، اكتشاف البريد العشوائي، التعرف على الكلام.</li>
+<li class="fragment"><strong>الميزة:</strong> فعالية عالية في مهام التصنيف والتنبؤ.</li>
+</ul>
+</div>
+</div>
 <aside class="notes">
-<p>هذه الشريحة تقدم النشاط التفاعلي الأول، “لعبة كشف البيانات”، وهو مصمم لتحفيز المشاركة وجعل المفاهيم ملموسة من خلال سيناريوهات يومية.</p>
+<p>هذا الجدول مهم لترسيخ الفهم الأساسي للفرق بين النوعين الرئيسيين من نماذج التعلم الآلي. شدد على أن الهدف مختلف كليًا، وأن كلاهما له مكانته وأهميته.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -556,19 +570,29 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<ul>
-<li class="fragment"><strong>الهدف:</strong> تحديد أنواع البيانات التي تُجمع في سيناريوهات يومية وكيف تُستخدم.</li>
-<li class="fragment"><strong>كيفية اللعب:</strong>
+</section>
+<section id="تحدي-الأكواد-والمعادلات-السرية-تحدي-تفاعلي" class="slide level2">
+<h2>تحدي الأكواد والمعادلات السرية (تحدي تفاعلي)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>مرحباً بكم في ‘تحدي الأكواد والمعادلات السرية’!</p>
+<p>سنعرض عليكم مقتطفات من أكواد بايثون أو معادلات رياضية متقدمة. مهمتكم هي:</p>
 <ol type="1">
-<li class="fragment">سنقسمكم إلى مجموعات صغيرة.</li>
-<li class="fragment">سأعرض لكل مجموعة سيناريو يومي.</li>
-<li class="fragment">عليكم في مجموعتكم تحديد أكبر عدد ممكن من أنواع البيانات التي تُجمع في هذا السيناريو.</li>
-<li class="fragment">ثم، فكروا كيف يمكن استخدام هذه البيانات.</li>
-</ol></li>
-<li class="fragment"><strong>المكافأة:</strong> الفريق الذي يحدد أكبر عدد من البيانات بشكل صحيح يكسب نقاطاً!</li>
-</ul>
+<li class="fragment"><strong>تحديد النموذج التوليدي</strong> المرتبط بالمقتطف (GAN, VAE, Diffusion).</li>
+<li class="fragment"><strong>شرح المفهوم الرياضي أو الخوارزمي</strong> الكامن وراءه بإيجاز.</li>
+</ol>
+<p>لديك وقت محدود للإجابة، وسيحصل المتدربون الأسرع والأكثر دقة على نقاط. استخدموا هواتفكم أو أجهزتكم للدخول إلى المنصة التفاعلية (مثل Kahoot/Mentimeter) التي ستظهر على الشاشة.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/Interactive-quiz-logo-combining-math-symbols-python-code-and-glowing-brain-shape?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>شعار مسابقة تفاعلية يجمع بين الرموز الرياضية وأكواد بايثون وشكل دماغ متوهج.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <aside class="notes">
-<p>هذا النشاط يعزز التعلم التفاعلي والتلعيب. نوضح القواعد ونشجعهم على التعاون داخل المجموعة.</p>
+<p>جهز منصة Kahoot أو Mentimeter مسبقًا بالأسئلة والمقتطفات. اشرح قواعد اللعبة بوضوح. هذا النشاط يهدف إلى جذب الانتباه وتنشيط المتدربين من البداية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -581,36 +605,34 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="نشاط-لعبة-كشف-البيانات-22---سيناريو-مثال" class="slide level2">
-<h2>نشاط: لعبة كشف البيانات 🕵️‍♀️ (2/2) - سيناريو مثال</h2>
-<aside class="notes">
-<p>نقدم هنا سيناريو مثال للنشاط لشرحه بشكل أفضل وتوضيح ما هو متوقع من الطلاب. هذا يساعد على توجيههم قبل بدء النشاط الفعلي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="تحدي-الأكواد-مقتطف-1-المعادلات" class="slide level2">
+<h2>تحدي الأكواد: مقتطف 1 (المعادلات)</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p><strong>السيناريو:</strong> “أنت تتسوق عبر الإنترنت لشراء حذاء رياضي جديد. تصفحت عدة مواقع، وأضفت حذاءً إلى سلة التسوق، لكنك لم تكمل عملية الشراء. في اليوم التالي، تتلقى إعلانًا عن خصم على نفس الحذاء أو أحذية مشابهة.”</p>
-<p><strong>البيانات المحتملة التي تم جمعها:</strong> - <strong>اسم المنتج:</strong> حذاء رياضي - <strong>سعر المنتج:</strong> الرقمية - <strong>الفئة:</strong> أحذية، رياضة - <strong>سجل التصفح:</strong> الصفحات التي زرتها، مدة بقائك على كل صفحة - <strong>سلة التسوق:</strong> المنتجات التي أضفتها ولم تشتريها - <strong>معلومات الجهاز:</strong> نوع الهاتف/الكمبيوتر، نظام التشغيل - <strong>الموقع الجغرافي:</strong> (إذا كان مفعلًا)</p>
+<p><strong>المقتطف الرياضي:</strong></p>
+<p><span class="math display">\[
+\min_G \max_D V(D, G) = \mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]
+\]</span></p>
+<p><strong>السؤال:</strong> ما هو النموذج التوليدي الذي تمثله هذه المعادلة؟ وما هو المفهوم الرئيسي الذي تعبر عنه؟</p>
+<ul>
+<li class="fragment">أ) VAEs - تباعد KL</li>
+<li class="fragment">ب) Diffusion Models - عملية الضوضاء الأمامية</li>
+<li class="fragment">ج) GANs - لعبة المينيماكس بين المولد والمميز</li>
+</ul>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ج) GANs - لعبة المينيماكس بين المولد والمميز. تصف هذه المعادلة دالة الخسارة التي يسعى فيها المولد (G) لتقليل دالة الخسارة بينما يسعى المميز (D) لزيادتها، وهو جوهر الشبكات التنافسية التوليدية.</p>
+</div>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://tse1.mm.bing.net/th?q=online+shopping+tablet&amp;w=600&amp;h=600.png"></p>
-<figcaption>شخص يتسوق عبر الإنترنت باستخدام جهاز لوحي</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/Mathematical-equation-displayed-on-a-screen-with-glowing-blue-lines-on-a-dark-background-symbolizing-AI?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>شاشة عرض معادلة رياضية معقدة باللون الأزرق المتوهج على خلفية مظلمة، ترمز إلى الذكاء الاصطناعي.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>نشرح كيف يمكن استخدام هذه البيانات لتخصيص الإعلانات، ونشجع الطلاب على التفكير بشكل نقدي حول جمع البيانات.</p>
+<p>بعد أن يجيب المتدربون عبر المنصة التفاعلية، اعرض الإجابة الصحيحة وفسرها. هذا يعزز التعلم الفوري ويوفر سياقًا للمفاهيم التي سيتم شرحها لاحقًا.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -622,12 +644,62 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="تحدي-الأكواد-مقتطف-2-مقتطف-برمجي" class="slide level2">
+<h2>تحدي الأكواد: مقتطف 2 (مقتطف برمجي)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>المقتطف البرمجي (Python PyTorch):</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="co"># Encoder output</span></span>
+<span id="cb1-2"><a href=""></a>mu, log_var <span class="op">=</span> encoder(x)</span>
+<span id="cb1-3"><a href=""></a>std <span class="op">=</span> torch.exp(<span class="fl">0.5</span> <span class="op">*</span> log_var)</span>
+<span id="cb1-4"><a href=""></a>eps <span class="op">=</span> torch.randn_like(std)</span>
+<span id="cb1-5"><a href=""></a>z <span class="op">=</span> mu <span class="op">+</span> eps <span class="op">*</span> std <span class="co"># Reparameterization Trick</span></span>
+<span id="cb1-6"><a href=""></a></span>
+<span id="cb1-7"><a href=""></a><span class="co"># VAE loss components</span></span>
+<span id="cb1-8"><a href=""></a>kl_divergence <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> torch.<span class="bu">sum</span>(<span class="dv">1</span> <span class="op">+</span> log_var <span class="op">-</span> mu.<span class="bu">pow</span>(<span class="dv">2</span>) <span class="op">-</span> log_var.exp())</span>
+<span id="cb1-9"><a href=""></a>reconstruction_loss <span class="op">=</span> F.binary_cross_entropy(decoder(z), x.view(<span class="op">-</span><span class="dv">1</span>, <span class="dv">784</span>), reduction<span class="op">=</span><span class="st">'sum'</span>)</span>
+<span id="cb1-10"><a href=""></a>total_loss <span class="op">=</span> reconstruction_loss <span class="op">+</span> kl_divergence</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>السؤال:</strong> أي نموذج توليدي يستخدم هذه التقنيات والمفاهيم؟ وماذا تعني <code>mu</code> و <code>log_var</code> و <code>z</code>؟</p>
+<ul>
+<li class="fragment">أ) GANs - المتجه الكامن ومخرجات المولد</li>
+<li class="fragment">ب) VAEs - متوسط وتباين الفضاء الكامن والمتغير الكامن المعاد تهيئته</li>
+<li class="fragment">ج) Diffusion Models - الضوضاء المقدرة والمتجه الزمني</li>
+</ul>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ب) VAEs - متوسط وتباين الفضاء الكامن والمتغير الكامن المعاد تهيئته. هذا المقتطف يوضح <strong>خدعة إعادة المعايرة (Reparameterization Trick)</strong> ودالة خسارة الـ <strong>VAEs</strong> التي تتكون من خسارة إعادة البناء و<strong>تباين KL</strong>. <code>mu</code> و <code>log_var</code> هما متوسط وتباين التوزيع الاحتمالي للفضاء الكامن، و<code>z</code> هو المتغير الكامن المُعاد تهيئته.</p>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/Screen-displaying-Python-code-in-a-clear-programming-language-with-focus-on-mathematical-variables-like-mu-and-log_var-within-a-modern-IDE?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>شاشة عرض كود بايثون بلغة برمجة واضحة، مع التركيز على المتغيرات الرياضية مثل mu و log_var، داخل واجهة برمجة حديثة.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>ناقش أهمية خدعة إعادة المعايرة في تمكين تدريب الـ VAEs عبر الانتشار العكسي (Backpropagation). هذا يعطي لمحة مبكرة عن التعقيدات الرياضية التي سنتعمق فيها.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
 </section></section>
 <section>
-<section id="المرحلة-الثانية-المفاهيم-الأساسية" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثانية: المفاهيم الأساسية</h1>
+<section id="المرحلة-الثانية-المفاهيم-والأسس-النظرية" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>المرحلة الثانية: المفاهيم والأسس النظرية</h1>
 <aside class="notes">
-<p>هذه هي الشريحة الافتتاحية للمرحلة الثانية، وهي مرحلة “المفاهيم الأساسية”. هنا نبدأ في الغوص في التعريفات والمفاهيم الجوهرية للدرس.</p>
+<p>هذه الشريحة تمثل بداية المرحلة الثانية، حيث ننتقل إلى التفاصيل المعمقة لكل نوع من النماذج التوليدية الرئيسية.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -640,174 +712,30 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="البيانات-وأنواعها-فهم-الأساس-13" class="slide level2">
-<h2>البيانات وأنواعها: فهم الأساس (1/3) 📚</h2>
-<aside class="notes">
-<p>نبدأ في تعريف البيانات بشكل أكثر منهجية ونقدم أول أنواعها وهو النصي. تقسيم أنواع البيانات إلى شرائح منفصلة يساعد على استيعاب المعلومات بشكل أفضل.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<ul>
-<li class="fragment"><strong>البيانات (Data):</strong> هي مجموعة من الحقائق الأولية، الأرقام، النصوص، الملاحظات، أو أي معلومات غير منظمة يتم جمعها. بحد ذاتها، قد لا تحمل معنى، ولكن عند معالجتها وتحليلها، تتحول إلى <strong>معرفة</strong> قابلة للاستخدام.</li>
-<li class="fragment"><strong>البيانات النصية (Textual Data):</strong> هي البيانات المكتوبة أو المقروءة على شكل كلمات وجمل وفقرات.</li>
-</ul>
-<aside class="notes">
-<p>نطلب من الطلاب التفكير في أمثلة للبيانات النصية من حياتهم اليومية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="البيانات-النصية-أمثلة-واستخدامات-23" class="slide level2">
-<h2>البيانات النصية: أمثلة واستخدامات (2/3) ✍️</h2>
-<aside class="notes">
-<p>نقدم أمثلة واضحة ومحددة للبيانات النصية وكيفية استخدامها، مما يوضح أهميتها.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="الشبكات-التنافسية-التوليدية-gans" class="slide level2">
+<h2>الشبكات التنافسية التوليدية (GANs)</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
+<p>تعتبر <strong>الشبكات التنافسية التوليدية (Generative Adversarial Networks - GANs)</strong> من أشهر وأقوى النماذج التوليدية، وقد قدمها Ian Goodfellow وزملاؤه في عام 2014.</p>
 <ul>
-<li class="fragment"><strong>رسائل البريد الإلكتروني والمحادثات:</strong> كل ما تكتبه وترسله هو بيانات نصية.</li>
-<li class="fragment"><strong>مراجعات المنتجات والتعليقات على وسائل التواصل الاجتماعي:</strong> آراء المستهلكين والمستخدمين.</li>
-<li class="fragment"><strong>المقالات الإخبارية والمدونات:</strong> المحتوى المكتوب الذي نقرأه يوميًا.</li>
-<li class="fragment"><strong>السجلات الطبية:</strong> ملاحظات الأطباء، تقارير الفحوصات المكتوبة.</li>
-</ul>
-<p><strong>كيف تُستخدم؟</strong> - تحليل المشاعر (Sentiment Analysis) لفهم رأي العملاء. - استخراج المعلومات الرئيسية من المستندات الكبيرة. - بناء أنظمة الترجمة الآلية.</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://tse1.mm.bing.net/th?q=text+messages+phone&amp;w=600&amp;h=600.png"></p>
-<figcaption>رسائل نصية تظهر على شاشة هاتف</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>نناقش كيف يمكن للشركات استخدام تحليل المشاعر لتحسين منتجاتها أو خدماتها.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="البيانات-الرقمية-والكمية-أمثلة-واستخدامات-33" class="slide level2">
-<h2>البيانات الرقمية والكمية: أمثلة واستخدامات (3/3) 🔢</h2>
-<aside class="notes">
-<p>نستكمل عرض أنواع البيانات مع البيانات الرقمية، وهي أساس العديد من التحليلات والإحصائيات.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div class="columns">
-<div class="column" style="width:60%;">
+<li class="fragment"><strong>الفكرة الرئيسية:</strong> تتألف الـ GAN من شبكتين عصبيتين تتنافسان في “لعبة محصلتها صفر” (zero-sum game).</li>
+<li class="fragment"><strong>الشبكتان:</strong>
 <ul>
-<li class="fragment"><strong>البيانات الرقمية (Numerical Data):</strong> هي البيانات التي تتكون من أرقام ويمكن إجراء العمليات الحسابية عليها. تنقسم عادة إلى:
-<ul>
-<li class="fragment"><strong>بيانات متصلة (Continuous Data):</strong> يمكن أن تأخذ أي قيمة ضمن نطاق معين (مثل: درجة الحرارة، الطول، الوزن).</li>
-<li class="fragment"><strong>بيانات منفصلة (Discrete Data):</strong> يمكن أن تأخذ قيمًا محددة فقط، وغالبًا ما تكون أعدادًا صحيحة (مثل: عدد الأطفال، عدد المنتجات المباعة).</li>
-</ul></li>
-</ul>
-<p><strong>أمثلة:</strong> - درجات الحرارة، أرقام المبيعات، أسعار الأسهم، أعمار الأشخاص. - عدد النقرات على إعلان، عدد الزوار لموقع ويب.</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://tse1.mm.bing.net/th?q=numerical+data+chart&amp;w=600&amp;h=600.png"></p>
-<figcaption>رسوم بيانية وأرقام على شاشة كمبيوتر</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>نوضح الفارق بين البيانات المتصلة والمنفصلة بأمثلة إضافية من الحياة اليومية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="أنواع-أخرى-من-البيانات-الصور-والأصوات" class="slide level2">
-<h2>أنواع أخرى من البيانات: الصور والأصوات 🖼️🔊</h2>
-<aside class="notes">
-<p>نوسع مفهوم البيانات ليشمل الوسائط المتعددة، مثل الصور والأصوات، مما يبرز تنوع أشكال البيانات.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment"><strong>بيانات الصور (Image Data):</strong> هي بيانات مرئية تتكون من بكسلات (Pixels)، وكل بكسل يحمل معلومات عن اللون والشدة.
-<ul>
-<li class="fragment"><strong>أمثلة:</strong> الصور الفوتوغرافية، مقاطع الفيديو، صور الأشعة السينية، صور الأقمار الصناعية.</li>
-<li class="fragment"><strong>كيف تُستخدم؟</strong> التعرف على الوجوه، اكتشاف الأورام، تحليل الأنماط الجغرافية.</li>
-</ul></li>
-<li class="fragment"><strong>بيانات الصوت (Audio Data):</strong> هي بيانات تمثل الأصوات، ويتم تسجيلها على شكل موجات صوتية رقمية.
-<ul>
-<li class="fragment"><strong>أمثلة:</strong> التسجيلات الصوتية، المكالمات الهاتفية، الموسيقى، الأوامر الصوتية.</li>
-<li class="fragment"><strong>كيف تُستخدم؟</strong> التعرف على الكلام، تحليل النبرة، أمن المعلومات (التعرف على الصوت).</li>
+<li class="fragment"><strong>المولد (Generator - G):</strong> يتعلم توليد بيانات جديدة تبدو وكأنها حقيقية.</li>
+<li class="fragment"><strong>المميز (Discriminator - D):</strong> يتعلم التمييز بين البيانات الحقيقية والبيانات المولدة.</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://tse1.mm.bing.net/th?q=image+audio+data&amp;w=600&amp;h=600.png"></p>
-<figcaption>شاشة تعرض صوراً وأيقونة صوت</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/Simplified-diagram-of-GAN-architecture-showing-generator-and-discriminator-in-an-adversarial-loop-with-data-flow-arrows?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>رسم توضيحي مبسط لبنية GAN، يظهر المولد والمميز في حلقة تنافسية، مع أسهم توضح تدفق البيانات.</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>نقدم أمثلة على استخدامات الصور والأصوات في حياتنا اليومية، مثل التعرف على الوجوه في الهواتف أو المساعدات الصوتية مثل سيري وأليكسا.</p>
+<p>وضح مفهوم اللعبة التنافسية بمثال بسيط: المولد هو مزور الفن الذي يحاول إنتاج لوحات تبدو حقيقية، والمميز هو الخبير الفني الذي يحاول اكتشاف التزوير. كلاهما يتطور بمرور الوقت.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -820,65 +748,36 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="جدول-ملخص-أنواع-البيانات-الشائعة" class="slide level2">
-<h2>جدول ملخص: أنواع البيانات الشائعة 📋</h2>
+<section id="بنية-عمل-الـ-gans-المولد-والتمييز" class="slide level2">
+<h2>بنية عمل الـ GANs: المولد والتمييز</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>تتكون الـ GANs من عنصرين أساسيين يعملان معاً بشكل تنافسي:</p>
+<ol type="1">
+<li class="fragment"><strong>المولد (Generator - G):</strong>
+<ul>
+<li class="fragment">يأخذ <strong>متجهاً كامناً عشوائياً (random latent vector)</strong> كمدخل (عادةً ما يكون ضوضاء عشوائية من توزيع بسيط مثل التوزيع الطبيعي).</li>
+<li class="fragment">يحول هذا المتجه الكامن إلى عينة بيانات جديدة (مثل صورة).</li>
+<li class="fragment">هدفه هو خداع المميز بجعل البيانات المولدة تبدو حقيقية قدر الإمكان.</li>
+</ul></li>
+<li class="fragment"><strong>المميز (Discriminator - D):</strong>
+<ul>
+<li class="fragment">يأخذ عينات بيانات إما من بيانات التدريب الحقيقية أو من مخرجات المولد.</li>
+<li class="fragment">يصنف المدخلات على أنها “حقيقية” أو “مزيفة” (مولدة).</li>
+<li class="fragment">هدفه هو التمييز بدقة بين البيانات الحقيقية والمولدة.</li>
+</ul></li>
+</ol>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/Diagram-showing-GAN-generator-transforming-noise-vector-into-image-and-discriminator-classifying-real-and-generated-images?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>مخطط يوضح المولد في GAN يحول متجه الضوضاء إلى صورة، والمميز يصنف الصور الحقيقية والمولدة.</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <aside class="notes">
-<p>هذا الجدول يلخص أنواع البيانات التي تمت مناقشتها، مما يوفر نقطة مرجعية سريعة ويساعد على تثبيت المعلومات.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<table>
-<colgroup>
-<col style="width: 12%">
-<col style="width: 30%">
-<col style="width: 27%">
-<col style="width: 29%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">نوع البيانات</th>
-<th style="text-align: left;">الوصف</th>
-<th style="text-align: left;">أمثلة</th>
-<th style="text-align: left;">استخدامات رئيسية</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>نصية</strong></td>
-<td style="text-align: left;">كلمات وجمل وفقرات</td>
-<td style="text-align: left;">رسائل بريد إلكتروني، تغريدات، مقالات</td>
-<td style="text-align: left;">تحليل المشاعر، استخراج المعلومات، ترجمة</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>رقمية (كمية)</strong></td>
-<td style="text-align: left;">أرقام يمكن إجراء عمليات حسابية عليها</td>
-<td style="text-align: left;">درجات حرارة، مبيعات، أعمار</td>
-<td style="text-align: left;">إحصائيات، تنبؤات، تقارير مالية</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>صور</strong></td>
-<td style="text-align: left;">بكسلات تمثل معلومات مرئية</td>
-<td style="text-align: left;">صور فوتوغرافية، فيديوهات</td>
-<td style="text-align: left;">التعرف على الوجوه، رؤية حاسوبية</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>صوت</strong></td>
-<td style="text-align: left;">موجات صوتية رقمية</td>
-<td style="text-align: left;">تسجيلات صوتية، مكالمات</td>
-<td style="text-align: left;">التعرف على الكلام، تحليل النبرة</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>نؤكد على أن هذا الجدول يوضح التنوع الكبير في البيانات التي نتعامل معها يوميًا، وكل نوع يتطلب طرقًا مختلفة للتعامل معه.</p>
+<p>اشرح كيف يتلقى المولد الضوضاء العشوائية، والتي تمثل نقطة في الفضاء الكامن، ثم يتعلم تحويلها إلى بنية بيانات ذات معنى. ركز على أن المميز هو مجرد مصنف ثنائي.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -891,10 +790,27 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="اختبر-معلوماتك-أنواع-البيانات" class="slide level2">
-<h2>اختبر معلوماتك! 🧠 (أنواع البيانات)</h2>
+<section id="آلية-التدريب-في-الـ-gans-التنافس" class="slide level2">
+<h2>آلية التدريب في الـ GANs (التنافس)</h2>
+<p>يتم تدريب الـ GANs بشكل متناوب (Alternating Training) عبر خطوتين رئيسيتين:</p>
+<ol type="1">
+<li class="fragment"><strong>تدريب المميز (Discriminator Training):</strong>
+<ul>
+<li class="fragment">يتم تغذية المميز ببيانات حقيقية (labels = 1) وبيانات مولدة من المولد (labels = 0).</li>
+<li class="fragment">يتم تحديث أوزان المميز لزيادة دقته في التمييز بين البيانات الحقيقية والمولدة.</li>
+</ul></li>
+<li class="fragment"><strong>تدريب المولد (Generator Training):</strong>
+<ul>
+<li class="fragment">يتم تغذية المولد بضوضاء عشوائية لإنشاء بيانات مزيفة.</li>
+<li class="fragment">يتم تمرير هذه البيانات المزيفة إلى المميز.</li>
+<li class="fragment">يتم تحديث أوزان المولد لزيادة احتمالية خداع المميز، أي جعل المميز يصنف البيانات المولدة على أنها “حقيقية” (labels = 1).</li>
+</ul></li>
+</ol>
+<ul>
+<li class="fragment">تستمر هذه العملية حتى يصل المولد إلى قدرة عالية على توليد بيانات واقعية لا يستطيع المميز التمييز بينها وبين البيانات الحقيقية بشكل موثوق.</li>
+</ul>
 <aside class="notes">
-<p>نقدم هنا اختبارًا سريعًا لتقييم فهم الطلاب لأنواع البيانات.</p>
+<p>وضح أن هذا التدريب المتناوب هو جوهر اللعبة. لا يتم تحديث الشبكتين في نفس الوقت، بل بالتناوب. هذا يخلق ديناميكية تنافسية تجبر كل شبكة على التحسن.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -906,79 +822,100 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<p>أي من الأمثلة التالية يعتبر مثالاً على <strong>البيانات الرقمية المتصلة</strong>؟ - أ) عدد الكتب في مكتبة - ب) درجة حرارة الغرفة - ج) آراء العملاء عن منتج - د) صور للمنتجات</p>
+</section>
+<section id="دالة-الخسارة-للمولد-والتمييز-في-الـ-gans" class="slide level2">
+<h2>دالة الخسارة للمولد والتمييز في الـ GANs</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>دالة الخسارة (Loss Function) هي قلب عملية التدريب في الـ GANs، حيث تعكس الهدف التنافسي:</p>
+<p><strong>دالة خسارة المميز (<span class="math inline">\(D_{loss}\)</span>):</strong> <span class="math display">\[
+L_D = - \mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] - \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]
+\]</span> - يسعى المميز لزيادة هذه الدالة، حيث <span class="math inline">\(D(x)\)</span> هو احتمال أن يكون <span class="math inline">\(x\)</span> حقيقياً، و <span class="math inline">\(D(G(z))\)</span> هو احتمال أن تكون الصورة المولدة <span class="math inline">\(G(z)\)</span> حقيقية.</p>
+<p><strong>دالة خسارة المولد (<span class="math inline">\(G_{loss}\)</span>):</strong> <span class="math display">\[
+L_G = - \mathbb{E}_{z \sim p_z(z)}[\log D(G(z))]
+\]</span> - يسعى المولد لتقليل هذه الدالة، بهدف جعل <span class="math inline">\(D(G(z))\)</span> قريباً من 1 (أي خداع المميز).</p>
+<p><strong>الهدف الكلي (Minimax Game):</strong> <span class="math display">\[
+\min_G \max_D V(D, G) = \mathbb{E}_{x \sim p_{data}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]
+\]</span></p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/Screen-displaying-complex-mathematical-equations-with-glowing-blue-color-and-arrows-pointing-to-minimax-operations-in-a-programming-environment?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>شاشة تعرض معادلات رياضية معقدة باللون الأزرق المتوهج، مع أسهم تشير إلى عمليات المينيماكس، في بيئة برمجة.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>اشرح كل جزء من المعادلة بوضوح. ركز على أن المميز يحاول زيادة log D(x) وتقليل log(1-D(G(z)))، بينما المولد يحاول تقليل log(1-D(G(z))) (مكافئ لزيادة log D(G(z))).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="تحديات-الـ-gans-انهيار-النمط-mode-collapse" class="slide level2">
+<h2>تحديات الـ GANs: انهيار النمط (Mode Collapse)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>على الرغم من قوة الـ GANs، إلا أنها تواجه عدة تحديات بحثية وعملية:</p>
+<ul>
+<li class="fragment"><strong>انهيار النمط (Mode Collapse):</strong>
+<ul>
+<li class="fragment">هي ظاهرة تحدث عندما يبدأ المولد بإنتاج عدد محدود جداً من أنواع العينات، بدلاً من استكشاف التنوع الكامل في البيانات الحقيقية.</li>
+<li class="fragment">مثال: إذا كان المولد يرى صوراً لقطط وكلاب وأسود، فقد يركز على توليد صور لقطط فقط لأنها الأسهل في خداع المميز.</li>
+<li class="fragment">السبب: يصبح المولد “ماهراً” في إنتاج عينات معينة تخدع المميز، فيتجاهل الأنماط الأخرى.</li>
+</ul></li>
+<li class="fragment"><strong>صعوبة التدريب (Training Instability):</strong>
+<ul>
+<li class="fragment">يمكن أن يكون تدريب الـ GANs صعباً جداً وغير مستقر، حيث يمكن أن تتأرجح الخسائر ولا تتقارب.</li>
+<li class="fragment">يتطلب ضبط دقيق للـ <strong>مُعاملات فائقة (Hyperparameters)</strong>.</li>
+</ul></li>
+<li class="fragment"><strong>تقييم الجودة:</strong> من الصعب قياس جودة العينات المولدة بمقاييس كمية دقيقة (مثل Inception Score و FID Score).</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/Diagram-illustrating-mode-collapse-in-GAN-where-generated-points-cluster-in-a-small-region-instead-of-spreading-to-cover-the-entire-real-data-space?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>مخطط يوضح ظاهرة انهيار النمط في GAN، حيث تتجمع النقاط المولدة في منطقة صغيرة بدلاً من الانتشار لتغطية كامل مساحة البيانات الحقيقية.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>اشرح انهيار النمط كمشكلة رئيسية تمنع الـ GANs من استكشاف التنوع الكامل للبيانات. اذكر الحلول المقترحة مثل WGANs أو استخدام هياكل أكثر تعقيداً.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="اختبار-سريع-فهم-الـ-gans" class="slide level2">
+<h2>اختبار سريع: فهم الـ GANs 🧠</h2>
+<p><strong>السؤال:</strong> ما هو الدور الرئيسي للمميز (Discriminator) في الشبكات التنافسية التوليدية (GANs)؟</p>
+<ul>
+<li class="fragment">أ) توليد بيانات جديدة ومبتكرة</li>
+<li class="fragment">ب) تحويل الضوضاء العشوائية إلى بيانات ذات معنى</li>
+<li class="fragment">ج) التمييز بين البيانات الحقيقية والبيانات المولدة</li>
+<li class="fragment">د) تحديد الأنماط الخفية في الفضاء الكامن</li>
+</ul>
 <div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) درجة حرارة الغرفة. <strong>التفسير:</strong> درجة حرارة الغرفة يمكن أن تأخذ أي قيمة ضمن نطاق معين (مثل 22.5، 23.1، إلخ)، مما يجعلها بيانات متصلة. عدد الكتب هو بيانات منفصلة، وآراء العملاء بيانات نصية، وصور المنتجات بيانات صورية.</p>
-</div>
-</section>
-<section id="ما-هي-هندسة-البيانات" class="slide level2">
-<h2>ما هي هندسة البيانات؟ ⚙️</h2>
-<aside class="notes">
-<p>هذه الشريحة تقدم التعريف الأساسي لهندسة البيانات، مع التركيز على دورها كجسر بين البيانات الأولية والاستخدام الفعلي لها.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<ul>
-<li class="fragment"><strong>هندسة البيانات (Data Engineering):</strong> هي فرع من فروع علم البيانات يركز على تصميم، بناء، وصيانة الأنظمة والبنية التحتية التي تسمح بجمع، تخزين، معالجة، وتحويل البيانات بشكل فعال وموثوق به.</li>
-<li class="fragment">ببساطة، هي العملية التي تضمن أن تكون البيانات متاحة، نظيفة، ومنظمة وجاهزة للاستخدام من قبل محللي وعلماء البيانات، أو لتشغيل التطبيقات.</li>
-</ul>
-<aside class="notes">
-<p>يمكننا استخدام تشبيه: إذا كانت البيانات هي النفط الخام، فإن هندسة البيانات هي عملية بناء المصافي وخطوط الأنابيب التي تحول النفط الخام إلى منتجات جاهزة للاستخدام.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="هندسة-البيانات-من-الفوضى-إلى-النظام-12" class="slide level2">
-<h2>هندسة البيانات: من الفوضى إلى النظام (1/2) 🧹</h2>
-<aside class="notes">
-<p>نوضح هنا بشكل أكثر تفصيلاً المشكلة التي تحلها هندسة البيانات: تحويل البيانات الخام وغير المنظمة إلى شيء مفيد.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>تخيل أن البيانات تأتي من مصادر متعددة، بأشكال مختلفة، وبكميات هائلة. بدون هندسة البيانات:</p>
-<ul>
-<li class="fragment">البيانات تكون <strong>مبعثرة وغير متناسقة</strong>: يصعب العثور عليها أو دمجها.</li>
-<li class="fragment">البيانات تكون <strong>مليئة بالأخطاء والتكرارات</strong>: تقلل من دقة التحليلات.</li>
-<li class="fragment">البيانات تكون <strong>صعبة الوصول إليها</strong>: تتطلب جهدًا ووقتًا كبيرًا لاستخلاصها.</li>
-</ul>
-<p><strong>هندسة البيانات هي الحل الذي يحول هذه الفوضى إلى نظام متكامل.</strong></p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://tse1.mm.bing.net/th?q=data+chaos+organization&amp;w=600&amp;h=600.png"></p>
-<figcaption>بيانات فوضوية تتجمع في نظام منظم</figcaption>
-</figure>
-</div>
-</div>
+<p><strong>الإجابة الصحيحة:</strong> ج) التمييز بين البيانات الحقيقية والبيانات المولدة. المميز هو بمثابة خبير الجودة الذي يحاول تحديد ما إذا كانت العينة المعروضة عليه حقيقية أم تم توليدها بواسطة المولد.</p>
 </div>
 <aside class="notes">
-<p>نناقش مثالاً سريعًا عن مشكلة عدم وجود بيانات منظمة وكيف يمكن أن تؤثر على عمل شركة ما.</p>
+<p>شجع المتدربين على استخدام المنصة التفاعلية للإ</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -990,260 +927,6 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
-<section id="هندسة-البيانات-من-الفوضى-إلى-النظام-22" class="slide level2">
-<h2>هندسة البيانات: من الفوضى إلى النظام (2/2) 🏗️</h2>
-<aside class="notes">
-<p>نستكمل توضيح دور هندسة البيانات في توفير بيانات عالية الجودة وجاهزة للاستخدام.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<ul>
-<li class="fragment"><strong>تنظيف البيانات (Data Cleaning):</strong> إزالة الأخطاء، القيم المفقودة، والتكرارات.</li>
-<li class="fragment"><strong>تحويل البيانات (Data Transformation):</strong> تغيير شكل البيانات لتناسب أغراضًا معينة (مثل تحويل التواريخ من صيغة إلى أخرى).</li>
-<li class="fragment"><strong>دمج البيانات (Data Integration):</strong> جمع البيانات من مصادر مختلفة ودمجها في مستودع واحد متسق.</li>
-<li class="fragment"><strong>بناء خطوط أنابيب البيانات (Data Pipelines):</strong> أتمتة تدفق البيانات من مصدرها إلى وجهتها النهائية.</li>
-</ul>
-<aside class="notes">
-<p>نؤكد على أن هذه الخطوات ضرورية لضمان جودة البيانات وموثوقيتها.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="مهندس-البيانات-العقل-المدبر-وراء-البيانات-الجاهزة" class="slide level2">
-<h2>مهندس البيانات: العقل المدبر وراء البيانات الجاهزة 👷‍♂️</h2>
-<aside class="notes">
-<p>نركز هنا على تعريف دور مهندس البيانات، مع تسليط الضوء على مسؤولياته الأساسية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment"><strong>مهندس البيانات (Data Engineer):</strong> هو المحترف المسؤول عن تصميم، بناء، وصيانة البنية التحتية التي تمكن من جمع ومعالجة البيانات على نطاق واسع.</li>
-<li class="fragment">هو الذي يتأكد من أن البيانات “تتدفق” بسلاسة من مصادرها إلى حيث يتم تحليلها واستخدامها.</li>
-</ul>
-<p><strong>أدواره الرئيسية:</strong> - بناء خطوط أنابيب البيانات القوية والفعالة. - إدارة قواعد البيانات وأنظمة التخزين. - ضمان جودة البيانات وأمنها. - تحسين أداء أنظمة البيانات.</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://tse1.mm.bing.net/th?q=data+engineer+diagrams&amp;w=600&amp;h=600.png"></p>
-<figcaption>مهندس بيانات يعمل على مخططات بيانات معقدة</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>نشدد على أن مهندس البيانات هو حجر الزاوية الذي تبنى عليه جميع مبادرات البيانات الأخرى في المؤسسة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="رحلة-قطعة-بيانات-دورة-حياة-البيانات-12" class="slide level2">
-<h2>رحلة قطعة بيانات: دورة حياة البيانات (1/2) 🔄</h2>
-<aside class="notes">
-<p>نقدم مفهوم دورة حياة البيانات، وهي عملية تمر بها البيانات من لحظة إنشائها حتى التخلص منها، مما يوضح سياق عمل مهندس البيانات.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<ul>
-<li class="fragment">تخيل أن كل معلومة يتم جمعها تمر بعدة مراحل قبل أن تصبح ذات قيمة. هذه هي <strong>دورة حياة البيانات (Data Lifecycle)</strong>.</li>
-</ul>
-<p><strong>المراحل الأساسية:</strong> - <strong>التوليد (Generation):</strong> لحظة إنشاء البيانات (مثل تسجيل شراء، التقاط صورة). - <strong>الجمع (Collection):</strong> عملية تجميع البيانات من مصادرها المختلفة. - <strong>التخزين (Storage):</strong> حفظ البيانات في قواعد بيانات أو أنظمة تخزين أخرى.</p>
-<aside class="notes">
-<p>نناقش أمثلة لكل مرحلة وكيف تتفاعل معها البيانات في حياتنا اليومية.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="رحلة-قطعة-بيانات-دورة-حياة-البيانات-22" class="slide level2">
-<h2>رحلة قطعة بيانات: دورة حياة البيانات (2/2) 📈</h2>
-<aside class="notes">
-<p>نستكمل المراحل المتبقية من دورة حياة البيانات، مع التركيز على دور المعالجة والتحليل.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment"><strong>المعالجة والتحويل (Processing &amp; Transformation):</strong> تنظيف البيانات، تنظيمها، وتغيير شكلها لتكون جاهزة للاستخدام.</li>
-<li class="fragment"><strong>التحليل (Analysis):</strong> استخدام البيانات لاستخلاص الأفكار والأنماط (يتم عادة بواسطة محللي وعلماء البيانات).</li>
-<li class="fragment"><strong>الاستخدام (Usage):</strong> تطبيق الأفكار المستخلصة لدعم اتخاذ القرارات، تطوير المنتجات، أو تشغيل التطبيقات.</li>
-<li class="fragment"><strong>الأرشفة/التدمير (Archiving/Destruction):</strong> حفظ البيانات لفترة طويلة أو حذفها عندما لم تعد هناك حاجة إليها، مع مراعاة الجوانب القانونية والأخلاقية.</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://tse1.mm.bing.net/th?q=data+lifecycle+diagram&amp;w=600&amp;h=600.png"></p>
-<figcaption>مخطط يوضح دورة حياة البيانات</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>نؤكد أن مهندس البيانات مسؤول عن جميع المراحل من التوليد إلى المعالجة والتحويل، لضمان وصول البيانات بشكل صحيح إلى مرحلة التحليل والاستخدام.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="اختبر-معلوماتك-دور-مهندس-البيانات" class="slide level2">
-<h2>اختبر معلوماتك! 🧠 (دور مهندس البيانات)</h2>
-<aside class="notes">
-<p>اختبار سريع آخر لتقييم فهم الطلاب لدور مهندس البيانات.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<p>ما هي المسؤولية الرئيسية لمهندس البيانات؟ - أ) تحليل البيانات لاكتشاف الأنماط والتنبؤات - ب) بناء وتصميم البنية التحتية لتدفق ومعالجة البيانات - ج) اتخاذ القرارات التجارية بناءً على التقارير النهائية - د) تصميم واجهات المستخدم لتطبيقات الويب</p>
-<div class="fragment">
-<p><strong>الإجابة الصحيحة:</strong> ب) بناء وتصميم البنية التحتية لتدفق ومعالجة البيانات. <strong>التفسير:</strong> مهندس البيانات يركز على الجانب الهندسي للبنية التحتية للبيانات، بينما تحليل البيانات من مهام محللي وعلماء البيانات، واتخاذ القرارات من مهام الإدارة، وتصميم واجهات المستخدم من مهام مصممي تجربة المستخدم.</p>
-</div>
-</section></section>
-<section>
-<section id="المرحلة-الثالثة-التطبيق-والأهمية" class="title-slide slide level1 sdaia-dark center">
-<h1>المرحلة الثالثة: التطبيق والأهمية</h1>
-<aside class="notes">
-<p>هذه هي الشريحة الافتتاحية للمرحلة الثالثة، وهي مرحلة “التطبيق والأهمية”. هنا نربط المفاهيم النظرية بالتطبيقات العملية والأثر في العالم الحقيقي.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="لماذا-هندسة-البيانات-مهمة-جدا-12" class="slide level2">
-<h2>لماذا هندسة البيانات مهمة جدًا؟ (1/2) 🚀</h2>
-<aside class="notes">
-<p>نوضح الأهمية الكبرى لهندسة البيانات بشكل عام، مركزين على تمكين الاستفادة من البيانات.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<ul>
-<li class="fragment"><strong>دعم اتخاذ القرارات الذكية:</strong> بدون بيانات منظمة وموثوقة، تكون القرارات مبنية على التخمين بدلًا من الحقائق. هندسة البيانات توفر هذه الحقائق.</li>
-<li class="fragment"><strong>تمكين الذكاء الاصطناعي وتعلم الآلة:</strong> نماذج الذكاء الاصطناعي تحتاج إلى كميات ضخمة من البيانات عالية الجودة للتدريب. مهندس البيانات هو من يوفرها.</li>
-<li class="fragment"><strong>تطوير تطبيقات مبتكرة:</strong> الكثير من التطبيقات التي نستخدمها يوميًا (مثل توصيات الأفلام أو خرائط الملاحة) تعتمد بشكل كبير على بيانات خلفية منظمة.</li>
-</ul>
-<aside class="notes">
-<p>نسأل الطلاب كيف يمكن لقرار تجاري أن يتأثر بنوعية البيانات المتاحة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="لماذا-هندسة-البيانات-مهمة-جدا-22" class="slide level2">
-<h2>لماذا هندسة البيانات مهمة جدًا؟ (2/2) 🛡️</h2>
-<aside class="notes">
-<p>نستكمل عرض الجوانب الأخرى لأهمية هندسة البيانات، مثل الكفاءة والأمان.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<div class="columns">
-<div class="column" style="width:60%;">
-<ul>
-<li class="fragment"><strong>تحسين الكفاءة التشغيلية:</strong> أتمتة عمليات جمع ومعالجة البيانات تقلل من الجهد اليدوي وتزيد من سرعة توفر البيانات.</li>
-<li class="fragment"><strong>ضمان جودة البيانات (Data Quality):</strong> البيانات النظيفة والدقيقة ضرورية لأي تحليل</li>
-</ul>
-</div>
-</div>
 <div class="quarto-auto-generated-content">
 <p><img src="slides_template/assets/sdaia.svg" class="slide-logo"></p>
 <div class="footer footer-default">
