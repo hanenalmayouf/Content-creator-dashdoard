@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>الدرس 2: مقدمة عملية في هندسة البيانات - المستوى 1</title>
+  <title>جمع البيانات وتخزينها: من المصدر إلى المخزن</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -322,82 +322,784 @@
     }
   </style>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYSIgeDE9Ii0xLjkxMSIgeDI9IjIuOTg1IiB5MT0iLS44NDEiIHkyPSIxLjQxNCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjOTlkNjMzIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjM2M5Ii8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyNzM0NzAiLz4NCiAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYSIgaWQ9ImQiIHgxPSItMy41NjkiIHgyPSIxLjMyOCIgeTE9Ii0xLjYwNSIgeTI9Ii42NTEiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJlIiB4MT0iLTMuMDQ3IiB4Mj0iMS44NDkiIHkxPSItLjkwNCIgeTI9IjEuMzUyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iZiIgeDE9Ii0yLjg5IiB4Mj0iMi4wMDciIHkxPSItMS4yOTIiIHkyPSIuOTY0Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iZyIgeDE9Ii0yLjQiIHgyPSIyLjQ5NyIgeTE9Ii0xLjA2NiIgeTI9IjEuMTg5Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iaCIgeDE9Ii0uOTkyIiB4Mj0iMi42NzkiIHkxPSItLjQxOCIgeTI9IjEuMjczIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iaSIgeDE9Ii0xLjUxMiIgeDI9IjIuMTU5IiB5MT0iLS4xOTciIHkyPSIxLjQ5NSIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYSIgaWQ9ImoiIHgxPSItLjkxNCIgeDI9IjIuNzU4IiB5MT0iLjA3OSIgeTI9IjEuNzcxIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iayIgeDE9Ii0zLjQwNSIgeDI9IjEuNDkzIiB5MT0iLTEuMDY4IiB5Mj0iMS4xODciLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJsIiB4MT0iLjM0NyIgeDI9IjMuMjg1IiB5MT0iLjE5OSIgeTI9IjEuNTUyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0ibSIgeDE9Ii0uOTA1IiB4Mj0iMi43NjciIHkxPSIuMDgzIiB5Mj0iMS43NzUiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJuIiB4MT0iLTIuMTE5IiB4Mj0iMi43NzgiIHkxPSItLjQ3NiIgeTI9IjEuNzc5Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0ibyIgeDE9Ii01LjY0NCIgeDI9Ii40ODYiIHkxPSItMi45OTgiIHkyPSIuNzQxIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0icCIgeDE9Ii0zLjQ5NSIgeDI9IjIuNjM2IiB5MT0iLTEuNjg3IiB5Mj0iMi4wNTMiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJxIiB4MT0iLTEuNDIyIiB4Mj0iMy4xNzUiIHkxPSItLjkyMyIgeTI9IjEuODgyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNhIiBpZD0iciIgeDE9Ii0zLjMwNiIgeDI9IjIuODI1IiB5MT0iLTIuMDcyIiB5Mj0iMS42NjgiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2EiIGlkPSJzIiB4MT0iLTEuNjgzIiB4Mj0iMi45MTQiIHkxPSItMS4wODEiIHkyPSIxLjcyMyIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYSIgaWQ9InQiIHgxPSItMS4xNTgiIHgyPSIyLjUyMSIgeTE9Ii0uMjYxIiB5Mj0iMS45ODMiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgxPSIuMjYxIiB4Mj0iLjYyNCIgeTE9IjMuNTYiIHkyPSItMS40NjkiIGdyYWRpZW50VW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij4NCiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzZjZiIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iIzYyNThhNiIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMjczNDcwIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJ1IiB4MT0iLjE2MyIgeDI9Ii41MjYiIHkxPSI0LjkyNCIgeTI9Ii0uMTAzIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0idiIgeDE9Ii4zODYiIHgyPSIuNjU4IiB5MT0iMS44MjUiIHkyPSItMS45NDUiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJ3IiB4MT0iLjI1MiIgeDI9Ii42MTUiIHkxPSI0LjE4MiIgeTI9Ii0uODQ1Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0ieCIgeDE9Ii40MTciIHgyPSIuNjg5IiB5MT0iMS45IiB5Mj0iLTEuODciLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJ5IiB4MT0iLjQ4NSIgeDI9Ii43MDMiIHkxPSIuOTU2IiB5Mj0iLTIuMDYiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJ6IiB4MT0iLjM3NyIgeDI9Ii42NDkiIHkxPSIyLjQ1NSIgeTI9Ii0xLjMxNCIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYiIgaWQ9IkEiIHgxPSIuMTk5IiB4Mj0iLjU2MiIgeTE9IjQuOTIyIiB5Mj0iLS4xMDUiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJCIiB4MT0iLjQzNyIgeDI9Ii43MDkiIHkxPSIxLjYyNSIgeTI9Ii0yLjE0NSIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYiIgaWQ9IkMiIHgxPSIuMjYxIiB4Mj0iLjYyNCIgeTE9IjQuMDU1IiB5Mj0iLS45NzIiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJEIiB4MT0iLjUiIHgyPSIuNSIgeTE9IjMuMDQ1IiB5Mj0iLTEuOTI3Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0iRSIgeDE9Ii41IiB4Mj0iLjUiIHkxPSI0LjkwMSIgeTI9Ii0uMDcyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0iRiIgeDE9Ii41IiB4Mj0iLjUiIHkxPSIyLjQzNSIgeTI9Ii0xLjI5NiIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYiIgaWQ9IkciIHgxPSIuNSIgeDI9Ii41IiB5MT0iLjkzNCIgeTI9Ii0yLjA1Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0iSCIgeDE9Ii41IiB4Mj0iLjUiIHkxPSIzLjc4NSIgeTI9Ii0xLjE4NyIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYiIgaWQ9IkkiIHgxPSIuNSIgeDI9Ii41IiB5MT0iMS44MDkiIHkyPSItMS45MjEiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2IiIGlkPSJKIiB4MT0iLjUiIHgyPSIuNSIgeTE9IjMuMDQ2IiB5Mj0iLTEuOTI4Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNiIiBpZD0iSyIgeDE9Ii41IiB4Mj0iLjUiIHkxPSIyLjc5NCIgeTI9Ii0yLjE3NyIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYyIgeDE9IjUuMDEiIHgyPSItMi4yNzciIHkxPSItMS4zODMiIHkyPSIyLjAzOSIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmRiZDRkIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjZjYzIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyNzM0NzAiLz4NCiAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IkwiIHgxPSIyLjIzOSIgeDI9Ii0yLjEzNCIgeTE9Ii0uMDgyIiB5Mj0iMS45NzEiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2MiIGlkPSJNIiB4MT0iNi4wOTgiIHgyPSItMS4xOTEiIHkxPSItMS44OTMiIHkyPSIxLjUyOCIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9Ik4iIHgxPSIzLjM4NCIgeDI9Ii0yLjA4MSIgeTE9Ii0xLjA4OCIgeTI9IjEuNDc3Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iTyIgeDE9IjIuNzgiIHgyPSItMi42ODYiIHkxPSItLjgwNSIgeTI9IjEuNzYxIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iUCIgeDE9IjcuMDc0IiB4Mj0iLS4yMTIiIHkxPSItMi4zNTMiIHkyPSIxLjA2OSIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IlEiIHgxPSI1LjA3NSIgeDI9Ii0yLjIxMSIgeTE9Ii0xLjQxNCIgeTI9IjIuMDA4Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iUiIgeDE9IjUuNzM2IiB4Mj0iLTEuNTUiIHkxPSItMi4xOTQiIHkyPSIxLjIyOCIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IlMiIHgxPSIyLjA4MSIgeDI9Ii0xLjc4MSIgeTE9Ii0uMDQ3IiB5Mj0iMS45Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iVCIgeDE9Ii43MjkiIHgyPSItMi4zNjEiIHkxPSIuMTM1IiB5Mj0iMS42OTIiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2MiIGlkPSJVIiB4MT0iMi43MTciIHgyPSItMi40MzMiIHkxPSItLjg2OCIgeTI9IjEuNzI4Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iViIgeDE9IjEuNTE3IiB4Mj0iLTIuMzQ3IiB5MT0iLS4yNjIiIHkyPSIxLjY4NCIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IlciIHgxPSIzLjU0NCIgeDI9Ii0xLjYwNiIgeTE9Ii0xLjI4NCIgeTI9IjEuMzEyIi8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iWCIgeDE9IjIuNjMxIiB4Mj0iLTEuMjMzIiB5MT0iLS4zMjQiIHkyPSIxLjYyMyIvPg0KICAgIDxsaW5lYXJHcmFkaWVudCBocmVmPSIjYyIgaWQ9IlkiIHgxPSIyLjAwMyIgeDI9Ii0xLjg2IiB5MT0iLS4wMDciIHkyPSIxLjk0Ii8+DQogICAgPGxpbmVhckdyYWRpZW50IGhyZWY9IiNjIiBpZD0iWiIgeDE9IjQuMTI1IiB4Mj0iLTEuMDI1IiB5MT0iLTEuMDc3IiB5Mj0iMS41MTgiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2MiIGlkPSJhYSIgeDE9IjMuMDIyIiB4Mj0iLTIuMTI3IiB5MT0iLTEuMDIxIiB5Mj0iMS41NzQiLz4NCiAgICA8bGluZWFyR3JhZGllbnQgaHJlZj0iI2MiIGlkPSJhYiIgeDE9IjQuNjgxIiB4Mj0iLS40NjkiIHkxPSItMS44NTciIHkyPSIuNzM4Ii8+DQogIDwvZGVmcz4NCiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMy44IDEpIj4NCiAgPHBhdGggZmlsbD0iIzNjOSIgZD0ibTM2LjA0MSAyNi41My0xMS40NDggNi42MTF2MTMuMjJsMTEuNDQ4IDYuNjEyIDExLjQ0Ni02LjYwOFYzMy4xNDFaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjYSkiIGQ9Ik03MS40NjQgMjAuOTF2Ny45MzJsLTYuODctMy45NjVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjZCkiIGQ9Ik02NC4yNDkgNTIuOTdsNi44NjkgMy45NjV2LTcuOTNaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjZSkiIGQ9Im02OC4xIDQ2LjM1OSAtNi44NjkgMy45Njd2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI2YpIiBkPSJNNzIuMzkyIDM1LjM3djcuOTMybC02Ljg2OSAtMy45NjVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjZykiIGQ9Ik01Ni42NTEgNTYuODQ3djcuOTMybC02Ljg2OSAtMy45NjVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjaCkiIGQ9Im01Ny43OTQgNTEuNjQzIC05LjE2IC01LjI4NiA5LjE2IC01LjI5WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI2kpIiBkPSJtNTcuNzk1IDUyLjk3IC05LjE2IDUuMjlWNDcuNjg0WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI2opIiBkPSJtNTcuNzkyIDM5Ljc0OSAtOS4xNTggNS4yODZ2LTEwLjU3MloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNrKSIgZD0ibTU4LjUgNzAuMzE4IC02Ljg2OCAzLjk2N3YtNy45MzJaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjbCkiIGQ9Im00Ny40ODcgNDYuMzYxIC0xMS40NDYgLTYuNjEyIDExLjQ0NiAtNi42MTFaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjbSkiIGQ9Im00Ni4zNDQgNjEuMDc3IC05LjE1OCA1LjI4NnYtMTAuNTcyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI24pIiBkPSJtNDUuMTk5IDc0LjAzNSAtNi44NjggMy45NjV2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI28pIiBkPSJtNzAuMDIxIDYxLjc3NSAtNi44NjkgMy45Njd2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3ApIiBkPSJtNjguMSAzMy4xNDIgLTYuODY5IDMuOTY3di03LjkzMloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNxKSIgZD0iTTU3Ljc5NCAyNy44NTJ2MTAuNTc2bC05LjE2IC01LjI5WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3IpIiBkPSJNNDUuMjAyIDYyLjg5MXY3LjkzMmwtNi44NjkgLTMuOTY3WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3MpIiBkPSJtNDYuMzQzIDU5Ljc1NiAtOS4xNTcgLTUuMjg2IDkuMTU3IC01LjI5WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3QpIiBkPSJtMzYuMDQxIDM5Ljc1IDExLjQ0NiA2LjYxMiAtMTEuNDQ2IDYuNjA4WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI2IpIiBkPSJtNjkuMzM0IDE3LjAzMSAtNi44NjkgMy45NjV2LTcuOTNaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjdSkiIGQ9Im01OC4wODIgNS40NiAtNi44NzEgMy45Njd2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3YpIiBkPSJtNTcuNzk2IDI2LjUyOSAtOS4xNjIgNS4yODZWMjEuMjQxWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3cpIiBkPSJtNDUuMiAxNC41NDUgLTYuODY5IC0zLjk2NSA2Ljg2OSAtMy45NjdaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjeCkiIGQ9Ik00Ni4zNDQgMTkuNzQ0VjMwLjMxOWwtOS4xNTggLTUuMjg2WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI3kpIiBkPSJNMzYuMDQxIDI2LjUzdjEzLjIyTDI0LjU5MyAzMy4xNDFaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjeikiIGQ9Im0zNC44OTcgMjMuNzA5IC05LjE1OCAtNS4yODYgOS4xNTggLTUuMjlaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjQSkiIGQ9Im0zMy43NSA3LjkzMiAtNi44NyAtMy45NjUgNi44NyAtMy45NjdaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjQikiIGQ9Im0yMy40NDkgMzEuODE2IC05LjE1OCAtNS4yOSA5LjE1OCAtNS4yODVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjQykiIGQ9Ik0xOS43NiA2LjAzOXY3LjkzMmwtNi44NjkgLTMuOTY1WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI0QpIiBkPSJtNTYuNjQ3IDIyLjY1MSAtNi44NzEgLTMuOTY3IDYuODcxIC0zLjk2N1oiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNFKSIgZD0ibTQ1LjIgMy45NjcgLTYuODY5IDMuOTY1di03LjkzMloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNGKSIgZD0ibTQ2LjM0NCAxOC40MTcgLTkuMTU4IDUuMjg2di0xMC41NjhaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjRykiIGQ9Im00Ny40ODcgMzMuMTQxIC0xMS40NDYgNi42MTF2LTEzLjIyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI0gpIiBkPSJtMzMuNzUzIDEyLjgxNCAtNi44NzEgMy45Njd2LTcuOTMyWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI0kpIiBkPSJtMzQuODk2IDI1LjAzMyAtOS4xNTggNS4yODZ2LTEwLjU3NVoiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNKKSIgZD0ibTIyLjMgMTguNjg0IC02Ljg3IDMuOTY1di03LjkzWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI0spIiBkPSJtNy41NTYgMjQuNjM3IC02Ljg3IC0zLjk2NSA2Ljg3IC0zLjk2N1oiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNjKSIgZD0ibTMzLjc1MSA3OC4wMDEgLTYuODcxIC0zLjk2NSA2Ljg3MSAtMy45NjdaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjTCkiIGQ9Ik0zNi4wNDEgMzkuNzV2MTMuMjJsLTExLjQ0OCAtNi42MTJaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjTSkiIGQ9Ik0yMi4zIDY2Ljc2M3Y3LjkzMmwtNi44NyAtMy45NjZaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjTikiIGQ9Im0yMy40NDkgNDYuMzYyIC05LjE1OCA1LjI4NnYtMTAuNTc2WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI08pIiBkPSJtMjMuNDQ5IDMzLjE0MiAtOS4xNTggNS4yOXYtMTAuNThaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjUCkiIGQ9Ik05LjYxNiA1OS40MDF2Ny45M2wtNi44NzEgLTMuOTY1WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI1EpIiBkPSJNMTAuODUxIDI4Ljg5OXY3LjkzMmwtNi44NzEgLTMuOTY1WiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI1IpIiBkPSJtNi44NzEgNDAuMDkzIC02Ljg3MSAzLjk2NXYtNy45M1oiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNTKSIgZD0ibTM0Ljg5NCA2Ni4zNjcgLTkuMTYgLTUuMjg2IDkuMTYgLTUuMjlaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjVCkiIGQ9Im0zNi4wNDEgMzkuNzUgLTExLjQ0OCA2LjYwOHYtMTMuMjJaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjVSkiIGQ9Im0zMy43NSA2Ny40MjUgLTYuODcxIDMuOTY3di03LjkzMloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNWKSIgZD0ibTM0Ljg5MiA1NC40NjcgLTkuMTU3IDUuMjl2LTEwLjU4MloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNXKSIgZD0ibTIyLjI5OSA2MC44MTQgLTYuODY5IDMuOTY1di03LjkzWiIvPg0KICA8cGF0aCBmaWxsPSJ1cmwoI1gpIiBkPSJNMjMuNDQ5IDQ3LjY4M3YxMC41NzNsLTkuMTU4IC01LjI4NloiLz4NCiAgPHBhdGggZmlsbD0idXJsKCNZKSIgZD0iTTIzLjQ0OSAzNC40NTl2MTAuNTczbC05LjE1OCAtNS4yODNaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjWikiIGQ9Im0xMC44NSA1MC4zMjYgLTYuODcxIC0zLjk2NyA2Ljg3MSAtMy45NjVaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjYWEpIiBkPSJtNy4xNDUgMjYuNTMxIC02Ljg2OSAzLjk2NXYtNy45MzJaIi8+DQogIDxwYXRoIGZpbGw9InVybCgjYWIpIiBkPSJtNy41NTYgNTMuNDUyIC02Ljg3MSAzLjk2NXYtNy45MzVaIi8+DQogIDwvZz4NCjwvc3ZnPg0K">
+  <style>
+  .sdaia-dark, .sdaia-dark h1, .sdaia-dark h2, .sdaia-dark h3, .sdaia-dark p, .sdaia-dark li { color: white !important; }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">الدرس 2: مقدمة عملية في هندسة البيانات - المستوى 1</h1>
+<section id="title-slide" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
+  <h1 class="title">جمع البيانات وتخزينها: من المصدر إلى المخزن</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="مقدمة-وأهداف-الدرس" class="slide level2">
-<h2>مقدمة وأهداف الدرس</h2>
-<p><strong>مرحبًا بكم في هذا الدرس التفاعلي</strong></p>
-<p>شرح المبادئ الأساسية وتطبيق أول معمل برمجي للمفاهيم الخاصة بـ هندسة البيانات .</p>
-<h3 id="أهداف-الدرس-التعليمية">أهداف الدرس التعليمية:</h3>
+<section id="الأهداف-التعليمية-لهذا-الدرس" class="slide level2">
+<h2>الأهداف التعليمية لهذا الدرس</h2>
 <ul>
-<li class="fragment">التعرف على المكونات الأساسية لـ هندسة البيانات</li>
-<li class="fragment">تثبيت المكتبات والتحقق من بيئة العمل</li>
-<li class="fragment">كتابة وتطبيق كود برمجي بسيط لحل المشكلة</li>
+<li class="fragment"><strong>تحديد مصادر البيانات المتنوعة</strong> في العالم الرقمي والواقعي.</li>
+<li class="fragment"><strong>فهم المبادئ الأساسية لجمع البيانات</strong> بشكل مبسط.</li>
+<li class="fragment"><strong>التعرف على الفروقات بين طرق تخزين البيانات المختلفة</strong> (مثل: قواعد البيانات ومخازن البيانات، باستخدام تشبيهات بسيطة).</li>
+<li class="fragment"><strong>إدراك أهمية جودة البيانات</strong> من لحظة الجمع.</li>
 </ul>
+<aside class="notes">
+<p>أهلاً بكم في درس جديد! سنبدأ دائمًا بتوضيح ما سنتعلمه اليوم. هذه هي الأهداف الرئيسية التي نطمح لتحقيقها معًا بنهاية هذه الجلسة. أشجعكم على تذكر هذه الأهداف بينما نتقدم في الدرس.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section class="slide level2">
-
+<section id="لماذا-جمع-البيانات-وتخزينها-مهم" class="slide level2">
+<h2>لماذا “جمع البيانات وتخزينها” مهم؟</h2>
+<ul>
+<li class="fragment">البيانات هي <strong>وقود العصر الرقمي</strong> ومفتاح فهم العالم من حولنا.</li>
+<li class="fragment">تساعدنا في اتخاذ <strong>قرارات أفضل</strong> في حياتنا اليومية وفي الأعمال.</li>
+<li class="fragment">بدونها، لا يمكن للتكنولوجيا الذكية أو الشركات الحديثة العمل بكفاءة.</li>
+</ul>
+<aside class="notes">
+<p>قبل أن نتعمق في التفاصيل، دعونا نتساءل: لماذا يمثل هذا الموضوع أهمية قصوى؟ البيانات هي أساس كل شيء نراه اليوم من تطبيقات هواتفنا إلى قرارات الشركات الكبرى. فهم كيفية جمعها وتخزينها هو الخطوة الأولى في أي رحلة مع البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="رحلتنا-اليوم-من-المصدر-إلى-المخزن" class="slide level2">
+<h2>رحلتنا اليوم: من المصدر إلى المخزن</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>سنتتبع معًا مسار البيانات خطوة بخطوة:</p>
+<ul>
+<li class="fragment"><strong>المرحلة الأولى:</strong> كيف تظهر البيانات في المقام الأول؟ (المصادر)</li>
+<li class="fragment"><strong>المرحلة الثانية:</strong> كيف نلتقط هذه البيانات ونجمعها؟ (الجمع)</li>
+<li class="fragment"><strong>المرحلة الثالثة:</strong> أين نضع هذه البيانات بأمان لاستخدامها لاحقًا؟ (التخزين)</li>
+<li class="fragment"><strong>المرحلة الرابعة:</strong> كيف نتأكد من أن البيانات صالحة ومفيدة؟ (الجودة)</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-visual-metaphor-of-data-flowing-from-various-sources-like-a-river-into-a-large-warehouse-or-library-representing-storage?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A-visual-metaphor-of-data-flowing-from-various-sources-like-a-river-into-a-large-warehouse-or-library-representing-storage</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>تخيلوا البيانات كأنها نهر يتدفق. سنستكشف من أين ينبع هذا النهر، كيف نجمع مياهه، أين نخزنها، وكيف نضمن نقاء هذه المياه. هذه الرحلة أساسية لكل مهندس بيانات مبتدئ.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section>
-<section id="القسم-الأول-الأساسيات-والمفاهيم" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>القسم الأول: الأساسيات والمفاهيم</h1>
+<section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>المرحلة الأولى: التهيئة والجذب</h1>
 
 </section>
-<section id="مقارنة-المفاهيم-الهامة" class="slide level2">
-<h2>مقارنة المفاهيم الهامة</h2>
-<p><strong>تفصيل للأعمدة المزدوجة</strong></p>
+<section id="دعونا-نبدأ-ما-هي-البيانات" class="slide level2">
+<h2>دعونا نبدأ: ما هي البيانات؟</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="المفهوم-الأول">المفهوم الأول</h3>
+<div class="column" style="width:60%;">
+<p>ببساطة، <strong>البيانات (Data)</strong> هي أي حقائق أو أرقام أو نصوص أو صور أو أصوات أو مقاطع فيديو يمكن جمعها وتحليلها.</p>
 <ul>
-<li class="fragment">شرح المفهوم الأول بالتفصيل.</li>
-<li class="fragment">كيفية استخدامه في بايثون.</li>
+<li class="fragment">يمكن أن تكون بسيطة مثل رقم هاتفك.</li>
+<li class="fragment">أو معقدة مثل مجموعة صور لسماء الليل.</li>
+<li class="fragment">أو نصية مثل منشور على وسائل التواصل الاجتماعي.</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<h3 id="المفهوم-الثاني">المفهوم الثاني</h3>
-<ul>
-<li class="fragment">شرح المفهوم الثاني بالتفصيل.</li>
-<li class="fragment">مميزات وعيوب كل طريقة.</li>
-</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/An-abstract-representation-of-data-as-binary-code-numbers-text-and-images-floating-in-a-digital-space?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>An-abstract-representation-of-data-as-binary-code-numbers-text-and-images-floating-in-a-digital-space</figcaption>
+</figure>
 </div>
 </div>
+</div>
+<aside class="notes">
+<p>لنفكر في أبسط تعريف للبيانات. إنها اللبنات الأساسية لكل المعلومات من حولنا. أي شيء يمكن قياسه، وصفه، أو تسجيله يمكن اعتباره بيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="مسابقة-سريعة" class="slide level2">
-<h2>مسابقة سريعة</h2>
-<p><strong>اختبر معلوماتك</strong></p>
-<p>أي من التالي يعد أفضل ممارسة لحفظ النصوص العربية في الرسوم البيانية؟</p>
-<div style="display: flex; justify-content: center; gap: 15px; margin: 30px 0;">
-<p><button class="quiz-btn" onclick="checkQ1('wrong1')">استخدام خط افتراضي</button> <button class="quiz-btn" onclick="checkQ1('correct')">تعديل matplotlib لإخراج SVG</button> <button class="quiz-btn" onclick="checkQ1('wrong2')">تحويل النصوص لصور</button></p>
+<section id="أمثلة-على-البيانات-من-حياتنا-اليومية" class="slide level2">
+<h2>أمثلة على البيانات من حياتنا اليومية</h2>
+<ul>
+<li class="fragment"><strong>اسمك وعمرك</strong> في بطاقة هويتك.</li>
+<li class="fragment"><strong>صورك ومقاطع الفيديو</strong> على هاتفك.</li>
+<li class="fragment"><strong>درجة الحرارة الحالية</strong> التي يعرضها تطبيق الطقس.</li>
+<li class="fragment"><strong>قائمة مشترياتك</strong> من متجر البقالة.</li>
+<li class="fragment"><strong>منشورات الأصدقاء</strong> على الفيسبوك أو تويتر.</li>
+</ul>
+<aside class="notes">
+<p>البيانات ليست شيئًا بعيدًا أو معقدًا، إنها جزء لا يتجزأ من حياتنا اليومية. هذه الأمثلة توضح مدى تنوع البيانات التي نتعامل معها باستمرار.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="أنواع-البيانات-الأساسية-تبسيط" class="slide level2">
+<h2>أنواع البيانات الأساسية (تبسيط)</h2>
+<p>يمكننا تصنيف البيانات بطرق عديدة، ولكن للتبسيط، دعنا نركز على نوعين رئيسيين بناءً على هيكلها:</p>
+<ul>
+<li class="fragment"><strong>البيانات المهيكلة (Structured Data):</strong>
+<ul>
+<li class="fragment">تكون مرتبة ومنظمة في شكل جداول أو قوائم محددة.</li>
+<li class="fragment">مثل الأرقام والتواريخ والنصوص القصيرة في جدول بيانات.</li>
+</ul></li>
+<li class="fragment"><strong>البيانات غير المهيكلة (Unstructured Data):</strong>
+<ul>
+<li class="fragment">لا تحتوي على هيكل محدد أو نمط ثابت.</li>
+<li class="fragment">مثل النصوص الطويلة، الصور، مقاطع الفيديو، التسجيلات الصوتية.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>هذا تقسيم مبسط للغاية لفهم كيفية تنظيم البيانات. البيانات المهيكلة تشبه تمامًا تنظيم الكتب في مكتبة بأرفف وفئات واضحة، بينما غير المهيكلة تشبه صندوقًا كبيرًا مليئًا بمواد متنوعة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="أنواع-البيانات-الأساسية-يتبع" class="slide level2">
+<h2>أنواع البيانات الأساسية (يتبع)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>البيانات شبه المهيكلة (Semi-structured Data):</strong>
+<ul>
+<li class="fragment">تكون بين المهيكلة وغير المهيكلة.</li>
+<li class="fragment">تحتوي على بعض العناصر التنظيمية، ولكنها ليست صارمة مثل الجداول.</li>
+<li class="fragment">مثال: ملفات JSON أو XML التي تستخدم وسومًا لتعريف البيانات ولكنها لا تتطلب بنية ثابتة.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/An-infographic-showing-three-categories-of-data-structured-as-a-neat-table-unstructured-as-a-cloud-of-text-and-images-and-semi-structured-as-a-nested-JSON-document?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>An-infographic-showing-three-categories-of-data-structured-as-a-neat-table-unstructured-as-a-cloud-of-text-and-images-and-semi-structured-as-a-nested-JSON-document</figcaption>
+</figure>
 </div>
-<p id="feedback1" style="font-weight: bold; font-size: 1.1em; min-height: 40px; text-align: center; color: #00C9A7;">
-</p>
-<script>
-function checkQ1(ans) {
-  var fb = document.getElementById("feedback1");
-  if(ans === 'correct') {
-    fb.style.color = "#00C9A7";
-    fb.innerHTML = "✅ إجابة صحيحة! تصدير الرسوم بصيغة SVG بدون تضمين خطوط يضمن بقاء النص قابلاً للقراءة والعرض الصحيح.";
-  } else {
-    fb.style.color = "#FF6666";
-    fb.innerHTML = "❌ إجابة خاطئة. الخيار الآخر غير صحيح تقنياً للغات ذات الحروف المتصلة.";
-  }
-}
-</script>
-<style>
-  .reveal .slide { text-align: right; direction: rtl; }
-  .quiz-btn { background-color: #1C355E; color: white; border: 2px solid #1C355E; padding: 10px 20px; border-radius: 8px; cursor: pointer; transition: 0.3s; font-family: 'Helvetica Neue Arabic', sans-serif; }
-  .quiz-btn:hover { background-color: transparent; color: #1C355E; }
-</style>
+</div>
+</div>
+<aside class="notes">
+<p>البيانات شبه المهيكلة هي نوع مثير للاهتمام، فهي تمنحنا مرونة أكبر من المهيكلة دون الفوضى الكاملة للبيانات غير المهيكلة. يمكن تخيلها كرفوف مكتبة لا تلتزم بترتيب أبجدي صارم ولكنها لا تزال تحتوي على معلومات عن الفئة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="مقارنة-أنواع-البيانات-الأساسية" class="slide level2">
+<h2>مقارنة أنواع البيانات الأساسية</h2>
+<table>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 29%">
+<col style="width: 29%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">الخاصية</th>
+<th style="text-align: left;">البيانات المهيكلة</th>
+<th style="text-align: left;">البيانات شبه المهيكلة</th>
+<th style="text-align: left;">البيانات غير المهيكلة</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>الهيكل</strong></td>
+<td style="text-align: left;">محدد سلفاً، جداول ذات أعمدة وصفوف</td>
+<td style="text-align: left;">مرن، علامات أو وسوم تحدد البيانات</td>
+<td style="text-align: left;">غير محدد، لا يوجد نموذج ثابت</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>أمثلة</strong></td>
+<td style="text-align: left;">قواعد بيانات علائقية، جداول Excel</td>
+<td style="text-align: left;">ملفات XML/JSON، رسائل البريد الإلكتروني</td>
+<td style="text-align: left;">صور، فيديوهات، صوت، نصوص حرة، مستندات PDF</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>سهولة التحليل</strong></td>
+<td style="text-align: left;">عالية جداً، يمكن الاستعلام عنها بسهولة</td>
+<td style="text-align: left;">متوسطة، تتطلب أدوات خاصة</td>
+<td style="text-align: left;">منخفضة، تتطلب معالجة لغوية طبيعية أو رؤية حاسوبية</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>حجم البيانات</strong></td>
+<td style="text-align: left;">يمكن أن تكون كبيرة، لكن غالبًا أقل من غير المهيكلة</td>
+<td style="text-align: left;">متوسطة إلى كبيرة</td>
+<td style="text-align: left;">ضخمة جداً، تنمو باستمرار</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>هذا الجدول يقدم نظرة سريعة ومقارنة عملية بين الأنواع الثلاثة. فهم هذه الفروقات يساعدنا في تحديد أفضل طريقة للتعامل مع كل نوع من أنواع البيانات في مراحل الجمع والتخزين والتحليل.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="المرحلة-الثانية-المفاهيم-الأساسية" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>المرحلة الثانية: المفاهيم الأساسية</h1>
+
+</section>
+<section id="القسم-الأول-مصادر-البيانات" class="slide level2 sdaia-dark" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h2>القسم الأول: مصادر البيانات 🔍</h2>
+</section>
+<section id="من-أين-تأتي-البيانات" class="slide level2">
+<h2>من أين تأتي البيانات؟</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>في كل ثانية، يتم إنتاج كميات هائلة من البيانات من مصادر لا حصر لها حولنا. يمكننا تقسيم هذه المصادر إلى فئتين رئيسيتين:</p>
+<ul>
+<li class="fragment"><strong>المصادر الرقمية (Digital Sources):</strong> البيانات التي يتم إنشاؤها وتخزينها إلكترونيًا.</li>
+<li class="fragment"><strong>المصادر الواقعية (Real-World Sources):</strong> البيانات التي يتم جمعها من العالم المادي المحيط بنا.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-globe-surrounded-by-digital-icons-representing-websites-social-media-sensors-and-also-physical-elements-like-people-surveys-and-cameras?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A-globe-surrounded-by-digital-icons-representing-websites-social-media-sensors-and-also-physical-elements-like-people-surveys-and-cameras</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>البيانات مثل الأنفاس، تتولد حولنا طوال الوقت. فهم من أين تأتي هذه البيانات هو الخطوة الأولى لجمعها بشكل فعال. دعونا نلقي نظرة فاحصة على هذه المصادر.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="المصادر-الرقمية-للبيانات" class="slide level2">
+<h2>المصادر الرقمية للبيانات</h2>
+<ul>
+<li class="fragment"><strong>الإنترنت ومواقع الويب:</strong>
+<ul>
+<li class="fragment">سلوك المستخدمين على المواقع، سجلات التصفح، عمليات الشراء.</li>
+<li class="fragment">مثال: تتبع المنتجات التي تشاهدها على موقع تسوق.</li>
+</ul></li>
+<li class="fragment"><strong>وسائل التواصل الاجتماعي:</strong>
+<ul>
+<li class="fragment">المنشورات، الإعجابات، التعليقات، بيانات الملفات الشخصية.</li>
+<li class="fragment">مثال: تحليل اتجاهات المحادثات حول منتج معين على تويتر.</li>
+</ul></li>
+<li class="fragment"><strong>أجهزة الاستشعار (Sensors):</strong>
+<ul>
+<li class="fragment">درجة الحرارة، الرطوبة، ضغط الهواء، بيانات الحركة.</li>
+<li class="fragment">مثال: مستشعرات الطقس، أجهزة تتبع اللياقة البدنية.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>المصادر الرقمية هي الأسرع نموًا والأكثر انتشارًا في عصرنا. فكروا في حجم البيانات التي تُولدها نقرة زر واحدة على أي تطبيق أو موقع.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="المصادر-الرقمية-للبيانات-يتبع" class="slide level2">
+<h2>المصادر الرقمية للبيانات (يتبع)</h2>
+<ul>
+<li class="fragment"><strong>التطبيقات والأنظمة الرقمية:</strong>
+<ul>
+<li class="fragment">سجلات المعاملات المصرفية، بيانات حجوزات الفنادق، سجلات المستشفيات الإلكترونية.</li>
+<li class="fragment">مثال: بيانات المعاملات اليومية في نظام نقاط البيع (POS).</li>
+</ul></li>
+<li class="fragment"><strong>الأجهزة الذكية وإنترنت الأشياء (IoT):</strong>
+<ul>
+<li class="fragment">بيانات استخدام الأجهزة المنزلية الذكية، السيارات المتصلة، المدن الذكية.</li>
+<li class="fragment">مثال: بيانات استهلاك الطاقة من منظم حرارة ذكي.</li>
+</ul></li>
+<li class="fragment"><strong>البيانات الحكومية المفتوحة (Open Government Data):</strong>
+<ul>
+<li class="fragment">مجموعات بيانات عامة حول السكان، الاقتصاد، الطقس، النقل.</li>
+<li class="fragment">مثال: إحصائيات التعداد السكاني من جهة حكومية.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>كل جهاز أو تطبيق نستخدمه اليوم هو مصدر محتمل للبيانات. حتى المدن أصبحت “ذكية” وتولد بيانات عن كل شيء من حركة المرور إلى جودة الهواء.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="المصادر-الواقعية-للبيانات" class="slide level2">
+<h2>المصادر الواقعية للبيانات</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>الاستبيانات والمقابلات:</strong>
+<ul>
+<li class="fragment">آراء الناس، تفضيلاتهم، بيانات ديموغرافية يتم جمعها مباشرة.</li>
+<li class="fragment">مثال: استبيان رضا العملاء بعد زيارة مطعم.</li>
+</ul></li>
+<li class="fragment"><strong>الملاحظات المباشرة:</strong>
+<ul>
+<li class="fragment">سلوك الحيوانات في البرية، أنماط حركة المشاة في مدينة.</li>
+<li class="fragment">مثال: مراقبة عدد السيارات التي تمر عبر تقاطع معين.</li>
+</ul></li>
+<li class="fragment"><strong>التجارب العلمية:</strong>
+<ul>
+<li class="fragment">النتائج التي يتم تسجيلها يدويًا في المختبرات أو الحقول.</li>
+<li class="fragment">مثال: قياس نمو النباتات تحت ظروف مختلفة.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-person-filling-out-a-survey-form-with-a-pen-and-another-person-observing-a-scientific-experiment-in-a-lab-setting?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A-person-filling-out-a-survey-form-with-a-pen-and-another-person-observing-a-scientific-experiment-in-a-lab-setting</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>رغم هيمنة المصادر الرقمية، لا يزال للعالم المادي أهميته. البيانات التي نجمعها مباشرة من الأشخاص أو الظواهر الطبيعية توفر رؤى فريدة لا يمكن الحصول عليها رقميًا.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="القسم-الثاني-طرق-جمع-البيانات" class="slide level2 sdaia-dark" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h2>القسم الثاني: طرق جمع البيانات 📦</h2>
+</section>
+<section id="ما-هو-جمع-البيانات" class="slide level2">
+<h2>ما هو جمع البيانات؟</h2>
+<ul>
+<li class="fragment"><strong>جمع البيانات (Data Collection)</strong> هو عملية جمع وقياس المعلومات من مصادر مختلفة بشكل منهجي للإجابة على أسئلة محددة أو لاختبار فرضيات.</li>
+<li class="fragment">إنها الخطوة الأولى والحاسمة في رحلة البيانات.</li>
+<li class="fragment">هدفها الحصول على بيانات دقيقة وموثوقة قدر الإمكان.</li>
+</ul>
+<aside class="notes">
+<p>بعد أن عرفنا مصادر البيانات، حان الوقت لنتحدث عن كيفية “التقاط” هذه البيانات. جمع البيانات ليس مجرد تجميع، بل هو عملية منظمة وهادفة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="طرق-جمع-البيانات-يدوية-وآلية" class="slide level2">
+<h2>طرق جمع البيانات: يدوية وآلية</h2>
+<p>يمكننا تقسيم طرق جمع البيانات بشكل عام إلى:</p>
+<ul>
+<li class="fragment"><strong>الجمع اليدوي (Manual Collection):</strong>
+<ul>
+<li class="fragment">يتم بواسطة البشر، غالبًا باستخدام أدوات بسيطة.</li>
+<li class="fragment">يتطلب وقتًا وجهدًا بشريًا كبيرًا.</li>
+</ul></li>
+<li class="fragment"><strong>الجمع الآلي (Automated Collection):</strong>
+<ul>
+<li class="fragment">يتم بواسطة أنظمة برمجية أو أجهزة.</li>
+<li class="fragment">أكثر سرعة وكفاءة، خاصة للبيانات الكبيرة والمتدفقة.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>هذا تقسيم أساسي للطرق. كل طريقة لها مميزاتها وعيوبها، وتُستخدم بناءً على نوع البيانات، حجمها، والموارد المتاحة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="أمثلة-على-طرق-الجمع-اليدوي" class="slide level2">
+<h2>أمثلة على طرق الجمع اليدوي</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>الاستبيانات الورقية/الشفوية:</strong>
+<ul>
+<li class="fragment">ملء استمارات ورقية أو طرح أسئلة مباشرة على الأفراد.</li>
+<li class="fragment">مثال: استبيان رضا العملاء في متجر، أو مقابلة شخصية لجمع معلومات عن تاريخ العائلة.</li>
+</ul></li>
+<li class="fragment"><strong>إدخال البيانات يدويًا:</strong>
+<ul>
+<li class="fragment">نسخ البيانات من مستندات ورقية إلى جداول إلكترونية.</li>
+<li class="fragment">مثال: إدخال سجلات المرضى القديمة من ملفات ورقية إلى نظام كمبيوتر.</li>
+</ul></li>
+<li class="fragment"><strong>الملاحظة المباشرة وتسجيلها:</strong>
+<ul>
+<li class="fragment">مراقبة حدث أو سلوك وتسجيل الملاحظات يدويًا.</li>
+<li class="fragment">مثال: ملاحظة تفاعلات الأطفال في روضة أطفال وتسجيلها في دفتر ملاحظات.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-person-handwriting-notes-in-a-notebook-while-observing-an-event-and-another-person-filling-out-a-physical-survey-form?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A-person-handwriting-notes-in-a-notebook-while-observing-an-event-and-another-person-filling-out-a-physical-survey-form</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>الجمع اليدوي هو الطريقة التقليدية، ولا يزال له مكانه في سيناريوهات معينة حيث التفاعل البشري ضروري أو لا تتوفر تقنيات الأتمتة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="أمثلة-على-طرق-الجمع-الآلي" class="slide level2">
+<h2>أمثلة على طرق الجمع الآلي</h2>
+<ul>
+<li class="fragment"><strong>واجهات برمجة التطبيقات (APIs):</strong>
+<ul>
+<li class="fragment">تسمح للتطبيقات والأنظمة المختلفة بالتواصل وتبادل البيانات تلقائيًا.</li>
+<li class="fragment">مثال: جمع بيانات الطقس من خدمة أرصاد جوية باستخدام API.</li>
+</ul></li>
+<li class="fragment"><strong>أجهزة الاستشعار الذكية (Smart Sensors):</strong>
+<ul>
+<li class="fragment">تجمع البيانات بشكل مستمر وتلقائي (درجة الحرارة، الحركة، إلخ).</li>
+<li class="fragment">مثال: مستشعر حركة يرسل بيانات عند اكتشاف حركة.</li>
+</ul></li>
+<li class="fragment"><strong>تتبع الويب (Web Tracking):</strong>
+<ul>
+<li class="fragment">جمع بيانات تصفح المستخدمين من مواقع الويب (مثل النقرات، الوقت المستغرق).</li>
+<li class="fragment">مثال: أدوات تحليلات الويب مثل Google Analytics.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>الجمع الآلي هو العمود الفقري لعالم البيانات الحديث. يمكنه التعامل مع كميات ضخمة من البيانات بسرعة ودقة لا يمكن أن يضاهيها البشر.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="أمثلة-على-طرق-الجمع-الآلي-يتبع" class="slide level2">
+<h2>أمثلة على طرق الجمع الآلي (يتبع)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>كشط الويب (Web Scraping):</strong>
+<ul>
+<li class="fragment">برامج تقوم بزيارة صفحات الويب واستخراج المعلومات المطلوبة منها تلقائيًا.</li>
+<li class="fragment">مثال: جمع أسعار منتجات معينة من مواقع تجارة إلكترونية مختلفة للمقارنة.</li>
+</ul></li>
+<li class="fragment"><strong>سجلات النظام (System Logs):</strong>
+<ul>
+<li class="fragment">الملفات التي تسجل الأحداث والأنشطة التي تحدث داخل نظام كمبيوتر أو تطبيق.</li>
+<li class="fragment">مثال: سجلات تسجيل الدخول والخروج للمستخدمين في نظام إدارة.</li>
+</ul></li>
+<li class="fragment"><strong>التقاط البيانات من نقاط البيع (POS Data Capture):</strong>
+<ul>
+<li class="fragment">جمع بيانات كل عملية شراء تتم في متجر تلقائيًا.</li>
+<li class="fragment">مثال: تفاصيل المنتج، السعر، الوقت، طريقة الدفع من جهاز نقطة البيع.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-robot-arm-extracting-data-from-a-computer-screen-and-a-point-of-sale-system-with-a-receipt-being-printed-automatically?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A-robot-arm-extracting-data-from-a-computer-screen-and-a-point-of-sale-system-with-a-receipt-being-printed-automatically</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>هذه الطرق هي جزء أساسي من جمع البيانات في العديد من الصناعات. كشط الويب على وجه الخصوص قوي جدًا ولكن يجب استخدامه بمسؤولية واحترام شروط الاستخدام.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="تحديات-جمع-البيانات" class="slide level2">
+<h2>تحديات جمع البيانات</h2>
+<ul>
+<li class="fragment"><strong>جودة البيانات:</strong> الحصول على بيانات دقيقة وكاملة وغير مكررة.</li>
+<li class="fragment"><strong>الخصوصية والأمان:</strong> حماية البيانات الحساسة وضمان الامتثال للوائح.</li>
+<li class="fragment"><strong>التكلفة والوقت:</strong> جمع البيانات يمكن أن يكون مكلفًا ويستغرق وقتًا طويلاً.</li>
+<li class="fragment"><strong>تنوع المصادر:</strong> التعامل مع بيانات من مصادر مختلفة بتنسيقات متعددة.</li>
+<li class="fragment"><strong>تكنولوجيا غير مناسبة:</strong> استخدام أدوات أو تقنيات خاطئة لجمع نوع معين من البيانات.</li>
+</ul>
+<aside class="notes">
+<p>لا تخلو عملية جمع البيانات من التحديات. معرفة هذه التحديات مسبقًا يساعدنا على التخطيط بشكل أفضل وتجنب الأخطاء الشائعة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="مبادئ-جمع-البيانات-الجيدة" class="slide level2">
+<h2>مبادئ جمع البيانات الجيدة</h2>
+<ul>
+<li class="fragment"><strong>تحديد الهدف بوضوح:</strong> ما هي الأسئلة التي أريد الإجابة عليها بالبيانات؟</li>
+<li class="fragment"><strong>اختيار الطريقة المناسبة:</strong> هل أحتاج لجمع يدوي أم آلي؟ أي الأدوات هي الأفضل؟</li>
+<li class="fragment"><strong>ضمان الدقة والموثوقية:</strong> هل البيانات تعكس الواقع بدقة؟ هل يمكن الوثوق بها؟</li>
+<li class="fragment"><strong>الشفافية والأخلاقيات:</strong> هل يتم إعلام الأفراد بكيفية استخدام بياناتهم؟</li>
+<li class="fragment"><strong>التوثيق الجيد:</strong> تسجيل تفاصيل عملية الجمع لتسهيل الفهم والتحقق لاحقًا.</li>
+</ul>
+<aside class="notes">
+<p>لكي تكون البيانات ذات قيمة، يجب أن تُجمع وفق مبادئ صارمة. هذه المبادئ هي أساس أي عملية جمع بيانات ناجحة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="اختبر-معلوماتك" class="title-slide slide level1 center">
+<h1>اختبر معلوماتك! 🧠</h1>
+<p>ما هي طريقة جمع البيانات الأكثر كفاءة للتعامل مع كميات هائلة من بيانات المستشعرات المتدفقة في الوقت الفعلي؟</p>
+<ul>
+<li class="fragment">أ) الاستبيانات الورقية</li>
+<li class="fragment">ب) إدخال البيانات يدويًا</li>
+<li class="fragment">ج) استخدام واجهات برمجة التطبيقات (APIs) وأجهزة الاستشعار الذكية</li>
+</ul>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ج) استخدام واجهات برمجة التطبيقات (APIs) وأجهزة الاستشعار الذكية. هذه الطرق مصممة للتعامل مع التدفق المستمر للبيانات الكبيرة تلقائيًا.</p>
+</div>
+<aside class="notes">
+<p>هذا سؤال سريع لاختبار مدى استيعابكم للمفاهيم التي ناقشناها للتو. فكروا في حجم البيانات والسرعة المطلوبة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="القسم-الثالث-تخزين-البيانات" class="slide level2 sdaia-dark" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h2>القسم الثالث: تخزين البيانات 📁</h2>
+</section>
+<section id="لماذا-نقوم-بتخزين-البيانات" class="slide level2">
+<h2>لماذا نقوم بتخزين البيانات؟</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>بعد جمع البيانات، نحتاج إلى مكان آمن ومنظم لوضعها.</p>
+<ul>
+<li class="fragment"><strong>للحفاظ عليها:</strong> لضمان عدم فقدانها أو تلفها.</li>
+<li class="fragment"><strong>للوصول إليها لاحقًا:</strong> لاستخدامها في التحليل، إعداد التقارير، أو اتخاذ القرارات.</li>
+<li class="fragment"><strong>لتنظيمها:</strong> لتسهيل البحث عنها واسترجاعها بسرعة عند الحاجة.</li>
+<li class="fragment"><strong>لمشاركتها:</strong> للسماح للعديد من الأشخاص أو الأنظمة بالوصول إلى نفس البيانات.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/A-secure-digital-data-center-with-rows-of-servers-glowing-blue-and-green-lights-representing-organized-and-safe-storage?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>A-secure-digital-data-center-with-rows-of-servers-glowing-blue-and-green-lights-representing-organized-and-safe-storage</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>تخزين البيانات ليس مجرد “وضعها في مكان ما”. إنه جزء حيوي من دورة حياة البيانات يضمن أننا نستطيع الاستفادة منها متى احتجنا.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="طرق-تخزين-البيانات-البسيطة" class="slide level2">
+<h2>طرق تخزين البيانات البسيطة</h2>
+<ul>
+<li class="fragment"><strong>جداول البيانات (Spreadsheets):</strong>
+<ul>
+<li class="fragment">مثل ملفات Excel أو Google Sheets.</li>
+<li class="fragment">مفيدة للبيانات المهيكلة الصغيرة إلى المتوسطة الحجم.</li>
+<li class="fragment">سهلة الاستخدام، لكنها تصبح معقدة مع البيانات الكبيرة أو عند الحاجة لمشاركتها.</li>
+</ul></li>
+<li class="fragment"><strong>الملفات المحلية (Local Files):</strong>
+<ul>
+<li class="fragment">تخزين البيانات في مستندات نصية، صور، أو مجلدات على جهاز الكمبيوتر الخاص بك.</li>
+<li class="fragment">بسيطة جدًا، لكنها لا توفر تنظيمًا جيدًا أو سهولة في البحث.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>هذه هي أبسط طرق التخزين التي ربما استخدمها معظمكم بالفعل. هي جيدة للبدء، ولكنها ليست مناسبة لاحتياجات مهندس البيانات المحترف.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="مقدمة-لمخازن-البيانات-المتقدمة" class="slide level2">
+<h2>مقدمة لمخازن البيانات المتقدمة</h2>
+<p>مع نمو حجم البيانات وتعقيدها، نحتاج إلى حلول تخزين أكثر تطورًا. هنا يظهر نوعان رئيسيان للتخزين:</p>
+<ul>
+<li class="fragment"><strong>قواعد البيانات (Databases):</strong>
+<ul>
+<li class="fragment">منظمة للغاية، ومثالية للبيانات المهيكلة التي تحتاج إلى استعلامات معقدة وتحديثات متكررة.</li>
+</ul></li>
+<li class="fragment"><strong>مخازن البيانات (Data Stores / Data Lakes):</strong>
+<ul>
+<li class="fragment">أكثر مرونة، ومناسبة لجميع أنواع البيانات (خاصة غير المهيكلة وشبه المهيكلة) بكميات ضخمة.</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>هذان هما عمودا التخزين الحديث. سيساعدنا فهم الفرق بينهما في اختيار الأداة المناسبة لكل سيناريو.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="قواعد-البيانات-databases-المكتبة-المنظمة" class="slide level2">
+<h2>قواعد البيانات (Databases): المكتبة المنظمة</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>تخيل <strong>قاعدة البيانات (Database)</strong> كـ <strong>مكتبة عامة منظمة للغاية</strong>:</p>
+<ul>
+<li class="fragment"><strong>كل كتاب (صف)</strong> له رف محدد (جدول).</li>
+<li class="fragment"><strong>كل معلومة في الكتاب (عمود)</strong> لها مكانها الدقيق (عنوان، مؤلف، تاريخ نشر).</li>
+<li class="fragment">يتم تصنيف الكتب بشكل صارم.</li>
+<li class="fragment">يمكنك بسهولة البحث عن كتاب معين بمعلوماته الدقيقة.</li>
+<li class="fragment">مثال: نظام تسجيل الطلاب في جامعة حيث يتم تخزين اسم الطالب، رقمه الجامعي، ودرجاته في جداول محددة.</li>
+</ul>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="slides_template/assets/sdaia.svg" class="slide-logo"></p>
 <div class="footer footer-default">
