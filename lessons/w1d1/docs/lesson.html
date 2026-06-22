@@ -10,7 +10,7 @@
 <link href="lesson_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
-  <title>الدرس 1: مقدمة عملية في هندسة البيانات - المستوى 1</title>
+  <title>مقدمة إلى هندسة البيانات: الأساسيات والأهمية</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -328,81 +328,922 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="slides_template/assets/anim.svg" data-background-opacity="0.15" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">الدرس 1: مقدمة عملية في هندسة البيانات - المستوى 1</h1>
+  <h1 class="title">مقدمة إلى هندسة البيانات: الأساسيات والأهمية</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
 <section>
-<section id="الدرس-1-مقدمة-عملية-في-هندسة-البيانات---المستوى-1" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>الدرس 1: مقدمة عملية في هندسة البيانات - المستوى 1</h1>
-
+<section id="مقدمة-إلى-هندسة-البيانات-الأساسيات-والأهمية" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>مقدمة إلى هندسة البيانات: الأساسيات والأهمية</h1>
+<aside class="notes">
+<p>أهلاً وسهلاً بكم في أولى محطات رحلتنا في عالم هندسة البيانات. يسعدني أن أكون معكم اليوم في هذه الدورة الشيقة. في هذه الشريحة الترحيبية، نستقبل الطلاب ونعطيهم لمحة سريعة عن عنوان الدرس الذي سيبدأون به.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="مقدمة-وأهداف-الدرس" class="slide level2">
-<h2>مقدمة وأهداف الدرس</h2>
-<p><strong>مرحبًا بكم في هذا الدرس التفاعلي</strong></p>
-<p>شرح المبادئ الأساسية وتطبيق أول معمل برمجي للمفاهيم الخاصة بـ هندسة البيانات .</p>
-<h3 id="أهداف-الدرس-التعليمية">أهداف الدرس التعليمية:</h3>
+<section id="اسم-الدورة-هندسة-البيانات-للمبتدئين-رحلة-استكشاف-عالم-البيانات" class="slide level2">
+<h2>اسم الدورة: هندسة البيانات للمبتدئين: رحلة استكشاف عالم البيانات</h2>
+<aside class="notes">
+<p>نقدم هنا اسم الدورة الكلية لتحديد السياق الذي يقع فيه هذا الدرس المحدد. هذا يساعد الطلاب على فهم مكان هذا الدرس في المسار التعليمي الأوسع.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="أهدافنا-التعليمية-لهذا-الدرس" class="slide level2">
+<h2>أهدافنا التعليمية لهذا الدرس 🎯</h2>
+<aside class="notes">
+<p>في هذه الشريحة، نوضح للطلاب الأهداف التعليمية الأساسية التي نسعى لتحقيقها معًا بنهاية هذا الدرس. من المهم تحديد هذه الأهداف بوضوح لتركيز الانتباه وتوجيه عملية التعلم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <ul>
-<li class="fragment">التعرف على المكونات الأساسية لـ هندسة البيانات</li>
-<li class="fragment">تثبيت المكتبات والتحقق من بيئة العمل</li>
-<li class="fragment">كتابة وتطبيق كود برمجي بسيط لحل المشكلة</li>
+<li class="fragment"><strong>فهم ماهية البيانات وأنواعها المختلفة:</strong> سنتعرف على البيانات من حولنا وعلى أشكالها المتعددة مثل البيانات النصية، الرقمية، والصور.</li>
+<li class="fragment"><strong>التعرف على مفهوم هندسة البيانات ودور مهندس البيانات:</strong> سنكتشف كيف يتم تنظيم البيانات وتبسيطها، وما هو الدور المحوري لمهندس البيانات في هذه العملية.</li>
+<li class="fragment"><strong>إدراك أهمية هندسة البيانات في دعم اتخاذ القرارات وتطوير التطبيقات:</strong> سنرى كيف تساهم هندسة البيانات في حياتنا اليومية، من توصيات الأفلام إلى خرائط الملاحة.</li>
 </ul>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
-<section id="القسم-الأول-الأساسيات-والمفاهيم" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>القسم الأول: الأساسيات والمفاهيم</h1>
-
+<section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الأولى: التهيئة والجذب</h1>
+<aside class="notes">
+<p>هذه هي الشريحة الافتتاحية للمرحلة الأولى، وهي مرحلة “التهيئة والجذب”. الهدف هنا هو إثارة فضول الطلاب وربط الموضوع بتجاربهم اليومية لجذب انتباههم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="مقارنة-المفاهيم-الهامة" class="slide level2">
-<h2>مقارنة المفاهيم الهامة</h2>
-<p><strong>تفصيل للأعمدة المزدوجة</strong></p>
+<section id="البيانات-وقود-عالمنا-الحديث" class="slide level2">
+<h2>البيانات: وقود عالمنا الحديث 💡</h2>
+<aside class="notes">
+<p>نبدأ بطرح فكرة أن البيانات هي القوة الدافعة للعصر الحديث، باستخدام تشبيه بسيط مثل “الوقود”. هذا يساعد على ترسيخ أهمية البيانات منذ البداية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li class="fragment">في عالمنا اليوم، أصبحت البيانات أكثر قيمة من أي وقت مضى.</li>
+<li class="fragment">إنها ليست مجرد أرقام وحروف، بل هي معلومات تحمل قصصًا وتكشف عن اتجاهات.</li>
+<li class="fragment">كل تفاعل رقمي نقوم به يولد بيانات، وكل جهاز نستخدمه يجمع بيانات.</li>
+<li class="fragment">هذه البيانات هي التي تمكننا من اتخاذ قرارات أفضل، وتطوير منتجات وخدمات مبتكرة.</li>
+</ul>
+</section>
+<section id="أين-نرى-البيانات-من-حولنا-12" class="slide level2">
+<h2>أين نرى البيانات من حولنا؟ (1/2) 🌍</h2>
+<aside class="notes">
+<p>هذه الشريحة تبدأ في تقديم أمثلة ملموسة للبيانات التي يواجهها الطلاب في حياتهم اليومية، مما يجعل المفهوم أقل تجريدًا وأكثر واقعية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li class="fragment"><strong>تطبيقات الهواتف الذكية:</strong> عندما تستخدم تطبيق الطقس، تصفح وسائل التواصل الاجتماعي، أو تشاهد فيلمًا على منصة البث.</li>
+<li class="fragment"><strong>الإنترنت والتسوق الإلكتروني:</strong> عند البحث عن منتج، مقارنة الأسعار، أو شراء شيء عبر الإنترنت.</li>
+<li class="fragment"><strong>المدن الذكية والمنازل الذكية:</strong> من أنظمة المرور التي تجمع بيانات تدفق السيارات إلى منظمات الحرارة الذكية التي تتعلم تفضيلاتك.</li>
+<li class="fragment"><strong>الرعاية الصحية واللياقة البدنية:</strong> أجهزة تتبع اللياقة البدنية التي تراقب نبضات القلب وعدد الخطوات، والسجلات الطبية الإلكترونية.</li>
+</ul>
+<aside class="notes">
+<p>نحث الطلاب على التفكير في الأمثلة التي ذكرناها ونشجعهم على طرح أمثلة إضافية من وحي تجاربهم الشخصية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="أين-نرى-البيانات-من-حولنا-22" class="slide level2">
+<h2>أين نرى البيانات من حولنا؟ (2/2) 📊</h2>
+<aside class="notes">
+<p>نستمر في عرض أمثلة إضافية لتوضيح مدى انتشار البيانات في حياتنا اليومية، مع التركيز على مصادر مختلفة. هذه الشريحة تتبع الشريحة السابقة لتقديم تفاصيل أكثر.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="المفهوم-الأول">المفهوم الأول</h3>
+<div class="column" style="width:60%;">
 <ul>
-<li class="fragment">شرح المفهوم الأول بالتفصيل.</li>
-<li class="fragment">كيفية استخدامه في بايثون.</li>
+<li class="fragment"><strong>المواقع الإلكترونية ومحركات البحث:</strong> كل عملية بحث تقوم بها، وكل رابط تنقر عليه يولد بيانات حول اهتماماتك.</li>
+<li class="fragment"><strong>الخدمات المصرفية والمالية:</strong> جميع معاملاتك البنكية، عمليات السحب والإيداع، واستثماراتك هي بيانات مالية ضخمة.</li>
+<li class="fragment"><strong>التعليم والتعلم عن بعد:</strong> الدورات التدريبية عبر الإنترنت، الاختبارات الرقمية، وتفاعل الطلاب مع المحتوى التعليمي.</li>
+<li class="fragment"><strong>النقل والمواصلات:</strong> أنظمة تحديد المواقع (GPS)، وتطبيقات مشاركة الركوب التي تستخدم بيانات الموقع والحركة.</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<h3 id="المفهوم-الثاني">المفهوم الثاني</h3>
-<ul>
-<li class="fragment">شرح المفهوم الثاني بالتفصيل.</li>
-<li class="fragment">مميزات وعيوب كل طريقة.</li>
-</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://tse1.mm.bing.net/th?q=digital+data+interface&amp;w=600&amp;h=600.png"></p>
+<figcaption>شاب يتفاعل مع واجهة بيانات رقمية</figcaption>
+</figure>
 </div>
+</div>
+</div>
+<aside class="notes">
+<p>نسأل الطلاب كيف يمكن أن تُستخدم هذه البيانات، ومن يظنون أنه يستفيد منها. هذا يمهد للحديث عن هندسة البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="تحدي-فكر-سريع-ما-هي-البيانات" class="slide level2">
+<h2>تحدي فكر سريع: ما هي البيانات؟ 🤔</h2>
+<aside class="notes">
+<p>هذه الشريحة عبارة عن تحدي سريع لتقييم الفهم الأولي للطلاب حول تعريف البيانات. نستخدم استراتيجية “فكر-شارك-زاوج” بشكل غير مباشر.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li class="fragment"><strong>سؤال:</strong> إذا التقطت صورة بهاتفك، هل تعتبر هذه الصورة بيانات؟ ولماذا؟</li>
+<li class="fragment"><strong>سؤال:</strong> عندما تتلقى إشعارًا بأن درجة الحرارة ستنخفض غدًا، ما أنواع البيانات التي ساهمت في وصول هذا الإشعار إليك؟</li>
+</ul>
+<aside class="notes">
+<p>نطلب من الطلاب التفكير لدقيقة ثم مشاركة أفكارهم مع زميل قريب، ثم يمكننا أخذ بعض الإجابات من المجموعات. نؤكد على أن الصور والنصوص والأرقام كلها أشكال من البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="نشاط-لعبة-كشف-البيانات-12" class="slide level2">
+<h2>نشاط: لعبة كشف البيانات 🕵️‍♀️ (1/2)</h2>
+<aside class="notes">
+<p>هذه الشريحة تقدم النشاط التفاعلي الأول، “لعبة كشف البيانات”، وهو مصمم لتحفيز المشاركة وجعل المفاهيم ملموسة من خلال سيناريوهات يومية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li class="fragment"><strong>الهدف:</strong> تحديد أنواع البيانات التي تُجمع في سيناريوهات يومية وكيف تُستخدم.</li>
+<li class="fragment"><strong>كيفية اللعب:</strong>
+<ol type="1">
+<li class="fragment">سنقسمكم إلى مجموعات صغيرة.</li>
+<li class="fragment">سأعرض لكل مجموعة سيناريو يومي.</li>
+<li class="fragment">عليكم في مجموعتكم تحديد أكبر عدد ممكن من أنواع البيانات التي تُجمع في هذا السيناريو.</li>
+<li class="fragment">ثم، فكروا كيف يمكن استخدام هذه البيانات.</li>
+</ol></li>
+<li class="fragment"><strong>المكافأة:</strong> الفريق الذي يحدد أكبر عدد من البيانات بشكل صحيح يكسب نقاطاً!</li>
+</ul>
+<aside class="notes">
+<p>هذا النشاط يعزز التعلم التفاعلي والتلعيب. نوضح القواعد ونشجعهم على التعاون داخل المجموعة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="نشاط-لعبة-كشف-البيانات-22---سيناريو-مثال" class="slide level2">
+<h2>نشاط: لعبة كشف البيانات 🕵️‍♀️ (2/2) - سيناريو مثال</h2>
+<aside class="notes">
+<p>نقدم هنا سيناريو مثال للنشاط لشرحه بشكل أفضل وتوضيح ما هو متوقع من الطلاب. هذا يساعد على توجيههم قبل بدء النشاط الفعلي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>السيناريو:</strong> “أنت تتسوق عبر الإنترنت لشراء حذاء رياضي جديد. تصفحت عدة مواقع، وأضفت حذاءً إلى سلة التسوق، لكنك لم تكمل عملية الشراء. في اليوم التالي، تتلقى إعلانًا عن خصم على نفس الحذاء أو أحذية مشابهة.”</p>
+<p><strong>البيانات المحتملة التي تم جمعها:</strong> - <strong>اسم المنتج:</strong> حذاء رياضي - <strong>سعر المنتج:</strong> الرقمية - <strong>الفئة:</strong> أحذية، رياضة - <strong>سجل التصفح:</strong> الصفحات التي زرتها، مدة بقائك على كل صفحة - <strong>سلة التسوق:</strong> المنتجات التي أضفتها ولم تشتريها - <strong>معلومات الجهاز:</strong> نوع الهاتف/الكمبيوتر، نظام التشغيل - <strong>الموقع الجغرافي:</strong> (إذا كان مفعلًا)</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://tse1.mm.bing.net/th?q=online+shopping+tablet&amp;w=600&amp;h=600.png"></p>
+<figcaption>شخص يتسوق عبر الإنترنت باستخدام جهاز لوحي</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>نشرح كيف يمكن استخدام هذه البيانات لتخصيص الإعلانات، ونشجع الطلاب على التفكير بشكل نقدي حول جمع البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="المرحلة-الثانية-المفاهيم-الأساسية" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثانية: المفاهيم الأساسية</h1>
+<aside class="notes">
+<p>هذه هي الشريحة الافتتاحية للمرحلة الثانية، وهي مرحلة “المفاهيم الأساسية”. هنا نبدأ في الغوص في التعريفات والمفاهيم الجوهرية للدرس.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="البيانات-وأنواعها-فهم-الأساس-13" class="slide level2">
+<h2>البيانات وأنواعها: فهم الأساس (1/3) 📚</h2>
+<aside class="notes">
+<p>نبدأ في تعريف البيانات بشكل أكثر منهجية ونقدم أول أنواعها وهو النصي. تقسيم أنواع البيانات إلى شرائح منفصلة يساعد على استيعاب المعلومات بشكل أفضل.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li class="fragment"><strong>البيانات (Data):</strong> هي مجموعة من الحقائق الأولية، الأرقام، النصوص، الملاحظات، أو أي معلومات غير منظمة يتم جمعها. بحد ذاتها، قد لا تحمل معنى، ولكن عند معالجتها وتحليلها، تتحول إلى <strong>معرفة</strong> قابلة للاستخدام.</li>
+<li class="fragment"><strong>البيانات النصية (Textual Data):</strong> هي البيانات المكتوبة أو المقروءة على شكل كلمات وجمل وفقرات.</li>
+</ul>
+<aside class="notes">
+<p>نطلب من الطلاب التفكير في أمثلة للبيانات النصية من حياتهم اليومية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="البيانات-النصية-أمثلة-واستخدامات-23" class="slide level2">
+<h2>البيانات النصية: أمثلة واستخدامات (2/3) ✍️</h2>
+<aside class="notes">
+<p>نقدم أمثلة واضحة ومحددة للبيانات النصية وكيفية استخدامها، مما يوضح أهميتها.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>رسائل البريد الإلكتروني والمحادثات:</strong> كل ما تكتبه وترسله هو بيانات نصية.</li>
+<li class="fragment"><strong>مراجعات المنتجات والتعليقات على وسائل التواصل الاجتماعي:</strong> آراء المستهلكين والمستخدمين.</li>
+<li class="fragment"><strong>المقالات الإخبارية والمدونات:</strong> المحتوى المكتوب الذي نقرأه يوميًا.</li>
+<li class="fragment"><strong>السجلات الطبية:</strong> ملاحظات الأطباء، تقارير الفحوصات المكتوبة.</li>
+</ul>
+<p><strong>كيف تُستخدم؟</strong> - تحليل المشاعر (Sentiment Analysis) لفهم رأي العملاء. - استخراج المعلومات الرئيسية من المستندات الكبيرة. - بناء أنظمة الترجمة الآلية.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://tse1.mm.bing.net/th?q=text+messages+phone&amp;w=600&amp;h=600.png"></p>
+<figcaption>رسائل نصية تظهر على شاشة هاتف</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>نناقش كيف يمكن للشركات استخدام تحليل المشاعر لتحسين منتجاتها أو خدماتها.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="البيانات-الرقمية-والكمية-أمثلة-واستخدامات-33" class="slide level2">
+<h2>البيانات الرقمية والكمية: أمثلة واستخدامات (3/3) 🔢</h2>
+<aside class="notes">
+<p>نستكمل عرض أنواع البيانات مع البيانات الرقمية، وهي أساس العديد من التحليلات والإحصائيات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>البيانات الرقمية (Numerical Data):</strong> هي البيانات التي تتكون من أرقام ويمكن إجراء العمليات الحسابية عليها. تنقسم عادة إلى:
+<ul>
+<li class="fragment"><strong>بيانات متصلة (Continuous Data):</strong> يمكن أن تأخذ أي قيمة ضمن نطاق معين (مثل: درجة الحرارة، الطول، الوزن).</li>
+<li class="fragment"><strong>بيانات منفصلة (Discrete Data):</strong> يمكن أن تأخذ قيمًا محددة فقط، وغالبًا ما تكون أعدادًا صحيحة (مثل: عدد الأطفال، عدد المنتجات المباعة).</li>
+</ul></li>
+</ul>
+<p><strong>أمثلة:</strong> - درجات الحرارة، أرقام المبيعات، أسعار الأسهم، أعمار الأشخاص. - عدد النقرات على إعلان، عدد الزوار لموقع ويب.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://tse1.mm.bing.net/th?q=numerical+data+chart&amp;w=600&amp;h=600.png"></p>
+<figcaption>رسوم بيانية وأرقام على شاشة كمبيوتر</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>نوضح الفارق بين البيانات المتصلة والمنفصلة بأمثلة إضافية من الحياة اليومية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="أنواع-أخرى-من-البيانات-الصور-والأصوات" class="slide level2">
+<h2>أنواع أخرى من البيانات: الصور والأصوات 🖼️🔊</h2>
+<aside class="notes">
+<p>نوسع مفهوم البيانات ليشمل الوسائط المتعددة، مثل الصور والأصوات، مما يبرز تنوع أشكال البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>بيانات الصور (Image Data):</strong> هي بيانات مرئية تتكون من بكسلات (Pixels)، وكل بكسل يحمل معلومات عن اللون والشدة.
+<ul>
+<li class="fragment"><strong>أمثلة:</strong> الصور الفوتوغرافية، مقاطع الفيديو، صور الأشعة السينية، صور الأقمار الصناعية.</li>
+<li class="fragment"><strong>كيف تُستخدم؟</strong> التعرف على الوجوه، اكتشاف الأورام، تحليل الأنماط الجغرافية.</li>
+</ul></li>
+<li class="fragment"><strong>بيانات الصوت (Audio Data):</strong> هي بيانات تمثل الأصوات، ويتم تسجيلها على شكل موجات صوتية رقمية.
+<ul>
+<li class="fragment"><strong>أمثلة:</strong> التسجيلات الصوتية، المكالمات الهاتفية، الموسيقى، الأوامر الصوتية.</li>
+<li class="fragment"><strong>كيف تُستخدم؟</strong> التعرف على الكلام، تحليل النبرة، أمن المعلومات (التعرف على الصوت).</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://tse1.mm.bing.net/th?q=image+audio+data&amp;w=600&amp;h=600.png"></p>
+<figcaption>شاشة تعرض صوراً وأيقونة صوت</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>نقدم أمثلة على استخدامات الصور والأصوات في حياتنا اليومية، مثل التعرف على الوجوه في الهواتف أو المساعدات الصوتية مثل سيري وأليكسا.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="جدول-ملخص-أنواع-البيانات-الشائعة" class="slide level2">
+<h2>جدول ملخص: أنواع البيانات الشائعة 📋</h2>
+<aside class="notes">
+<p>هذا الجدول يلخص أنواع البيانات التي تمت مناقشتها، مما يوفر نقطة مرجعية سريعة ويساعد على تثبيت المعلومات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<table>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 30%">
+<col style="width: 27%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">نوع البيانات</th>
+<th style="text-align: left;">الوصف</th>
+<th style="text-align: left;">أمثلة</th>
+<th style="text-align: left;">استخدامات رئيسية</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>نصية</strong></td>
+<td style="text-align: left;">كلمات وجمل وفقرات</td>
+<td style="text-align: left;">رسائل بريد إلكتروني، تغريدات، مقالات</td>
+<td style="text-align: left;">تحليل المشاعر، استخراج المعلومات، ترجمة</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>رقمية (كمية)</strong></td>
+<td style="text-align: left;">أرقام يمكن إجراء عمليات حسابية عليها</td>
+<td style="text-align: left;">درجات حرارة، مبيعات، أعمار</td>
+<td style="text-align: left;">إحصائيات، تنبؤات، تقارير مالية</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>صور</strong></td>
+<td style="text-align: left;">بكسلات تمثل معلومات مرئية</td>
+<td style="text-align: left;">صور فوتوغرافية، فيديوهات</td>
+<td style="text-align: left;">التعرف على الوجوه، رؤية حاسوبية</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>صوت</strong></td>
+<td style="text-align: left;">موجات صوتية رقمية</td>
+<td style="text-align: left;">تسجيلات صوتية، مكالمات</td>
+<td style="text-align: left;">التعرف على الكلام، تحليل النبرة</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>نؤكد على أن هذا الجدول يوضح التنوع الكبير في البيانات التي نتعامل معها يوميًا، وكل نوع يتطلب طرقًا مختلفة للتعامل معه.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="اختبر-معلوماتك-أنواع-البيانات" class="slide level2">
+<h2>اختبر معلوماتك! 🧠 (أنواع البيانات)</h2>
+<aside class="notes">
+<p>نقدم هنا اختبارًا سريعًا لتقييم فهم الطلاب لأنواع البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>أي من الأمثلة التالية يعتبر مثالاً على <strong>البيانات الرقمية المتصلة</strong>؟ - أ) عدد الكتب في مكتبة - ب) درجة حرارة الغرفة - ج) آراء العملاء عن منتج - د) صور للمنتجات</p>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ب) درجة حرارة الغرفة. <strong>التفسير:</strong> درجة حرارة الغرفة يمكن أن تأخذ أي قيمة ضمن نطاق معين (مثل 22.5، 23.1، إلخ)، مما يجعلها بيانات متصلة. عدد الكتب هو بيانات منفصلة، وآراء العملاء بيانات نصية، وصور المنتجات بيانات صورية.</p>
 </div>
 </section>
-<section id="مسابقة-سريعة" class="slide level2">
-<h2>مسابقة سريعة</h2>
-<p><strong>اختبر معلوماتك</strong></p>
-<p>أي من التالي يعد أفضل ممارسة لحفظ النصوص العربية في الرسوم البيانية؟</p>
-<div style="display: flex; justify-content: center; gap: 15px; margin: 30px 0;">
-<p><button class="quiz-btn" onclick="checkQ1('wrong1')">استخدام خط افتراضي</button> <button class="quiz-btn" onclick="checkQ1('correct')">تعديل matplotlib لإخراج SVG</button> <button class="quiz-btn" onclick="checkQ1('wrong2')">تحويل النصوص لصور</button></p>
+<section id="ما-هي-هندسة-البيانات" class="slide level2">
+<h2>ما هي هندسة البيانات؟ ⚙️</h2>
+<aside class="notes">
+<p>هذه الشريحة تقدم التعريف الأساسي لهندسة البيانات، مع التركيز على دورها كجسر بين البيانات الأولية والاستخدام الفعلي لها.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li class="fragment"><strong>هندسة البيانات (Data Engineering):</strong> هي فرع من فروع علم البيانات يركز على تصميم، بناء، وصيانة الأنظمة والبنية التحتية التي تسمح بجمع، تخزين، معالجة، وتحويل البيانات بشكل فعال وموثوق به.</li>
+<li class="fragment">ببساطة، هي العملية التي تضمن أن تكون البيانات متاحة، نظيفة، ومنظمة وجاهزة للاستخدام من قبل محللي وعلماء البيانات، أو لتشغيل التطبيقات.</li>
+</ul>
+<aside class="notes">
+<p>يمكننا استخدام تشبيه: إذا كانت البيانات هي النفط الخام، فإن هندسة البيانات هي عملية بناء المصافي وخطوط الأنابيب التي تحول النفط الخام إلى منتجات جاهزة للاستخدام.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="هندسة-البيانات-من-الفوضى-إلى-النظام-12" class="slide level2">
+<h2>هندسة البيانات: من الفوضى إلى النظام (1/2) 🧹</h2>
+<aside class="notes">
+<p>نوضح هنا بشكل أكثر تفصيلاً المشكلة التي تحلها هندسة البيانات: تحويل البيانات الخام وغير المنظمة إلى شيء مفيد.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>تخيل أن البيانات تأتي من مصادر متعددة، بأشكال مختلفة، وبكميات هائلة. بدون هندسة البيانات:</p>
+<ul>
+<li class="fragment">البيانات تكون <strong>مبعثرة وغير متناسقة</strong>: يصعب العثور عليها أو دمجها.</li>
+<li class="fragment">البيانات تكون <strong>مليئة بالأخطاء والتكرارات</strong>: تقلل من دقة التحليلات.</li>
+<li class="fragment">البيانات تكون <strong>صعبة الوصول إليها</strong>: تتطلب جهدًا ووقتًا كبيرًا لاستخلاصها.</li>
+</ul>
+<p><strong>هندسة البيانات هي الحل الذي يحول هذه الفوضى إلى نظام متكامل.</strong></p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://tse1.mm.bing.net/th?q=data+chaos+organization&amp;w=600&amp;h=600.png"></p>
+<figcaption>بيانات فوضوية تتجمع في نظام منظم</figcaption>
+</figure>
 </div>
-<p id="feedback1" style="font-weight: bold; font-size: 1.1em; min-height: 40px; text-align: center; color: #00C9A7;">
-</p>
-<script>
-function checkQ1(ans) {
-  var fb = document.getElementById("feedback1");
-  if(ans === 'correct') {
-    fb.style.color = "#00C9A7";
-    fb.innerHTML = "✅ إجابة صحيحة! تصدير الرسوم بصيغة SVG بدون تضمين خطوط يضمن بقاء النص قابلاً للقراءة والعرض الصحيح.";
-  } else {
-    fb.style.color = "#FF6666";
-    fb.innerHTML = "❌ إجابة خاطئة. الخيار الآخر غير صحيح تقنياً للغات ذات الحروف المتصلة.";
-  }
-}
-</script>
-<style>
-  .reveal .slide { text-align: right; direction: rtl; }
-  .quiz-btn { background-color: #1C355E; color: white; border: 2px solid #1C355E; padding: 10px 20px; border-radius: 8px; cursor: pointer; transition: 0.3s; font-family: 'Helvetica Neue Arabic', sans-serif; }
-  .quiz-btn:hover { background-color: transparent; color: #1C355E; }
-</style>
+</div>
+</div>
+<aside class="notes">
+<p>نناقش مثالاً سريعًا عن مشكلة عدم وجود بيانات منظمة وكيف يمكن أن تؤثر على عمل شركة ما.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="هندسة-البيانات-من-الفوضى-إلى-النظام-22" class="slide level2">
+<h2>هندسة البيانات: من الفوضى إلى النظام (2/2) 🏗️</h2>
+<aside class="notes">
+<p>نستكمل توضيح دور هندسة البيانات في توفير بيانات عالية الجودة وجاهزة للاستخدام.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li class="fragment"><strong>تنظيف البيانات (Data Cleaning):</strong> إزالة الأخطاء، القيم المفقودة، والتكرارات.</li>
+<li class="fragment"><strong>تحويل البيانات (Data Transformation):</strong> تغيير شكل البيانات لتناسب أغراضًا معينة (مثل تحويل التواريخ من صيغة إلى أخرى).</li>
+<li class="fragment"><strong>دمج البيانات (Data Integration):</strong> جمع البيانات من مصادر مختلفة ودمجها في مستودع واحد متسق.</li>
+<li class="fragment"><strong>بناء خطوط أنابيب البيانات (Data Pipelines):</strong> أتمتة تدفق البيانات من مصدرها إلى وجهتها النهائية.</li>
+</ul>
+<aside class="notes">
+<p>نؤكد على أن هذه الخطوات ضرورية لضمان جودة البيانات وموثوقيتها.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="مهندس-البيانات-العقل-المدبر-وراء-البيانات-الجاهزة" class="slide level2">
+<h2>مهندس البيانات: العقل المدبر وراء البيانات الجاهزة 👷‍♂️</h2>
+<aside class="notes">
+<p>نركز هنا على تعريف دور مهندس البيانات، مع تسليط الضوء على مسؤولياته الأساسية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>مهندس البيانات (Data Engineer):</strong> هو المحترف المسؤول عن تصميم، بناء، وصيانة البنية التحتية التي تمكن من جمع ومعالجة البيانات على نطاق واسع.</li>
+<li class="fragment">هو الذي يتأكد من أن البيانات “تتدفق” بسلاسة من مصادرها إلى حيث يتم تحليلها واستخدامها.</li>
+</ul>
+<p><strong>أدواره الرئيسية:</strong> - بناء خطوط أنابيب البيانات القوية والفعالة. - إدارة قواعد البيانات وأنظمة التخزين. - ضمان جودة البيانات وأمنها. - تحسين أداء أنظمة البيانات.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://tse1.mm.bing.net/th?q=data+engineer+diagrams&amp;w=600&amp;h=600.png"></p>
+<figcaption>مهندس بيانات يعمل على مخططات بيانات معقدة</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>نشدد على أن مهندس البيانات هو حجر الزاوية الذي تبنى عليه جميع مبادرات البيانات الأخرى في المؤسسة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="رحلة-قطعة-بيانات-دورة-حياة-البيانات-12" class="slide level2">
+<h2>رحلة قطعة بيانات: دورة حياة البيانات (1/2) 🔄</h2>
+<aside class="notes">
+<p>نقدم مفهوم دورة حياة البيانات، وهي عملية تمر بها البيانات من لحظة إنشائها حتى التخلص منها، مما يوضح سياق عمل مهندس البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li class="fragment">تخيل أن كل معلومة يتم جمعها تمر بعدة مراحل قبل أن تصبح ذات قيمة. هذه هي <strong>دورة حياة البيانات (Data Lifecycle)</strong>.</li>
+</ul>
+<p><strong>المراحل الأساسية:</strong> - <strong>التوليد (Generation):</strong> لحظة إنشاء البيانات (مثل تسجيل شراء، التقاط صورة). - <strong>الجمع (Collection):</strong> عملية تجميع البيانات من مصادرها المختلفة. - <strong>التخزين (Storage):</strong> حفظ البيانات في قواعد بيانات أو أنظمة تخزين أخرى.</p>
+<aside class="notes">
+<p>نناقش أمثلة لكل مرحلة وكيف تتفاعل معها البيانات في حياتنا اليومية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="رحلة-قطعة-بيانات-دورة-حياة-البيانات-22" class="slide level2">
+<h2>رحلة قطعة بيانات: دورة حياة البيانات (2/2) 📈</h2>
+<aside class="notes">
+<p>نستكمل المراحل المتبقية من دورة حياة البيانات، مع التركيز على دور المعالجة والتحليل.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>المعالجة والتحويل (Processing &amp; Transformation):</strong> تنظيف البيانات، تنظيمها، وتغيير شكلها لتكون جاهزة للاستخدام.</li>
+<li class="fragment"><strong>التحليل (Analysis):</strong> استخدام البيانات لاستخلاص الأفكار والأنماط (يتم عادة بواسطة محللي وعلماء البيانات).</li>
+<li class="fragment"><strong>الاستخدام (Usage):</strong> تطبيق الأفكار المستخلصة لدعم اتخاذ القرارات، تطوير المنتجات، أو تشغيل التطبيقات.</li>
+<li class="fragment"><strong>الأرشفة/التدمير (Archiving/Destruction):</strong> حفظ البيانات لفترة طويلة أو حذفها عندما لم تعد هناك حاجة إليها، مع مراعاة الجوانب القانونية والأخلاقية.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://tse1.mm.bing.net/th?q=data+lifecycle+diagram&amp;w=600&amp;h=600.png"></p>
+<figcaption>مخطط يوضح دورة حياة البيانات</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>نؤكد أن مهندس البيانات مسؤول عن جميع المراحل من التوليد إلى المعالجة والتحويل، لضمان وصول البيانات بشكل صحيح إلى مرحلة التحليل والاستخدام.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="اختبر-معلوماتك-دور-مهندس-البيانات" class="slide level2">
+<h2>اختبر معلوماتك! 🧠 (دور مهندس البيانات)</h2>
+<aside class="notes">
+<p>اختبار سريع آخر لتقييم فهم الطلاب لدور مهندس البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>ما هي المسؤولية الرئيسية لمهندس البيانات؟ - أ) تحليل البيانات لاكتشاف الأنماط والتنبؤات - ب) بناء وتصميم البنية التحتية لتدفق ومعالجة البيانات - ج) اتخاذ القرارات التجارية بناءً على التقارير النهائية - د) تصميم واجهات المستخدم لتطبيقات الويب</p>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ب) بناء وتصميم البنية التحتية لتدفق ومعالجة البيانات. <strong>التفسير:</strong> مهندس البيانات يركز على الجانب الهندسي للبنية التحتية للبيانات، بينما تحليل البيانات من مهام محللي وعلماء البيانات، واتخاذ القرارات من مهام الإدارة، وتصميم واجهات المستخدم من مهام مصممي تجربة المستخدم.</p>
+</div>
+</section></section>
+<section>
+<section id="المرحلة-الثالثة-التطبيق-والأهمية" class="title-slide slide level1 sdaia-dark center">
+<h1>المرحلة الثالثة: التطبيق والأهمية</h1>
+<aside class="notes">
+<p>هذه هي الشريحة الافتتاحية للمرحلة الثالثة، وهي مرحلة “التطبيق والأهمية”. هنا نربط المفاهيم النظرية بالتطبيقات العملية والأثر في العالم الحقيقي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="لماذا-هندسة-البيانات-مهمة-جدا-12" class="slide level2">
+<h2>لماذا هندسة البيانات مهمة جدًا؟ (1/2) 🚀</h2>
+<aside class="notes">
+<p>نوضح الأهمية الكبرى لهندسة البيانات بشكل عام، مركزين على تمكين الاستفادة من البيانات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li class="fragment"><strong>دعم اتخاذ القرارات الذكية:</strong> بدون بيانات منظمة وموثوقة، تكون القرارات مبنية على التخمين بدلًا من الحقائق. هندسة البيانات توفر هذه الحقائق.</li>
+<li class="fragment"><strong>تمكين الذكاء الاصطناعي وتعلم الآلة:</strong> نماذج الذكاء الاصطناعي تحتاج إلى كميات ضخمة من البيانات عالية الجودة للتدريب. مهندس البيانات هو من يوفرها.</li>
+<li class="fragment"><strong>تطوير تطبيقات مبتكرة:</strong> الكثير من التطبيقات التي نستخدمها يوميًا (مثل توصيات الأفلام أو خرائط الملاحة) تعتمد بشكل كبير على بيانات خلفية منظمة.</li>
+</ul>
+<aside class="notes">
+<p>نسأل الطلاب كيف يمكن لقرار تجاري أن يتأثر بنوعية البيانات المتاحة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="لماذا-هندسة-البيانات-مهمة-جدا-22" class="slide level2">
+<h2>لماذا هندسة البيانات مهمة جدًا؟ (2/2) 🛡️</h2>
+<aside class="notes">
+<p>نستكمل عرض الجوانب الأخرى لأهمية هندسة البيانات، مثل الكفاءة والأمان.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>تحسين الكفاءة التشغيلية:</strong> أتمتة عمليات جمع ومعالجة البيانات تقلل من الجهد اليدوي وتزيد من سرعة توفر البيانات.</li>
+<li class="fragment"><strong>ضمان جودة البيانات (Data Quality):</strong> البيانات النظيفة والدقيقة ضرورية لأي تحليل</li>
+</ul>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="slides_template/assets/sdaia.svg" class="slide-logo"></p>
 <div class="footer footer-default">
