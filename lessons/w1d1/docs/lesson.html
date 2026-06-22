@@ -337,11 +337,183 @@
 </div>
 
 </section>
+<section id="الأهداف-التعليمية" class="slide level2">
+<h2>الأهداف التعليمية</h2>
+<p>في نهاية هذا اليوم التدريبي، سيتمكن المشاركون من:</p>
+<ul>
+<li class="fragment">فهم <strong>الدور الاستراتيجي لهندسة البيانات</strong> في تطوير ونشر تطبيقات الذكاء الاصطناعي وتعلم الآلة.</li>
+<li class="fragment">تحليل ومقارنة <strong>أنماط استيعاب ومعالجة البيانات</strong> المختلفة (الدفعات والتدفق) واختيار الأنسب لسيناريوهات معينة.</li>
+<li class="fragment">تصميم <strong>خطوط أنابيب بيانات قوية وقابلة للتوسع</strong> باستخدام أطر عمل المعالجة الموزعة مثل Apache Spark.</li>
+<li class="fragment">تقييم واختيار <strong>حلول التخزين المناسبة للبيانات الضخمة</strong> (تنسيقات الملفات، قواعد البيانات NoSQL، البنى السحابية).</li>
+<li class="fragment">تطبيق مبادئ <strong>أتمتة خطوط الأنابيب والمراقبة</strong> لضمان استقرار وأداء الأنظمة.</li>
+<li class="fragment">التعرف على التحديات المتقدمة في هندسة البيانات مثل <strong>Data Mesh</strong> ومبادئ <strong>DataOps</strong>.</li>
+</ul>
+<aside class="notes">
+<p>أهلاً بكم في هذه الجلسة التدريبية المكثفة. سنبدأ باستعراض سريع للأهداف التي نسعى لتحقيقها اليوم. هذه الأهداف ستكون بمثابة خريطة طريق لنا لضمان تغطية جميع الجوانب المهمة في تصميم وبناء أنظمة هندسة البيانات لدعم الذكاء الاصطناعي. شجع المشاركين على طرح الأسئلة في أي وقت لتفعيل استراتيجية التعلم التكيّفي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="هندسة-البيانات-العمود-الفقري-للذكاء-الاصطناعي" class="slide level2">
+<h2>هندسة البيانات: العمود الفقري للذكاء الاصطناعي</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment">الذكاء الاصطناعي يعتمد بشكل أساسي على <strong>البيانات</strong>.</li>
+<li class="fragment">بدون بيانات عالية الجودة، منظمة، ومتاحة بسهولة، لا يمكن لنماذج الذكاء الاصطناعي أن تعمل بفعالية.</li>
+<li class="fragment"><strong>هندسة البيانات</strong> هي التخصص الذي يضمن جمع وتخزين ومعالجة البيانات لجعلها جاهزة للاستخدام من قبل علماء البيانات ومهندسي تعلم الآلة.</li>
+<li class="fragment">إنها الجسر بين البيانات الأولية الخام والمنتجات النهائية للذكاء الاصطناعي.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/Data-scientist-analyzing-data-within-complex-AI-structure?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>تصور بياني لعالم بيانات يعمل على تحليل البيانات داخل هيكل معقد يرمز للذكاء الاصطناعي</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>ابدأ بمقدمة قوية توضح أهمية البيانات والذكاء الاصطناعي. ركز على أن الذكاء الاصطناعي ليس سحراً، بل هو نتاج عمل دؤوب على البيانات. اسأل المشاركين عن تجاربهم السابقة مع تحديات جودة البيانات في مشاريع الذكاء الاصطناعي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="دور-مهندس-البيانات-في-منظومة-الذكاء-الاصطناعي" class="slide level2">
+<h2>دور مهندس البيانات في منظومة الذكاء الاصطناعي</h2>
+<ul>
+<li class="fragment"><strong>بناء خطوط أنابيب البيانات (Data Pipelines):</strong> تصميم وتطوير أنظمة لجمع، تحويل، ونقل البيانات من مصادرها إلى وجهتها.</li>
+<li class="fragment"><strong>إدارة البنية التحتية للبيانات:</strong> إعداد وصيانة قواعد البيانات الموزعة، أنظمة التخزين السحابية، وأطر عمل المعالجة.</li>
+<li class="fragment"><strong>ضمان جودة البيانات (Data Quality):</strong> تطبيق أدوات وعمليات للتأكد من دقة واكتمال واتساق البيانات.</li>
+<li class="fragment"><strong>تحسين أداء البيانات:</strong> العمل على جعل عمليات استيعاب ومعالجة البيانات أكثر كفاءة وسرعة.</li>
+<li class="fragment"><strong>التعاون مع فرق الذكاء الاصطناعي:</strong> فهم احتياجاتهم من البيانات وتقديم الدعم الفني اللازم.</li>
+</ul>
+<aside class="notes">
+<p>وضح أن دور مهندس البيانات متعدد الأوجه ويتطلب مجموعة واسعة من المهارات التقنية وغير التقنية. يمكن للمدرب أن يطلب من المشاركين تحديد أي من هذه الأدوار يجدونها الأكثر تحديًا أو أهمية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="مقارنة-مهندس-البيانات-عالم-البيانات-مهندس-تعلم-الآلة" class="slide level2">
+<h2>مقارنة: مهندس البيانات، عالم البيانات، مهندس تعلم الآلة</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="مهندس-البيانات-data-engineer">مهندس البيانات (Data Engineer)</h3>
+<ul>
+<li class="fragment"><strong>التركيز:</strong> بناء وصيانة البنية التحتية للبيانات وخطوط الأنابيب.</li>
+<li class="fragment"><strong>المهام:</strong> جمع، تخزين، معالجة، تحويل البيانات.</li>
+<li class="fragment"><strong>الهدف:</strong> توفير بيانات نظيفة ومتاحة لفرق الذكاء الاصطناعي.</li>
+<li class="fragment"><strong>الأدوات الشائعة:</strong> Spark, Kafka, Airflow, SQL, NoSQL.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="عالم-البيانات-data-scientist">عالم البيانات (Data Scientist)</h3>
+<ul>
+<li class="fragment"><strong>التركيز:</strong> تحليل البيانات واكتشاف الأنماط وبناء النماذج الإحصائية.</li>
+<li class="fragment"><strong>المهام:</strong> استكشاف البيانات، تطوير النماذج، اختبار الفرضيات.</li>
+<li class="fragment"><strong>الهدف:</strong> استخلاص رؤى من البيانات وتطوير حلول الذكاء الاصطناعي.</li>
+<li class="fragment"><strong>الأدوات الشائعة:</strong> Python (Pandas, Scikit-learn), R, Jupyter.</li>
+</ul>
+</div>
+</div>
+<aside class="notes">
+<p>هذه الشريحة تساعد في تمييز الأدوار وتوضيح نقاط التداخل والاختلاف. يمكن للمدرب أن يكمل المقارنة بإضافة دور “مهندس تعلم الآلة” (ML Engineer) إذا سمح الوقت لتقديم نظرة شاملة.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="مقارنة-مهندس-تعلم-الآلة-ml-engineer" class="slide level2">
+<h2>مقارنة: مهندس تعلم الآلة (ML Engineer)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="مهندس-تعلم-الآلة-ml-engineer">مهندس تعلم الآلة (ML Engineer)</h3>
+<ul>
+<li class="fragment"><strong>التركيز:</strong> نشر وتطوير نماذج تعلم الآلة في بيئات الإنتاج.</li>
+<li class="fragment"><strong>المهام:</strong> تحويل نماذج علماء البيانات إلى تطبيقات قابلة للتوسع، مراقبة أداء النماذج، MLOps.</li>
+<li class="fragment"><strong>الهدف:</strong> دمج الذكاء الاصطناعي في المنتجات والخدمات.</li>
+<li class="fragment"><strong>الأدوات الشائعة:</strong> TensorFlow, PyTorch, Kubernetes, Docker, SageMaker.</li>
+</ul>
+<p><strong>التعاون:</strong> يعمل مهندس البيانات بشكل وثيق مع مهندس تعلم الآلة لضمان تدفق البيانات اللازم لتدريب النماذج ومراقبة أدائها.</p>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/Diagram-showing-data-engineer-data-scientist-and-ML-engineer-collaborating?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>رسم توضيحي يوضح أدوار مهندس البيانات وعالم البيانات ومهندس تعلم الآلة يعملون معًا</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>استكمل المقارنة بين الأدوار لتقديم رؤية شاملة. أكد على أهمية التعاون بين هذه الأدوار المختلفة لنجاح مشاريع الذكاء الاصطناعي.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="اختبر-معلوماتك" class="title-slide slide level1 center">
+<h1>اختبر معلوماتك! 🧠</h1>
+<p>ما هو الدور الأساسي لمهندس البيانات في سياق دعم تطبيقات الذكاء الاصطناعي؟ - أ) بناء نماذج تعلم الآلة وتدريبها. - ب) توفير البيانات النظيفة والجاهزة للاستخدام من خلال بناء خطوط الأنابيب والبنية التحتية. - ج) استكشاف البيانات لاكتشاف رؤى تجارية.</p>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ب) توفير البيانات النظيفة والجاهزة للاستخدام من خلال بناء خطوط الأنابيب والبنية التحتية. <strong>التفسير:</strong> بينما يتعامل عالم البيانات مع بناء النماذج، ويهدف للاكتشاف، فإن مهندس البيانات هو من يجهز الأرضية والبيانات اللازمة لكل ذلك.</p>
+</div>
+<aside class="notes">
+<p>هذا تحدي معماري سريع يساعد على تقييم فهم المشاركين لدور مهندس البيانات. استخدم Mentimeter أو أداة مشابهة لتفعيل التلعيب.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+
 <section>
 <section id="المرحلة-الأولى-التهيئة-والجذب" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
 <h1>المرحلة الأولى: التهيئة والجذب</h1>
 <aside class="notes">
-<p>مرحباً بالجميع! في هذه المرحلة الافتتاحية، سنضع الأساس للدرس من خلال تحديد الأهداف، فهم السياق العام لدور هندسة البيانات في عصر الذكاء الاصطناعي، وتهيئة المشاركين ذهنياً للمفاهيم والتحديات القادمة.</p>
+<p>هذه هي الشريحة الافتتاحية للمرحلة الأولى، والتي تركز على وضع الأساس للمفاهيم التي سيتم تناولها.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -354,53 +526,31 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="أهداف-التعلم-الرئيسية-لهذه-الجلسة" class="slide level2">
-<h2>أهداف التعلم الرئيسية لهذه الجلسة</h2>
-<p>تُمكنك هذه الجلسة من:</p>
-<ul>
-<li class="fragment">فهم <strong>الدور الاستراتيجي لهندسة البيانات</strong> في تطوير ونشر تطبيقات الذكاء الاصطناعي وتعلم الآلة.</li>
-<li class="fragment">تحليل ومقارنة أنماط استيعاب ومعالجة البيانات المختلفة (<strong>الدفعات</strong> وال<strong>تدفق</strong>) واختيار الأنسب لسيناريوهات معينة.</li>
-<li class="fragment">تصميم <strong>خطوط أنابيب بيانات قوية وقابلة للتوسع</strong> باستخدام أطر عمل المعالجة الموزعة مثل <strong>Apache Spark</strong>.</li>
-<li class="fragment">تقييم واختيار حلول التخزين المناسبة للبيانات الضخمة (تنسيقات الملفات، قواعد البيانات NoSQL، البنى السحابية).</li>
-<li class="fragment">تطبيق مبادئ أتمتة خطوط الأنابيب والمراقبة لضمان استقرار وأداء الأنظمة.</li>
-<li class="fragment">التعرف على التحديات المتقدمة في هندسة البيانات مثل <strong>Data Mesh</strong> ومبادئ <strong>DataOps</strong>.</li>
-</ul>
-<aside class="notes">
-<p>هذه هي الأهداف التعليمية التي نطمح لتحقيقها معًا اليوم. كل نقطة من هذه النقاط ستكون محط تركيزنا وستُبنى عليها المعرفة خطوة بخطوة. أشجعكم على تدوين أي أسئلة تطرأ على ذهنكم.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="لماذا-هندسة-البيانات-أساسية-لعصر-الذكاء-الاصطناعي" class="slide level2">
-<h2>لماذا هندسة البيانات أساسية لعصر الذكاء الاصطناعي؟</h2>
+<section id="فهم-أنماط-استيعاب-البيانات-data-ingestion-patterns" class="slide level2">
+<h2>فهم أنماط استيعاب البيانات (Data Ingestion Patterns)</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>الذكاء الاصطناعي ليس سحراً، بل هو نتاج <strong>بيانات عالية الجودة ومتاحة</strong>. بدون بيانات منظمة ومُعالجة بشكل فعال، تظل نماذج الذكاء الاصطناعي مجرد نظريات.</p>
 <ul>
-<li class="fragment"><strong>الوقود للنماذج:</strong> البيانات هي الوقود الذي يشغل نماذج التعلم الآلي والذكاء الاصطناعي.</li>
-<li class="fragment"><strong>جودة مقابل كمية:</strong> ليست فقط كمية البيانات مهمة، بل جودتها ونظافتها وقابليتها للاستخدام.</li>
-<li class="fragment"><strong>القرار المبني على البيانات:</strong> تمكين اتخاذ قرارات دقيقة وموثوقة استنادًا إلى تحليلات بيانات متعمقة.</li>
-<li class="fragment"><strong>قابلية التوسع:</strong> دعم النمو الهائل في حجم البيانات وتنوعها الذي تتطلبه تطبيقات الذكاء الاصطناعي المتزايدة.</li>
+<li class="fragment"><strong>استيعاب البيانات (Data Ingestion)</strong> هو عملية جلب البيانات من مصادر مختلفة إلى نظام تخزين أو معالجة.</li>
+<li class="fragment">يعد اختيار النمط الصحيح للاستيعاب أمرًا بالغ الأهمية لأداء وكفاءة نظام البيانات.</li>
+<li class="fragment">هناك نمطان رئيسيان:
+<ul>
+<li class="fragment"><strong>معالجة الدفعات (Batch Processing)</strong></li>
+<li class="fragment"><strong>معالجة التدفق (Streaming Processing)</strong></li>
+</ul></li>
+<li class="fragment">كل نمط له مميزاته وتحدياته، واختيار النمط يعتمد على متطلبات العمل.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/A-stylized-image-showing-data-flowing-into-a-brain-like-structure,-symbolizing-data-as-the-fuel-for-AI?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>A stylized image showing data flowing into a brain-like structure, symbolizing data as the fuel for AI.</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/Data-flow-from-multiple-sources-to-central-processing-system?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>رسم توضيحي يوضح تدفق البيانات من مصادر متعددة إلى نظام معالجة مركزي</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>هذه الشريحة تُبرز أهمية هندسة البيانات كعمود فقري للذكاء الاصطناعي. يمكن طرح سؤال افتتاحي مثل: “من منكم واجه تحديات في توفير بيانات نظيفة لمشروع ذكاء اصطناعي؟”</p>
+<p>قدم تعريفًا واضحًا لاستيعاب البيانات وأهميته. سلط الضوء على أن الاختيار بين أنماط الاستيعاب ليس قرارًا عشوائيًا بل يستند إلى متطلبات محددة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -413,30 +563,36 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="منظومة-الذكاء-الاصطناعي-ودور-البيانات-فيها" class="slide level2">
-<h2>منظومة الذكاء الاصطناعي ودور البيانات فيها</h2>
+<section id="معالجة-الدفعات-batch-processing" class="slide level2">
+<h2>معالجة الدفعات (Batch Processing)</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>تتكون منظومة الذكاء الاصطناعي من عدة طبقات مترابطة، والبيانات هي العنصر المشترك الذي يربطها جميعاً:</p>
 <ul>
-<li class="fragment"><strong>مصدر البيانات:</strong> أنظمة المعاملات، أجهزة الاستشعار، سجلات الويب، وسائل التواصل الاجتماعي.</li>
-<li class="fragment"><strong>هندسة البيانات:</strong> جمع، تنظيف، تحويل، تخزين، وإتاحة البيانات.</li>
-<li class="fragment"><strong>علم البيانات/تعلم الآلة:</strong> بناء وتدريب وتقييم النماذج باستخدام البيانات الجاهزة.</li>
-<li class="fragment"><strong>نشر الذكاء الاصطناعي (MLOps):</strong> دمج النماذج في تطبيقات الإنتاج ومراقبتها.</li>
-<li class="fragment"><strong>التطبيقات النهائية:</strong> تطبيقات الويب، تطبيقات الجوال، أنظمة التوصية، التحليلات التنبؤية.</li>
+<li class="fragment"><strong>التعريف:</strong> معالجة مجموعات كبيرة من البيانات التي تم جمعها على مدار فترة زمنية محددة (ساعات، أيام، أسابيع).</li>
+<li class="fragment"><strong>المميزات:</strong>
+<ul>
+<li class="fragment"><strong>الكفاءة العالية:</strong> مثالية لمعالجة كميات ضخمة من البيانات غير الفورية.</li>
+<li class="fragment"><strong>البساطة:</strong> أسهل في التنفيذ والإدارة مقارنة بالتدفق.</li>
+<li class="fragment"><strong>التحمل:</strong> يمكن إعادة محاولة معالجة الدفعات بسهولة في حالة الفشل.</li>
+</ul></li>
+<li class="fragment"><strong>العيوب:</strong>
+<ul>
+<li class="fragment"><strong>التأخير:</strong> لا توفر رؤى في الوقت الفعلي.</li>
+<li class="fragment"><strong>الاستهلاك المكثف للموارد:</strong> قد تستهلك موارد حوسبية كبيرة أثناء المعالجة.</li>
+</ul></li>
+<li class="fragment"><strong>أمثلة:</strong> معالجة كشوف المرتبات الشهرية، تقارير نهاية اليوم، تحليل سجلات الويب اليومية.</li>
 </ul>
-<p><strong>لا يمكن لأي طبقة أن تعمل بفعالية بدون البيانات المهيأة بشكل صحيح.</strong></p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/A-diagram-illustrating-the-AI-ecosystem,-with-data-engineering-as-a-foundational-layer-connecting-data-sources-to-machine-learning-models-and-AI-applications?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>A diagram illustrating the AI ecosystem, with data engineering as a foundational layer connecting data sources to machine learning models and AI applications.</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/Large-data-cloud-processed-as-single-batch-in-data-pipeline?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>سحابة بيانات كبيرة يتم معالجتها كدفعة واحدة في مسار معالجة بيانات</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>يُفضل هنا شرح كل طبقة بإيجاز وكيف تتداخل مع دور مهندس البيانات. يمكن الإشارة إلى أن هندسة البيانات هي الجسر بين البيانات الخام والذكاء الاصطناعي القابل للاستخدام.</p>
+<p>اشرح مفهوم معالجة الدفعات بالتفصيل. ركز على السيناريوهات التي يكون فيها التأخير مقبولًا وحجم البيانات كبيراً. اطلب من المشاركين أمثلة أخرى على استخدام معالجة الدفعات.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -449,30 +605,37 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="من-هو-مهندس-البيانات-في-عصر-الذكاء-الاصطناعي" class="slide level2">
-<h2>من هو مهندس البيانات في عصر الذكاء الاصطناعي؟</h2>
+<section id="معالجة-التدفق-streaming-processing" class="slide level2">
+<h2>معالجة التدفق (Streaming Processing)</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p><strong>مهندس البيانات</strong> هو المهندس المعماري والبنّاء لـ “خطوط الأنابيب” التي تنقل البيانات من مصادرها الخام إلى شكل يمكن لعلماء البيانات ونماذج الذكاء الاصطناعي استخدامه.</p>
-<p>مهامه تشمل:</p>
 <ul>
-<li class="fragment"><strong>بناء البنى التحتية:</strong> تصميم وتطوير وصيانة البنى التحتية للبيانات القابلة للتوسع.</li>
-<li class="fragment"><strong>إدارة البيانات:</strong> التأكد من <strong>جودة البيانات</strong>، <strong>الموثوقية</strong>، و<strong>الأمان</strong>.</li>
-<li class="fragment"><strong>أتمتة خطوط الأنابيب:</strong> بناء وتشغيل عمليات ETL/ELT المؤتمتة.</li>
-<li class="fragment"><strong>دعم نماذج الذكاء الاصطناعي:</strong> تجهيز البيانات وتوحيدها لتدريب ونشر نماذج التعلم الآلي.</li>
-<li class="fragment"><strong>تحسين الأداء:</strong> ضبط الأنظمة لتحقيق أقصى كفاءة وسرعة في معالجة البيانات الضخمة.</li>
+<li class="fragment"><strong>التعريف:</strong> معالجة البيانات فور ورودها، سجلًا بسجل، في الوقت الفعلي أو شبه الفعلي.</li>
+<li class="fragment"><strong>المميزات:</strong>
+<ul>
+<li class="fragment"><strong>الاستجابة الفورية:</strong> توفير رؤى وقرارات فورية.</li>
+<li class="fragment"><strong>الكشف المبكر:</strong> القدرة على اكتشاف الاحتيال أو المشكلات الأمنية بسرعة.</li>
+<li class="fragment"><strong>تجارب مستخدم محسّنة:</strong> تخصيص المحتوى أو التوصيات في الوقت الفعلي.</li>
+</ul></li>
+<li class="fragment"><strong>العيوب:</strong>
+<ul>
+<li class="fragment"><strong>التعقيد:</strong> أصعب في التصميم والتنفيذ والصيانة.</li>
+<li class="fragment"><strong>حساسية الفشل:</strong> يتطلب أنظمة قوية للتعافي من الأعطال.</li>
+<li class="fragment"><strong>تكلفة أعلى:</strong> قد تتطلب موارد حوسبية أكثر استدامة.</li>
+</ul></li>
+<li class="fragment"><strong>أمثلة:</strong> كشف الاحتيال في البطاقات الائتمانية، مراقبة أنظمة إنترنت الأشياء، تحليل نقرات المستخدم على المواقع.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/A-depiction-of-a-data-engineer-connecting-various-data-sources-to-a-central-processing-unit,-with-data-pipelines-flowing-towards-AI/ML-applications?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>A depiction of a data engineer connecting various data sources to a central processing unit, with data pipelines flowing towards AI/ML applications.</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/Continuous-stream-of-data-flowing-through-real-time-data-processing-pipeline?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>تدفق مستمر للبيانات يمر عبر مسار معالجة بيانات في الوقت الفعلي</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>التأكيد على أن مهندس البيانات ليس فقط مبرمجًا، بل مهندس بنية تحتية ومحلل بيانات في آن واحد، وله دور حيوي في نجاح مشاريع الذكاء الاصطناعي.</p>
+<p>استكمل الشرح حول معالجة التدفق. شدد على أهمية التوقيت الحرج في هذه السيناريوهات. اسأل المشاركين عن تطبيقات في حياتهم اليومية تعتقد أنها تستخدم معالجة التدفق.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -485,259 +648,8 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="استبيان-سريع-مستوى-خبرتكم-في-هندسة-البيانات-تقييم-تكويني" class="slide level2">
-<h2>استبيان سريع: مستوى خبرتكم في هندسة البيانات (تقييم تكويني)</h2>
-<ul>
-<li class="fragment">أ) مبتدئ: لدي معرفة قليلة أو لا توجد خبرة سابقة في هندسة البيانات.</li>
-<li class="fragment">ب) متوسط: لدي بعض الخبرة في التعامل مع البيانات أو أدوات ETL الأساسية.</li>
-<li class="fragment">ج) متقدم: عملت على تصميم وبناء خطوط أنابيب بيانات معقدة.</li>
-<li class="fragment">د) خبير: لدي خبرة واسعة في تصميم حلول البيانات الموزعة للذكاء الاصطناعي.</li>
-</ul>
-<div class="fragment">
-<p><strong>توضيح:</strong> هذا الاستبيان يساعدنا على تكييف المحتوى والأمثلة لتناسب مستوى الخبرة الجماعي للمشاركين. لا توجد إجابات خاطئة، فقط تحديد لمستوى البداية.</p>
-</div>
-<aside class="notes">
-<p>استخدم أداة استطلاع تفاعلية هنا (مثل Mentimeter) لجمع الإجابات الفورية. بناءً على النتائج، يمكن للمدرب تكييف عمق الشرح في الشرائح اللاحقة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="مسار-التعلم-التكيفي-كيف-سنخصص-تجربتك-اليوم" class="slide level2">
-<h2>مسار التعلم التكيّفي: كيف سنُخصص تجربتك اليوم؟</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>نحن نؤمن بأن كل مشارك فريد ولديه خلفية مختلفة. لذلك، صُممت هذه الجلسة لتكون <strong>تكيّفية ومُخصصة</strong>:</p>
-<ul>
-<li class="fragment"><strong>مواد مرجعية اختيارية:</strong> تم توفير مواد إضافية قبل الجلسة بناءً على استبيان سابق.</li>
-<li class="fragment"><strong>استطلاعات رأي فورية:</strong> نتائج الاستبيانات الفورية وأسئلتكم ستوجه مستوى التعمق.</li>
-<li class="fragment"><strong>اختيار مواضيع فرعية:</strong> في بعض الأحيان، سنسمح باختيار مواضيع فرعية للنقاش المعمق بناءً على اهتماماتكم.</li>
-<li class="fragment"><strong>تحديات معمارية:</strong> ستتيح لك هذه التحديات تطبيق المفاهيم على مشكلات حقيقية واكتساب نقاط.</li>
-<li class="fragment"><strong>محاكاة مشروع:</strong> فرصة لتصميم حلول بيانات في مجموعات صغيرة.</li>
-</ul>
-<p><strong>هدفنا:</strong> أن تخرج بأكبر قدر من الفائدة العملية والتعليمية التي تناسب مسارك.</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/A-graphic-symbolizing-a-personalized-learning-path,-with-diverging-arrows-representing-choices-and-adaptation,-leading-to-a-customized-learning-experience?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>A graphic symbolizing a personalized learning path, with diverging arrows representing choices and adaptation, leading to a customized learning experience.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>شرح كيفية تفعيل استراتيجية التعلم التكيّفي. يمكن للمدرب أن يذكر مثالاً: “إذا رأيت أن غالبية المشاركين لديهم خبرة في Spark، يمكننا التركيز أكثر على الجوانب المتقدمة أو تحديات الأداء”.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="المرحلة-الثانية-المفاهيم-الأساسية" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
-<h1>المرحلة الثانية: المفاهيم الأساسية</h1>
-<aside class="notes">
-<p>في هذه المرحلة، سنغوص في الأسس النظرية والتحديات العملية التي تواجه مهندسي البيانات. سنستكشف خصائص البيانات الضخمة، أنماط معالجتها، وبنى التخزين الموزعة.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="تحديات-البيانات-الضخمة-الأبعاد-الأربعة-4vs" class="slide level2">
-<h2>تحديات البيانات الضخمة: الأبعاد الأربعة (4Vs)</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>لفهم هندسة البيانات، يجب أولاً فهم التحديات التي تطرحها <strong>البيانات الضخمة (Big Data)</strong>، والتي تُعرف تقليدياً بـ “الأبعاد الأربعة”:</p>
-<ul>
-<li class="fragment"><strong>الحجم (Volume):</strong> الكميات الهائلة من البيانات التي يتم إنشاؤها وتخزينها يوميًا (تيرابايت، بيتابايت، إكسابايت).
-<ul>
-<li class="fragment"><em>مثال:</em> سجلات خادم الويب، بيانات أجهزة الاستشعار، بيانات وسائل التواصل الاجتماعي.</li>
-</ul></li>
-<li class="fragment"><strong>السرعة (Velocity):</strong> السرعة التي يتم بها إنشاء البيانات وتدفقها ومعالجتها.
-<ul>
-<li class="fragment"><em>مثال:</em> تدفقات بيانات الأسهم، بيانات المعاملات المالية في الوقت الفعلي.</li>
-</ul></li>
-<li class="fragment"><strong>التنوع (Variety):</strong> الأشكال المختلفة للبيانات التي يجب التعامل معها (منظمة، شبه منظمة، غير منظمة).
-<ul>
-<li class="fragment"><em>مثال:</em> قواعد بيانات علائقية، مستندات JSON، صور، مقاطع فيديو، نصوص.</li>
-</ul></li>
-<li class="fragment"><strong>الموثوقية (Veracity):</strong> جودة البيانات وصدقها ودقتها ومدى الثقة بها.
-<ul>
-<li class="fragment"><em>مثال:</em> بيانات غير كاملة، متضاربة، أو خاطئة تؤثر على نتائج التحليلات.</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/An-infographic-illustrating-the-4-Vs-of-Big-Data:-Volume,-Velocity,-Variety,-and-Veracity,-each-with-a-small-icon-representing-its-meaning?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>An infographic illustrating the 4 Vs of Big Data: Volume, Velocity, Variety, and Veracity, each with a small icon representing its meaning.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>اشرح كل “V” بمثال بسيط لترسيخ الفهم. يمكن فتح نقاش حول أي من هذه التحديات يجدونه الأكثر صعوبة في مشاريعهم.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="أنماط-استيعاب-ومعالجة-البيانات-نظرة-عامة" class="slide level2">
-<h2>أنماط استيعاب ومعالجة البيانات: نظرة عامة</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>عند التعامل مع البيانات الضخمة، هناك نمطان رئيسيان لاستيعاب ومعالجة البيانات، كل منهما يناسب سيناريوهات مختلفة:</p>
-<ul>
-<li class="fragment"><strong>معالجة الدفعات (Batch Processing):</strong>
-<ul>
-<li class="fragment">تجميع ومعالجة كميات كبيرة من البيانات دفعة واحدة (على فترات زمنية محددة).</li>
-<li class="fragment">مثالي للتحليلات التاريخية، تقارير نهاية اليوم، مهام ETL التقليدية.</li>
-</ul></li>
-<li class="fragment"><strong>معالجة التدفق (Streaming Processing):</strong>
-<ul>
-<li class="fragment">معالجة البيانات في الوقت الفعلي فور وصولها أو بعد فترة قصيرة جداً.</li>
-<li class="fragment">ضروري للتطبيقات التي تتطلب استجابة فورية، مثل اكتشاف الاحتيال، المراقبة اللحظية.</li>
-</ul></li>
-</ul>
-<p>الاختيار بين النمطين يعتمد على متطلبات التطبيق من حيث <strong>التأخير (Latency)</strong> و<strong>حجم البيانات</strong>.</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/A-conceptual-image-showing-two-parallel-flows-of-data:-one-representing-large-blocks-moving-slowly-(batch),-and-another-showing-continuous,-fast-moving-streams-(streaming)?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>A conceptual image showing two parallel flows of data: one representing large blocks moving slowly (batch), and another showing continuous, fast-moving streams (streaming).</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>تقديم مفهومي Batch و Streaming بشكل مبسط قبل التعمق في كل منهما. هذا يضع السياق لاختيار الأداة المناسبة لاحقًا.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="معالجة-الدفعات-batch-processing-المفهوم-وحالات-الاستخدام" class="slide level2">
-<h2>معالجة الدفعات (Batch Processing): المفهوم وحالات الاستخدام</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>معالجة الدفعات</strong> هي طريقة لمعالجة البيانات حيث يتم تجميع مجموعة كبيرة من البيانات ومعالجتها كـ “دفعة” واحدة.</p>
-<ul>
-<li class="fragment"><strong>الخصائص الرئيسية:</strong>
-<ul>
-<li class="fragment"><strong>التأخير العالي:</strong> يمكن أن يستغرق إعداد النتائج ساعات أو أيام.</li>
-<li class="fragment"><strong>كفاءة التكلفة:</strong> غالبًا ما تكون أقل تكلفة للحوسبة والتخزين.</li>
-<li class="fragment"><strong>التعامل مع كميات ضخمة:</strong> مناسبة لمعالجة كميات هائلة من البيانات.</li>
-</ul></li>
-<li class="fragment"><strong>حالات الاستخدام الشائعة:</strong>
-<ul>
-<li class="fragment"><strong>التقارير الشهرية/السنوية:</strong> إنشاء تقارير الأداء أو المبيعات.</li>
-<li class="fragment"><strong>تحليل السجلات التاريخية:</strong> تحليل سلوك المستخدم على المدى الطويل.</li>
-<li class="fragment"><strong>مهام ETL التقليدية:</strong> استخراج وتحويل وتحميل البيانات إلى مستودعات البيانات.</li>
-<li class="fragment"><strong>إعادة تدريب نماذج الذكاء الاصطناعي:</strong> على مجموعات بيانات كبيرة بشكل دوري.</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/A-visual-representation-of-batch-processing,-showing-large-datasets-being-collected-over-time-and-then-processed-in-distinct,-scheduled-blocks?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>A visual representation of batch processing, showing large datasets being collected over time and then processed in distinct, scheduled blocks.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>شرح متى يكون Batch Processing هو الخيار الأفضل. يمكن ذكر أمثلة أخرى مثل “حساب الرواتب” أو “فواتير الخدمات”.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="معالجة-التدفق-streaming-processing-المفهوم-وحالات-الاستخدام" class="slide level2">
-<h2>معالجة التدفق (Streaming Processing): المفهوم وحالات الاستخدام</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>معالجة التدفق</strong> هي طريقة لمعالجة البيانات حيث يتم تحليل البيانات فور وصولها أو في “وقت حقيقي” تقريبًا.</p>
-<ul>
-<li class="fragment"><strong>الخصائص الرئيسية:</strong>
-<ul>
-<li class="fragment"><strong>التأخير المنخفض جداً:</strong> استجابة فورية أو شبه فورية (ميلي ثانية إلى ثوانٍ).</li>
-<li class="fragment"><strong>تحدي التعقيد:</strong> تتطلب بنى تحتية أكثر تعقيداً وأدوات متخصصة.</li>
-<li class="fragment"><strong>التعامل مع تدفق مستمر:</strong> مصممة لمعالجة تدفق لا نهائي من البيانات.</li>
-</ul></li>
-<li class="fragment"><strong>حالات الاستخدام الشائعة:</strong>
-<ul>
-<li class="fragment"><strong>اكتشاف الاحتيال:</strong> تحليل المعاملات البنكية فوراً لتحديد الأنماط المشبوهة.</li>
-<li class="fragment"><strong>المراقبة في الوقت الفعلي:</strong> مراقبة أداء الخوادم أو أجهزة إنترنت الأشياء (IoT).</li>
-<li class="fragment"><strong>تخصيص المحتوى:</strong> تحديث توصيات المنتجات بناءً على سلوك المستخدم الحالي.</li>
-<li class="fragment"><strong>تحليل المشاعر:</strong> تحليل منشورات وسائل التواصل الاجتماعي لحظياً.</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/A-dynamic-image-showing-continuous-data-streams-flowing-rapidly-through-a-processing-unit,-with-immediate-output?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>A dynamic image showing continuous data streams flowing rapidly through a processing unit, with immediate output.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>التركيز على أهمية “الوقت الحقيقي” و”الاستجابة الفورية” في Streaming. يمكن التساؤل: “ما هي تطبيقات الذكاء الاصطناعي التي تعتمد بشكل كبير على معالجة التدفق؟” (مثل روبوتات الدردشة، أنظمة القيادة الذاتية).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="مقارنة-بين-أنماط-معالجة-البيانات-الدفعات-مقابل-التدفق" class="slide level2">
-<h2>مقارنة بين أنماط معالجة البيانات: الدفعات مقابل التدفق</h2>
+<section id="مقارنة-معالجة-الدفعات-مقابل-معالجة-التدفق" class="slide level2">
+<h2>مقارنة: معالجة الدفعات مقابل معالجة التدفق</h2>
 <table>
 <colgroup>
 <col style="width: 14%">
@@ -753,39 +665,39 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>التأخير (Latency)</strong></td>
-<td style="text-align: left;">عالي (ساعات، أيام)</td>
-<td style="text-align: left;">منخفض جداً (ميلي ثانية، ثوانٍ)</td>
+<td style="text-align: left;"><strong>التوقيت</strong></td>
+<td style="text-align: left;">غير فوري، تأخير مقبول</td>
+<td style="text-align: left;">في الوقت الفعلي أو شبه الفعلي</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>حجم البيانات</strong></td>
-<td style="text-align: left;">كميات ضخمة جداً (أرشيفية)</td>
-<td style="text-align: left;">تدفق مستمر من البيانات</td>
+<td style="text-align: left;">كميات ضخمة من البيانات المجمعة</td>
+<td style="text-align: left;">سجلات صغيرة ومتفرقة بشكل مستمر</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>التعقيد</strong></td>
-<td style="text-align: left;">أقل تعقيداً في التصميم والتطبيق</td>
-<td style="text-align: left;">أكثر تعقيداً؛ يتطلب أدوات متخصصة</td>
+<td style="text-align: left;">أبسط في التصميم والتنفيذ</td>
+<td style="text-align: left;">أكثر تعقيدًا في التصميم والتنفيذ</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>حالة الاستخدام</strong></td>
-<td style="text-align: left;">التقارير التحليلية، ETL، إعادة تدريب النماذج</td>
-<td style="text-align: left;">اكتشاف الاحتيال، مراقبة IoT، توصيات فورية</td>
+<td style="text-align: left;"><strong>التحمل</strong></td>
+<td style="text-align: left;">يمكن إعادة المعالجة بسهولة</td>
+<td style="text-align: left;">يتطلب آليات قوية للتحمل من الأخطاء والتعافي</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>الاستهلاك</strong></td>
-<td style="text-align: left;">عالي للموارد لفترة محددة ثم ينخفض</td>
-<td style="text-align: left;">مستمر للموارد بكميات متفاوتة</td>
+<td style="text-align: left;"><strong>حالة الاستخدام</strong></td>
+<td style="text-align: left;">تحليل سجلات الويب اليومية، كشوف المرتبات</td>
+<td style="text-align: left;">كشف الاحتيال، مراقبة إنترنت الأشياء، التوصيات الفورية</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>التحمل الفشل</strong></td>
-<td style="text-align: left;">أسهل في الاستعادة من الأخطاء</td>
-<td style="text-align: left;">يتطلب آليات قوية للتحمل الفشل وتكرار المعالجة</td>
+<td style="text-align: left;"><strong>الأدوات الشائعة</strong></td>
+<td style="text-align: left;">Apache Spark (Spark Batch), Hadoop MapReduce</td>
+<td style="text-align: left;">Apache Kafka, Apache Flink, Spark Streaming</td>
 </tr>
 </tbody>
 </table>
 <aside class="notes">
-<p>هذا الجدول مهم جداً لتلخيص الفروقات الرئيسية. يمكن للمدرب أن يطلب من المشاركين تحديد أي من الأنماط قد يكون أفضل لسيناريو معين يطرحه.</p>
+<p>هذا الجدول يوفر مقارنة واضحة ومنظمة بين النمطين. استخدمه لمراجعة النقاط الرئيسية وتثبيت الفهم. يمكن للمدرب أن يطرح أسئلة حول أي من هذه الميزات يمثل تحديًا أكبر.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -798,29 +710,50 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="بنى-تخزين-البيانات-الموزعة-نظرة-شاملة" class="slide level2">
-<h2>بنى تخزين البيانات الموزعة: نظرة شاملة</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>تعتبر بنى تخزين البيانات الموزعة حجر الزاوية في أي نظام بيانات ضخمة لدعم الذكاء الاصطناعي. تهدف هذه البنى إلى التعامل مع الحجم الهائل والتنوع والسرعة للبيانات.</p>
+<section id="اختيار-نمط-الاستيعاب-المناسب" class="slide level2">
+<h2>اختيار نمط الاستيعاب المناسب</h2>
 <ul>
-<li class="fragment"><strong>نظام الملفات الموزعة (Distributed File Systems):</strong> مثل HDFS، يوفر تخزيناً قابلاً للتوسع وعالي التوافر.</li>
-<li class="fragment"><strong>قواعد البيانات NoSQL:</strong> مصممة للتعامل مع كميات هائلة من البيانات غير المنظمة أو شبه المنظمة بسرعة عالية (MongoDB, Cassandra, DynamoDB).</li>
-<li class="fragment"><strong>تخزين الكائنات (Object Storage):</strong> مثل Amazon S3 وAzure Blob Storage، مثالي لتخزين البيانات الخام بتكلفة منخفضة ومرونة عالية.</li>
-<li class="fragment"><strong>بنى الطبقات (Tiered Architectures):</strong> الجمع بين أنواع مختلفة من التخزين لتحقيق التوازن بين التكلفة والأداء.</li>
+<li class="fragment"><strong>متطلبات العمل (Business Requirements):</strong>
+<ul>
+<li class="fragment">هل تحتاج البيانات إلى أن تكون محدثة في الوقت الفعلي؟ (مثال: كشف الاحتيال)</li>
+<li class="fragment">هل يمكن قبول بعض التأخير في الحصول على الرؤى؟ (مثال: تقارير المبيعات الشهرية)</li>
+</ul></li>
+<li class="fragment"><strong>حجم البيانات ومعدل الوصول (Data Volume &amp; Velocity):</strong>
+<ul>
+<li class="fragment">هل تأتي البيانات بكميات كبيرة دفعة واحدة، أم بتدفق مستمر من الأحداث الصغيرة؟</li>
+</ul></li>
+<li class="fragment"><strong>تكلفة البنية التحتية (Infrastructure Cost):</strong>
+<ul>
+<li class="fragment">أنظمة التدفق قد تكون أكثر تكلفة في التشغيل والصيانة.</li>
+</ul></li>
+<li class="fragment"><strong>التعقيد التشغيلي (Operational Complexity):</strong>
+<ul>
+<li class="fragment">هل يمتلك فريقك الخبرة والموارد اللازمة لإدارة أنظمة التدفق المعقدة؟</li>
+</ul></li>
+<li class="fragment"><strong>المفاضلة (Trade-offs):</strong> غالبًا ما يكون هناك توازن بين السرعة، التكلفة، والتعقيد.</li>
 </ul>
-<p>الاختيار الصحيح للتخزين يؤثر بشكل مباشر على كفاءة وأداء خطوط أنابيب البيانات ونماذج الذكاء الاصطناعي.</p>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/A-diagram-showing-multiple-interconnected-storage-units,-each-labeled-with-a-different-storage-type-(HDFS,-NoSQL,-Object-Storage),-all-contributing-to-a-large,-distributed-data-infrastructure?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>A diagram showing multiple interconnected storage units, each labeled with a different storage type (HDFS, NoSQL, Object Storage), all contributing to a large, distributed data infrastructure.</figcaption>
-</figure>
-</div>
-</div>
+<aside class="notes">
+<p>وجه المشاركين نحو عملية اتخاذ القرار. شجعهم على التفكير في سيناريوهات واقعية وتطبيق هذه المعايير لاختيار النمط المناسب. يمكن أن تطرح “تحديًا معماريًا” هنا: “لديك نظام لتتبع سلوك العملاء على متجر إلكتروني، متى تختار Batch ومتى تختار Streaming؟”.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section id="اختبر-معلوماتك-1" class="title-slide slide level1 center">
+<h1>اختبر معلوماتك! 🧠</h1>
+<p>أي من السيناريوهات التالية هو الأنسب لمعالجة التدفق؟ - أ) إعداد تقارير الميزانية الشهرية للشركة. - ب) تحليل سجلات الخادم في نهاية اليوم لتحديد الأخطاء الشائعة. - ج) الكشف الفوري عن المعاملات المشبوهة في نظام الدفع الإلكتروني.</p>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ج) الكشف الفوري عن المعاملات المشبوهة في نظام الدفع الإلكتروني. <strong>التفسير:</strong> يتطلب كشف الاحتيال استجابة فورية، مما يجعله تطبيقًا مثاليًا لمعالجة التدفق. الخيارات الأخرى يمكن أن تنتظر معالجة الدفعات.</p>
 </div>
 <aside class="notes">
-<p>تقديم المفاهيم الأساسية لبنى التخزين قبل التعمق في Data Lakes و Warehouses. يمكن الإشارة إلى أن هذه الأدوات ليست بدائل لبعضها البعض بل مكملة.</p>
+<p>اختبار سريع آخر لضمان فهم المفاهيم. استخدم هذا كفرصة لمناقشة سبب صحة الإجابة ولماذا الخيارات الأخرى غير مناسبة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -833,42 +766,12 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="بحيرات-البيانات-data-lakes-المفهوم-والمميزات" class="slide level2">
-<h2>بحيرات البيانات (Data Lakes): المفهوم والمميزات</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>بحيرة البيانات (Data Lake)</strong> هي مستودع مركزي يسمح بتخزين كميات هائلة من البيانات الخام في تنسيقها الأصلي.</p>
-<ul>
-<li class="fragment"><strong>الخصائص الرئيسية:</strong>
-<ul>
-<li class="fragment"><strong>تخزين البيانات الخام:</strong> يتم تخزين البيانات “كما هي” دون تحويل مسبق.</li>
-<li class="fragment"><strong>مرونة المخطط:</strong> “المخطط عند القراءة” (Schema-on-read)، مما يعني تعريف البنية عند الاستعلام.</li>
-<li class="fragment"><strong>تنوع البيانات:</strong> يدعم البيانات المنظمة، شبه المنظمة، وغير المنظمة.</li>
-<li class="fragment"><strong>قابلية التوسع:</strong> مصممة للتوسع اللانهائي تقريباً.</li>
-</ul></li>
-<li class="fragment"><strong>المميزات:</strong>
-<ul>
-<li class="fragment"><strong>تكلفة منخفضة:</strong> عادة ما تكون أقل تكلفة للتخزين مقارنة بمستودعات البيانات.</li>
-<li class="fragment"><strong>مرونة:</strong> تتيح استكشاف البيانات واكتشاف الأنماط الجديدة.</li>
-<li class="fragment"><strong>دعم الذكاء الاصطناعي:</strong> مصدر ممتاز للبيانات الخام لتدريب نماذج التعلم الآلي.</li>
-</ul></li>
-<li class="fragment"><strong>التحديات:</strong>
-<ul>
-<li class="fragment">قد تتحول إلى “مستنقع بيانات” (Data Swamp) بدون إدارة جيدة.</li>
-<li class="fragment">صعوبة اكتشاف البيانات والحوكمة.</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="https://image.pollinations.ai/prompt/An-illustration-of-a-vast-data-lake,-with-various-data-types-(structured,-semi-structured,-unstructured)-flowing-into-a-large,-central-reservoir-of-raw-data?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>An illustration of a vast data lake, with various data types (structured, semi-structured, unstructured) flowing into a large, central reservoir of raw data.</figcaption>
-</figure>
-</div>
-</div>
-</div>
+
+<section>
+<section id="المرحلة-الثانية-المفاهيم-الأساسية" class="title-slide slide level1 sdaia-dark center" data-background-gradient="linear-gradient(135deg, #1C355E, #00C9A7)">
+<h1>المرحلة الثانية: المفاهيم الأساسية</h1>
 <aside class="notes">
-<p>التأكيد على أن Data Lake هو الأفضل للبيانات الخام والمرونة. يمكن طرح سؤال عن الفرق بين “بحيرة البيانات” و “مستنقع البيانات”.</p>
+<p>ننتقل الآن إلى المرحلة الثانية حيث سنغوص في مفاهيم البنية التحتية الأساسية التي تدعم هندسة البيانات الموزعة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -881,43 +784,31 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="مستودعات-البيانات-data-warehouses-المفهوم-والمميزات" class="slide level2">
-<h2>مستودعات البيانات (Data Warehouses): المفهوم والمميزات</h2>
+<section id="بنى-تخزين-البيانات-الموزعة-للذكاء-الاصطناعي" class="slide level2">
+<h2>بنى تخزين البيانات الموزعة للذكاء الاصطناعي</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p><strong>مستودع البيانات (Data Warehouse)</strong> هو مستودع مركزي للبيانات المنظمة التي تم تحويلها وتجهيزها خصيصاً للتحليلات وإعداد التقارير.</p>
 <ul>
-<li class="fragment"><strong>الخصائص الرئيسية:</strong>
+<li class="fragment">تتطلب تطبيقات الذكاء الاصطناعي الحديثة تخزين كميات هائلة من البيانات بأنواعها المختلفة.</li>
+<li class="fragment">الحلول التقليدية لم تعد كافية للتعامل مع <strong>البيانات الضخمة (Big Data)</strong> من حيث الحجم (Volume)، السرعة (Velocity)، والتنوع (Variety).</li>
+<li class="fragment">ظهرت بنى تخزين موزعة لتلبية هذه الاحتياجات، وأهمها:
 <ul>
-<li class="fragment"><strong>بيانات منظمة:</strong> تخزين البيانات في جداول وعلاقات محددة مسبقاً.</li>
-<li class="fragment"><strong>المخطط عند الكتابة:</strong> “المخطط عند الكتابة” (Schema-on-write)، يتم تطبيق البنية قبل التخزين.</li>
-<li class="fragment"><strong>تحسين الأداء للاستعلامات:</strong> مصمم للاستعلامات المعقدة والتحليلات السريعة.</li>
-<li class="fragment"><strong>تاريخية وموضوعية:</strong> بيانات متكاملة من مصادر متعددة، غالباً تاريخية.</li>
-</ul></li>
-<li class="fragment"><strong>المميزات:</strong>
-<ul>
-<li class="fragment"><strong>جودة بيانات عالية:</strong> بيانات نظيفة ومتسقة وموثوقة.</li>
-<li class="fragment"><strong>أداء استعلام ممتاز:</strong> مثالي لذكاء الأعمال (BI) والتقارير.</li>
-<li class="fragment"><strong>سهولة الاستخدام:</strong> للمحللين ومستخدمي الأعمال.</li>
-</ul></li>
-<li class="fragment"><strong>التحديات:</strong>
-<ul>
-<li class="fragment">أقل مرونة في التعامل مع البيانات غير المنظمة.</li>
-<li class="fragment">تكلفة أعلى للتخزين والمعالجة.</li>
-<li class="fragment">قد يتطلب وقتاً وجهداً كبيراً لبناء ETL.</li>
+<li class="fragment"><strong>بحيرة البيانات (Data Lake)</strong></li>
+<li class="fragment"><strong>مستودع البيانات (Data Warehouse)</strong></li>
+<li class="fragment"><strong>منزل البيانات (Data Lakehouse)</strong></li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://image.pollinations.ai/prompt/A-diagram-representing-a-data-warehouse-as-a-highly-structured-and-organized-collection-of-data-cubes-and-tables,-optimized-for-reporting-and-analysis?width=600&amp;height=600&amp;nologo=true.png"></p>
-<figcaption>A diagram representing a data warehouse as a highly structured and organized collection of data cubes and tables, optimized for reporting and analysis.</figcaption>
+<p><img data-src="https://image.pollinations.ai/prompt/Architectural-visualization-of-different-distributed-data-storage-systems-connected-to-AI?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>تصور معماري لأنظمة تخزين البيانات الموزعة المختلفة مرتبطة بالذكاء الاصطناعي</figcaption>
 </figure>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>التركيز على أن Data Warehouse هو الأفضل للبيانات المنظمة والتقارير. مقارنته بـ Data Lake من حيث المرونة والبنية.</p>
+<p>وضح سياق ظهور هذه البنى. ركز على التحديات التي أدت إلى تطويرها (3Vs للبيانات الضخمة). يمكن أن تسأل المشاركين عن تجاربهم مع تحديات تخزين البيانات الضخمة.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -930,29 +821,251 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="data-lakehouse-سد-الفجوة-بين-البحيرات-والمستودعات" class="slide level2">
-<h2>Data Lakehouse: سد الفجوة بين البحيرات والمستودعات</h2>
+<section id="بحيرة-البيانات-data-lake" class="slide level2">
+<h2>بحيرة البيانات (Data Lake)</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>ظهر مفهوم <strong>Data Lakehouse</strong> لسد الفجوة بين مرونة بحيرات البيانات وأداء وموثوقية مستودعات البيانات.</p>
 <ul>
-<li class="fragment"><strong>تعريف:</strong> بنية جديدة تجمع بين أفضل ميزات بحيرات البيانات (التخزين المرن للبيانات الخام) ومستودعات البيانات (جودة البيانات، إدارة المخطط، أداء الاستعلام).</li>
+<li class="fragment"><strong>التعريف:</strong> مستودع مركزي لتخزين كميات هائلة من البيانات الأولية (Raw Data) وغير المهيكلة (Unstructured)، شبه المهيكلة (Semi-structured)، والمهيكلة (Structured) بتكللفة منخفضة.</li>
 <li class="fragment"><strong>الخصائص:</strong>
 <ul>
-<li class="fragment"><strong>بناء على Data Lake:</strong> يستخدم تخزين الكائنات بتكلفة منخفضة (مثل S3، ADLS).</li>
-<li class="fragment"><strong>جداول مفتوحة المصدر:</strong> يستخدم تنسيقات جداول مثل Delta Lake، Apache Iceberg، Apache Hudi.</li>
-<li class="fragment"><strong>المعاملات ACID:</strong> يدعم معاملات ACID (الذرية، الاتساق، العزل، الديمومة) على Data Lake.</li>
-<li class="fragment"><strong>إدارة المخطط:</strong> يوفر إدارة للمخطط وتطوراً له.</li>
-<li class="fragment"><strong>دعم لكل من BI و ML:</strong> يمكن استخدامه للتحليلات التقليدية ونماذج الذكاء الاصطناعي.</li>
+<li class="fragment"><strong>تخزين البيانات الأصلية:</strong> تحتفظ بالبيانات بصيغتها الأصلية.</li>
+<li class="fragment"><strong>المرونة (Schema-on-Read):</strong> لا تفرض مخططًا للبيانات عند التخزين، بل عند القراءة.</li>
+<li class="fragment"><strong>التكلفة المنخفضة:</strong> غالبًا ما تستخدم أنظمة تخزين سلعية (commodity hardware) أو تخزين سحابي منخفض التكلفة (مثل S3).</li>
+<li class="fragment"><strong>قابلية التوسع:</strong> مصممة للتوسع أفقيًا لاستيعاب أي حجم من البيانات.</li>
 </ul></li>
-<li class="fragment"><strong>المميزات:</strong>
+<li class="fragment"><strong>الاستخدامات:</strong> تحليل البيانات الاستكشافي، تعلم الآلة، تخزين البيانات التاريخية.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/Visualization-of-a-vast-data-lake-holding-various-types-of-raw-data?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>تصور لبحيرة بيانات ضخمة تحتوي على أنواع مختلفة من البيانات الأولية</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>اشرح مفهوم بحيرة البيانات بوضوح، مع التركيز على مرونتها وتكلفتها المنخفضة. ناقش مفهوم “Schema-on-Read” ومقارنته بـ “Schema-on-Write” في قواعد البيانات التقليدية.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="تحديات-بحيرة-البيانات-data-lake-challenges" class="slide level2">
+<h2>تحديات بحيرة البيانات (Data Lake Challenges)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
-<li class="fragment"><strong>تبسيط البنية:</strong> تقليل تعقيد الحفاظ على نظامين منفصلين.</li>
-<li class="fragment"><strong>تكلفة أقل:</strong> الاستفادة من التخزين السحابي الرخيص.</li>
-<li class="fragment"><strong>مرونة وتحكم:</strong> يجمع بين مرونة التعامل مع البيانات الخام والتح</li>
+<li class="fragment"><strong>مستنقع البيانات (Data Swamp):</strong> إذا لم يتم إدارتها بشكل صحيح، يمكن أن تصبح بحيرة البيانات “مستنقعًا” يصعب البحث فيه أو استخلاص القيمة منه.</li>
+<li class="fragment"><strong>جودة البيانات:</strong> تفتقر بحيرات البيانات إلى آليات فرض جودة البيانات بشكل افتراضي، مما يؤدي إلى بيانات غير موثوقة.</li>
+<li class="fragment"><strong>الأمان والتحكم:</strong> قد يكون من الصعب تطبيق آليات أمان دقيقة وإدارة الأذونات على مستوى البيانات الدقيقة.</li>
+<li class="fragment"><strong>التعقيد:</strong> تتطلب مهارات متقدمة لإدارة البيانات واستكشافها ومعالجتها.</li>
+<li class="fragment"><strong>اكتشاف البيانات (Data Discovery):</strong> قد يكون من الصعب العثور على البيانات المطلوبة واستخدامها بفعالية.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/Visualization-of-a-chaotic-data-swamp-filled-with-unorganized-data?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>تصور لمستنقع بيانات فوضوي مليء ببيانات غير منظمة</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>تحدث عن التحديات الواقعية لبحيرات البيانات. هذا مهم لإعطاء المشاركين صورة متوازنة وليس فقط الإيجابيات. شجع النقاش حول كيفية التخفيف من هذه التحديات.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="مستودع-البيانات-data-warehouse" class="slide level2">
+<h2>مستودع البيانات (Data Warehouse)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>التعريف:</strong> نظام لتخزين البيانات المهيكلة والمنظمة، مصمم خصيصًا لدعم التحليلات وإعداد التقارير.</li>
+<li class="fragment"><strong>الخصائص:</strong>
+<ul>
+<li class="fragment"><strong>مهيكل ومنظم (Schema-on-Write):</strong> يفرض مخططًا صارمًا للبيانات عند التخزين.</li>
+<li class="fragment"><strong>موجه بالموضوع (Subject-Oriented):</strong> يتم تنظيم البيانات حول مواضيع عمل محددة (مثل المبيعات، العملاء).</li>
+<li class="fragment"><strong>تاريخي (Historical):</strong> يحتفظ بالبيانات لفترات طويلة لدعم التحليلات الزمنية.</li>
+<li class="fragment"><strong>متكامل (Integrated):</strong> يجمع البيانات من مصادر مختلفة ويوحدها.</li>
+<li class="fragment"><strong>جودة عالية:</strong> يطبق عمليات صارمة لجودة البيانات والتحقق منها.</li>
+</ul></li>
+<li class="fragment"><strong>الاستخدامات:</strong> ذكاء الأعمال (BI)، إعداد التقارير، التحليلات التنبؤية القائمة على بيانات منظمة.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/Visualization-of-an-organized-and-refined-data-warehouse-with-structured-data?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>تصور لمستودع بيانات منظم ومصقول يحتوي على بيانات منظمة</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>اشرح مفهوم مستودع البيانات ومميزاته، مع التركيز على تنظيم البيانات وجودتها. قارن بين “Schema-on-Write” و “Schema-on-Read” مرة أخرى لتوضيح الفارق الجوهري.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="مقارنة-بحيرة-البيانات-مقابل-مستودع-البيانات" class="slide level2">
+<h2>مقارنة: بحيرة البيانات مقابل مستودع البيانات</h2>
+<table>
+<colgroup>
+<col style="width: 17%">
+<col style="width: 41%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">الميزة</th>
+<th style="text-align: left;">بحيرة البيانات (Data Lake)</th>
+<th style="text-align: left;">مستودع البيانات (Data Warehouse)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>نوع البيانات</strong></td>
+<td style="text-align: left;">أولية، مهيكلة، شبه مهيكلة، غير مهيكلة</td>
+<td style="text-align: left;">مهيكلة ومنظمة</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>المخطط (Schema)</strong></td>
+<td style="text-align: left;">مرن (Schema-on-Read)</td>
+<td style="text-align: left;">صارم (Schema-on-Write)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>جودة البيانات</strong></td>
+<td style="text-align: left;">منخفضة إلى متوسطة، تتطلب تنقية لاحقًا</td>
+<td style="text-align: left;">عالية، مفروضة عند الاستيعاب</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>التكلفة</strong></td>
+<td style="text-align: left;">منخفضة لتخزين البيانات الخام</td>
+<td style="text-align: left;">أعلى، لتخزين بيانات منظمة ومعالجة</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>الأداء</strong></td>
+<td style="text-align: left;">جيد لتحليلات البيانات الضخمة المعقدة</td>
+<td style="text-align: left;">ممتاز لتحليلات SQL السريعة وإعداد التقارير</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>مستخدمون نموذجيون</strong></td>
+<td style="text-align: left;">علماء البيانات، مهندسو البيانات</td>
+<td style="text-align: left;">محللو الأعمال، متخصصو ذكاء الأعمال</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>الغرض</strong></td>
+<td style="text-align: left;">اكتشاف البيانات، تعلم الآلة، تخزين البيانات الخام</td>
+<td style="text-align: left;">ذكاء الأعمال، إعداد التقارير التنفيذية</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>استخدم هذا الجدول لترسيخ الفهم ومراجعة الاختلافات الجوهرية. يمكن أن تستخدمه لإطلاق نقاش حول السيناريوهات التي يتفوق فيها كل نظام.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="منزل-البيانات-data-lakehouse" class="slide level2">
+<h2>منزل البيانات (Data Lakehouse)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li class="fragment"><strong>التعريف:</strong> بنية بيانات هجينة تجمع بين المرونة والتكلفة المنخفضة لـ <strong>بحيرة البيانات</strong> مع تنظيم وإدارة <strong>مستودع البيانات</strong>.</li>
+<li class="fragment"><strong>لماذا Lakehouse؟</strong> يهدف إلى حل مشكلات بحيرة البيانات المتعلقة بجودة البيانات وإدارة المخططات، مع الحفاظ على مرونة التعامل مع أنواع البيانات المختلفة.</li>
+<li class="fragment"><strong>الخصائص الرئيسية:</strong>
+<ul>
+<li class="fragment"><strong>تنسيقات مفتوحة:</strong> يعتمد على تنسيقات ملفات مفتوحة (مثل Parquet, ORC) مع طبقة بيانات وصفية (metadata layer) مثل Delta Lake أو Apache Iceberg.</li>
+<li class="fragment"><strong>دعم المعاملات (ACID Transactions):</strong> يوفر موثوقية قواعد البيانات التقليدية لمعالجة البيانات الضخمة.</li>
+<li class="fragment"><strong>إدارة المخططات (Schema Enforcement):</strong> يسمح بفرض المخططات وتطورها.</li>
+<li class="fragment"><strong>دعم أنواع البيانات المتعددة:</strong> يمكنه التعامل مع البيانات المهيكلة وغير المهيكلة.</li>
+<li class="fragment"><strong>فصل التخزين والحوسبة:</strong> يسمح بتوسع كل منهما بشكل مستقل.</li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://image.pollinations.ai/prompt/Architectural-visualization-of-a-data-lakehouse-combining-data-lake-and-data-warehouse?width=600&amp;height=600&amp;nologo=true.png"></p>
+<figcaption>تصور معماري لمنزل بيانات يجمع بين بحيرة بيانات ومستودع بيانات</figcaption>
+</figure>
 </div>
+</div>
+</div>
+<aside class="notes">
+<p>قدم Data Lakehouse كحل تطوري يتغلب على عيوب كل من بحيرة البيانات ومستودع البيانات. ركز على التقنيات الأساسية التي تمكن هذا المفهوم (Delta Lake, Iceberg).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="فوائد-data-lakehouse-للذكاء-الاصطناعي" class="slide level2">
+<h2>فوائد Data Lakehouse للذكاء الاصطناعي</h2>
+<ul>
+<li class="fragment"><strong>بيانات جاهزة للذكاء الاصطناعي:</strong> يوفر منصة موحدة للبيانات الأولية والمنظمة، مما يسهل تحضير البيانات لتدريب نماذج تعلم الآلة.</li>
+<li class="fragment"><strong>تبسيط البنية التحتية:</strong> يقلل من الحاجة إلى أنظمة بيانات منفصلة للتحليلات التشغيلية وذكاء الأعمال والذكاء الاصطناعي.</li>
+<li class="fragment"><strong>جودة وموثوقية البيانات:</strong> يسمح بتطبيق قواعد جودة البيانات وإدارة المخططات على البيانات الخام، مما يضمن بيانات أكثر موثوقية لنماذج الذكاء الاصطناعي.</li>
+<li class="fragment"><strong>الوصول السريع:</strong> يمكّن الفرق المختلفة (علماء البيانات، مهندسي البيانات) من الوصول إلى نفس البيانات الموثوقة باستخدام أدوات مختلفة.</li>
+<li class="fragment"><strong>التكلفة الفعالة:</strong> يستفيد من التخزين السحابي منخفض التكلفة مع توفير قدرات معالجة قوية.</li>
+</ul>
+<aside class="notes">
+<p>ركز على المزايا المحددة لـ Lakehouse التي تفيد مشاريع الذكاء الاصطناعي والتعلم الآلي. اطلب من المشاركين التفكير في كيفية استخدام Lakehouse في مشاريعهم.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section id="اختبر-معلوماتك-2" class="title-slide slide level1 center">
+<h1>اختبر معلوماتك! 🧠</h1>
+<p>ما هو المفهوم الذي يجمع بين مرونة بحيرة البيانات وتنظيم وموثوقية مستودع البيانات؟ - أ) Data Mesh - ب) Data Warehouse - ج) Data Lakehouse</p>
+<div class="fragment">
+<p><strong>الإجابة الصحيحة:</strong> ج) Data Lakehouse</p>
 </div>
 <div class="quarto-auto-generated-content">
 <p><img src="slides_template/assets/sdaia.svg" class="slide-logo"></p>
@@ -960,7 +1073,7 @@
 
 </div>
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
